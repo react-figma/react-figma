@@ -8,7 +8,7 @@ module.exports = (env, argv) => ({
     devtool: argv.mode === 'production' ? false : 'inline-source-map',
 
     entry: {
-        code: './src/code.ts', // The entry point for your plugin code
+        code: './src/code.tsx', // The entry point for your plugin code
     },
 
     module: {

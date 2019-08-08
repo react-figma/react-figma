@@ -19,5 +19,9 @@
     "url-loader": "^2.1.0",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-test-renderer": "^16.8.6"
   }
 }
