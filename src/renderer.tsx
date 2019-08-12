@@ -18,6 +18,6 @@ export const renderer = async (jsx: React.ReactElement<any>) => {
     collectQueue(jsx);
 
     for (const item of queue) {
-        renderers[item.type](item.props);
+        await renderers[item.type](item.props);
     }
 };
