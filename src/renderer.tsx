@@ -1,5 +1,4 @@
-import * as React from "react";
-import { convertToJSON } from 'react-json-renderer'
+import * as React from 'react';
 
 export const renderer = (jsx: React.ReactElement<any>) => {
     // @ts-ignore

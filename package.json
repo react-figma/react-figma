@@ -5,7 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "webpack:watch": "webpack --watch",
-    "tsc": "tsc -p tsconfig.json"
+    "tsc": "tsc -p tsconfig.json",
+    "prettify": "prettier --write \"src/**/*.js\" \"src/**/*.ts\" \"src/**/*.tsx\""
   },
   "author": "Ilya Lesik <ilialesik@gmail.com>",
   "license": "ISC",
@@ -13,6 +14,7 @@
     "css-loader": "^3.2.0",
     "html-webpack-inline-source-plugin": "^0.0.10",
     "html-webpack-plugin": "^3.2.0",
+    "prettier": "^1.18.2",
     "style-loader": "^1.0.0",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",

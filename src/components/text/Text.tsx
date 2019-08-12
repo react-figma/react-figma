@@ -1,5 +1,5 @@
-import * as React from "react";
+import * as React from 'react';
 
-export const Text = (props) => {
-    return <></>
+export const Text = props => {
+    return <></>;
 };
