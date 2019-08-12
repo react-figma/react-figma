@@ -4,8 +4,8 @@ import {Rectangle} from "./components/rectangle/Rectangle";
 import {Text} from "./components/text/Text";
 
 renderer(
-    <Rectangle style={{width: 100, height: 100}}>
-        <Text style={{color: "#ff0000"}}>text</Text>
+    <Rectangle style={{width: 200, height: 100}}>
+        <Text style={{color: "#ffffff"}}>text</Text>
     </Rectangle>);
 
 figma.closePlugin();
