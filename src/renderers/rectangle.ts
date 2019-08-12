@@ -1,6 +1,6 @@
-import {colorToRGB} from "../helpers/color";
+import { colorToRGB } from '../helpers/color';
 
-export const rectangle = async (props) => {
+export const rectangle = async props => {
     const rect = figma.createRectangle();
     rect.resize(props.style.width, props.style.height);
 
@@ -11,4 +11,4 @@ export const rectangle = async (props) => {
     }
 
     figma.currentPage.appendChild(rect);
-}
+};

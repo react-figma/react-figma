@@ -1,3 +1,3 @@
 import * as React from 'react';
 
-export const Text = (props) => <text {...props} />;
+export const Text = props => <text {...props} />;

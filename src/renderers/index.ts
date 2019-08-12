@@ -1,3 +1,2 @@
-
-export {rectangle} from "./rectangle"
-export {text} from "./text"
+export { rectangle } from './rectangle';
+export { text } from './text';

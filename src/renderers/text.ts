@@ -1,6 +1,6 @@
-import {colorToRGB} from "../helpers/color";
+import { colorToRGB } from '../helpers/color';
 
-export const text = async (props) => {
+export const text = async props => {
     const textNode = figma.createText();
 
     let fontName = textNode.fontName;
@@ -20,4 +20,4 @@ export const text = async (props) => {
     }
 
     figma.currentPage.appendChild(textNode);
-}
+};
