@@ -4,7 +4,7 @@ import { Rectangle } from './components/rectangle/Rectangle';
 import { Text } from './components/text/Text';
 
 renderer(
-    <Rectangle style={{ width: 200, height: 100 }}>
+    <Rectangle style={{ width: 200, height: 100, backgroundColor: '#dd55aa' }}>
         <Text style={{ color: '#ffffff' }}>text</Text>
     </Rectangle>
 );

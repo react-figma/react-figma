@@ -1,11 +1,17 @@
 import * as React from 'react';
+import { colorToRGB } from '../../helpers/color';
 
 export class Rectangle extends React.PureComponent<{ style: any }> {
     static drawFigma(props) {
-        figma.createRectangle();
         const rect = figma.createRectangle();
         rect.resize(props.style.width, props.style.height);
-        rect.fills = [{ type: 'SOLID', color: { r: 1, g: 0.5, b: 0 } }];
+
+        const { backgroundColor } = props.style;
+
+        if (backgroundColor) {
+            rect.fills = [{ type: 'SOLID', color: colorToRGB(backgroundColor) }];
+        }
+
         figma.currentPage.appendChild(rect);
     }
 
