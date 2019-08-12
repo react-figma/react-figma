@@ -22,6 +22,6 @@
   },
   "dependencies": {
     "react": "^16.8.6",
-    "react-test-renderer": "^16.8.6"
+    "react-json-renderer": "^0.6.0"
   }
 }

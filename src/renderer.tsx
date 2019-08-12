@@ -1,10 +1,8 @@
 import * as React from "react";
-import * as TestRenderer from 'react-test-renderer';
+import { convertToJSON } from 'react-json-renderer'
 
 export const renderer = (jsx: React.ReactNode) => {
-    const testRenderer = TestRenderer.create(
-        jsx
-    );
+    const renderedTree = convertToJSON(jsx);
 
-    console.log(testRenderer.toJSON());
+    console.log(renderedTree);
 };
