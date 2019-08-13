@@ -1,3 +1,8 @@
 import * as React from 'react';
+import { BaseNodeProps } from '../../types';
 
-export const Text = props => <text {...props} />;
+interface TextProps extends BaseNodeProps {
+    style: any;
+}
+
+export const Text: React.ElementType<TextProps> = props => <text {...props} />;

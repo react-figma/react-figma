@@ -1,3 +1,8 @@
 import * as React from 'react';
+import { BaseNodeProps } from '../../types';
 
-export const Rectangle = props => <rectangle {...props} />;
+interface RectangleProps extends BaseNodeProps {
+    style: any;
+}
+
+export const Rectangle: React.ElementType<RectangleProps> = props => <rectangle {...props} />;
