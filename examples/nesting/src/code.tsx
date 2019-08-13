@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { renderer } from './renderer';
-import { Rectangle } from './components/rectangle/Rectangle';
-import { Text } from './components/text/Text';
+import { renderer } from '../../../src/';
+import { Rectangle } from '../../../src/';
+import { Text } from '../../../src/';
 
 (async () => {
     await renderer(

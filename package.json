@@ -2,9 +2,8 @@
   "name": "figma-react",
   "version": "0.0.0",
   "description": "This plugin template uses Typescript. If you are familiar with Javascript, Typescript will look very familiar. In fact, valid Javascript code is already valid Typescript code.",
-  "main": "webpack.config.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "webpack:watch": "webpack --watch",
     "tsc": "tsc -p tsconfig.json",
     "prettify": "prettier \"src/**/*.js\" \"src/**/*.ts\" \"src/**/*.tsx\" --ignore-path ./.prettierignore --write && git add . && git status"
   },
