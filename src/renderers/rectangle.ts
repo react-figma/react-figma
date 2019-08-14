@@ -17,5 +17,5 @@ export const rectangle = async props => {
         rect.fills = [{ type: 'SOLID', color: colorToRGB(backgroundColor) }];
     }
 
-    figma.currentPage.appendChild(rect);
+    return rect;
 };

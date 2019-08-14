@@ -2,17 +2,24 @@ import * as React from 'react';
 import * as renderers from './renderers';
 
 export const renderer = async (jsx: any) => {
+    let children = [];
+    if (!renderers[jsx.type] && jsx.props.children) {
+        const promises = React.Children.map(jsx.props.children, renderer);
+        children = await Promise.all(promises);
+    }
+    let el;
+
     if (typeof jsx.type === 'function') {
-        const result = jsx.type(jsx.props);
-        await renderer(result);
-    } else if (jsx.type === React.Fragment) {
-        React.Children.forEach(jsx.props.children, async child => {
-            await renderer(child);
-        });
+        el = await renderer(jsx.type(jsx.props));
     } else if (renderers[jsx.type]) {
-        await renderers[jsx.type](jsx.props);
+        el = await renderers[jsx.type](jsx.props);
     }
-    if (!renderers[jsx.type] && React.isValidElement<{ children: any }>(jsx) && jsx.props.children) {
-        await renderer(jsx.props.children);
+
+    // TODO move appendChild to childrenMixin
+    if (el.appendChild && children.length > 0) {
+        children.forEach(child => {
+            el.appendChild(child);
+        });
     }
+    return el;
 };

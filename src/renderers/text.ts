@@ -23,5 +23,5 @@ export const text = async props => {
         textNode.fills = [{ type: 'SOLID', color: colorToRGB(color) }];
     }
 
-    figma.currentPage.appendChild(textNode);
+    return textNode;
 };
