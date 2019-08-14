@@ -16,7 +16,7 @@ export const text = async props => {
     }
     await figma.loadFontAsync(fontName);
 
-    textNode.characters = props.children;
+    textNode.characters = props.characters;
 
     const { color } = props.style;
     if (color) {

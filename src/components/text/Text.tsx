@@ -7,6 +7,8 @@ interface TextProps extends BaseNodeProps, LayoutProps {
         height?: number;
         color?: string;
     };
+    children?: undefined;
+    characters?: string;
 }
 
 export const Text: React.ElementType<TextProps> = props => {

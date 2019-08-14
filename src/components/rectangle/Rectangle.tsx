@@ -7,6 +7,7 @@ interface RectangleProps extends BaseNodeProps, LayoutProps {
         height?: number;
         backgroundColor?: string;
     };
+    children?: undefined;
 }
 
 export const Rectangle: React.ElementType<RectangleProps> = props => {

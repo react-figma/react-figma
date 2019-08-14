@@ -8,6 +8,10 @@ export const renderer = async (jsx: React.ReactElement<any>) => {
         if (typeof jsx.type === 'function') {
             const result = jsx.type(jsx.props);
             collectQueue(result);
+        } else if (jsx.type === React.Fragment) {
+            React.Children.forEach(jsx.props.children, child => {
+                collectQueue(child);
+            });
         } else if (renderers[jsx.type]) {
             queue.push(jsx);
         }
