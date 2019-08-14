@@ -1,5 +1,6 @@
 import { colorToRGB } from '../helpers/color';
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
+import { BaseNodeProps, LayoutProps } from '../types';
 
 export const text = async props => {
     const textNode = figma.createText();

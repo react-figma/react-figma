@@ -1,8 +1,19 @@
 import * as React from 'react';
-import { BaseNodeProps } from '../../types';
+import { BaseNodeProps, LayoutProps } from '../../types';
 
-interface RectangleProps extends BaseNodeProps {
-    style: any;
+interface RectangleProps extends BaseNodeProps, LayoutProps {
+    style?: {
+        width?: number;
+        height?: number;
+        backgroundColor?: string;
+    };
 }
 
-export const Rectangle: React.ElementType<RectangleProps> = props => <rectangle {...props} />;
+export const Rectangle: React.ElementType<RectangleProps> = props => {
+    const rectangleProps = {
+        width: props.style && props.style.width,
+        height: props.style && props.style.height,
+        ...props
+    };
+    return <rectangle {...rectangleProps} />;
+};

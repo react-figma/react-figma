@@ -11,3 +11,13 @@ export interface BaseNodeProps {
         };
     };
 }
+
+export interface LayoutProps {
+    relativeTransform?: Transform;
+    x?: number;
+    y?: number;
+    rotation?: number;
+    width?: number;
+    height?: number;
+    isWithoutConstraints?: boolean;
+}
