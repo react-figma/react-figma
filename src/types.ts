@@ -5,4 +5,9 @@ export interface BaseNodeProps {
     pluginData?: {
         [key: string]: string;
     };
+    sharedPluginData?: {
+        [namespace: string]: {
+            [key: string]: string;
+        };
+    };
 }
