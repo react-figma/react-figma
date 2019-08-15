@@ -5,8 +5,8 @@ import { geometryMixin } from '../mixins/geometryMixin';
 
 export interface RectangleProps extends BaseNodeProps, LayoutProps {}
 
-export const rectangle = async props => {
-    const rect = figma.createRectangle();
+export const rectangle = node => async props => {
+    const rect = node || figma.createRectangle();
 
     baseNodeMixin(rect)(props);
     layoutMixin(rect)(props);

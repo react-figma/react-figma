@@ -1,8 +1,8 @@
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
 import { geometryMixin } from '../mixins/geometryMixin';
 
-export const text = async props => {
-    const textNode = figma.createText();
+export const text = node => async props => {
+    const textNode = node || figma.createText();
 
     baseNodeMixin(textNode)(props);
     geometryMixin(textNode)(props);
