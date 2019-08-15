@@ -1,11 +1,11 @@
-import { colorToRGB } from '../helpers/color';
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
-import { BaseNodeProps, LayoutProps } from '../types';
+import { geometryMixin } from '../mixins/geometryMixin';
 
 export const text = async props => {
     const textNode = figma.createText();
 
     baseNodeMixin(textNode)(props);
+    geometryMixin(textNode)(props);
 
     let fontName = textNode.fontName;
     if (typeof fontName !== 'object') {
@@ -17,11 +17,6 @@ export const text = async props => {
     await figma.loadFontAsync(fontName);
 
     textNode.characters = props.characters;
-
-    const { color } = props.style;
-    if (color) {
-        textNode.fills = [{ type: 'SOLID', color: colorToRGB(color) }];
-    }
 
     return textNode;
 };
