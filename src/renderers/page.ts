@@ -1,14 +1,14 @@
-import { colorToRGB } from '../helpers/color';
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
-import { layoutMixin } from '../mixins/layoutMixin';
-import { BaseNodeProps, LayoutProps } from '../types';
+import { BaseNodeProps, ChildrenProps, LayoutProps } from '../types';
+import { childrenMixin } from '../mixins/childrenMixin';
 
-export interface RectangleProps extends BaseNodeProps {}
+export interface PageProps extends BaseNodeProps, ChildrenProps {}
 
 export const page = async props => {
     const page = figma.createPage();
 
     baseNodeMixin(page)(props);
+    childrenMixin(page)(props);
 
     return page;
 };

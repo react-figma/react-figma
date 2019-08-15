@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { BaseNodeProps, LayoutProps } from '../../types';
+import { BaseNodeProps, ChildrenProps, LayoutProps } from '../../types';
 
-interface Page extends BaseNodeProps {}
+interface Page extends BaseNodeProps, ChildrenProps {}
 
 export const Page: React.ElementType<Page> = props => {
     return <page {...props} />;

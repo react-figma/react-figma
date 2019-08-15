@@ -21,3 +21,7 @@ export interface LayoutProps {
     height?: number;
     isWithoutConstraints?: boolean;
 }
+
+export interface ChildrenProps {
+    children?: ReadonlyArray<BaseNode>;
+}
