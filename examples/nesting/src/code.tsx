@@ -10,6 +10,7 @@ import { Text } from '../../../src/';
             <Rectangle name="Blue rect" style={{ width: 100, height: 50, backgroundColor: '#00ffff' }} />
             <Rectangle width={50} height={25} style={{ backgroundColor: '#0f00ff' }} />
             <Text characters="text" style={{ color: '#ffffff' }} />
+            <Text y={30} characters="text2" style={{ color: '#ffffff' }} />
         </Page>
     );
     figma.closePlugin();
