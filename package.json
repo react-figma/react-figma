@@ -26,7 +26,9 @@
     "webpack-cli": "^3.3.6"
   },
   "dependencies": {
+    "@types/yoga-layout": "^1.9.1",
     "react": "^16.8.6",
-    "react-json-renderer": "^0.6.0"
+    "react-json-renderer": "^0.6.0",
+    "yoga-layout": "^1.9.3"
   }
 }
