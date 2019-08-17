@@ -2,7 +2,7 @@ import * as React from 'react';
 import { DefaultShapeProps } from '../../types';
 import { colorToRGB } from '../../helpers/color';
 
-interface TextProps extends DefaultShapeProps {
+export interface TextProps extends DefaultShapeProps {
     style?: {
         width?: number;
         height?: number;
