@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Page, renderer} from '../../../src/';
+import { Page, renderer } from '../../../src/';
 import { Rectangle } from '../../../src/';
 import { Text } from '../../../src/';
 

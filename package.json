@@ -5,7 +5,8 @@
   "main": "./dist/index.js",
   "scripts": {
     "tsc": "tsc -p tsconfig.json",
-    "prettify": "prettier \"src/**/*.js\" \"src/**/*.ts\" \"src/**/*.tsx\" --ignore-path ./.prettierignore --write && git add . && git status"
+    "prettify": "prettier \"src/**/*.{js,jsx,ts,tsx}\" \"examples/**/*.{js,jsx,ts,tsx}\" --ignore-path ./.prettierignore --write && git add . && git status"
+
   },
   "author": "Ilya Lesik <ilialesik@gmail.com>",
   "license": "ISC",
