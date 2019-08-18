@@ -38,4 +38,21 @@ export interface GeometryProps {
     strokeStyleId: string;
 }
 
+export interface TextNodeProps {
+    characters: string;
+    textAlignHorizontal: 'LEFT' | 'CENTER' | 'RIGHT' | 'JUSTIFIED';
+    textAlignVertical: 'TOP' | 'CENTER' | 'BOTTOM';
+    textAutoResize: 'NONE' | 'WIDTH_AND_HEIGHT' | 'HEIGHT';
+    paragraphIndent: number;
+    paragraphSpacing: number;
+    autoRename: boolean;
+
+    fontSize: number | symbol;
+    fontName: FontName | symbol;
+    textCase: TextCase | symbol;
+    textDecoration: TextDecoration | symbol;
+    letterSpacing: LetterSpacing | symbol;
+    lineHeight: LineHeight | symbol;
+}
+
 export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps {}
