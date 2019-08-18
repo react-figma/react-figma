@@ -1,5 +1,4 @@
-// @ts-ignore
-import * as yoga from 'yoga-layout';
+const yoga = require('yoga-layout');
 import { ChildrenProps, LayoutProps } from '../types';
 
 export const yogaMixin = (node: ChildrenMixin) => (props: ChildrenProps & LayoutProps) => {
@@ -10,12 +9,13 @@ export const yogaMixin = (node: ChildrenMixin) => (props: ChildrenProps & Layout
     yogaRoot.setJustifyContent(yoga.JUSTIFY_CENTER);
 
     if (props.children) {
-        const yogaNodes = props.children.map((child: any) => {
+        const yogaNodes = props.children.map((child: any, id) => {
             const yogaNode = yoga.Node.create();
             if (child.width && child.height) {
                 yogaNode.setWidth(child.width);
                 yogaNode.setHeight(child.height);
             }
+            yogaRoot.insertChild(yogaNode, id);
             return yogaNode;
         });
 
