@@ -1,22 +1,23 @@
+import { filter, map } from 'rxjs/operators';
 var nanoid = require('nanoid/non-secure');
-import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 
-const observable = new Observable(function subscribe(subscriber) {
-    // todo create "subscribeOnMessages" fukction
-    figma.ui.onmessage = message => {
-        subscriber.next(message);
-    };
-});
+const $subject = new Subject();
+
+export const subscribeOnMessages = message => {
+    $subject.next(message);
+};
 
 type TMessagePromise = (value: any) => Promise<any>;
 export const messagePromise: TMessagePromise = value => {
+    const id = nanoid();
+    const $responseMessage = $subject.pipe(
+        filter((message: any) => message.id === id),
+        map((message: any) => message.value)
+    );
+    figma.ui.postMessage({ value, id });
+
     return new Promise(resolve => {
-        const id = nanoid();
-        figma.ui.postMessage({ value, id });
-        observable.subscribe((message: any) => {
-            if (message.id === id) {
-                resolve(message.value);
-            }
-        });
+        $responseMessage.subscribe(resolve);
     });
 };
