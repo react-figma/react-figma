@@ -1,5 +1,5 @@
 {
-  "name": "figma-react",
+  "name": "react-figma",
   "version": "0.0.0",
   "description": "This plugin template uses Typescript. If you are familiar with Javascript, Typescript will look very familiar. In fact, valid Javascript code is already valid Typescript code.",
   "main": "./dist/index.js",
