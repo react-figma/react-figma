@@ -1,7 +1,8 @@
 import { ChildrenProps, LayoutProps } from '../types';
+import { messagePromise } from '../helpers/messagePromise';
 
-export const yogaMixin = (node: ChildrenMixin) => (props: ChildrenProps & LayoutProps) => {
-    figma.ui.postMessage({
+export const yogaMixin = (node: ChildrenMixin) => async (props: ChildrenProps & LayoutProps) => {
+    const result = await messagePromise({
         type: 'calculateLayout',
         value: {
             width: props.width,
@@ -10,6 +11,14 @@ export const yogaMixin = (node: ChildrenMixin) => (props: ChildrenProps & Layout
                 width: child.width,
                 height: child.height
             }))
+        }
+    });
+    props.children.forEach((child: any, id) => {
+        const layout = result.children[id];
+        if (layout && child.resize) {
+            child.x = layout.left;
+            child.y = layout.top;
+            child.resize(layout.width, layout.height);
         }
     });
 };

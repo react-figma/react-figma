@@ -1,14 +1,13 @@
 import * as yoga from 'yoga-layout';
 
 onmessage = (event) => {
-    console.log("got this from the plugin code", event.data.pluginMessage);
     const message = event.data.pluginMessage;
 
-    if (message.type !== "calculateLayout") {
+    if (!message.value || message.value.type !== "calculateLayout") {
         return;
     }
 
-    const props = message.value;
+    const props = message.value.value;
 
     const yogaRoot = yoga.Node.create();
     if (props.width) {
@@ -41,7 +40,7 @@ onmessage = (event) => {
         });
     }
 
-    parent.postMessage({ pluginMessage: { type: 'calculateLayoutResult', value: {
+    parent.postMessage({ pluginMessage: { id: message.id, value: {
         children: recalculatedChildren
     }}}, '*')
-}
+};

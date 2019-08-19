@@ -8,7 +8,7 @@ export interface PageProps extends BaseNodeProps, ChildrenProps {}
 export const page = node => async props => {
     const page = node || figma.createPage();
 
-    yogaMixin(page)(props);
+    await yogaMixin(page)(props);
     baseNodeMixin(page)(props);
     childrenMixin(page)(props);
 
