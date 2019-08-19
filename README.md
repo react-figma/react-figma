@@ -1,3 +1,3 @@
-# react-figmapp
+# react-figma
 
 Render React components to Figma.
