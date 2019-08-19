@@ -1,27 +1,47 @@
-const yoga = require('yoga-layout');
+import * as yoga from 'yoga-layout';
 
-const root = yoga.Node.create();
-root.setWidth(500);
-root.setHeight(300);
-root.setJustifyContent(yoga.JUSTIFY_CENTER);
+onmessage = (event) => {
+    console.log("got this from the plugin code", event.data.pluginMessage);
+    const message = event.data.pluginMessage;
 
-const node1 = yoga.Node.create();
-node1.setWidth(100);
-node1.setHeight(100);
+    if (message.type !== "calculateLayout") {
+        return;
+    }
 
-const node2 = yoga.Node.create();
-node2.setWidth(100);
-node2.setHeight(100);
+    const props = message.value;
 
-root.insertChild(node1, 0);
-root.insertChild(node2, 1);
+    const yogaRoot = yoga.Node.create();
+    if (props.width) {
+        yogaRoot.setWidth(props.width);
+    }
+    if (props.height) {
+        yogaRoot.setHeight(props.height);
+    }
+    yogaRoot.setJustifyContent(yoga.JUSTIFY_CENTER);
 
-root.calculateLayout(500, 300, yoga.DIRECTION_LTR);
-console.log(root.getComputedLayout());
-// {left: 0, top: 0, width: 500, height: 300}
-console.log(node1.getComputedLayout());
-// {left: 150, top: 0, width: 100, height: 100}
-console.log(node2.getComputedLayout());
-// {left: 250, top: 0, width: 100, height: 100}
+    const recalculatedChildren = [];
 
-parent.postMessage({ pluginMessage: { type: 'layout', layout: node2.getComputedLayout() } }, '*')
+    if (props.children) {
+        const yogaNodes = props.children.map((child: any, id) => {
+            const yogaNode = yoga.Node.create();
+            if (child.width && child.height) {
+                yogaNode.setWidth(child.width);
+                yogaNode.setHeight(child.height);
+            }
+            yogaRoot.insertChild(yogaNode, id);
+            return yogaNode;
+        });
+
+        yogaRoot.calculateLayout(props.width, props.height, yoga.DIRECTION_LTR);
+
+        props.children.forEach((child: any, id) => {
+            const yogaNode = yogaNodes[id];
+            const layoutProps = yogaNode.getComputedLayout();
+            recalculatedChildren.push(layoutProps);
+        });
+    }
+
+    parent.postMessage({ pluginMessage: { type: 'calculateLayoutResult', value: {
+        children: recalculatedChildren
+    }}}, '*')
+}
