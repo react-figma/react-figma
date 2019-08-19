@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {renderer} from '../../../src/';
+import {renderer, subscribeOnMessages} from '../../../src/';
 import {App} from "./App";
-import {subscribeOnMessages} from "../../../src/helpers/messagePromise";
 
 figma.showUI(__html__, { visible: false });
 
