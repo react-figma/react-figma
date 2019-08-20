@@ -2,4 +2,4 @@
 
 Render React components to Figma.
 
-<p align="center"><img src="process-explorer-demo.gif" width="800"></p>
+<p align="center"><img src="./demo.gif" width="800"></p>
