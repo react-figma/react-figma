@@ -2,6 +2,14 @@
 
 Render React components to Figma.
 
+* 💡 Inspired by [react-sketchapp](https://github.com/airbnb/react-sketchapp).
+* 🎨 Designed to create manageable design systems.
+* ⚙️ Built on [Figma Plugin API](https://www.figma.com/plugin-docs/intro/).
+
+<p align="center"><img src="./demo.gif" width="800"></p>
+
+Example of code:
+
 ```javascript
 import * as React from 'react';
 import { Page, Rectangle, Text } from 'react-figma';
@@ -15,8 +23,6 @@ export const App = () => {
     );
 };
 ```
-
-<p align="center"><img src="./demo.gif" width="800"></p>
 
 
 ## Installation
