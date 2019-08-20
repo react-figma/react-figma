@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "ilyalesik",
+      "name": "Ilya Lesik",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1270648?v=4",
+      "profile": "https://twitter.com/ilialesik",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "react-figma",
+  "projectOwner": "ilyalesik",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
