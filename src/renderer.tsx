@@ -6,15 +6,17 @@ const nodesCache: {
     [reactId: string]: BaseNodeMixin;
 } = {};
 
-searchFor(
-    figma.root,
-    node => !!node.getPluginData('reactId') || parseInt(node.getPluginData('reactId')) === 0,
-    results => {
-        results.forEach(result => {
-            nodesCache[result.getPluginData('reactId')] = result;
-        });
-    }
-);
+setTimeout(() => {
+    searchFor(
+        figma.root,
+        node => !!node.getPluginData('reactId') || parseInt(node.getPluginData('reactId')) === 0,
+        results => {
+            results.forEach(result => {
+                nodesCache[result.getPluginData('reactId')] = result;
+            });
+        }
+    );
+});
 
 export const renderer = async (jsx: any, reactId: number = 0) => {
     let children = [];

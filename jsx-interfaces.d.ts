@@ -9,6 +9,7 @@ declare global {
             page: any;
             rectangle: RectangleProps;
             frame: FrameProps;
+            // @ts-ignore
             text: TextProps;
         }
     }
