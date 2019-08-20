@@ -5,8 +5,11 @@
   "main": "./dist/index.js",
   "scripts": {
     "tsc": "tsc -p tsconfig.json",
-    "prettify": "prettier \"src/**/*.{js,jsx,ts,tsx}\" \"examples/**/*.{js,jsx,ts,tsx}\" --ignore-path ./.prettierignore --write && git add . && git status"
-
+    "prettify": "prettier \"src/**/*.{js,jsx,ts,tsx}\" \"examples/**/*.{js,jsx,ts,tsx}\" --ignore-path ./.prettierignore --write && git add . && git status",
+    "build": "npm run build:clean && npm run build:lib",
+    "build:clean": "rimraf dist",
+    "build:lib": "cross-env BABEL_ENV=production tsc -p tsconfig.json",
+    "prepublish": "npm run build"
   },
   "author": "Ilya Lesik <ilialesik@gmail.com>",
   "license": "ISC",
@@ -23,11 +26,13 @@
     "figma-plugins"
   ],
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "css-loader": "^3.2.0",
     "html-webpack-inline-source-plugin": "^0.0.10",
     "html-webpack-plugin": "^3.2.0",
     "pre-commit": "^1.2.2",
     "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
     "style-loader": "^1.0.0",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
