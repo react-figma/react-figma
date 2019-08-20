@@ -1,5 +1,7 @@
 # react-figma
 
+[![npm version](https://img.shields.io/npm/v/react-figma.svg)](https://www.npmjs.com/package/react-figma)
+
 Render React components to Figma.
 
 * 💡 Inspired by [react-sketchapp](https://github.com/airbnb/react-sketchapp).
