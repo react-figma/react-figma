@@ -6,7 +6,7 @@ const nodesCache: {
     [reactId: string]: BaseNodeMixin;
 } = {};
 
-setTimeout(() => {
+if (typeof figma !== 'undefined' && figma.root) {
     searchFor(
         figma.root,
         node => !!node.getPluginData('reactId') || parseInt(node.getPluginData('reactId')) === 0,
@@ -16,7 +16,7 @@ setTimeout(() => {
             });
         }
     );
-});
+}
 
 export const renderer = async (jsx: any, reactId: number = 0) => {
     let children = [];

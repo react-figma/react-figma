@@ -17,5 +17,6 @@ export const Text: React.ElementType<TextProps> = props => {
         fills: props.style && props.style.color && [{ type: 'SOLID', color: colorToRGB(props.style.color) }],
         ...props
     };
+    // @ts-ignore
     return <text {...textProps} />;
 };

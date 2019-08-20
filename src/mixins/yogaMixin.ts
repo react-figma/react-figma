@@ -7,12 +7,21 @@ export const yogaMixin = (node: ChildrenMixin) => async (props: ChildrenProps & 
         value: {
             width: props.width,
             height: props.height,
+            // @ts-ignore
+            style: props.style,
             children: props.children.map((child: any) => ({
                 width: child.width,
-                height: child.height
+                height: child.height,
+                style:
+                    (child.getPluginData &&
+                        child.getPluginData('reactStyle') &&
+                        JSON.parse(child.getPluginData('reactStyle'))) ||
+                    undefined
             }))
         }
     });
+    props.width = result.width;
+    props.height = result.height;
     props.children.forEach((child: any, id) => {
         const layout = result.children[id];
         if (layout && child.resize) {
