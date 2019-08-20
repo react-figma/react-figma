@@ -1,4 +1,4 @@
-import { GeometryProps } from '../types';
+import { propsAssign } from '../helpers/propsAssign';
 
 const fields = [
     'fills',
@@ -12,10 +12,4 @@ const fields = [
     'strokeStyleId'
 ];
 
-export const geometryMixin = (node: GeometryMixin) => (props: GeometryProps) => {
-    fields.forEach(field => {
-        if (props[field]) {
-            node[field] = props[field];
-        }
-    });
-};
+export const geometryMixin = propsAssign(fields);
