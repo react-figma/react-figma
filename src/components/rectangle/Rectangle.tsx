@@ -7,6 +7,8 @@ interface RectangleProps extends DefaultShapeProps {
         width?: number;
         height?: number;
         backgroundColor?: string;
+        backgroundImage?: string;
+        backgroundSize: any;
     };
     children?: undefined;
 }
