@@ -30,6 +30,18 @@ export const yogaWorker = yoga => message => {
         if (style.flexDirection) {
             yogaRoot.setFlexDirection(transformFlexDirection(yoga)(style.flexDirection));
         }
+        if (style.paddingTop) {
+            yogaRoot.setPadding(yoga.EDGE_TOP, style.paddingTop);
+        }
+        if (style.paddingBottom) {
+            yogaRoot.setPadding(yoga.EDGE_BOTTOM, style.paddingBottom);
+        }
+        if (style.paddingLeft) {
+            yogaRoot.setPadding(yoga.EDGE_LEFT, style.paddingLeft);
+        }
+        if (style.paddingRight) {
+            yogaRoot.setPadding(yoga.EDGE_RIGHT, style.paddingRight);
+        }
     }
     yogaRoot.setJustifyContent(yoga.JUSTIFY_CENTER);
     const recalculatedChildren = [];
