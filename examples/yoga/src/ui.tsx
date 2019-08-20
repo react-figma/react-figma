@@ -1,6 +1,6 @@
 import * as yoga from 'yoga-layout';
-import {uiWorker} from "../../../src";
+import { uiWorker } from '../../../src';
 
-onmessage = (event) => {
+onmessage = event => {
     uiWorker(yoga)(event);
 };

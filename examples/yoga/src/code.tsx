@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {renderer, subscribeOnMessages} from '../../../src/';
-import {App} from "./App";
+import { renderer, subscribeOnMessages } from '../../../src/';
+import { App } from './App';
 
 figma.showUI(__html__, { visible: false });
 
@@ -9,8 +9,6 @@ figma.ui.onmessage = message => {
 };
 
 (async () => {
-    await renderer(
-        <App />
-    );
+    await renderer(<App />);
     figma.closePlugin();
 })();
