@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { CurrentPage, Frame, Page, Rectangle, Text } from '../../../src';
+import { Frame, Page, Rectangle, Text } from '../../../src';
+
+import facebookIcon from './icons/001-facebook.png';
+import twitterIcon from './icons/002-twitter.png';
+import whatsappIcon from './icons/003-whatsapp.png';
+import skypeIcon from './icons/006-skype.png';
+import youtubeIcon from './icons/008-youtube.png';
+import instagramIcon from './icons/011-instagram.png';
 
 const frameProps = {
     style: { paddingTop: 10, paddingBottom: 10, paddingLeft: 10, paddingRight: 10 }
@@ -87,11 +94,64 @@ const TypeFrame = props => {
     );
 };
 
+const IconsFrame = props => {
+    const iconStyle = {
+        width: 16,
+        height: 16,
+        backgroundColor: '#ffffff',
+        backgroundSize: 'FIT',
+        marginTop: 10
+    };
+    return (
+        <Frame name="Icons" style={{ ...frameProps.style, ...props.style }}>
+            <Text characters={'Icons'} fontSize={14} />
+
+            <Rectangle
+                style={{
+                    ...iconStyle,
+                    backgroundImage: facebookIcon
+                }}
+            />
+            <Rectangle
+                style={{
+                    ...iconStyle,
+                    backgroundImage: twitterIcon
+                }}
+            />
+            <Rectangle
+                style={{
+                    ...iconStyle,
+                    backgroundImage: whatsappIcon
+                }}
+            />
+            <Rectangle
+                style={{
+                    ...iconStyle,
+                    backgroundImage: skypeIcon
+                }}
+            />
+            <Rectangle
+                style={{
+                    ...iconStyle,
+                    backgroundImage: youtubeIcon
+                }}
+            />
+            <Rectangle
+                style={{
+                    ...iconStyle,
+                    backgroundImage: instagramIcon
+                }}
+            />
+        </Frame>
+    );
+};
+
 export const App = () => {
     return (
         <Page name="Design system" style={{ flexDirection: 'row' }}>
             <SpaceFrame />
             <TypeFrame style={{ marginLeft: 50 }} />
+            <IconsFrame style={{ marginLeft: 50 }} />
         </Page>
     );
 };
