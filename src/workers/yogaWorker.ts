@@ -32,7 +32,6 @@ export const yogaWorker = yoga => message => {
         }
     }
     yogaRoot.setJustifyContent(yoga.JUSTIFY_CENTER);
-
     const recalculatedChildren = [];
 
     if (props.children) {
@@ -41,6 +40,20 @@ export const yogaWorker = yoga => message => {
             if (child.width && child.height) {
                 yogaNode.setWidth(child.width);
                 yogaNode.setHeight(child.height);
+            }
+            if (child.style) {
+                if (child.style.marginTop) {
+                    yogaNode.setMargin(yoga.EDGE_TOP, child.style.marginTop);
+                }
+                if (child.style.marginBottom) {
+                    yogaNode.setMargin(yoga.EDGE_BOTTOM, child.style.marginBottom);
+                }
+                if (child.style.marginLeft) {
+                    yogaNode.setMargin(yoga.EDGE_LEFT, child.style.marginLeft);
+                }
+                if (child.style.marginRight) {
+                    yogaNode.setMargin(yoga.EDGE_RIGHT, child.style.marginRight);
+                }
             }
             yogaRoot.insertChild(yogaNode, id);
             return yogaNode;

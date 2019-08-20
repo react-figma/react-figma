@@ -11,7 +11,12 @@ export const yogaMixin = (node: ChildrenMixin) => async (props: ChildrenProps & 
             style: props.style,
             children: props.children.map((child: any) => ({
                 width: child.width,
-                height: child.height
+                height: child.height,
+                style:
+                    (child.getPluginData &&
+                        child.getPluginData('reactStyle') &&
+                        JSON.parse(child.getPluginData('reactStyle'))) ||
+                    undefined
             }))
         }
     });

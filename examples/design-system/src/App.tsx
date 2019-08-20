@@ -7,7 +7,7 @@ export const App = () => {
             <Frame name="Sizing">
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0ddd25' }} />
             </Frame>
-            <Frame name="Fonts">
+            <Frame name="Fonts" style={{ marginLeft: 50 }}>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#a6dd00' }} />
             </Frame>
         </Page>
