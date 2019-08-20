@@ -3,7 +3,7 @@ import { CurrentPage, Frame, Page, Rectangle, Text } from '../../../src';
 
 export const App = () => {
     return (
-        <Page name="Design system">
+        <Page name="Design system" style={{ flexDirection: 'row' }}>
             <Frame name="Sizing">
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0ddd25' }} />
             </Frame>

@@ -7,6 +7,8 @@ export const yogaMixin = (node: ChildrenMixin) => async (props: ChildrenProps & 
         value: {
             width: props.width,
             height: props.height,
+            // @ts-ignore
+            style: props.style,
             children: props.children.map((child: any) => ({
                 width: child.width,
                 height: child.height

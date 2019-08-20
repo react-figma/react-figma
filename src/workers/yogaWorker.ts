@@ -1,3 +1,16 @@
+const transformFlexDirection = yoga => (value: string) => {
+    switch (value) {
+        case 'row':
+            return yoga.FLEX_DIRECTION_ROW;
+        case 'row-reverse':
+            return yoga.FLEX_DIRECTION_ROW_REVERSE;
+        case 'column-reverse':
+            return yoga.FLEX_DIRECTION_COLUMN_REVERSE;
+        default:
+            return yoga.FLEX_DIRECTION_COLUMN;
+    }
+};
+
 export const yogaWorker = yoga => message => {
     if (!message.value || message.value.type !== 'calculateLayout') {
         return;
@@ -11,6 +24,12 @@ export const yogaWorker = yoga => message => {
     }
     if (props.height) {
         yogaRoot.setHeight(props.height);
+    }
+    if (props.style) {
+        const style = props.style;
+        if (style.flexDirection) {
+            yogaRoot.setFlexDirection(transformFlexDirection(yoga)(style.flexDirection));
+        }
     }
     yogaRoot.setJustifyContent(yoga.JUSTIFY_CENTER);
 
