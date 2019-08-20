@@ -13,6 +13,8 @@ export const yogaMixin = (node: ChildrenMixin) => async (props: ChildrenProps & 
             }))
         }
     });
+    props.width = result.width;
+    props.height = result.height;
     props.children.forEach((child: any, id) => {
         const layout = result.children[id];
         if (layout && child.resize) {

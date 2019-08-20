@@ -36,11 +36,15 @@ export const yogaWorker = yoga => message => {
         });
     }
 
+    const rootComputed = yogaRoot.getComputedLayout();
+
     parent.postMessage(
         {
             pluginMessage: {
                 id: message.id,
                 value: {
+                    width: rootComputed.width,
+                    height: rootComputed.height,
                     children: recalculatedChildren
                 }
             }
