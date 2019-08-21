@@ -1,5 +1,5 @@
 import { filter, map } from 'rxjs/operators';
-import nanoid from 'nanoid/non-secure';
+import * as nanoid from 'nanoid/non-secure';
 import { Subject } from 'rxjs';
 
 const $subject = new Subject();
