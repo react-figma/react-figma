@@ -15,7 +15,9 @@ const frameProps = {
 
 const SpaceFrame = () => {
     const componentStyles = {
-        marginTop: 10
+        style: {
+            marginTop: 10
+        }
     };
     const sizingStyles = {
         backgroundColor: '#C4C4C4'
@@ -70,7 +72,9 @@ const SpaceFrame = () => {
 
 const TypeFrame = props => {
     const componentStyles = {
-        marginTop: 10
+        style: {
+            marginTop: 10
+        }
     };
     const textHintProps = {
         fontSize: 6,
@@ -123,7 +127,9 @@ const TypeFrame = props => {
 
 const IconsFrame = props => {
     const componentStyle = {
-        marginTop: 10
+        style: {
+            marginTop: 10
+        }
     };
     const iconStyle = {
         width: 16,
