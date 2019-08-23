@@ -34,6 +34,12 @@ ___
 
 ## Installation
 
+#### Using boilerplate
+
+You can use [react-figma-boilerplate](https://github.com/LosYear/react-figma-boilerplate) for creating own projects.
+
+#### From scratch
+
 Install it with yarn:
 
 ```
