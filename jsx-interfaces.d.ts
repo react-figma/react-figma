@@ -5,12 +5,7 @@ import { TextProps } from './src/components/text/Text';
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            currentPage: any;
-            page: any;
-            rectangle: RectangleProps;
-            frame: FrameProps;
-            // @ts-ignore
-            text: TextProps;
+            [key: string]: any
         }
     }
 }

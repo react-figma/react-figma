@@ -7,15 +7,18 @@ import whatsappIcon from './icons/003-whatsapp.png';
 import skypeIcon from './icons/006-skype.png';
 import youtubeIcon from './icons/008-youtube.png';
 import instagramIcon from './icons/011-instagram.png';
+import { Component } from '../../../src/components/component/Component';
 
 const frameProps = {
     style: { paddingTop: 10, paddingBottom: 10, paddingLeft: 10, paddingRight: 10 }
 };
 
 const SpaceFrame = () => {
-    const sizingStyles = {
-        backgroundColor: '#C4C4C4',
+    const componentStyles = {
         marginTop: 10
+    };
+    const sizingStyles = {
+        backgroundColor: '#C4C4C4'
     };
     const sizingDescriptionProps = {
         fontSize: 8,
@@ -32,23 +35,33 @@ const SpaceFrame = () => {
         <Frame name="Space" {...frameProps}>
             <Text characters={'Space'} fontSize={14} />
 
-            <Rectangle style={{ width: 8, height: 8, ...sizingStyles }} />
+            <Component name="SizingXSmall" {...componentStyles}>
+                <Rectangle style={{ width: 8, height: 8, ...sizingStyles }} />
+            </Component>
             <Text characters={'X-Small'} {...sizingDescriptionProps} />
             <Text characters="8px" {...sizingHintProps} />
 
-            <Rectangle style={{ width: 16, height: 16, ...sizingStyles }} />
+            <Component name="SizingSmall" {...componentStyles}>
+                <Rectangle style={{ width: 16, height: 16, ...sizingStyles }} />
+            </Component>
             <Text characters={'Small'} {...sizingDescriptionProps} />
             <Text characters="16px" {...sizingHintProps} />
 
-            <Rectangle style={{ width: 24, height: 24, ...sizingStyles }} />
+            <Component name="SizingMedium" {...componentStyles}>
+                <Rectangle style={{ width: 24, height: 24, ...sizingStyles }} />
+            </Component>
             <Text characters={'Medium'} {...sizingDescriptionProps} />
             <Text characters="24px" {...sizingHintProps} />
 
-            <Rectangle style={{ width: 44, height: 44, ...sizingStyles }} />
+            <Component name="SizingLarge" {...componentStyles}>
+                <Rectangle style={{ width: 44, height: 44, ...sizingStyles }} />
+            </Component>
             <Text characters={'Large'} {...sizingDescriptionProps} />
             <Text characters="44px" {...sizingHintProps} />
 
-            <Rectangle style={{ width: 64, height: 64, ...sizingStyles }} />
+            <Component name="SizingXLarge" {...componentStyles}>
+                <Rectangle style={{ width: 64, height: 64, ...sizingStyles }} />
+            </Component>
             <Text characters={'X-Large'} {...sizingDescriptionProps} />
             <Text characters="64px" {...sizingHintProps} />
         </Frame>
@@ -56,7 +69,7 @@ const SpaceFrame = () => {
 };
 
 const TypeFrame = props => {
-    const textStyles = {
+    const componentStyles = {
         marginTop: 10
     };
     const textHintProps = {
@@ -70,78 +83,106 @@ const TypeFrame = props => {
         <Frame name="Type" style={{ ...frameProps.style, ...props.style }}>
             <Text characters={'Type'} fontSize={14} />
 
-            <Text characters={'Header 1'} fontSize={64} {...textStyles} />
+            <Component name="HeaderH1" {...componentStyles}>
+                <Text characters={'Header 1'} fontSize={64} />
+            </Component>
             <Text characters="64px" {...textHintProps} />
 
-            <Text characters={'Header 2'} fontSize={44} {...textStyles} />
+            <Component name="HeaderH2" {...componentStyles}>
+                <Text characters={'Header 2'} fontSize={44} />
+            </Component>
             <Text characters="44px" {...textHintProps} />
 
-            <Text characters={'Heading 3'} fontSize={24} {...textStyles} />
+            <Component name="HeaderH3" {...componentStyles}>
+                <Text characters={'Heading 3'} fontSize={24} />
+            </Component>
             <Text characters="24px" {...textHintProps} />
 
-            <Text characters={'HEADER 4'} fontSize={16} {...textStyles} />
+            <Component name="HeaderH4" {...componentStyles}>
+                <Text characters={'HEADER 4'} fontSize={16} />
+            </Component>
             <Text characters="16px" {...textHintProps} />
 
-            <Text characters={'Regular text'} fontSize={16} {...textStyles} />
+            <Component name="RegularText" {...componentStyles}>
+                <Text characters={'Regular text'} fontSize={16} />
+            </Component>
             <Text characters="16px" {...textHintProps} />
 
-            <Text characters={'Small text'} fontSize={14} {...textStyles} />
+            <Component name="SmallText" {...componentStyles}>
+                <Text characters={'Small text'} fontSize={14} />
+            </Component>
             <Text characters="14px" {...textHintProps} />
 
-            <Text characters={'X-Small text'} fontSize={11} {...textStyles} />
+            <Component name="XSmallText" {...componentStyles}>
+                <Text characters={'X-Small text'} fontSize={11} />
+            </Component>
             <Text characters="11px" {...textHintProps} />
         </Frame>
     );
 };
 
 const IconsFrame = props => {
+    const componentStyle = {
+        marginTop: 10
+    };
     const iconStyle = {
         width: 16,
         height: 16,
         backgroundColor: '#ffffff',
-        backgroundSize: 'FIT',
-        marginTop: 10
+        backgroundSize: 'FIT'
     };
     return (
         <Frame name="Icons" style={{ ...frameProps.style, ...props.style }}>
             <Text characters={'Icons'} fontSize={14} />
 
-            <Rectangle
-                style={{
-                    ...iconStyle,
-                    backgroundImage: facebookIcon
-                }}
-            />
-            <Rectangle
-                style={{
-                    ...iconStyle,
-                    backgroundImage: twitterIcon
-                }}
-            />
-            <Rectangle
-                style={{
-                    ...iconStyle,
-                    backgroundImage: whatsappIcon
-                }}
-            />
-            <Rectangle
-                style={{
-                    ...iconStyle,
-                    backgroundImage: skypeIcon
-                }}
-            />
-            <Rectangle
-                style={{
-                    ...iconStyle,
-                    backgroundImage: youtubeIcon
-                }}
-            />
-            <Rectangle
-                style={{
-                    ...iconStyle,
-                    backgroundImage: instagramIcon
-                }}
-            />
+            <Component name="IconFacebook" {...componentStyle}>
+                <Rectangle
+                    style={{
+                        ...iconStyle,
+                        backgroundImage: facebookIcon
+                    }}
+                />
+            </Component>
+            <Component name="IconTwitter" {...componentStyle}>
+                <Rectangle
+                    style={{
+                        ...iconStyle,
+                        backgroundImage: twitterIcon
+                    }}
+                />
+            </Component>
+            <Component name="IconWhatsapp" {...componentStyle}>
+                <Rectangle
+                    style={{
+                        ...iconStyle,
+                        backgroundImage: whatsappIcon
+                    }}
+                />
+            </Component>
+            <Component name="IconSkype" {...componentStyle}>
+                <Rectangle
+                    style={{
+                        ...iconStyle,
+                        backgroundImage: skypeIcon
+                    }}
+                />
+            </Component>
+            <Component name="IconYoutube" {...componentStyle}>
+                <Rectangle
+                    style={{
+                        ...iconStyle,
+                        backgroundImage: youtubeIcon
+                    }}
+                />
+            </Component>
+            <Component name="IconInstagram" {...componentStyle}>
+                <Rectangle
+                    style={{
+                        ...iconStyle,
+                        backgroundImage: instagramIcon
+                    }}
+                />
+            </Component>
         </Frame>
     );
 };
