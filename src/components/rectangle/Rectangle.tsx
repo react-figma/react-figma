@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { DefaultShapeProps } from '../../types';
 import { colorToRGB } from '../../helpers/color';
+import {
+    LayoutStyleProperties,
+    transformLayoutStyleProperties
+} from '../../styleTransformers/transformLayoutStyleProperties';
 
 interface RectangleProps extends DefaultShapeProps {
-    style?: {
-        width?: number;
-        height?: number;
+    style?: LayoutStyleProperties & {
         backgroundColor?: string;
         backgroundImage?: string;
         backgroundSize: any;
@@ -25,8 +27,7 @@ export const Rectangle: React.ElementType<RectangleProps> = props => {
     }
 
     const rectangleProps = {
-        width: props.style && props.style.width,
-        height: props.style && props.style.height,
+        ...transformLayoutStyleProperties(props.style),
         fills,
         ...props
     };

@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { DefaultShapeProps } from '../../types';
 import { colorToRGB } from '../../helpers/color';
+import {
+    LayoutStyleProperties,
+    transformLayoutStyleProperties
+} from '../../styleTransformers/transformLayoutStyleProperties';
 
 export interface ComponentProps extends DefaultShapeProps {
-    style?: {
-        width?: number;
-        height?: number;
+    style: LayoutStyleProperties & {
         backgroundColor?: string;
     };
     children?: undefined;
@@ -13,8 +15,7 @@ export interface ComponentProps extends DefaultShapeProps {
 
 export const Component: React.ElementType<ComponentProps> = props => {
     const componentProps = {
-        width: props.style && props.style.width,
-        height: props.style && props.style.height,
+        ...transformLayoutStyleProperties(props.style),
         fills: props.style &&
             props.style.backgroundColor && [{ type: 'SOLID', color: colorToRGB(props.style.backgroundColor) }],
         ...props
