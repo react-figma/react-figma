@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Rectangle /> Rectangle with color background 1`] = `
+<rectangle
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 1,
+          "r": 0.10588235294117647,
+        },
+        "type": "SOLID",
+      },
+    ]
+  }
+  style={
+    Object {
+      "backgroundColor": "#1bff00",
+    }
+  }
+/>
+`;
+
+exports[`<Rectangle /> Rectangle with image background 1`] = `
+<rectangle
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0.1607843137254902,
+          "g": 0.5450980392156862,
+          "r": 1,
+        },
+        "type": "SOLID",
+      },
+      Object {
+        "image": "./image.png",
+        "scaleMode": "FILL",
+        "type": "IMAGE",
+      },
+    ]
+  }
+  style={
+    Object {
+      "backgroundColor": "#ff8b29",
+      "backgroundImage": "./image.png",
+      "backgroundSize": "cover",
+    }
+  }
+/>
+`;
+
+exports[`<Rectangle /> Rectangle with layout style properties 1`] = `
+<rectangle
+  height={200}
+  style={
+    Object {
+      "height": 200,
+      "left": 20,
+      "top": 50,
+      "width": 100,
+    }
+  }
+  width={100}
+  x={20}
+  y={50}
+/>
+`;
+
+exports[`<Rectangle /> Rectangle without props 1`] = `<rectangle />`;

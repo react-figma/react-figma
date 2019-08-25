@@ -3,10 +3,10 @@ import { LayoutProps } from '../types';
 type TSize = number | string;
 
 export type LayoutStyleProperties = {
-    width: TSize;
-    height: TSize;
-    left: TSize;
-    top: TSize;
+    width?: TSize;
+    height?: TSize;
+    left?: TSize;
+    top?: TSize;
 };
 
 const transformSize = (size: TSize): number => {
