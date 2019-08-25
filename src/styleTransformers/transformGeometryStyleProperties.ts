@@ -30,6 +30,6 @@ export const transformGeometryStyleProperties = (style?: GeometryStyleProperties
         });
     }
     return {
-        fills
+        ...((fills.length > 0 && { fills }) || {})
     };
 };

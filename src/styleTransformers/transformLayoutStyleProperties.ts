@@ -21,9 +21,9 @@ export const transformLayoutStyleProperties = (styles?: LayoutStyleProperties): 
         return {};
     }
     return {
-        width: transformSize(styles.width),
-        height: transformSize(styles.height),
-        x: transformSize(styles.left),
-        y: transformSize(styles.top)
+        ...(styles.width ? { width: transformSize(styles.width) } : {}),
+        ...(styles.height ? { height: transformSize(styles.height) } : {}),
+        ...(styles.left ? { x: transformSize(styles.left) } : {}),
+        ...(styles.top ? { y: transformSize(styles.top) } : {})
     };
 };
