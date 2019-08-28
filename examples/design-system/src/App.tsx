@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Frame, Page, Rectangle, Text } from '../../../src';
 
-import facebookIcon from './icons/001-facebook.png';
-import twitterIcon from './icons/002-twitter.png';
-import whatsappIcon from './icons/003-whatsapp.png';
-import skypeIcon from './icons/006-skype.png';
-import youtubeIcon from './icons/008-youtube.png';
-import instagramIcon from './icons/011-instagram.png';
+import * as facebookIcon from './icons/001-facebook.png';
+import * as twitterIcon from './icons/002-twitter.png';
+import * as whatsappIcon from './icons/003-whatsapp.png';
+import * as skypeIcon from './icons/006-skype.png';
+import * as youtubeIcon from './icons/008-youtube.png';
+import * as instagramIcon from './icons/011-instagram.png';
 import { Component } from '../../../src/components/component/Component';
 
 const frameProps = {
