@@ -3,6 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = (env, argv) => ({
+    node: {
+        fs: 'empty'
+    },
+
     mode: argv.mode === 'production' ? 'production' : 'development',
 
     // This is necessary because Figma's 'eval' works differently than normal eval

@@ -58,6 +58,7 @@
     "nanoid": "^2.0.3",
     "react": "^16.8.6",
     "react-json-renderer": "^0.6.0",
+    "reconciled": "^1.0.2",
     "rxjs": "^6.5.2",
     "yoga-layout": "^1.9.3"
   }
