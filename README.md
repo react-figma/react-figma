@@ -1,4 +1,4 @@
-<p align="center"><img src="./logo.svg" width="64"></p>
+<p align="center"><img src="./logo.svg" width="128"></p>
 
 # react-figma
 
