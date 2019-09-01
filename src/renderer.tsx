@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as renderers from './renderers';
 import { searchFor } from './helpers/searchFor';
+const createReconciler = require('./realm-adopted/react-reconciler');
 
 const nodesCache: {
     [reactId: string]: BaseNodeMixin;
@@ -19,6 +20,7 @@ if (typeof figma !== 'undefined' && figma.root) {
 }
 
 export const renderer = async (jsx: any, reactId: number = 0) => {
+    const reconciler = createReconciler({});
     let children = [];
     if (renderers[jsx.type] && jsx.props.children) {
         const promises = React.Children.map(jsx.props.children, (child, id) => renderer(child, reactId + id + 1));
