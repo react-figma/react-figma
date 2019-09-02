@@ -6,13 +6,11 @@ import { saveStyleMixin } from '../mixins/saveStyleMixin';
 
 export interface PageProps extends BaseNodeProps, ChildrenProps {}
 
-export const page = node => async props => {
-    const page = node || figma.createPage();
+export const page = props => {
+    const page = figma.createPage();
 
-    await yogaMixin(page)(props);
     saveStyleMixin(page)(props);
     baseNodeMixin(page)(props);
-    childrenMixin(page)(props);
 
     return page;
 };

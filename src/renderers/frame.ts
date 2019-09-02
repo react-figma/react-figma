@@ -5,10 +5,9 @@ import { childrenMixin } from '../mixins/childrenMixin';
 import { yogaMixin } from '../mixins/yogaMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
 
-export const frame = node => async props => {
-    const frameNode = node || figma.createFrame();
+export const frame = async props => {
+    const frameNode = figma.createFrame();
 
-    await yogaMixin(frameNode)(props);
     saveStyleMixin(frameNode)(props);
     baseNodeMixin(frameNode)(props);
     layoutMixin(frameNode)(props);

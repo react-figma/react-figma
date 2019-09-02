@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as renderers from './renderers';
 import { searchFor } from './helpers/searchFor';
 const createReconciler = require('./realm-adopted/react-reconciler');
+const { unstable_scheduleCallback, unstable_cancelCallback } = require('scheduler'); // eslint-disable-line camelcase
 
 const nodesCache: {
     [reactId: string]: BaseNodeMixin;
@@ -19,21 +20,67 @@ if (typeof figma !== 'undefined' && figma.root) {
     );
 }
 
-export const renderer = async (jsx: any, reactId: number = 0) => {
-    const reconciler = createReconciler({});
-    let children = [];
-    if (renderers[jsx.type] && jsx.props.children) {
-        const promises = React.Children.map(jsx.props.children, (child, id) => renderer(child, reactId + id + 1));
-        children = await Promise.all(promises);
-    }
-    let el;
+const NO_CONTEXT = true;
+const noop = () => {};
 
-    if (typeof jsx.type === 'function') {
-        el = await renderer(jsx.type(jsx.props), reactId);
-    } else if (renderers[jsx.type]) {
-        el = await renderers[jsx.type](nodesCache['' + reactId])({ ...jsx.props, children });
-        el.setPluginData('reactId', '' + reactId);
-    }
+export const renderer = async (jsx: any, rootNode) => {
+    const HostConfig = {
+        schedulePassiveEffects: unstable_scheduleCallback, // eslint-disable-line camelcase
+        cancelPassiveEffects: unstable_cancelCallback, // eslint-disable-line camelcase
+        now: Date.now,
+        getRootHostContext: () => NO_CONTEXT,
+        prepareForCommit: noop,
+        resetAfterCommit: () => {},
+        getChildHostContext: () => NO_CONTEXT,
+        shouldSetTextContent: () => false,
+        getPublicInstance: instance => instance,
+        createInstance: (type, props) => {
+            debugger;
+            return renderers[type](props);
+        },
+        createTextInstance: text => {
+            debugger;
+        },
+        resetTextContent: node => {
+            debugger;
+        },
+        // Append root node to a container
+        appendInitialChild: (parentNode, childNode) => {
+            debugger;
+            parentNode.appendChild(childNode);
+        },
+        appendChild: (parentNode, childNode) => {
+            debugger;
+            parentNode.appendChild(childNode);
+        },
+        insertBefore: (parentNode, newChildNode, beforeChildNode) => {
+            debugger;
+        },
+        finalizeInitialChildren: noop,
+        supportsMutation: true,
+        appendChildToContainer: (parentNode, childNode) => {
+            debugger;
+            parentNode.appendChild(childNode);
+        },
+        insertInContainerBefore: (parentNode, newChildNode, beforeChildNode) => {
+            debugger;
+        },
+        removeChildFromContainer: (parentNode, childNode) => {
+            debugger;
+        },
+        prepareUpdate: () => true,
+        commitUpdate: (node, updatePayload, type, oldProps, newProps) => {
+            debugger;
+        },
+        commitTextUpdate: (node, oldText, newText) => {
+            debugger;
+        },
+        removeChild: (parentNode, childNode) => {
+            debugger;
+        }
+    };
 
-    return el;
+    const reconciler = createReconciler(HostConfig);
+    const container = reconciler.createContainer(rootNode, false, false);
+    reconciler.updateContainer(jsx, container);
 };

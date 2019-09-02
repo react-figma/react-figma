@@ -7,10 +7,8 @@ import { saveStyleMixin } from '../mixins/saveStyleMixin';
 
 export interface RectangleProps extends BaseNodeProps, LayoutProps {}
 
-export const rectangle = node => async props => {
-    const rect = node || figma.createRectangle();
-
-    props.fills = await fillsPreprocessor(props);
+export const rectangle = props => {
+    const rect = figma.createRectangle();
 
     baseNodeMixin(rect)(props);
     saveStyleMixin(rect)(props);

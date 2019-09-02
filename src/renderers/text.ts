@@ -22,8 +22,8 @@ const textNodeProps = [
 
 const textNodePropsAssign = propsAssign(textNodeProps);
 
-export const text = node => async props => {
-    const textNode = node || figma.createText();
+export const text = props => {
+    const textNode = figma.createText();
 
     baseNodeMixin(textNode)(props);
     saveStyleMixin(textNode)(props);
@@ -37,7 +37,7 @@ export const text = node => async props => {
             style: 'Regular'
         };
     }
-    await figma.loadFontAsync(fontName);
+    figma.loadFontAsync(fontName);
 
     textNode.characters = props.characters;
 
