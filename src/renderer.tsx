@@ -1,27 +1,8 @@
 import * as React from 'react';
 import * as renderers from './renderers';
-import { searchFor } from './helpers/searchFor';
 const createReconciler = require('./realm-adopted/react-reconciler');
 const { unstable_scheduleCallback, unstable_cancelCallback } = require('scheduler'); // eslint-disable-line camelcase
 
-const nodesCache: {
-    [reactId: string]: BaseNodeMixin;
-} = {};
-
-if (typeof figma !== 'undefined' && figma.root) {
-    searchFor(
-        figma.root,
-        node => !!node.getPluginData('reactId') || parseInt(node.getPluginData('reactId')) === 0,
-        results => {
-            results.forEach(result => {
-                nodesCache[result.getPluginData('reactId')] = result;
-            });
-        }
-    );
-}
-
-const NO_CONTEXT = true;
-const noop = () => {};
 const isReactFigmaNode = child => child.getPluginData && child.getPluginData('isReactFigmaNode');
 
 export const renderer = async (jsx: any, rootNode) => {
