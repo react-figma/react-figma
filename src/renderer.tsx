@@ -22,65 +22,136 @@ if (typeof figma !== 'undefined' && figma.root) {
 
 const NO_CONTEXT = true;
 const noop = () => {};
+const isReactFigmaNode = child => child.getPluginData && child.getPluginData('isReactFigmaNode');
 
 export const renderer = async (jsx: any, rootNode) => {
     const HostConfig = {
         schedulePassiveEffects: unstable_scheduleCallback, // eslint-disable-line camelcase
         cancelPassiveEffects: unstable_cancelCallback, // eslint-disable-line camelcase
         now: Date.now,
-        getRootHostContext: () => NO_CONTEXT,
-        prepareForCommit: noop,
-        resetAfterCommit: () => {},
-        getChildHostContext: () => NO_CONTEXT,
+        getRootHostContext: (...args) => {
+            console.log('getRootHostContext', ...args);
+            return true;
+        },
+        prepareForCommit: (...args) => {
+            console.log('prepareForCommit', ...args);
+        },
+        resetAfterCommit: (...args) => {
+            console.log('resetAfterCommit', ...args);
+        },
+        getChildHostContext: (...args) => {
+            console.log('getChildHostContext', ...args);
+            return true;
+        },
         shouldSetTextContent: () => false,
-        getPublicInstance: instance => instance,
-        createInstance: (type, props) => {
-            debugger;
-            return renderers[type](props);
+        getPublicInstance: instance => {
+            console.log('getPublicInstance', instance);
+            return instance;
+        },
+        createInstance: (type, props, ...other) => {
+            console.log('createInstance', type, props, ...other);
+            const instance = renderers[type]()(props);
+            try {
+                instance.setPluginData('isReactFigmaNode', 'true');
+            } catch (e) {
+                console.log(e);
+            }
+            return instance;
         },
         createTextInstance: text => {
-            debugger;
+            console.log('createTextInstance', text);
         },
         resetTextContent: node => {
-            debugger;
+            console.log('resetTextContent', node);
         },
         // Append root node to a container
         appendInitialChild: (parentNode, childNode) => {
-            debugger;
+            console.log('appendInitialChild', parentNode, childNode);
             parentNode.appendChild(childNode);
         },
         appendChild: (parentNode, childNode) => {
-            debugger;
+            console.log('appendChild', parentNode, childNode);
             parentNode.appendChild(childNode);
         },
         insertBefore: (parentNode, newChildNode, beforeChildNode) => {
-            debugger;
+            console.log('insertBefore', parentNode, newChildNode, beforeChildNode);
         },
-        finalizeInitialChildren: noop,
+        finalizeInitialChildren: (...args) => {
+            console.log('finalizeInitialChildren', ...args);
+        },
         supportsMutation: true,
+        supportsHydration: true,
         appendChildToContainer: (parentNode, childNode) => {
-            debugger;
+            console.log('appendChildToContainer', parentNode, childNode);
             parentNode.appendChild(childNode);
         },
         insertInContainerBefore: (parentNode, newChildNode, beforeChildNode) => {
-            debugger;
+            console.log('insertInContainerBefore', parentNode, newChildNode, beforeChildNode);
         },
         removeChildFromContainer: (parentNode, childNode) => {
-            debugger;
+            console.log('removeChildFromContainer', parentNode, childNode);
         },
-        prepareUpdate: () => true,
+        prepareUpdate: (...args) => {
+            console.log('prepareUpdate', ...args);
+            return true;
+        },
         commitUpdate: (node, updatePayload, type, oldProps, newProps) => {
-            debugger;
+            console.log('commitUpdate', node, updatePayload, type, oldProps, newProps);
         },
         commitTextUpdate: (node, oldText, newText) => {
-            debugger;
+            console.log('commitTextUpdate', node, oldText, newText);
         },
         removeChild: (parentNode, childNode) => {
-            debugger;
+            console.log('removeChild', parentNode, childNode);
+        },
+        canHydrateInstance: (instance, type, props) => {
+            console.log('canHydrateInstance', instance, type, props);
+            if (!isReactFigmaNode(instance)) {
+                return;
+            }
+            if (instance.type.toLowerCase() !== type) {
+                instance.remove();
+                return;
+            } else {
+                return instance;
+            }
+        },
+        hydrateInstance: (instance, type, props) => {
+            console.log('hydrateInstance', instance, type, props);
+            return renderers[type](instance)(props);
+        },
+        getFirstHydratableChild: parentInstance => {
+            console.log('getFirstHydratableChild', parentInstance);
+            if (parentInstance.children && parentInstance.children.length > 0) {
+                return parentInstance.children.find(isReactFigmaNode);
+            }
+        },
+        getNextHydratableSibling: instance => {
+            console.log('getNextHydratableSibling', instance);
+            if (!instance || !instance.parent) {
+                return;
+            }
+            const parent = instance.parent;
+            console.log('getNextHydratableSibling:children', parent.children);
+            const instanceIndex = parent.children.indexOf(instance);
+            console.log('getNextHydratableSibling:instanceIndex', instanceIndex);
+            return parent.children.slice(instanceIndex + 1).find(isReactFigmaNode);
+        },
+        didNotHydrateContainerInstance: (...args) => {
+            console.log('didNotHydrateContainerInstance', ...args);
+        },
+        didNotFindHydratableContainerInstance: (...args) => {
+            console.log('didNotFindHydratableContainerInstance', ...args);
+        },
+        didNotFindHydratableInstance: (...args) => {
+            console.log('didNotFindHydratableInstance', ...args);
+        },
+        commitMount: (instance, type, newProps, internalInstanceHandle) => {
+            console.log('commitMount', instance, type, newProps, internalInstanceHandle);
         }
     };
 
     const reconciler = createReconciler(HostConfig);
-    const container = reconciler.createContainer(rootNode, false, false);
+    const container = reconciler.createContainer(rootNode, true, true);
     reconciler.updateContainer(jsx, container);
 };

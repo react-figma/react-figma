@@ -6,8 +6,8 @@ import { saveStyleMixin } from '../mixins/saveStyleMixin';
 
 export interface PageProps extends BaseNodeProps, ChildrenProps {}
 
-export const page = props => {
-    const page = figma.createPage();
+export const page = node => props => {
+    const page = node || figma.createPage();
 
     saveStyleMixin(page)(props);
     baseNodeMixin(page)(props);

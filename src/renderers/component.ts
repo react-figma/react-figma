@@ -5,8 +5,8 @@ import { childrenMixin } from '../mixins/childrenMixin';
 import { yogaMixin } from '../mixins/yogaMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
 
-export const component = props => {
-    const componentNode = figma.createComponent();
+export const component = node => props => {
+    const componentNode = node || figma.createComponent();
 
     saveStyleMixin(componentNode)(props);
     baseNodeMixin(componentNode)(props);
