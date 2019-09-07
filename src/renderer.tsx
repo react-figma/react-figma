@@ -88,6 +88,7 @@ export const renderer = async (jsx: any, rootNode) => {
         },
         removeChild: (parentNode, childNode) => {
             console.log('removeChild', parentNode, childNode);
+            childNode.remove();
         },
         canHydrateInstance: (instance, type, props) => {
             console.log('canHydrateInstance', instance, type, props);
