@@ -2,14 +2,11 @@ import * as React from 'react';
 import * as renderers from './renderers';
 // todo replace with webpack aliasing, install @types/react-reconciler
 const createReconciler = require('./realm-adopted/react-reconciler');
-const { unstable_scheduleCallback, unstable_cancelCallback } = require('scheduler'); // eslint-disable-line camelcase
 
 const isReactFigmaNode = child => child.getPluginData && child.getPluginData('isReactFigmaNode');
 
 export const renderer = async (jsx: any, rootNode) => {
     const HostConfig = {
-        schedulePassiveEffects: unstable_scheduleCallback, // eslint-disable-line camelcase
-        cancelPassiveEffects: unstable_cancelCallback, // eslint-disable-line camelcase
         now: Date.now,
         getRootHostContext: (...args) => {
             console.log('getRootHostContext', ...args);
@@ -78,6 +75,7 @@ export const renderer = async (jsx: any, rootNode) => {
             return true;
         },
         commitUpdate: (node, updatePayload, type, oldProps, newProps) => {
+            renderers[type](node)(newProps);
             console.log('commitUpdate', node, updatePayload, type, oldProps, newProps);
         },
         commitTextUpdate: (node, oldText, newText) => {
