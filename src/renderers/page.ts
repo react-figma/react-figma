@@ -8,6 +8,9 @@ export interface PageProps extends BaseNodeProps, ChildrenProps {}
 
 export const page = node => props => {
     const page = node || figma.createPage();
+    if (props.ref) {
+        props.ref.current = page;
+    }
 
     saveStyleMixin(page)(props);
     baseNodeMixin(page)(props);

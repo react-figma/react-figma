@@ -1,11 +1,16 @@
 import * as React from 'react';
 import * as renderers from './renderers';
+import { Subject } from 'rxjs';
+import { yogaMixin } from './mixins/yogaMixin';
+import { yogaHandler } from './yogaHandler';
 // todo replace with webpack aliasing, install @types/react-reconciler
 const createReconciler = require('./realm-adopted/react-reconciler');
 
 const isReactFigmaNode = child => child.getPluginData && child.getPluginData('isReactFigmaNode');
 
 export const renderer = async (jsx: any, rootNode) => {
+    const $forUpdates = new Subject();
+
     const HostConfig = {
         now: Date.now,
         getRootHostContext: (...args) => {
@@ -98,7 +103,9 @@ export const renderer = async (jsx: any, rootNode) => {
         },
         hydrateInstance: (instance, type, props) => {
             console.log('hydrateInstance', instance, type, props);
-            return renderers[type](instance)(props);
+            const result = renderers[type](instance)(props);
+            //$forUpdates.next({instance: result, type, props});
+            return result;
         },
         getFirstHydratableChild: parentInstance => {
             console.log('getFirstHydratableChild', parentInstance);
@@ -132,6 +139,18 @@ export const renderer = async (jsx: any, rootNode) => {
     };
 
     const reconciler = createReconciler(HostConfig);
+
+    $forUpdates.subscribe(({ instance, type, props }) => {
+        console.log('forUpdates', instance);
+        if (type === 'page') {
+            console.log('yoga mixin', instance, props);
+            yogaHandler(instance, props).then(newProps => {
+                console.log('yoga mixin result', newProps);
+                instance.height = newProps.height;
+            });
+        }
+    });
+
     const container = reconciler.createContainer(rootNode, true, true);
     reconciler.updateContainer(jsx, container);
 };
