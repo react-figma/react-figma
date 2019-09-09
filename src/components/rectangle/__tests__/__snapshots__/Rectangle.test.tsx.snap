@@ -14,6 +14,11 @@ exports[`<Rectangle /> Rectangle with color background 1`] = `
       },
     ]
   }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
   style={
     Object {
       "backgroundColor": "#1bff00",
@@ -41,6 +46,11 @@ exports[`<Rectangle /> Rectangle with image background 1`] = `
       },
     ]
   }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
   style={
     Object {
       "backgroundColor": "#ff8b29",
@@ -54,6 +64,11 @@ exports[`<Rectangle /> Rectangle with image background 1`] = `
 exports[`<Rectangle /> Rectangle with layout style properties 1`] = `
 <rectangle
   height={200}
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
   style={
     Object {
       "height": 200,
@@ -68,4 +83,12 @@ exports[`<Rectangle /> Rectangle with layout style properties 1`] = `
 />
 `;
 
-exports[`<Rectangle /> Rectangle without props 1`] = `<rectangle />`;
+exports[`<Rectangle /> Rectangle without props 1`] = `
+<rectangle
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+/>
+`;

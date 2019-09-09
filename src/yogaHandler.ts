@@ -22,7 +22,7 @@ export const yogaHandler = async (node, props) => {
     return {
         width: result.width,
         height: result.height,
-        children: props.children.map((child: any, id) => {
+        children: node.children.map((child: any, id) => {
             const layout = result.children[id];
             return {
                 x: layout.left,
