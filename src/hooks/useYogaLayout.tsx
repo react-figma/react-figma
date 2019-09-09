@@ -6,11 +6,12 @@ import { filter, map } from 'rxjs/operators';
 const YogaContext = React.createContext({});
 
 export const YogaContextProvider = props => {
-    const [yogaProps, setYogaProps] = React.useState({ children: [] });
+    const [yogaProps, setYogaProps] = React.useState();
     const $subjectRef = React.useRef(new Subject());
     const ref = React.useRef();
     React.useEffect(() => {
         const instance = ref.current;
+        // @ts-ignore
         if (!instance) {
             return;
         }

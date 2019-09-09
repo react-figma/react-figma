@@ -9,6 +9,7 @@ import {
     transformGeometryStyleProperties
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
+import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 
 interface RectangleProps extends DefaultShapeProps {
     style?: LayoutStyleProperties & GeometryStyleProperties;
@@ -17,12 +18,16 @@ interface RectangleProps extends DefaultShapeProps {
 
 export const Rectangle: React.ElementType<RectangleProps> = props => {
     const [ref, yogaProps] = useYogaLayout(props);
+
     const rectangleProps = {
         ...transformLayoutStyleProperties(props.style),
         ...transformGeometryStyleProperties(props.style),
         ...props
     };
+    const fills = useFillsPreprocessor(rectangleProps);
 
     // @ts-ignore
-    return <rectangle {...rectangleProps} {...yogaProps} innerRef={ref} />;
+    return (
+        <rectangle {...rectangleProps} {...yogaProps} {...((fills && { fills }) || { fills: null })} innerRef={ref} />
+    );
 };

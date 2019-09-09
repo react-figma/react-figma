@@ -8,9 +8,7 @@ interface Page extends BaseNodeProps, ChildrenProps {}
 export const Page: React.ElementType<Page> = props => {
     return (
         <YogaContextProvider>
-            {({ ref, yogaProps: { children, ...yogaPropsWithoutChildren } }) => (
-                <page {...props} {...yogaPropsWithoutChildren} innerRef={ref} />
-            )}
+            {({ ref, yogaProps }) => <page {...props} {...yogaProps} innerRef={ref} />}
         </YogaContextProvider>
     );
 };

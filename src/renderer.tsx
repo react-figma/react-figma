@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as renderers from './renderers';
 import { Subject } from 'rxjs';
-import { yogaMixin } from './mixins/yogaMixin';
 import { yogaHandler } from './yogaHandler';
 // todo replace with webpack aliasing, install @types/react-reconciler
 const createReconciler = require('./realm-adopted/react-reconciler');

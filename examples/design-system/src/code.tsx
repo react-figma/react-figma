@@ -9,6 +9,6 @@ figma.ui.onmessage = message => {
 };
 
 (async () => {
-    await renderer(<App />, figma.root);
-    figma.closePlugin();
+    await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
+    renderer(<App />, figma.root);
 })();

@@ -1,7 +1,5 @@
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
-import { BaseNodeProps, ChildrenProps, LayoutProps } from '../types';
-import { childrenMixin } from '../mixins/childrenMixin';
-import { yogaMixin } from '../mixins/yogaMixin';
+import { BaseNodeProps, ChildrenProps } from '../types';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
 import { refMixin } from '../mixins/refMixin';
 

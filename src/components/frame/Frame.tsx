@@ -4,6 +4,7 @@ import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
 } from '../../styleTransformers/transformLayoutStyleProperties';
+import { YogaContextProvider } from '../../hooks/useYogaLayout';
 
 export interface FrameProps extends DefaultShapeProps {
     style?: LayoutStyleProperties;
@@ -15,5 +16,9 @@ export const Frame: React.ElementType<FrameProps> = props => {
         ...props
     };
 
-    return <frame {...frameProps} />;
+    return (
+        <YogaContextProvider>
+            {({ ref, yogaProps }) => <frame {...frameProps} {...yogaProps} innerRef={ref} />}
+        </YogaContextProvider>
+    );
 };
