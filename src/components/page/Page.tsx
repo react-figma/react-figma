@@ -8,7 +8,7 @@ interface Page extends BaseNodeProps, ChildrenProps {}
 export const Page: React.ElementType<Page> = props => {
     const yogaRef = React.useRef();
     return (
-        <YogaContextProvider yogaRef={yogaRef}>
+        <YogaContextProvider {...props} yogaRef={yogaRef}>
             {({ yogaProps }) => <page {...props} {...yogaProps} innerRef={yogaRef} />}
         </YogaContextProvider>
     );

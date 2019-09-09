@@ -6,28 +6,44 @@ import { filter, map } from 'rxjs/operators';
 const YogaContext = React.createContext({});
 
 export const YogaContextProvider = props => {
+    const yogaContext = React.useContext(YogaContext);
     const { yogaRef, ...otherProps } = props;
     const [yogaProps, setYogaProps] = React.useState();
     const $subjectRef = React.useRef(new Subject());
+    const $recalculateRef = React.useRef(new Subject());
+
     React.useEffect(() => {
         const instance = yogaRef.current;
         // @ts-ignore
         if (!instance) {
             return;
         }
-        yogaHandler(instance, otherProps).then(newProps => {
-            console.log('yoga mixin result', newProps);
-            const { children: yogaChildren, ...yogaPropsWithoutChildren } = newProps;
-            // @ts-ignore
-            setYogaProps(yogaPropsWithoutChildren);
-            // @ts-ignore
-            instance.children.forEach((child, index) => {
-                $subjectRef.current.next({ instance: child, props: yogaChildren[index] });
+        const calculate = () => {
+            yogaHandler(instance, otherProps).then(newProps => {
+                console.log('yoga mixin result', newProps);
+                const { children: yogaChildren, ...yogaPropsWithoutChildren } = newProps;
+                // @ts-ignore
+                setYogaProps(yogaPropsWithoutChildren);
+                // @ts-ignore
+                instance.children.forEach((child, index) => {
+                    $subjectRef.current.next({ instance: child, props: yogaChildren[index] });
+                });
+                // @ts-ignore
+                yogaContext.recalculate && yogaContext.recalculate.next();
             });
-        });
+        };
+        calculate();
+
+        // @ts-ignore
+        if (!yogaContext.recalculate) {
+            return;
+        }
+
+        // @ts-ignore
+        yogaContext.recalculate.subscribe(calculate);
     }, []);
     return (
-        <YogaContext.Provider value={{ subject: $subjectRef.current }}>
+        <YogaContext.Provider value={{ subject: $subjectRef.current, recalculate: $recalculateRef.current }}>
             {props.children({ yogaProps })}
         </YogaContext.Provider>
     );

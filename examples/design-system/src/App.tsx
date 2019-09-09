@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Frame, Page, Rectangle, Text } from '../../../src';
+import { Frame, Page, Rectangle, Text, Component } from '../../../src';
 
 import * as facebookIcon from './icons/001-facebook.png';
 import * as twitterIcon from './icons/002-twitter.png';
@@ -7,7 +7,6 @@ import * as whatsappIcon from './icons/003-whatsapp.png';
 import * as skypeIcon from './icons/006-skype.png';
 import * as youtubeIcon from './icons/008-youtube.png';
 import * as instagramIcon from './icons/011-instagram.png';
-import { Component } from '../../../src/components/component/Component';
 
 const frameProps = {
     style: { paddingTop: 10, paddingBottom: 10, paddingLeft: 10, paddingRight: 10 }

@@ -19,7 +19,7 @@ export const Component: React.ElementType<ComponentProps> = props => {
     };
 
     return (
-        <YogaContextProvider yogaRef={yogaRef}>
+        <YogaContextProvider {...props} yogaRef={yogaRef}>
             {({ yogaProps }) => <component {...componentProps} {...yogaChildProps} {...yogaProps} innerRef={yogaRef} />}
         </YogaContextProvider>
     );
