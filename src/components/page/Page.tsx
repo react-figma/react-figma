@@ -6,9 +6,10 @@ import { YogaContextProvider } from '../../hooks/useYogaLayout';
 interface Page extends BaseNodeProps, ChildrenProps {}
 
 export const Page: React.ElementType<Page> = props => {
+    const yogaRef = React.useRef();
     return (
-        <YogaContextProvider>
-            {({ ref, yogaProps }) => <page {...props} {...yogaProps} innerRef={ref} />}
+        <YogaContextProvider yogaRef={yogaRef}>
+            {({ yogaProps }) => <page {...props} {...yogaProps} innerRef={yogaRef} />}
         </YogaContextProvider>
     );
 };

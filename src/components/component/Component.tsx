@@ -11,14 +11,15 @@ export interface ComponentProps extends DefaultShapeProps {
 }
 
 export const Component: React.ElementType<ComponentProps> = props => {
+    const yogaRef = React.useRef();
     const componentProps = {
         ...transformLayoutStyleProperties(props.style),
         ...props
     };
 
     return (
-        <YogaContextProvider>
-            {({ ref, yogaProps }) => <component {...componentProps} {...yogaProps} innerRef={ref} />}
+        <YogaContextProvider yogaRef={yogaRef}>
+            {({ yogaProps }) => <component {...componentProps} {...yogaProps} innerRef={yogaRef} />}
         </YogaContextProvider>
     );
 };

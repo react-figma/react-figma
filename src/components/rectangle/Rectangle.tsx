@@ -17,7 +17,8 @@ interface RectangleProps extends DefaultShapeProps {
 }
 
 export const Rectangle: React.ElementType<RectangleProps> = props => {
-    const [ref, yogaProps] = useYogaLayout(props);
+    const yogaRef = React.useRef();
+    const yogaProps = useYogaLayout({ yogaRef });
 
     const rectangleProps = {
         ...transformLayoutStyleProperties(props.style),
@@ -28,6 +29,11 @@ export const Rectangle: React.ElementType<RectangleProps> = props => {
 
     // @ts-ignore
     return (
-        <rectangle {...rectangleProps} {...yogaProps} {...((fills && { fills }) || { fills: null })} innerRef={ref} />
+        <rectangle
+            {...rectangleProps}
+            {...yogaProps}
+            {...((fills && { fills }) || { fills: null })}
+            innerRef={yogaRef}
+        />
     );
 };

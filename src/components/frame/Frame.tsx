@@ -11,14 +11,15 @@ export interface FrameProps extends DefaultShapeProps {
 }
 
 export const Frame: React.ElementType<FrameProps> = props => {
+    const yogaRef = React.useRef();
     const frameProps = {
         ...transformLayoutStyleProperties(props.style),
         ...props
     };
 
     return (
-        <YogaContextProvider>
-            {({ ref, yogaProps }) => <frame {...frameProps} {...yogaProps} innerRef={ref} />}
+        <YogaContextProvider yogaRef={yogaRef}>
+            {({ yogaProps }) => <frame {...frameProps} {...yogaProps} innerRef={yogaRef} />}
         </YogaContextProvider>
     );
 };

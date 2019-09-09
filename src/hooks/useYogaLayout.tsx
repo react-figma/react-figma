@@ -6,16 +6,16 @@ import { filter, map } from 'rxjs/operators';
 const YogaContext = React.createContext({});
 
 export const YogaContextProvider = props => {
+    const { yogaRef, ...otherProps } = props;
     const [yogaProps, setYogaProps] = React.useState();
     const $subjectRef = React.useRef(new Subject());
-    const ref = React.useRef();
     React.useEffect(() => {
-        const instance = ref.current;
+        const instance = yogaRef.current;
         // @ts-ignore
         if (!instance) {
             return;
         }
-        yogaHandler(instance, props).then(newProps => {
+        yogaHandler(instance, otherProps).then(newProps => {
             console.log('yoga mixin result', newProps);
             const { children: yogaChildren, ...yogaPropsWithoutChildren } = newProps;
             // @ts-ignore
@@ -28,18 +28,18 @@ export const YogaContextProvider = props => {
     }, []);
     return (
         <YogaContext.Provider value={{ subject: $subjectRef.current }}>
-            {props.children({ ref, yogaProps })}
+            {props.children({ yogaProps })}
         </YogaContext.Provider>
     );
 };
 
 export const useYogaLayout = props => {
+    const { yogaRef } = props;
     const [yogaProps, setYogaProps] = React.useState({});
-    const ref = React.useRef();
     const context = React.useContext(YogaContext);
 
     React.useEffect(() => {
-        const instance = ref.current;
+        const instance = yogaRef.current;
 
         // @ts-ignore
         if (!context.subject) {
@@ -54,5 +54,5 @@ export const useYogaLayout = props => {
         subject.subscribe(setYogaProps);
     }, []);
 
-    return [ref, yogaProps];
+    return yogaProps;
 };
