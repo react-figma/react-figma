@@ -28,8 +28,6 @@ export const YogaContextProvider = props => {
                 instance.children.forEach((child, index) => {
                     $subjectRef.current.next({ instance: child, props: yogaChildren[index] });
                 });
-                // @ts-ignore
-                yogaContext.recalculate && yogaContext.recalculate.next();
             });
         };
         calculate();
@@ -41,6 +39,9 @@ export const YogaContextProvider = props => {
 
         // @ts-ignore
         yogaContext.recalculate.subscribe(calculate);
+
+        // @ts-ignore
+        return () => yogaContext.recalculate.unsubscribe();
     }, []);
     return (
         <YogaContext.Provider value={{ subject: $subjectRef.current, recalculate: $recalculateRef.current }}>
@@ -51,7 +52,7 @@ export const YogaContextProvider = props => {
 
 export const useYogaLayout = props => {
     const { yogaRef } = props;
-    const [yogaProps, setYogaProps] = React.useState({});
+    const [yogaProps, setYogaProps] = React.useState<any>({});
     const context = React.useContext(YogaContext);
 
     React.useEffect(() => {
@@ -69,6 +70,18 @@ export const useYogaLayout = props => {
 
         subject.subscribe(setYogaProps);
     }, []);
+
+    React.useEffect(() => {
+        const instance: any = yogaRef.current;
+        if (!instance) {
+            return;
+        }
+
+        if (instance.width !== yogaProps.width || instance.height !== yogaProps.height) {
+            // @ts-ignore
+            context.recalculate && context.recalculate.next();
+        }
+    }, [yogaProps.width, yogaProps.height]);
 
     return yogaProps;
 };
