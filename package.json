@@ -1,6 +1,6 @@
 {
   "name": "react-figma",
-  "version": "0.0.1-alpha.3",
+  "version": "0.0.1-alpha.4",
   "description": "This plugin template uses Typescript. If you are familiar with Javascript, Typescript will look very familiar. In fact, valid Javascript code is already valid Typescript code.",
   "main": "./dist/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ilyalesik/react-figma.git"
+    "url": "git+ssh://git@github.com/react-figma/react-figma.git"
   },
   "keywords": [
     "figma",
