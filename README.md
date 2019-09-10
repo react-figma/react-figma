@@ -60,7 +60,7 @@ npm i react-figma yoga-layout --save
 
 ```javascript
 import * as React from 'react';
-import { renderer, subscribeOnMessages } from 'react-figma';
+import { render, subscribeOnMessages } from 'react-figma';
 import { App } from './App';
 
 figma.showUI(__html__, { visible: false });
@@ -69,10 +69,7 @@ figma.ui.onmessage = message => {
     subscribeOnMessages(message);
 };
 
-(async () => {
-    await renderer(<App />);
-    figma.closePlugin();
-})();
+render(<App />);
 ```
 
 #### Configure ui thread
@@ -110,7 +107,6 @@ export const App = () => {
 
 * Adding components:
   - Group
-  - Component
   - Line
   - Ellipse
   - Etc.
@@ -118,7 +114,6 @@ export const App = () => {
   - Adding support of all figma properties.
   - Improving style prop support.
   - Adding support of all yoga-layout properties.
-* Updating algorithm (track changes at tree).
 * react-primitives support.
 * HMR support.
 * styled-components supports.
