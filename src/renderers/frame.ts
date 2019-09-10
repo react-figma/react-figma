@@ -1,19 +1,18 @@
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
 import { layoutMixin } from '../mixins/layoutMixin';
 import { geometryMixin } from '../mixins/geometryMixin';
-import { childrenMixin } from '../mixins/childrenMixin';
-import { yogaMixin } from '../mixins/yogaMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
+import { refMixin } from '../mixins/refMixin';
 
-export const frame = node => async props => {
+export const frame = node => props => {
     const frameNode = node || figma.createFrame();
 
-    await yogaMixin(frameNode)(props);
+    refMixin(frameNode)(props);
+
     saveStyleMixin(frameNode)(props);
     baseNodeMixin(frameNode)(props);
     layoutMixin(frameNode)(props);
     geometryMixin(frameNode)(props);
-    childrenMixin(frameNode)(props);
 
     return frameNode;
 };

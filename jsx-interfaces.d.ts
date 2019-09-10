@@ -7,7 +7,7 @@ declare global {
         interface IntrinsicElements {
             currentPage: any;
             page: any;
-            rectangle: RectangleProps;
+            rectangle: any;
             frame: FrameProps;
             // @ts-ignore
             text: TextProps;
