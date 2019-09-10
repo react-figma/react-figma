@@ -5,7 +5,7 @@ const createReconciler = require('./realm-adopted/react-reconciler');
 
 const isReactFigmaNode = child => child.getPluginData && child.getPluginData('isReactFigmaNode');
 
-export const renderer = async (jsx: any, rootNode) => {
+export const render = async (jsx: any, rootNode) => {
     const HostConfig = {
         now: Date.now,
         getRootHostContext: (...args) => {

@@ -1,4 +1,4 @@
-export { renderer } from './renderer';
+export { render } from './renderer';
 export { uiWorker } from './uiWorker';
 export { subscribeOnMessages } from './helpers/messagePromise';
 
