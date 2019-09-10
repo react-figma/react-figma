@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { yogaHandler } from '../yogaHandler';
-import { Subject } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { interval, Subject } from 'rxjs';
+import { debounce, filter, map } from 'rxjs/operators';
 
 const YogaContext = React.createContext<any>({});
 
@@ -37,8 +37,10 @@ export const YogaContextProvider = props => {
         };
         calculate();
 
-        $recalculateRef.current.subscribe(calculate);
-        return () => $recalculateRef.current.unsubscribe();
+        const recalculationPipe = $recalculateRef.current.pipe(debounce(() => interval(50)));
+
+        recalculationPipe.subscribe(calculate);
+        return () => recalculationPipe.unsubscribe();
     }, []);
     return (
         <YogaContext.Provider value={{ subject: $subjectRef.current, recalculate: $recalculateRef.current }}>
@@ -64,6 +66,8 @@ export const useYogaLayout = props => {
         );
 
         subject.subscribe(setYogaProps);
+
+        return () => subject.unsubscribe();
     }, []);
 
     React.useEffect(() => {
