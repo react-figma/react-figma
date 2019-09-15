@@ -9,6 +9,7 @@ Render React components to Figma.
 
 * 💡 Inspired by [react-sketchapp](https://github.com/airbnb/react-sketchapp).
 * 🎨 Designed to create manageable design systems.
+* Flexible layouts support with [Yoga Layout](https://yogalayout.com/)
 * ⚙️ Built on [Figma Plugin API](https://www.figma.com/plugin-docs/intro/).
 
 <p align="center"><img src="./demo.gif" width="800"></p>
