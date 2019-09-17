@@ -1,6 +1,6 @@
 <p align="center"><img src="./logo.svg" width="128"></p>
 
-# react-figma
+# React Figma
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg)](#contributors)
 [![npm version](https://img.shields.io/npm/v/react-figma.svg)](https://www.npmjs.com/package/react-figma)
