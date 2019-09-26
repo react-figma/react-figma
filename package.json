@@ -7,9 +7,10 @@
     "tsc": "tsc -p tsconfig.json",
     "test": "jest",
     "prettify": "prettier \"src/**/*.{js,jsx,ts,tsx}\" \"examples/**/*.{js,jsx,ts,tsx}\" --ignore-path ./.prettierignore --write && git add . && git status",
-    "build": "npm run build:clean && npm run build:lib",
+    "build": "npm run build:clean && npm run build:lib && npm run build:js",
     "build:clean": "rimraf dist",
     "build:lib": "cross-env BABEL_ENV=production tsc -p tsconfig.json",
+    "build:js": "copyfiles -u 1 src/**/*.js dist",
     "prepublish": "npm run build"
   },
   "jest": {
@@ -36,6 +37,7 @@
     "@babel/preset-react": "^7.0.0",
     "@types/jest": "^24.0.18",
     "babel-jest": "^24.9.0",
+    "copyfiles": "^2.1.1",
     "cross-env": "^5.2.0",
     "css-loader": "^3.2.0",
     "html-webpack-inline-source-plugin": "^0.0.10",
