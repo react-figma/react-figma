@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderers from './renderers';
 // todo replace with webpack aliasing, install @types/react-reconciler
-const createReconciler = require('./realm-adopted/react-reconciler');
+import * as createReconciler from './realm-adopted/react-reconciler';
 
 const isReactFigmaNode = child => child.getPluginData && child.getPluginData('isReactFigmaNode');
 
