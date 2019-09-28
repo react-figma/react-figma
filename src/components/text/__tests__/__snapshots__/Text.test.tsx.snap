@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text /> Text with fontFamily 1`] = `
+<text
+  fontName={
+    Object {
+      "family": "Helvetica",
+      "style": "bold",
+    }
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Object {
+      "fontFamily": "Helvetica",
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`<Text /> Text without props 1`] = `
+<text
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+/>
+`;
