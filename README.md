@@ -121,6 +121,23 @@ export const App = () => {
 * HMR support.
 * styled-components supports.
 
+## Become a Contributor 🎖
+
+Whether you're helping us implement features, fix bugs or improve the docs, we'd love to have you as part of the community! 
+
+#### Reasons to be a contributor
+
+* You pump your knowledge about:
+  - **React**. Best way to figure out how React works - implementing custom renderer. In the project we operate with most advanced concepts: [Reconciliation](https://reactjs.org/docs/reconciliation.html), [Hooks](https://reactjs.org/docs/hooks-intro.html) etc.
+  - **Figma Plugins** creation.
+  - [Yoga Layout](https://yogalayout.com/)
+  - [RxJS](https://rxjs-dev.firebaseapp.com/)
+* Take a place at the contributors list. 😉
+
+#### How to Contribute
+
+Check out our [Contributing Guide](./contributing.md) for ideas on contributing and setup steps for getting repository up and running on your local machine.
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
