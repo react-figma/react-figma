@@ -22,11 +22,20 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "HVish",
+      "name": "Vishnu Singh",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/14261201?v=4",
+      "profile": "https://github.com/HVish",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "react-figma",
-  "projectOwner": "ilyalesik",
+  "projectOwner": "react-figma",
   "repoType": "github",
   "repoHost": "https://github.com"
 }
