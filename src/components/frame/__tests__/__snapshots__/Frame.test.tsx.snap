@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Frame /> Frame with color background 1`] = `
+<frame
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Object {
+      "backgroundColor": "#1bff00",
+    }
+  }
+/>
+`;
+
+exports[`<Frame /> Frame with image background 1`] = `
+<frame
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Object {
+      "backgroundColor": "#ff8b29",
+      "backgroundImage": "./image.png",
+      "backgroundSize": "cover",
+    }
+  }
+/>
+`;
+
+exports[`<Frame /> Frame with layout style properties 1`] = `
+<frame
+  height={200}
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Object {
+      "height": 200,
+      "left": 20,
+      "top": 50,
+      "width": 100,
+    }
+  }
+  width={100}
+  x={20}
+  y={50}
+/>
+`;
+
+exports[`<Frame /> Frame without props 1`] = `
+<frame
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+/>
+`;
