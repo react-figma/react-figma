@@ -5,7 +5,7 @@ import { saveStyleMixin } from '../mixins/saveStyleMixin';
 import { propsAssign } from '../helpers/propsAssign';
 import { refMixin } from '../mixins/refMixin';
 
-const textNodeProps = [
+const textNodePropsAssign = propsAssign<TextNode>([
     'textAlignHorizontal',
     'textAlignVertical',
     'textAlignVertical',
@@ -19,9 +19,7 @@ const textNodeProps = [
     'textDecoration',
     'letterSpacing',
     'lineHeight'
-];
-
-const textNodePropsAssign = propsAssign(textNodeProps);
+]);
 
 export const text = node => props => {
     const textNode = node || figma.createText();
