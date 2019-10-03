@@ -10,9 +10,13 @@ import {
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
+import {
+    BorderStyleProperties,
+    transformBorderStyleProperties
+} from '../../styleTransformers/transformBorderProperties';
 
-interface RectangleProps extends DefaultShapeProps {
-    style?: LayoutStyleProperties & GeometryStyleProperties;
+export interface RectangleProps extends DefaultShapeProps {
+    style?: LayoutStyleProperties & GeometryStyleProperties & BorderStyleProperties;
     children?: undefined;
 }
 
@@ -23,6 +27,7 @@ export const Rectangle: React.ElementType<RectangleProps> = props => {
     const rectangleProps = {
         ...transformLayoutStyleProperties(props.style),
         ...transformGeometryStyleProperties(props.style),
+        ...transformBorderStyleProperties(props.style),
         ...props
     };
     const fills = useFillsPreprocessor(rectangleProps);

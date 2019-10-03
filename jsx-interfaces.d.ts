@@ -1,4 +1,4 @@
-import { RectangleProps } from './src/renderers/rectangle';
+import { RectangleProps } from './src/components/rectangle/Rectangle';
 import { FrameProps } from './src/components/frame/Frame';
 import { TextProps } from './src/components/text/Text';
 
@@ -7,11 +7,11 @@ declare global {
         interface IntrinsicElements {
             currentPage: any;
             page: any;
-            rectangle: any;
+            rectangle: RectangleProps;
             frame: FrameProps;
             // @ts-ignore
             text: TextProps;
-            component: any
+            component: any;
         }
     }
 }

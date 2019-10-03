@@ -1,6 +1,6 @@
 import { propsAssign } from '../helpers/propsAssign';
 
-const fields = [
+export const geometryMixin = propsAssign<GeometryMixin>([
     'fills',
     'strokes',
     'strokeWeight',
@@ -10,6 +10,4 @@ const fields = [
     'dashPattern',
     'fillStyleId',
     'strokeStyleId'
-];
-
-export const geometryMixin = propsAssign(fields);
+]);
