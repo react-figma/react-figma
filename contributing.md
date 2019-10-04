@@ -7,9 +7,18 @@ Before starting contributing we recommend reading the following guides:
 2. [react-reconciler docs](https://github.com/facebook/react/tree/master/packages/react-reconciler)
 3. [Yoga Layout docs](https://yogalayout.com/docs)
 
-## Chat
+## Collaboration
 
-Feel free to check out the [#development](https://spectrum.chat/react-figma/development?tab=posts) channel on our Spectrum.
+### Issues assigning
+
+For avoiding situations than two contributors started resolving the same issue, recommending:
+
+1. Make yourself assignee at issue, or, if you haven't rights for this, write a comment at the issue about you started making.
+2. Move issue to "In Progress" column at [next](https://github.com/react-figma/react-figma/projects/2) board.
+
+### Development Chat
+
+Feel free to discuss any problem at the [#development](https://spectrum.chat/react-figma/development?tab=posts) channel on our Spectrum.
 
 ## Developing
 
