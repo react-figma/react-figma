@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { DefaultShapeProps } from '../../types';
+import { DefaultContainerProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import { useYogaLayout, YogaContextProvider } from '../../hooks/useYogaLayout';
 
-export interface ComponentProps extends DefaultShapeProps {
+export interface ComponentProps extends DefaultContainerProps {
     style?: LayoutStyleProperties;
 }
 

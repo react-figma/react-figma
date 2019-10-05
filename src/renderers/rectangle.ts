@@ -1,20 +1,21 @@
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
 import { layoutMixin } from '../mixins/layoutMixin';
-import { BaseNodeProps, LayoutProps } from '../types';
+import { BorderProps } from '../types';
 import { geometryMixin } from '../mixins/geometryMixin';
-import { fillsPreprocessor } from '../helpers/fillsPreprocessor';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
 import { refMixin } from '../mixins/refMixin';
 import { propsAssign } from '../helpers/propsAssign';
+import { RectangleProps } from '../components/rectangle/Rectangle';
+import { cornerMixin } from '../mixins/cornerMixin';
 
-const rectangleNodePropsAssign = propsAssign<RectangleNode>([
+const rectangleNodePropsAssign = propsAssign<BorderProps>([
     'topLeftRadius',
     'topRightRadius',
     'bottomLeftRadius',
     'bottomRightRadius'
 ]);
 
-export const rectangle = node => props => {
+export const rectangle = (node: RectangleNode) => (props: RectangleProps) => {
     const rect = node || figma.createRectangle();
 
     refMixin(rect)(props);
@@ -23,6 +24,7 @@ export const rectangle = node => props => {
     layoutMixin(rect)(props);
     geometryMixin(rect)(props);
 
+    cornerMixin(rect)(props);
     rectangleNodePropsAssign(rect)(props);
 
     return rect;

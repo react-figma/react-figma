@@ -1,7 +1,7 @@
-export const propsAssign = <T>(fields: (keyof T)[]) => (node: T) => (props: T) => {
+export const propsAssign = <T>(fields: (keyof T)[]) => <N extends T>(node: N) => <P extends T>(props: P) => {
     fields.forEach(field => {
         if (props[field] !== undefined || props[field] != null) {
-            node[field] = props[field];
+            node[field] = props[field] as any; // same type is assumed
         }
     });
 };
