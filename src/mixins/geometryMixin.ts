@@ -1,6 +1,7 @@
 import { propsAssign } from '../helpers/propsAssign';
+import { GeometryProps } from '../types';
 
-export const geometryMixin = propsAssign<GeometryMixin>([
+export const geometryMixin = propsAssign<GeometryProps>([
     'fills',
     'strokes',
     'strokeWeight',

@@ -1,10 +1,10 @@
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
 import { layoutMixin } from '../mixins/layoutMixin';
-import { geometryMixin } from '../mixins/geometryMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
 import { refMixin } from '../mixins/refMixin';
+import { ComponentProps } from '../components/component/Component';
 
-export const component = node => props => {
+export const component = (node: ComponentNode) => (props: ComponentProps) => {
     const componentNode = node || figma.createComponent();
 
     refMixin(componentNode)(props);
@@ -12,7 +12,6 @@ export const component = node => props => {
     saveStyleMixin(componentNode)(props);
     baseNodeMixin(componentNode)(props);
     layoutMixin(componentNode)(props);
-    geometryMixin(componentNode)(props);
 
     return componentNode;
 };
