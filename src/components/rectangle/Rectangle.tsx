@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultShapeProps } from '../../types';
+import { DefaultShapeProps, BorderProps, CornerProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -15,7 +15,7 @@ import {
     transformBorderStyleProperties
 } from '../../styleTransformers/transformBorderProperties';
 
-export interface RectangleProps extends DefaultShapeProps {
+export interface RectangleProps extends DefaultShapeProps, CornerProps, BorderProps {
     style?: LayoutStyleProperties & GeometryStyleProperties & BorderStyleProperties;
     children?: undefined;
 }

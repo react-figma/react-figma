@@ -38,6 +38,18 @@ export interface GeometryProps {
     strokeStyleId?: string;
 }
 
+export interface CornerProps {
+    cornerRadius?: number | symbol;
+    cornerSmoothing?: number;
+}
+
+export interface BorderProps {
+    topLeftRadius?: number;
+    topRightRadius?: number;
+    bottomLeftRadius?: number;
+    bottomRightRadius?: number;
+}
+
 export interface TextNodeProps {
     characters?: string;
     textAlignHorizontal?: 'LEFT' | 'CENTER' | 'RIGHT' | 'JUSTIFIED';
