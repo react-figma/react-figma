@@ -6,6 +6,7 @@ Before starting contributing we recommend reading the following guides:
 1. [Figma plugins developers page](https://www.figma.com/plugin-docs/intro/)
 2. [react-reconciler docs](https://github.com/facebook/react/tree/master/packages/react-reconciler)
 3. [Yoga Layout docs](https://yogalayout.com/docs)
+4. [React Figma Architecture doc](./docs/architecture.md)
 
 ## Collaboration
 
