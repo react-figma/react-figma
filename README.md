@@ -113,13 +113,13 @@ export const App = () => {
   - Line
   - Ellipse
   - Etc.
-* Improving exiting components:
+* Improving existing components:
   - Adding support of all figma properties.
   - Improving style prop support.
   - Adding support of all yoga-layout properties.
 * react-primitives support.
 * HMR support.
-* styled-components supports.
+* styled-components support.
 
 ## Become a Contributor 🎖
 
