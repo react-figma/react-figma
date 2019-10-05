@@ -14,7 +14,7 @@ Renderer architecture displayed on the scheme:
   - **/components** - concrete components like Frame, Rectangle etc. that exported as a part of package API
   - **/helpers** - utility functions
   - **/hooks** - React hooks for components
-  - **/mixins** - common functions for renderers that apply some attributes to Figma nodes. 
+  - **/mixins** - common functions for renderers that set some attributes to Figma nodes. 
   Part of it is related to mixin interface inside Figma API. 
   As an example `baseNodeMixin` related to `BaseNodeMixin`.
   - **/realm-adopted** - libraries adopted for working inside Figma plugin realm.
