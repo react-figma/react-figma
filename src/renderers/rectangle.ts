@@ -6,7 +6,7 @@ import { saveStyleMixin } from '../mixins/saveStyleMixin';
 import { refMixin } from '../mixins/refMixin';
 import { propsAssign } from '../helpers/propsAssign';
 import { RectangleProps } from '../components/rectangle/Rectangle';
-import { cornerMixin } from 'mixins/cornerMixin';
+import { cornerMixin } from '../mixins/cornerMixin';
 
 const rectangleNodePropsAssign = propsAssign<BorderProps>([
     'topLeftRadius',

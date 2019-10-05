@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BaseNodeProps, LayoutProps } from '../../types';
+import { DefaultContainerProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -180,7 +180,7 @@ export const FRAME_PRESETS = {
     }
 };
 
-export interface FrameProps extends BaseNodeProps, LayoutProps {
+export interface FrameProps extends DefaultContainerProps {
     style?: LayoutStyleProperties;
     preset?: Preset;
 }

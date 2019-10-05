@@ -68,3 +68,5 @@ export interface TextNodeProps {
 }
 
 export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps {}
+
+export interface DefaultContainerProps extends BaseNodeProps, ChildrenProps, LayoutProps {}
