@@ -197,7 +197,7 @@ export const Frame: React.ElementType<FrameProps> = props => {
     };
 
     return (
-        <YogaContextProvider {...propWithoutPreset} yogaRef={yogaRef}>
+        <YogaContextProvider {...frameProps} yogaRef={yogaRef}>
             {({ yogaProps }) => <frame {...frameProps} {...yogaChildProps} {...yogaProps} innerRef={yogaRef} />}
         </YogaContextProvider>
     );
