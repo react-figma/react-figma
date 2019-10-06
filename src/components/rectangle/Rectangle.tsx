@@ -33,12 +33,5 @@ export const Rectangle: React.ElementType<RectangleProps> = props => {
     const fills = useFillsPreprocessor(rectangleProps);
 
     // @ts-ignore
-    return (
-        <rectangle
-            {...rectangleProps}
-            {...yogaProps}
-            {...((fills && { fills }) || { fills: null })}
-            innerRef={yogaRef}
-        />
-    );
+    return <rectangle {...rectangleProps} {...yogaProps} {...(fills && { fills })} innerRef={yogaRef} />;
 };

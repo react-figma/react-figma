@@ -2,7 +2,18 @@
 
 exports[`<Rectangle /> Rectangle with color background 1`] = `
 <rectangle
-  fills={null}
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 1,
+          "r": 0.10588235294117647,
+        },
+        "type": "SOLID",
+      },
+    ]
+  }
   innerRef={
     Object {
       "current": undefined,
@@ -18,7 +29,18 @@ exports[`<Rectangle /> Rectangle with color background 1`] = `
 
 exports[`<Rectangle /> Rectangle with image background 1`] = `
 <rectangle
-  fills={null}
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0.1607843137254902,
+          "g": 0.5450980392156862,
+          "r": 1,
+        },
+        "type": "SOLID",
+      },
+    ]
+  }
   innerRef={
     Object {
       "current": undefined,
@@ -36,7 +58,6 @@ exports[`<Rectangle /> Rectangle with image background 1`] = `
 
 exports[`<Rectangle /> Rectangle with layout style properties 1`] = `
 <rectangle
-  fills={null}
   height={200}
   innerRef={
     Object {
@@ -59,7 +80,6 @@ exports[`<Rectangle /> Rectangle with layout style properties 1`] = `
 
 exports[`<Rectangle /> Rectangle without props 1`] = `
 <rectangle
-  fills={null}
   innerRef={
     Object {
       "current": undefined,
