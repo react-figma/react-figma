@@ -104,6 +104,7 @@ export const App = () => {
 
 ## Examples
 
+* [basic](examples/basic)
 * [design-system](examples/design-system)
 
 ## Roadmap
