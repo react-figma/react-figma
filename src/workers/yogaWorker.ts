@@ -46,7 +46,8 @@ const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
         if (node.style.marginRight) {
             yogaNode.setMargin(yoga.EDGE_RIGHT, node.style.marginRight);
         }
-        yogaNode.setJustifyContent(yoga.JUSTIFY_CENTER);
+        yogaNode.setAlignItems(yoga.ALIGN_FLEX_START);
+        yogaNode.setJustifyContent(yoga.JUSTIFY_FLEX_START);
     }
     if (node.children) {
         node.children.forEach((child, id) => {
