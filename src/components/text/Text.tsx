@@ -16,12 +16,12 @@ export interface TextProps extends TextNodeProps, DefaultShapeProps {
 
 export const Text: React.ElementType<TextProps> = props => {
     const yogaRef = React.useRef();
-    const yogaProps = useYogaLayout({ yogaRef });
     const textProps = {
         ...transformLayoutStyleProperties(props.style),
         ...transformTextStyleProperties(props.style),
         ...props
     };
+    const yogaProps = useYogaLayout({ yogaRef, ...textProps });
     // @ts-ignore
     return <text {...textProps} {...yogaProps} innerRef={yogaRef} />;
 };

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { render, subscribeOnMessages } from '../../../src/';
 import { App } from './App';
+import { YogaContextProvider } from '../../../src/hooks/useYogaLayout';
 
 figma.showUI(__html__, { visible: false });
 

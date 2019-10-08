@@ -187,7 +187,6 @@ export interface FrameProps extends DefaultContainerProps {
 
 export const Frame: React.ElementType<FrameProps> = props => {
     const yogaRef = React.useRef();
-    const yogaChildProps = useYogaLayout({ yogaRef });
 
     const { preset, ...propWithoutPreset } = props;
     const frameProps = {
@@ -195,10 +194,7 @@ export const Frame: React.ElementType<FrameProps> = props => {
         ...transformLayoutStyleProperties(props.style),
         ...propWithoutPreset
     };
+    const yogaChildProps = useYogaLayout({ yogaRef, ...frameProps });
 
-    return (
-        <YogaContextProvider {...frameProps} yogaRef={yogaRef}>
-            {({ yogaProps }) => <frame {...frameProps} {...yogaChildProps} {...yogaProps} innerRef={yogaRef} />}
-        </YogaContextProvider>
-    );
+    return <frame {...frameProps} {...yogaChildProps} innerRef={yogaRef} />;
 };

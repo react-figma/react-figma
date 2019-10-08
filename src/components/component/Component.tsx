@@ -12,15 +12,11 @@ export interface ComponentProps extends DefaultContainerProps {
 
 export const Component: React.ElementType<ComponentProps> = props => {
     const yogaRef = React.useRef();
-    const yogaChildProps = useYogaLayout({ yogaRef });
     const componentProps = {
         ...transformLayoutStyleProperties(props.style),
         ...props
     };
+    const yogaChildProps = useYogaLayout({ yogaRef, ...componentProps });
 
-    return (
-        <YogaContextProvider {...props} yogaRef={yogaRef}>
-            {({ yogaProps }) => <component {...componentProps} {...yogaChildProps} {...yogaProps} innerRef={yogaRef} />}
-        </YogaContextProvider>
-    );
+    return <component {...componentProps} {...yogaChildProps} innerRef={yogaRef} />;
 };
