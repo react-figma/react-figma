@@ -14,24 +14,24 @@ const transformFlexDirection = yoga => (value: string) => {
 const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
     const yogaNode = yoga.Node.create();
     cache.node = yogaNode;
-    if (node.width && node.height) {
+    if (node.width && node.height && !node.children) {
         yogaNode.setWidth(node.width);
         yogaNode.setHeight(node.height);
     }
     if (node.style) {
-        if (node.flexDirection) {
+        if (node.style.flexDirection) {
             yogaNode.setFlexDirection(transformFlexDirection(yoga)(node.style.flexDirection));
         }
-        if (node.paddingTop) {
+        if (node.style.paddingTop) {
             yogaNode.setPadding(yoga.EDGE_TOP, node.style.paddingTop);
         }
-        if (node.paddingBottom) {
+        if (node.style.paddingBottom) {
             yogaNode.setPadding(yoga.EDGE_BOTTOM, node.style.paddingBottom);
         }
-        if (node.paddingLeft) {
+        if (node.style.paddingLeft) {
             yogaNode.setPadding(yoga.EDGE_LEFT, node.style.paddingLeft);
         }
-        if (node.paddingRight) {
+        if (node.style.paddingRight) {
             yogaNode.setPadding(yoga.EDGE_RIGHT, node.style.paddingRight);
         }
         if (node.style.marginTop) {
