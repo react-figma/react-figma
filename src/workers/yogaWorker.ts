@@ -11,86 +11,91 @@ const transformFlexDirection = yoga => (value: string) => {
     }
 };
 
+const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
+    const yogaNode = yoga.Node.create();
+    cache.node = yogaNode;
+    if (node.width && node.height) {
+        yogaNode.setWidth(node.width);
+        yogaNode.setHeight(node.height);
+    }
+    if (node.style) {
+        if (node.flexDirection) {
+            yogaNode.setFlexDirection(transformFlexDirection(yoga)(node.style.flexDirection));
+        }
+        if (node.paddingTop) {
+            yogaNode.setPadding(yoga.EDGE_TOP, node.style.paddingTop);
+        }
+        if (node.paddingBottom) {
+            yogaNode.setPadding(yoga.EDGE_BOTTOM, node.style.paddingBottom);
+        }
+        if (node.paddingLeft) {
+            yogaNode.setPadding(yoga.EDGE_LEFT, node.style.paddingLeft);
+        }
+        if (node.paddingRight) {
+            yogaNode.setPadding(yoga.EDGE_RIGHT, node.style.paddingRight);
+        }
+        if (node.style.marginTop) {
+            yogaNode.setMargin(yoga.EDGE_TOP, node.style.marginTop);
+        }
+        if (node.style.marginBottom) {
+            yogaNode.setMargin(yoga.EDGE_BOTTOM, node.style.marginBottom);
+        }
+        if (node.style.marginLeft) {
+            yogaNode.setMargin(yoga.EDGE_LEFT, node.style.marginLeft);
+        }
+        if (node.style.marginRight) {
+            yogaNode.setMargin(yoga.EDGE_RIGHT, node.style.marginRight);
+        }
+        yogaNode.setJustifyContent(yoga.JUSTIFY_CENTER);
+    }
+    if (node.children) {
+        node.children.forEach((child, id) => {
+            const newCache = {};
+            if (!cache.children) {
+                cache.children = [];
+            }
+            cache.children.push(newCache);
+            transformToYogaNode(yoga, newCache, child, yogaNode, id);
+        });
+    }
+    if (yogaParent) {
+        yogaParent.insertChild(yogaNode, childId);
+    }
+    return yogaNode;
+};
+
+const transformCache = cache => {
+    const result = cache.node.getComputedLayout();
+    if (!cache.children) {
+        return result;
+    }
+    return {
+        ...result,
+        children: cache.children.map(transformCache)
+    };
+};
+
 export const yogaWorker = yoga => message => {
     if (!message.value || message.value.type !== 'calculateLayout') {
         return;
     }
 
     const props = message.value.value;
+    console.log('yogaWorker input', props);
 
-    const yogaRoot = yoga.Node.create();
-    if (props.width) {
-        yogaRoot.setWidth(props.width);
-    }
-    if (props.height) {
-        yogaRoot.setHeight(props.height);
-    }
-    if (props.style) {
-        const style = props.style;
-        if (style.flexDirection) {
-            yogaRoot.setFlexDirection(transformFlexDirection(yoga)(style.flexDirection));
-        }
-        if (style.paddingTop) {
-            yogaRoot.setPadding(yoga.EDGE_TOP, style.paddingTop);
-        }
-        if (style.paddingBottom) {
-            yogaRoot.setPadding(yoga.EDGE_BOTTOM, style.paddingBottom);
-        }
-        if (style.paddingLeft) {
-            yogaRoot.setPadding(yoga.EDGE_LEFT, style.paddingLeft);
-        }
-        if (style.paddingRight) {
-            yogaRoot.setPadding(yoga.EDGE_RIGHT, style.paddingRight);
-        }
-    }
-    yogaRoot.setJustifyContent(yoga.JUSTIFY_CENTER);
-    const recalculatedChildren = [];
+    const cache = {};
+    const yogaRoot = transformToYogaNode(yoga, cache, props, null, null);
 
-    if (props.children) {
-        const yogaNodes = props.children.map((child: any, id) => {
-            const yogaNode = yoga.Node.create();
-            if (child.width && child.height) {
-                yogaNode.setWidth(child.width);
-                yogaNode.setHeight(child.height);
-            }
-            if (child.style) {
-                if (child.style.marginTop) {
-                    yogaNode.setMargin(yoga.EDGE_TOP, child.style.marginTop);
-                }
-                if (child.style.marginBottom) {
-                    yogaNode.setMargin(yoga.EDGE_BOTTOM, child.style.marginBottom);
-                }
-                if (child.style.marginLeft) {
-                    yogaNode.setMargin(yoga.EDGE_LEFT, child.style.marginLeft);
-                }
-                if (child.style.marginRight) {
-                    yogaNode.setMargin(yoga.EDGE_RIGHT, child.style.marginRight);
-                }
-            }
-            yogaRoot.insertChild(yogaNode, id);
-            return yogaNode;
-        });
+    yogaRoot.calculateLayout(props.width, props.height, yoga.DIRECTION_LTR);
 
-        yogaRoot.calculateLayout(props.width, props.height, yoga.DIRECTION_LTR);
-
-        props.children.forEach((child: any, id) => {
-            const yogaNode = yogaNodes[id];
-            const layoutProps = yogaNode.getComputedLayout();
-            recalculatedChildren.push(layoutProps);
-        });
-    }
-
-    const rootComputed = yogaRoot.getComputedLayout();
+    console.log('cache', cache);
+    console.log('transformCache', transformCache(cache));
 
     parent.postMessage(
         {
             pluginMessage: {
                 id: message.id,
-                value: {
-                    width: rootComputed.width,
-                    height: rootComputed.height,
-                    children: recalculatedChildren
-                }
+                value: transformCache(cache)
             }
         },
         '*'
