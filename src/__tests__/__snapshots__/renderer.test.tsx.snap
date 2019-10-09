@@ -3,7 +3,7 @@
 exports[`renderer simple 1`] = `
 Children {
   "children": Array [
-    Object {
+    Base {
       "fills": Array [
         Object {
           "color": Object {
@@ -14,8 +14,34 @@ Children {
           "type": "SOLID",
         },
       ],
-      "resize": [Function],
-      "setPluginData": [Function],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+      },
+      "type": "RECTANGLE",
+    },
+  ],
+}
+`;
+
+exports[`renderer simple 2 1`] = `
+Children {
+  "children": Array [
+    Base {
+      "fills": Array [
+        Object {
+          "color": Object {
+            "b": 0,
+            "g": 0.20784313725490197,
+            "r": 1,
+          },
+          "type": "SOLID",
+        },
+      ],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
+      },
       "type": "RECTANGLE",
     },
   ],
