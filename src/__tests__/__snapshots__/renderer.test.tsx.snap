@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderer simple 1`] = `
+Children {
+  "children": Array [
+    Object {
+      "fills": Array [
+        Object {
+          "color": Object {
+            "b": 0,
+            "g": 1,
+            "r": 0.07058823529411765,
+          },
+          "type": "SOLID",
+        },
+      ],
+      "resize": [Function],
+      "setPluginData": [Function],
+      "type": "RECTANGLE",
+    },
+  ],
+}
+`;
