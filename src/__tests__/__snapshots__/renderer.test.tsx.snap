@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renderer simple 1`] = `
-Children {
+ChildrenMixinStub {
   "children": Array [
-    Base {
+    LayoutMixinStub {
       "fills": Array [
         Object {
           "color": Object {
@@ -14,20 +14,23 @@ Children {
           "type": "SOLID",
         },
       ],
+      "height": 100,
       "pluginData": Object {
         "isReactFigmaNode": "true",
         "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
       },
       "type": "RECTANGLE",
+      "width": 200,
     },
   ],
+  "type": "DOCUMENT",
 }
 `;
 
 exports[`renderer simple 2 1`] = `
-Children {
+ChildrenMixinStub {
   "children": Array [
-    Base {
+    LayoutMixinStub {
       "fills": Array [
         Object {
           "color": Object {
@@ -38,12 +41,15 @@ Children {
           "type": "SOLID",
         },
       ],
+      "height": 100,
       "pluginData": Object {
         "isReactFigmaNode": "true",
         "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
       },
       "type": "RECTANGLE",
+      "width": 200,
     },
   ],
+  "type": "DOCUMENT",
 }
 `;
