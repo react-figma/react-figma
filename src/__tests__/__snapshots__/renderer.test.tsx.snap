@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renderer simple 1`] = `
+exports[`renderer render single component 1`] = `
 ChildrenMixinStub {
   "children": Array [
     LayoutMixinStub {
@@ -27,7 +27,7 @@ ChildrenMixinStub {
 }
 `;
 
-exports[`renderer simple 2 1`] = `
+exports[`renderer rerender single component 1`] = `
 ChildrenMixinStub {
   "children": Array [
     LayoutMixinStub {
