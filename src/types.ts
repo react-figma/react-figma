@@ -67,6 +67,11 @@ export interface TextNodeProps {
     lineHeight?: LineHeight | symbol;
 }
 
-export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps {}
+export interface ExportProps {
+    exportSettings?: ExportSettings[];
+    exportAsync?(settings?: ExportSettings): Promise<Uint8Array>; // Defaults to PNG format
+}
 
-export interface DefaultContainerProps extends BaseNodeProps, ChildrenProps, LayoutProps {}
+export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps {}
+
+export interface DefaultContainerProps extends BaseNodeProps, ChildrenProps, LayoutProps, ExportProps {}
