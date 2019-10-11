@@ -7,6 +7,7 @@ import { refMixin } from '../mixins/refMixin';
 import { propsAssign } from '../helpers/propsAssign';
 import { RectangleProps } from '../components/rectangle/Rectangle';
 import { cornerMixin } from '../mixins/cornerMixin';
+import { exportMixin } from '../mixins/exportMixin';
 
 const rectangleNodePropsAssign = propsAssign<BorderProps>([
     'topLeftRadius',
@@ -23,8 +24,9 @@ export const rectangle = (node: RectangleNode) => (props: RectangleProps) => {
     saveStyleMixin(rect)(props);
     layoutMixin(rect)(props);
     geometryMixin(rect)(props);
-
     cornerMixin(rect)(props);
+    exportMixin(rect)(props);
+
     rectangleNodePropsAssign(rect)(props);
 
     return rect;
