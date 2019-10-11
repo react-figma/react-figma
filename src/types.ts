@@ -69,7 +69,8 @@ export interface TextNodeProps {
 
 export interface ExportProps {
     exportSettings?: ExportSettings[];
-    exportAsync?(settings?: ExportSettings): Promise<Uint8Array>; // Defaults to PNG format
+    exportAsyncSettings?: ExportSettings;
+    exportAsyncCallback?: (result: Uint8Array) => any;
 }
 
 export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps {}
