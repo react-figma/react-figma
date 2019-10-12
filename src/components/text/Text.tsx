@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultShapeProps, TextNodeProps } from '../../types';
+import { DefaultShapeProps, TextNodeProps, BlendProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -9,9 +9,10 @@ import {
     transformTextStyleProperties
 } from '../../styleTransformers/transformTextStyleProperties';
 import { useYogaLayout, YogaContextProvider } from '../../hooks/useYogaLayout';
+import { transformBlendProperties } from '../../styleTransformers/transformBlendProperties';
 
 export interface TextProps extends TextNodeProps, DefaultShapeProps {
-    style?: LayoutStyleProperties & TextStyleProperties;
+    style?: LayoutStyleProperties & TextStyleProperties & BlendProps;
 }
 
 export const Text: React.ElementType<TextProps> = props => {
@@ -19,6 +20,7 @@ export const Text: React.ElementType<TextProps> = props => {
     const textProps = {
         ...transformLayoutStyleProperties(props.style),
         ...transformTextStyleProperties(props.style),
+        ...transformBlendProperties(props.style),
         ...props
     };
     const yogaProps = useYogaLayout({ yogaRef, ...textProps });

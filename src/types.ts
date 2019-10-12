@@ -73,6 +73,14 @@ export interface ExportProps {
     exportAsyncCallback?: (result: Uint8Array) => any;
 }
 
-export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps {}
+export interface BlendProps {
+    opacity?: number;
+    blendMode?: BlendMode;
+    isMask?: boolean;
+    effects?: ReadonlyArray<Effect>;
+    effectStyleId?: string;
+}
 
-export interface DefaultContainerProps extends BaseNodeProps, ChildrenProps, LayoutProps, ExportProps {}
+export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps, BlendProps {}
+
+export interface DefaultContainerProps extends BaseNodeProps, ChildrenProps, LayoutProps, ExportProps, BlendProps {}

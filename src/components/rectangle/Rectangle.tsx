@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultShapeProps, BorderProps, CornerProps } from '../../types';
+import { DefaultShapeProps, BorderProps, CornerProps, BlendProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -14,9 +14,10 @@ import {
     BorderStyleProperties,
     transformBorderStyleProperties
 } from '../../styleTransformers/transformBorderProperties';
+import { transformBlendProperties } from '../../styleTransformers/transformBlendProperties';
 
 export interface RectangleProps extends DefaultShapeProps, CornerProps, BorderProps {
-    style?: LayoutStyleProperties & GeometryStyleProperties & BorderStyleProperties;
+    style?: LayoutStyleProperties & GeometryStyleProperties & BorderStyleProperties & BlendProps;
     children?: undefined;
 }
 
@@ -27,6 +28,7 @@ export const Rectangle: React.ElementType<RectangleProps> = props => {
         ...transformLayoutStyleProperties(props.style),
         ...transformGeometryStyleProperties(props.style),
         ...transformBorderStyleProperties(props.style),
+        ...transformBlendProperties(props.style),
         ...props
     };
     const fills = useFillsPreprocessor(rectangleProps);
