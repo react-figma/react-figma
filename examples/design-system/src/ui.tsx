@@ -1,4 +1,4 @@
-import * as yoga from 'yoga-layout';
+import * as yoga from 'yoga-layout-prebuilt';
 import { uiWorker } from '../../../src';
 
 onmessage = event => {

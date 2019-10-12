@@ -68,7 +68,6 @@
     "webpack-cli": "^3.3.6"
   },
   "dependencies": {
-    "@types/yoga-layout": "^1.9.1",
     "nanoid": "^2.0.3",
     "object-assign": "^4.1.1",
     "prop-types": "^15.7.2",
@@ -76,6 +75,6 @@
     "react-json-renderer": "^0.6.0",
     "rxjs": "^6.5.2",
     "scheduler": "^0.15.0",
-    "yoga-layout": "^1.9.3"
+    "yoga-layout-prebuilt": "^1.9.3"
   }
 }
