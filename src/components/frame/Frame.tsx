@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { DefaultContainerProps, BlendProps } from '../../types';
+import { DefaultContainerProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import { useYogaLayout, YogaContextProvider } from '../../hooks/useYogaLayout';
-import { transformBlendProperties } from '../../styleTransformers/transformBlendProperties';
+import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 
 interface Preset {
     name: string;
@@ -182,7 +182,7 @@ export const FRAME_PRESETS = {
 };
 
 export interface FrameProps extends DefaultContainerProps {
-    style?: LayoutStyleProperties & BlendProps;
+    style?: LayoutStyleProperties & BlendStyleProperties;
     preset?: Preset;
 }
 
