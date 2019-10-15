@@ -9,9 +9,10 @@ import {
     transformTextStyleProperties
 } from '../../styleTransformers/transformTextStyleProperties';
 import { useYogaLayout, YogaContextProvider } from '../../hooks/useYogaLayout';
+import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 
 export interface TextProps extends TextNodeProps, DefaultShapeProps {
-    style?: LayoutStyleProperties & TextStyleProperties;
+    style?: LayoutStyleProperties & TextStyleProperties & BlendStyleProperties;
 }
 
 export const Text: React.ElementType<TextProps> = props => {
@@ -19,6 +20,7 @@ export const Text: React.ElementType<TextProps> = props => {
     const textProps = {
         ...transformLayoutStyleProperties(props.style),
         ...transformTextStyleProperties(props.style),
+        ...transformBlendProperties(props.style),
         ...props
     };
     const yogaProps = useYogaLayout({ yogaRef, ...textProps });

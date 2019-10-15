@@ -14,9 +14,10 @@ import {
     BorderStyleProperties,
     transformBorderStyleProperties
 } from '../../styleTransformers/transformBorderProperties';
+import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 
 export interface RectangleProps extends DefaultShapeProps, CornerProps, BorderProps {
-    style?: LayoutStyleProperties & GeometryStyleProperties & BorderStyleProperties;
+    style?: LayoutStyleProperties & GeometryStyleProperties & BorderStyleProperties & BlendStyleProperties;
     children?: undefined;
 }
 
@@ -27,6 +28,7 @@ export const Rectangle: React.ElementType<RectangleProps> = props => {
         ...transformLayoutStyleProperties(props.style),
         ...transformGeometryStyleProperties(props.style),
         ...transformBorderStyleProperties(props.style),
+        ...transformBlendProperties(props.style),
         ...props
     };
     const fills = useFillsPreprocessor(rectangleProps);

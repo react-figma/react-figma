@@ -8,6 +8,7 @@ import { propsAssign } from '../helpers/propsAssign';
 import { RectangleProps } from '../components/rectangle/Rectangle';
 import { cornerMixin } from '../mixins/cornerMixin';
 import { exportMixin } from '../mixins/exportMixin';
+import { blendMixin } from '../mixins/blendMixin';
 
 const rectangleNodePropsAssign = propsAssign<BorderProps>([
     'topLeftRadius',
@@ -26,6 +27,7 @@ export const rectangle = (node: RectangleNode) => (props: RectangleProps) => {
     geometryMixin(rect)(props);
     cornerMixin(rect)(props);
     exportMixin(rect)(props);
+    blendMixin(rect)(props);
 
     rectangleNodePropsAssign(rect)(props);
 

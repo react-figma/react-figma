@@ -6,6 +6,7 @@ import { propsAssign } from '../helpers/propsAssign';
 import { refMixin } from '../mixins/refMixin';
 import { exportMixin } from '../mixins/exportMixin';
 import { TextProps } from '../components/text/Text';
+import { blendMixin } from '../mixins/blendMixin';
 
 const textNodePropsAssign = propsAssign<TextProps>([
     'textAlignHorizontal',
@@ -32,6 +33,7 @@ export const text = (node: TextNode) => (props: TextProps) => {
     layoutMixin(textNode)(props);
     geometryMixin(textNode)(props);
     exportMixin(textNode)(props);
+    blendMixin(textNode)(props);
 
     let fontName = textNode.fontName;
     if (typeof fontName !== 'object') {
