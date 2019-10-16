@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from '../renderer';
-import { Rectangle } from '..';
+import { Rectangle, Page, Text } from '..';
 import { createFigma } from 'figma-api-stub';
 
 describe('renderer', () => {
@@ -22,5 +22,30 @@ describe('renderer', () => {
         render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />, figma.root);
         expect(figma.createRectangle).toHaveBeenCalledTimes(1);
         expect(figma.root).toMatchSnapshot();
+    });
+
+    it('insert new component between', () => {
+        figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
+        figma.createText = jest.fn().mockImplementation(figma.createText);
+        figma.createPage = jest.fn().mockImplementation(figma.createPage);
+        render(
+            <Page>
+                <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
+            </Page>,
+            figma.root
+        );
+        render(
+            <Page>
+                <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                <Text characters="test" />
+                <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
+            </Page>,
+            figma.root
+        );
+        expect(figma.createRectangle).toHaveBeenCalledTimes(3); // TODO should be 2
+        expect(figma.createText).toHaveBeenCalledTimes(1);
+        expect(figma.createPage).toHaveBeenCalledTimes(1);
+        expect(figma.root).toMatchSnapshot(); // TODO fix wrong snapshot
     });
 });

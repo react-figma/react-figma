@@ -1,5 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renderer insert new component between 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 1,
+                "r": 0.07058823529411765,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+          },
+          "type": "RECTANGLE",
+          "width": 200,
+        },
+        LayoutMixinStub {
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0.20784313725490197,
+                "r": 1,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
+          },
+          "type": "RECTANGLE",
+          "width": 200,
+        },
+        LayoutMixinStub {
+          "characters": "test",
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+          },
+          "type": "TEXT",
+        },
+        LayoutMixinStub {
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0.20784313725490197,
+                "r": 1,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
+          },
+          "type": "RECTANGLE",
+          "width": 200,
+        },
+      ],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
 exports[`renderer render single component 1`] = `
 ChildrenMixinStub {
   "children": Array [
