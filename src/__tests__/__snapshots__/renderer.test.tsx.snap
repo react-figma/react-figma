@@ -17,6 +17,7 @@ ChildrenMixinStub {
             },
           ],
           "height": 100,
+          "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
@@ -36,19 +37,14 @@ ChildrenMixinStub {
             },
           ],
           "height": 100,
+          "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
           },
+          "removed": true,
           "type": "RECTANGLE",
           "width": 200,
-        },
-        LayoutMixinStub {
-          "characters": "test",
-          "pluginData": Object {
-            "isReactFigmaNode": "true",
-          },
-          "type": "TEXT",
         },
         LayoutMixinStub {
           "fills": Array [
@@ -62,6 +58,7 @@ ChildrenMixinStub {
             },
           ],
           "height": 100,
+          "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
@@ -70,6 +67,7 @@ ChildrenMixinStub {
           "width": 200,
         },
       ],
+      "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
       },
@@ -95,6 +93,7 @@ ChildrenMixinStub {
         },
       ],
       "height": 100,
+      "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
         "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
@@ -122,6 +121,7 @@ ChildrenMixinStub {
         },
       ],
       "height": 100,
+      "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
         "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
