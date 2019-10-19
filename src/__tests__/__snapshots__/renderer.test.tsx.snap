@@ -42,27 +42,6 @@ ChildrenMixinStub {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
           },
-          "removed": true,
-          "type": "RECTANGLE",
-          "width": 200,
-        },
-        LayoutMixinStub {
-          "fills": Array [
-            Object {
-              "color": Object {
-                "b": 0,
-                "g": 0.20784313725490197,
-                "r": 1,
-              },
-              "type": "SOLID",
-            },
-          ],
-          "height": 100,
-          "parent": [Circular],
-          "pluginData": Object {
-            "isReactFigmaNode": "true",
-            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
-          },
           "type": "RECTANGLE",
           "width": 200,
         },
