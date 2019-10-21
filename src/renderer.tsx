@@ -132,5 +132,10 @@ export const render = async (jsx: any, rootNode) => {
     const reconciler = createReconciler(HostConfig);
 
     const container = reconciler.createContainer(rootNode, true, true);
+    const lastPage = figma.currentPage;
+    const tempPage = figma.createPage();
+    figma.currentPage = tempPage;
     reconciler.updateContainer(jsx, container);
+    figma.currentPage = lastPage;
+    tempPage.remove();
 };

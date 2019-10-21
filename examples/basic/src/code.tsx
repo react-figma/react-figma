@@ -2,5 +2,7 @@ import * as React from 'react';
 import { render } from '../../../src/';
 import { App } from './App';
 
-render(<App />, figma.root);
-figma.closePlugin();
+(async () => {
+    await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
+    render(<App />, figma.root);
+})();

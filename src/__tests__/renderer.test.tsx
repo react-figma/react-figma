@@ -6,20 +6,22 @@ import { createFigma } from 'figma-api-stub';
 describe('renderer', () => {
     beforeEach(() => {
         // @ts-ignore
-        global.figma = createFigma();
+        global.figma = createFigma({
+            simulateErrors: true
+        });
     });
 
     it('render single component', () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
-        render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />, figma.root);
+        render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />, figma.currentPage);
         expect(figma.createRectangle).toHaveBeenCalledTimes(1);
         expect(figma.root).toMatchSnapshot();
     });
 
     it('rerender single component', () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
-        render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />, figma.root);
-        render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />, figma.root);
+        render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />, figma.currentPage);
+        render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />, figma.currentPage);
         expect(figma.createRectangle).toHaveBeenCalledTimes(1);
         expect(figma.root).toMatchSnapshot();
     });
@@ -45,7 +47,7 @@ describe('renderer', () => {
         );
         expect(figma.createRectangle).toHaveBeenCalledTimes(2);
         expect(figma.createText).toHaveBeenCalledTimes(1);
-        expect(figma.createPage).toHaveBeenCalledTimes(1);
+        expect(figma.createPage).toHaveBeenCalledTimes(3);
         expect(figma.root).toMatchSnapshot();
     });
 });
