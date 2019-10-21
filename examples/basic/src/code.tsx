@@ -4,5 +4,6 @@ import { App } from './App';
 
 (async () => {
     await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
-    render(<App />, figma.root);
+    render(<App />, figma.currentPage);
+    figma.closePlugin();
 })();
