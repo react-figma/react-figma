@@ -1,6 +1,7 @@
 export { render } from './renderer';
 export { uiWorker } from './uiWorker';
 export { subscribeOnMessages } from './helpers/messagePromise';
+export { YogaContextProvider } from './hooks/useYogaLayout';
 
 export { Text } from './components/text/Text';
 export { Rectangle } from './components/rectangle/Rectangle';
