@@ -124,6 +124,12 @@ export const render = async (jsx: any, rootNode) => {
         didNotFindHydratableInstance: (...args) => {
             console.log('didNotFindHydratableInstance', ...args);
         },
+        didNotHydrateInstance: (parentType, parentProps, parentInstance, instance) => {
+            console.log('didNotHydrateInstance', parentType, parentProps, parentInstance, instance);
+            if (isReactFigmaNode(instance)) {
+                instance.remove();
+            }
+        },
         commitMount: (instance, type, newProps, internalInstanceHandle) => {
             console.log('commitMount', instance, type, newProps, internalInstanceHandle);
         }
