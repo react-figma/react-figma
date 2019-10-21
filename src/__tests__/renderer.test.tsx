@@ -43,9 +43,9 @@ describe('renderer', () => {
             </Page>,
             figma.root
         );
-        expect(figma.createRectangle).toHaveBeenCalledTimes(3); // TODO should be 2
+        expect(figma.createRectangle).toHaveBeenCalledTimes(2);
         expect(figma.createText).toHaveBeenCalledTimes(1);
         expect(figma.createPage).toHaveBeenCalledTimes(1);
-        expect(figma.root).toMatchSnapshot(); // TODO fix wrong snapshot
+        expect(figma.root).toMatchSnapshot();
     });
 });

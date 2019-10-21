@@ -26,6 +26,14 @@ ChildrenMixinStub {
           "width": 200,
         },
         LayoutMixinStub {
+          "characters": "test",
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+          },
+          "type": "TEXT",
+        },
+        LayoutMixinStub {
           "fills": Array [
             Object {
               "color": Object {
