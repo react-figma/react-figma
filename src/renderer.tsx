@@ -54,6 +54,8 @@ export const render = async (jsx: any, rootNode) => {
         },
         insertBefore: (parentNode, newChildNode, beforeChildNode) => {
             console.log('insertBefore', parentNode, newChildNode, beforeChildNode);
+            const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
+            parentNode.insertChild(beforeChildIndex, newChildNode);
         },
         finalizeInitialChildren: (...args) => {
             console.log('finalizeInitialChildren', ...args);
@@ -87,21 +89,14 @@ export const render = async (jsx: any, rootNode) => {
         },
         canHydrateInstance: (instance, type, props) => {
             console.log('canHydrateInstance', instance, type, props);
-            if (!isReactFigmaNode(instance)) {
-                return;
+            if (!isReactFigmaNode(instance) || instance.type.toLowerCase() !== type) {
+                return null;
             }
-            if (instance.type.toLowerCase() !== type) {
-                instance.remove();
-                return;
-            } else {
-                return instance;
-            }
+            return instance;
         },
         hydrateInstance: (instance, type, props) => {
             console.log('hydrateInstance', instance, type, props);
-            const result = renderers[type](instance)(props);
-            //$forUpdates.next({instance: result, type, props});
-            return result;
+            return renderers[type](instance.type.toLowerCase() === type ? instance : null)(props);
         },
         getFirstHydratableChild: parentInstance => {
             console.log('getFirstHydratableChild', parentInstance);
@@ -137,5 +132,10 @@ export const render = async (jsx: any, rootNode) => {
     const reconciler = createReconciler(HostConfig);
 
     const container = reconciler.createContainer(rootNode, true, true);
+    const lastPage = figma.currentPage;
+    const tempPage = figma.createPage();
+    figma.currentPage = tempPage;
     reconciler.updateContainer(jsx, container);
+    figma.currentPage = lastPage;
+    tempPage.remove();
 };

@@ -1,26 +1,102 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renderer insert new component between 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ChildrenMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 1,
+                "r": 0.07058823529411765,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+          },
+          "type": "RECTANGLE",
+          "width": 200,
+        },
+        LayoutMixinStub {
+          "characters": "test",
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+          },
+          "type": "TEXT",
+        },
+        LayoutMixinStub {
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0.20784313725490197,
+                "r": 1,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
+          },
+          "type": "RECTANGLE",
+          "width": 200,
+        },
+      ],
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
 exports[`renderer render single component 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    LayoutMixinStub {
-      "fills": Array [
-        Object {
-          "color": Object {
-            "b": 0,
-            "g": 1,
-            "r": 0.07058823529411765,
+    ChildrenMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 1,
+                "r": 0.07058823529411765,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
           },
-          "type": "SOLID",
+          "type": "RECTANGLE",
+          "width": 200,
         },
       ],
-      "height": 100,
-      "pluginData": Object {
-        "isReactFigmaNode": "true",
-        "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
-      },
-      "type": "RECTANGLE",
-      "width": 200,
+      "parent": [Circular],
+      "type": "PAGE",
     },
   ],
   "type": "DOCUMENT",
@@ -30,24 +106,31 @@ ChildrenMixinStub {
 exports[`renderer rerender single component 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    LayoutMixinStub {
-      "fills": Array [
-        Object {
-          "color": Object {
-            "b": 0,
-            "g": 0.20784313725490197,
-            "r": 1,
+    ChildrenMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0.20784313725490197,
+                "r": 1,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
           },
-          "type": "SOLID",
+          "type": "RECTANGLE",
+          "width": 200,
         },
       ],
-      "height": 100,
-      "pluginData": Object {
-        "isReactFigmaNode": "true",
-        "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
-      },
-      "type": "RECTANGLE",
-      "width": 200,
+      "parent": [Circular],
+      "type": "PAGE",
     },
   ],
   "type": "DOCUMENT",

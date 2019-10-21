@@ -35,15 +35,6 @@ export const text = (node: TextNode) => (props: TextProps) => {
     exportMixin(textNode)(props);
     blendMixin(textNode)(props);
 
-    let fontName = textNode.fontName;
-    if (typeof fontName !== 'object') {
-        fontName = {
-            family: 'Roboto',
-            style: 'Regular'
-        };
-    }
-    //figma.loadFontAsync(fontName);
-
     textNode.characters = props.characters;
 
     textNodePropsAssign(textNode)(props);
