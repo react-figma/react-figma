@@ -1,6 +1,6 @@
 {
   "name": "react-figma",
-  "version": "0.0.1-alpha.6",
+  "version": "0.0.1-alpha.7",
   "description": "This plugin template uses Typescript. If you are familiar with Javascript, Typescript will look very familiar. In fact, valid Javascript code is already valid Typescript code.",
   "main": "./dist/index.js",
   "scripts": {
@@ -11,7 +11,11 @@
     "build:clean": "rimraf dist",
     "build:lib": "cross-env BABEL_ENV=production tsc -p tsconfig.json",
     "build:js": "copyfiles -u 1 src/**/*.js dist",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "gitbook:clean": "rm -rf _book/",
+    "gitbook:start": "gitbook serve",
+    "gitbook:build": "gitbook build",
+    "now-build": "npm run gitbook:build"
   },
   "jest": {
     "preset": "ts-jest/presets/js-with-babel"
@@ -42,6 +46,12 @@
     "copyfiles": "^2.1.1",
     "cross-env": "^5.2.0",
     "css-loader": "^3.2.0",
+    "figma-api-stub": "0.0.8",
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-anchorjs": "^2.1.0",
+    "gitbook-plugin-edit-link": "^2.0.2",
+    "gitbook-plugin-github": "^2.0.0",
+    "gitbook-plugin-prism": "^2.4.0",
     "html-webpack-inline-source-plugin": "^0.0.10",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
@@ -58,7 +68,6 @@
     "webpack-cli": "^3.3.6"
   },
   "dependencies": {
-    "@types/yoga-layout": "^1.9.1",
     "nanoid": "^2.0.3",
     "object-assign": "^4.1.1",
     "prop-types": "^15.7.2",
@@ -66,6 +75,6 @@
     "react-json-renderer": "^0.6.0",
     "rxjs": "^6.5.2",
     "scheduler": "^0.15.0",
-    "yoga-layout": "^1.9.3"
+    "yoga-layout-prebuilt": "^1.9.3"
   }
 }

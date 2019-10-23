@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "name": "react-figma",
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "_book" } }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "routes": [
+    { "src": "^/(.*)", "dest": "/$1" }
+  ]
+}

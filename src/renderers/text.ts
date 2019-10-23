@@ -4,8 +4,11 @@ import { layoutMixin } from '../mixins/layoutMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
 import { propsAssign } from '../helpers/propsAssign';
 import { refMixin } from '../mixins/refMixin';
+import { exportMixin } from '../mixins/exportMixin';
+import { TextProps } from '../components/text/Text';
+import { blendMixin } from '../mixins/blendMixin';
 
-const textNodePropsAssign = propsAssign<TextNode>([
+const textNodePropsAssign = propsAssign<TextProps>([
     'textAlignHorizontal',
     'textAlignVertical',
     'textAlignVertical',
@@ -21,7 +24,7 @@ const textNodePropsAssign = propsAssign<TextNode>([
     'lineHeight'
 ]);
 
-export const text = node => props => {
+export const text = (node: TextNode) => (props: TextProps) => {
     const textNode = node || figma.createText();
 
     refMixin(textNode)(props);
@@ -29,15 +32,8 @@ export const text = node => props => {
     saveStyleMixin(textNode)(props);
     layoutMixin(textNode)(props);
     geometryMixin(textNode)(props);
-
-    let fontName = textNode.fontName;
-    if (typeof fontName !== 'object') {
-        fontName = {
-            family: 'Roboto',
-            style: 'Regular'
-        };
-    }
-    //figma.loadFontAsync(fontName);
+    exportMixin(textNode)(props);
+    blendMixin(textNode)(props);
 
     textNode.characters = props.characters;
 

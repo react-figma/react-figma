@@ -67,6 +67,20 @@ export interface TextNodeProps {
     lineHeight?: LineHeight | symbol;
 }
 
-export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps {}
+export interface ExportProps {
+    exportSettings?: ExportSettings[];
+    exportAsyncSettings?: ExportSettings;
+    exportAsyncCallback?: (result: Uint8Array) => any;
+}
 
-export interface DefaultContainerProps extends BaseNodeProps, ChildrenProps, LayoutProps {}
+export interface BlendProps {
+    opacity?: number;
+    blendMode?: BlendMode;
+    isMask?: boolean;
+    effects?: ReadonlyArray<Effect>;
+    effectStyleId?: string;
+}
+
+export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps, BlendProps {}
+
+export interface DefaultContainerProps extends BaseNodeProps, ChildrenProps, LayoutProps, ExportProps, BlendProps {}
