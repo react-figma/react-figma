@@ -46,16 +46,34 @@ export const render = async (jsx: any, rootNode) => {
         // Append root node to a container
         appendInitialChild: (parentNode, childNode) => {
             console.log('appendInitialChild', parentNode, childNode);
-            parentNode.appendChild(childNode);
+
+            if (childNode.type === 'PRE_GROUP') {
+                try {
+                    childNode.children.forEach(el => {
+                        parentNode.appendChild(el);
+                    });
+                    childNode.groupNode = figma.group(childNode.children, parentNode);
+                    childNode.didMount();
+                } catch (e) {
+                    console.log('Group error:', e, childNode.children, parentNode);
+                }
+            } else {
+                parentNode.appendChild(childNode);
+            }
         },
         appendChild: (parentNode, childNode) => {
             console.log('appendChild', parentNode, childNode);
-            parentNode.appendChild(childNode);
+
+            if (childNode.type === 'PRE_GROUP') {
+                throw 'Hydration on groups is not supported';
+            } else {
+                parentNode.appendChild(childNode);
+            }
         },
         insertBefore: (parentNode, newChildNode, beforeChildNode) => {
             console.log('insertBefore', parentNode, newChildNode, beforeChildNode);
         },
-        finalizeInitialChildren: (...args) => {
+        finalizeInitialChildren: (element, type, ...args) => {
             console.log('finalizeInitialChildren', ...args);
         },
         supportsMutation: true,
