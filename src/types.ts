@@ -81,6 +81,11 @@ export interface BlendProps {
     effectStyleId?: string;
 }
 
+export interface StarNodeProps {
+    pointCount?: number;
+    innerRadius?: number;
+}
+
 export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps, BlendProps {}
 
 export interface DefaultContainerProps extends BaseNodeProps, ChildrenProps, LayoutProps, ExportProps, BlendProps {}
