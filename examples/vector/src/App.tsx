@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Page, Rectangle, Text, ErrorBoundary, Vector } from '../../../src';
+import { Page, Rectangle, Text, Vector } from '../../../src';
 
 export const App = () => {
     return (
