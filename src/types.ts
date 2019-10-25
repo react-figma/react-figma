@@ -92,12 +92,6 @@ export interface StarNodeProps {
     innerRadius?: number;
 }
 
-export interface VectorNodeProps {
-    vectorPaths?: VectorPaths;
-    vectorNetwork?: VectorNetwork;
-    handleMirroring?: HandleMirroring | symbol;
-}
-
 export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps, BlendProps {}
 
 export interface DefaultContainerProps extends BaseNodeProps, ChildrenProps, LayoutProps, ExportProps, BlendProps {}
