@@ -10,3 +10,4 @@ export { Component } from './components/component/Component';
 export { Frame, FRAME_PRESETS } from './components/frame/Frame';
 export { Vector } from './components/vector/Vector';
 export { ErrorBoundary } from './components/errorBoundary/errorboundary';
+export { Star } from './components/star/Star';
