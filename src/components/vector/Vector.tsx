@@ -9,6 +9,7 @@ import { transformBlendProperties, BlendStyleProperties } from '../../styleTrans
 
 export interface VectorProps extends VectorNodeProps, DefaultShapeProps, CornerProps {
     style?: LayoutStyleProperties & BlendStyleProperties;
+    children?: undefined;
 }
 
 export const Vector: React.ElementType<VectorProps> = props => {

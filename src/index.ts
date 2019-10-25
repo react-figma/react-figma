@@ -8,3 +8,5 @@ export { Rectangle } from './components/rectangle/Rectangle';
 export { Page } from './components/page/Page';
 export { Component } from './components/component/Component';
 export { Frame, FRAME_PRESETS } from './components/frame/Frame';
+export { Vector } from './components/vector/Vector';
+export { ErrorBoundary } from './components/errorBoundary/errorboundary';
