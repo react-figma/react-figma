@@ -10,7 +10,7 @@ import { blendMixin } from '../mixins/blendMixin';
 import { propsAssign } from '../helpers/propsAssign';
 import { VectorProps } from '../components/vector/Vector';
 
-const vectorNodePropsAssign = propsAssign<VectorProps>(['vectorPaths', 'vectorNetwork', 'handleMirroring'] as any);
+const vectorNodePropsAssign = propsAssign<VectorProps>(['vectorPaths', 'vectorNetwork', 'handleMirroring']);
 
 export const vector = (node: VectorNode) => (props: VectorProps) => {
     const vectorNode = node || figma.createVector();
@@ -25,5 +25,5 @@ export const vector = (node: VectorNode) => (props: VectorProps) => {
     blendMixin(vectorNode)(props);
     vectorNodePropsAssign(vectorNode)(props);
 
-    return vector;
+    return vectorNode;
 };

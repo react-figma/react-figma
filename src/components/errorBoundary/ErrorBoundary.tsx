@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Text } from '../text/Text';
-import { Rectangle } from '../rectangle/Rectangle';
 
 export class ErrorBoundary extends React.Component<{}, { error?: Error }> {
     constructor(props) {
@@ -9,7 +8,6 @@ export class ErrorBoundary extends React.Component<{}, { error?: Error }> {
     }
 
     componentDidCatch(error) {
-        console.log(error);
         this.setState({ error });
         return false;
     }

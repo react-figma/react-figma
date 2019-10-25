@@ -1,31 +1,6 @@
 import * as React from 'react';
 import { Page, Rectangle, Text, ErrorBoundary, Vector } from '../../../src';
 
-let vnetwork = {
-    vertices: [
-        {
-            x: 1,
-            y: 1,
-            strokeCap: 'NONE',
-            strokeJoin: 'ROUND',
-            cornerRadius: 2,
-            handleMirroring: 'NONE'
-        }
-    ],
-    segments: [
-        {
-            start: 1,
-            end: 2
-        }
-    ],
-    regions: [
-        {
-            windingRule: 'NONZERO',
-            loops: [[1]]
-        }
-    ]
-};
-
 export const App = () => {
     return (
         <Vector
@@ -53,6 +28,7 @@ export const App = () => {
                 // sequence of indices into the segments array.
                 regions: [{ windingRule: 'NONZERO', loops: [[0, 1, 2]] }]
             }}
-            style={{ backgroundColor: '#ff0000' }}></Vector>
+            style={{ backgroundColor: '#ff0000' }}
+        />
     );
 };
