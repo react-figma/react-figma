@@ -40,6 +40,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "zqwitt",
+      "name": "Zachary Witt",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5651980?v=4",
+      "profile": "http://www.zacharyquintenwitt.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
