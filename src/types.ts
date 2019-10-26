@@ -81,6 +81,12 @@ export interface BlendProps {
     effectStyleId?: string;
 }
 
+export interface VectorNodeProps {
+    vectorPaths?: VectorPaths;
+    vectorNetwork?: VectorNetwork;
+    handleMirroring?: HandleMirroring | symbol;
+}
+
 export interface StarNodeProps {
     pointCount?: number;
     innerRadius?: number;

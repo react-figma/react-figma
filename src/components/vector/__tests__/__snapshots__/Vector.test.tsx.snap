@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Vector /> Vector that draws a triangle 1`] = `
+<vector
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  vectorNetwork={
+    Object {
+      "regions": Array [
+        Object {
+          "loops": Array [
+            Array [
+              0,
+              1,
+              2,
+            ],
+          ],
+          "windingRule": "NONZERO",
+        },
+      ],
+      "segments": Array [
+        Object {
+          "end": 1,
+          "start": 0,
+        },
+        Object {
+          "end": 2,
+          "start": 1,
+        },
+        Object {
+          "end": 0,
+          "start": 2,
+        },
+      ],
+      "vertices": Array [
+        Object {
+          "x": 0,
+          "y": 100,
+        },
+        Object {
+          "x": 100,
+          "y": 100,
+        },
+        Object {
+          "x": 50,
+          "y": 0,
+        },
+      ],
+    }
+  }
+/>
+`;
+
+exports[`<Vector /> Vector without props 1`] = `
+<vector
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+/>
+`;
