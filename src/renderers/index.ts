@@ -4,4 +4,4 @@ export { page } from './page';
 export { frame } from './frame';
 export { currentPage } from './currentPage';
 export { component } from './component';
-export { group } from './group';
+export { group } from './group/group';

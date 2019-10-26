@@ -3,9 +3,14 @@ import * as renderers from './renderers';
 // todo replace with webpack aliasing, install @types/react-reconciler
 import * as createReconciler from './realm-adopted/react-reconciler';
 
+import { GroupsProcessor } from './renderers/group/groupsProcessor';
+import { PREGROUP_NODE_TYPE } from './renderers/group/pregroupNode';
+
 const isReactFigmaNode = child => child.getPluginData && child.getPluginData('isReactFigmaNode');
 
 export const render = async (jsx: any, rootNode) => {
+    const groupsProcessor = new GroupsProcessor();
+
     const HostConfig = {
         now: Date.now,
         getRootHostContext: (...args) => {
@@ -47,16 +52,8 @@ export const render = async (jsx: any, rootNode) => {
         appendInitialChild: (parentNode, childNode) => {
             console.log('appendInitialChild', parentNode, childNode);
 
-            if (childNode.type === 'PRE_GROUP') {
-                try {
-                    childNode.children.forEach(el => {
-                        parentNode.appendChild(el);
-                    });
-                    childNode.groupNode = figma.group(childNode.children, parentNode);
-                    childNode.didMount();
-                } catch (e) {
-                    console.log('Group error:', e, childNode.children, parentNode);
-                }
+            if (childNode.type === PREGROUP_NODE_TYPE) {
+                groupsProcessor.scheduleGroup(parentNode, childNode);
             } else {
                 parentNode.appendChild(childNode);
             }
@@ -64,8 +61,12 @@ export const render = async (jsx: any, rootNode) => {
         appendChild: (parentNode, childNode) => {
             console.log('appendChild', parentNode, childNode);
 
-            if (childNode.type === 'PRE_GROUP') {
-                throw 'Hydration on groups is not supported';
+            if (childNode.type === PREGROUP_NODE_TYPE) {
+                if (childNode.groupNode) {
+                    parentNode.appendChild(childNode.groupNode);
+                } else {
+                    groupsProcessor.scheduleGroup(parentNode, childNode);
+                }
             } else {
                 parentNode.appendChild(childNode);
             }
@@ -76,7 +77,9 @@ export const render = async (jsx: any, rootNode) => {
             parentNode.insertChild(beforeChildIndex, newChildNode);
         },
         finalizeInitialChildren: (element, type, ...args) => {
-            console.log('finalizeInitialChildren', ...args);
+            console.log('finalizeInitialChildren', type, ...args);
+
+            return type === 'page';
         },
         supportsMutation: true,
         supportsHydration: true,
@@ -150,6 +153,10 @@ export const render = async (jsx: any, rootNode) => {
         },
         commitMount: (instance, type, newProps, internalInstanceHandle) => {
             console.log('commitMount', instance, type, newProps, internalInstanceHandle);
+
+            if (type === 'page') {
+                groupsProcessor.mountGroups();
+            }
         }
     };
 
