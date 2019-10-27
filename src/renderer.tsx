@@ -5,6 +5,21 @@ import * as createReconciler from './realm-adopted/react-reconciler';
 
 const isReactFigmaNode = child => child.getPluginData && child.getPluginData('isReactFigmaNode');
 
+const appendToContainer = (parentNode, childNode) => {
+    if (!childNode || !parentNode) {
+        return;
+    }
+    parentNode.appendChild(childNode);
+};
+
+const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
+    if (!parentNode || !newChildNode || !beforeChildNode) {
+        return;
+    }
+    const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
+    parentNode.insertChild(beforeChildIndex, newChildNode);
+};
+
 export const render = async (jsx: any, rootNode) => {
     const HostConfig = {
         now: Date.now,
@@ -46,16 +61,15 @@ export const render = async (jsx: any, rootNode) => {
         // Append root node to a container
         appendInitialChild: (parentNode, childNode) => {
             console.log('appendInitialChild', parentNode, childNode);
-            parentNode.appendChild(childNode);
+            appendToContainer(parentNode, childNode);
         },
         appendChild: (parentNode, childNode) => {
             console.log('appendChild', parentNode, childNode);
-            parentNode.appendChild(childNode);
+            appendToContainer(parentNode, childNode);
         },
         insertBefore: (parentNode, newChildNode, beforeChildNode) => {
             console.log('insertBefore', parentNode, newChildNode, beforeChildNode);
-            const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
-            parentNode.insertChild(beforeChildIndex, newChildNode);
+            insertToContainer(parentNode, newChildNode, beforeChildNode);
         },
         finalizeInitialChildren: (...args) => {
             console.log('finalizeInitialChildren', ...args);
@@ -64,7 +78,7 @@ export const render = async (jsx: any, rootNode) => {
         supportsHydration: true,
         appendChildToContainer: (parentNode, childNode) => {
             console.log('appendChildToContainer', parentNode, childNode);
-            parentNode.appendChild(childNode);
+            appendToContainer(parentNode, childNode);
         },
         insertInContainerBefore: (parentNode, newChildNode, beforeChildNode) => {
             console.log('insertInContainerBefore', parentNode, newChildNode, beforeChildNode);
