@@ -9,6 +9,5 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "detect-browser": "^4.8.0"
   }
 }
