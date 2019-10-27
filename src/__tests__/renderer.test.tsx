@@ -75,4 +75,19 @@ describe('renderer', () => {
         expect(figma.createPage).toHaveBeenCalledTimes(3);
         expect(figma.root).toMatchSnapshot();
     });
+
+    it('text instance without Text component', () => {
+        figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
+        figma.createText = jest.fn().mockImplementation(figma.createText);
+        render(
+            <Page>
+                <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} /> fff
+                <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
+            </Page>,
+            figma.root
+        );
+        expect(figma.createRectangle).toHaveBeenCalledTimes(2);
+        expect(figma.createText).toHaveBeenCalledTimes(0);
+        expect(figma.root).toMatchSnapshot();
+    });
 });
