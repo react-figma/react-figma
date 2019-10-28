@@ -6,3 +6,4 @@ export { currentPage } from './currentPage';
 export { component } from './component';
 export { star } from './star';
 export { vector } from './vector';
+export { line } from './line';
