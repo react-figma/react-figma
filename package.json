@@ -1,6 +1,6 @@
 {
   "name": "react-figma",
-  "version": "0.0.1-alpha.7",
+  "version": "0.0.1-alpha.9",
   "description": "This plugin template uses Typescript. If you are familiar with Javascript, Typescript will look very familiar. In fact, valid Javascript code is already valid Typescript code.",
   "main": "./dist/index.js",
   "scripts": {
@@ -46,7 +46,7 @@
     "copyfiles": "^2.1.1",
     "cross-env": "^5.2.0",
     "css-loader": "^3.2.0",
-    "figma-api-stub": "0.0.8",
+    "figma-api-stub": "0.0.9",
     "gitbook-cli": "^2.3.2",
     "gitbook-plugin-anchorjs": "^2.1.0",
     "gitbook-plugin-edit-link": "^2.0.2",

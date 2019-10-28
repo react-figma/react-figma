@@ -69,6 +69,67 @@ ChildrenMixinStub {
 }
 `;
 
+exports[`renderer remove component between (equal components) 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ChildrenMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 1,
+                "g": 0.2823529411764706,
+                "r": 0,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#0048ff\\"}",
+          },
+          "type": "RECTANGLE",
+          "width": 200,
+        },
+        LayoutMixinStub {
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0.20784313725490197,
+                "r": 1,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
+          },
+          "type": "RECTANGLE",
+          "width": 200,
+        },
+      ],
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
 exports[`renderer remove component between 1`] = `
 ChildrenMixinStub {
   "children": Array [
@@ -191,6 +252,128 @@ ChildrenMixinStub {
         },
       ],
       "parent": [Circular],
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer text instance without Text component (with hydration page) 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ChildrenMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 1,
+                "r": 0.07058823529411765,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+          },
+          "type": "RECTANGLE",
+          "width": 200,
+        },
+        LayoutMixinStub {
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0.20784313725490197,
+                "r": 1,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
+          },
+          "type": "RECTANGLE",
+          "width": 200,
+        },
+      ],
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer text instance without Text component 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ChildrenMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 1,
+                "r": 0.07058823529411765,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+          },
+          "type": "RECTANGLE",
+          "width": 200,
+        },
+        LayoutMixinStub {
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0.20784313725490197,
+                "r": 1,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
+          },
+          "type": "RECTANGLE",
+          "width": 200,
+        },
+      ],
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+      },
       "type": "PAGE",
     },
   ],
