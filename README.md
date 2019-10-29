@@ -49,13 +49,13 @@ You can use [react-figma-boilerplate](https://github.com/LosYear/react-figma-boi
 Install it with yarn:
 
 ```
-yarn add react-figma yoga-layout
+yarn add react react-figma yoga-layout
 ```
 
 Or with npm:
 
 ```
-npm i react-figma yoga-layout --save
+npm i react react-figma yoga-layout --save
 ```
 
 ### Usage
