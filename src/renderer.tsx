@@ -8,6 +8,62 @@ import { PREGROUP_NODE_TYPE } from './renderers/group/pregroupNode';
 
 const isReactFigmaNode = child => child.getPluginData && child.getPluginData('isReactFigmaNode');
 
+const appendToContainer = (groupsProcessor, parentNode, childNode) => {
+    if (!childNode || !parentNode) {
+        return;
+    }
+
+    if (childNode.type === PREGROUP_NODE_TYPE) {
+        if (childNode.groupNode) {
+            parentNode.appendChild(childNode.groupNode);
+        } else {
+            groupsProcessor.scheduleGroup(parentNode, childNode);
+        }
+    } else {
+        parentNode.appendChild(childNode);
+    }
+};
+
+const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
+    if (!parentNode || !newChildNode || !beforeChildNode) {
+        return;
+    }
+    const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
+    parentNode.insertChild(beforeChildIndex, newChildNode);
+};
+
+const remove = childNode => {
+    if (!childNode || childNode.removed) {
+        return;
+    }
+    childNode.remove();
+};
+
+const renderInstance = (type, node, props) => {
+    const instance = renderers[type](node)(props);
+    if (!node) {
+        instance.setPluginData('isReactFigmaNode', 'true');
+    }
+    return instance;
+};
+
+const getFirstChild = parentInstance => {
+    if (parentInstance.children && parentInstance.children.length > 0) {
+        return parentInstance.children.find(isReactFigmaNode);
+    }
+};
+
+const getNextChildren = instance => {
+    if (!instance || !instance.parent) {
+        return;
+    }
+    const parent = instance.parent;
+    console.log('getNextHydratableSibling:children', parent.children);
+    const instanceIndex = parent.children.indexOf(instance);
+    console.log('getNextHydratableSibling:instanceIndex', instanceIndex);
+    return parent.children.slice(instanceIndex + 1).find(isReactFigmaNode);
+};
+
 export const render = async (jsx: any, rootNode) => {
     const groupsProcessor = new GroupsProcessor();
 
@@ -34,13 +90,7 @@ export const render = async (jsx: any, rootNode) => {
         },
         createInstance: (type, props, ...other) => {
             console.log('createInstance', type, props, ...other);
-            const instance = renderers[type]()(props);
-            try {
-                instance.setPluginData('isReactFigmaNode', 'true');
-            } catch (e) {
-                console.log(e);
-            }
-            return instance;
+            return renderInstance(type, null, props);
         },
         createTextInstance: text => {
             console.log('createTextInstance', text);
@@ -51,30 +101,15 @@ export const render = async (jsx: any, rootNode) => {
         // Append root node to a container
         appendInitialChild: (parentNode, childNode) => {
             console.log('appendInitialChild', parentNode, childNode);
-
-            if (childNode.type === PREGROUP_NODE_TYPE) {
-                groupsProcessor.scheduleGroup(parentNode, childNode);
-            } else {
-                parentNode.appendChild(childNode);
-            }
+            appendToContainer(groupsProcessor, parentNode, childNode);
         },
         appendChild: (parentNode, childNode) => {
             console.log('appendChild', parentNode, childNode);
-
-            if (childNode.type === PREGROUP_NODE_TYPE) {
-                if (childNode.groupNode) {
-                    parentNode.appendChild(childNode.groupNode);
-                } else {
-                    groupsProcessor.scheduleGroup(parentNode, childNode);
-                }
-            } else {
-                parentNode.appendChild(childNode);
-            }
+            appendToContainer(groupsProcessor, parentNode, childNode);
         },
         insertBefore: (parentNode, newChildNode, beforeChildNode) => {
             console.log('insertBefore', parentNode, newChildNode, beforeChildNode);
-            const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
-            parentNode.insertChild(beforeChildIndex, newChildNode);
+            insertToContainer(parentNode, newChildNode, beforeChildNode);
         },
         finalizeInitialChildren: (element, type, ...args) => {
             console.log('finalizeInitialChildren', type, ...args);
@@ -85,7 +120,7 @@ export const render = async (jsx: any, rootNode) => {
         supportsHydration: true,
         appendChildToContainer: (parentNode, childNode) => {
             console.log('appendChildToContainer', parentNode, childNode);
-            parentNode.appendChild(childNode);
+            appendToContainer(groupsProcessor, parentNode, childNode);
         },
         insertInContainerBefore: (parentNode, newChildNode, beforeChildNode) => {
             console.log('insertInContainerBefore', parentNode, newChildNode, beforeChildNode);
@@ -98,7 +133,7 @@ export const render = async (jsx: any, rootNode) => {
             return true;
         },
         commitUpdate: (node, updatePayload, type, oldProps, newProps) => {
-            renderers[type](node)(newProps);
+            renderInstance(type, node, newProps);
             console.log('commitUpdate', node, updatePayload, type, oldProps, newProps);
         },
         commitTextUpdate: (node, oldText, newText) => {
@@ -106,7 +141,7 @@ export const render = async (jsx: any, rootNode) => {
         },
         removeChild: (parentNode, childNode) => {
             console.log('removeChild', parentNode, childNode);
-            childNode.remove();
+            remove(childNode);
         },
         canHydrateInstance: (instance, type, props) => {
             console.log('canHydrateInstance', instance, type, props);
@@ -117,24 +152,15 @@ export const render = async (jsx: any, rootNode) => {
         },
         hydrateInstance: (instance, type, props) => {
             console.log('hydrateInstance', instance, type, props);
-            return renderers[type](instance.type.toLowerCase() === type ? instance : null)(props);
+            return renderInstance(type, instance.type.toLowerCase() === type ? instance : null, props);
         },
         getFirstHydratableChild: parentInstance => {
             console.log('getFirstHydratableChild', parentInstance);
-            if (parentInstance.children && parentInstance.children.length > 0) {
-                return parentInstance.children.find(isReactFigmaNode);
-            }
+            return getFirstChild(parentInstance);
         },
         getNextHydratableSibling: instance => {
             console.log('getNextHydratableSibling', instance);
-            if (!instance || !instance.parent) {
-                return;
-            }
-            const parent = instance.parent;
-            console.log('getNextHydratableSibling:children', parent.children);
-            const instanceIndex = parent.children.indexOf(instance);
-            console.log('getNextHydratableSibling:instanceIndex', instanceIndex);
-            return parent.children.slice(instanceIndex + 1).find(isReactFigmaNode);
+            return getNextChildren(instance);
         },
         didNotHydrateContainerInstance: (...args) => {
             console.log('didNotHydrateContainerInstance', ...args);
@@ -145,11 +171,11 @@ export const render = async (jsx: any, rootNode) => {
         didNotFindHydratableInstance: (...args) => {
             console.log('didNotFindHydratableInstance', ...args);
         },
+        didNotFindHydratableTextInstance: (parentType, parentProps, parentInstance, text) => {
+            console.log('didNotFindHydratableTextInstance', parentType, parentProps, parentInstance, text);
+        },
         didNotHydrateInstance: (parentType, parentProps, parentInstance, instance) => {
             console.log('didNotHydrateInstance', parentType, parentProps, parentInstance, instance);
-            if (isReactFigmaNode(instance)) {
-                instance.remove();
-            }
         },
         commitMount: (instance, type, newProps, internalInstanceHandle) => {
             console.log('commitMount', instance, type, newProps, internalInstanceHandle);

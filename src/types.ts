@@ -81,6 +81,17 @@ export interface BlendProps {
     effectStyleId?: string;
 }
 
+export interface VectorNodeProps {
+    vectorPaths?: VectorPaths;
+    vectorNetwork?: VectorNetwork;
+    handleMirroring?: HandleMirroring | symbol;
+}
+
+export interface StarNodeProps {
+    pointCount?: number;
+    innerRadius?: number;
+}
+
 export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps, BlendProps {}
 
 export interface DefaultContainerProps extends BaseNodeProps, ChildrenProps, LayoutProps, ExportProps, BlendProps {}

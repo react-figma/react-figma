@@ -3,3 +3,5 @@ node_modules
 /build
 .idea
 _book
+.DS_Store
+/examples/**/dist

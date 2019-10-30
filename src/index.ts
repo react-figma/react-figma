@@ -9,3 +9,6 @@ export { Page } from './components/page/Page';
 export { Component } from './components/component/Component';
 export { Frame, FRAME_PRESETS } from './components/frame/Frame';
 export { Group } from './components/group/Group';
+export { Star } from './components/star/Star';
+export { Vector } from './components/vector/Vector';
+export { Line } from './components/line/Line';

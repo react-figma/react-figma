@@ -4,4 +4,7 @@ export { page } from './page';
 export { frame } from './frame';
 export { currentPage } from './currentPage';
 export { component } from './component';
+export { star } from './star';
+export { vector } from './vector';
+export { line } from './line';
 export { group } from './group/group';

@@ -1,6 +1,6 @@
 {
   "name": "react-figma",
-  "version": "0.0.1-alpha.7",
+  "version": "0.0.1-alpha.9",
   "description": "This plugin template uses Typescript. If you are familiar with Javascript, Typescript will look very familiar. In fact, valid Javascript code is already valid Typescript code.",
   "main": "./dist/index.js",
   "scripts": {
@@ -37,8 +37,6 @@
     "figma-plugins"
   ],
   "devDependencies": {
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.8",
     "@types/react": "^16.9.4",
@@ -57,6 +55,7 @@
     "jest": "^24.9.0",
     "pre-commit": "^1.2.2",
     "prettier": "^1.18.2",
+    "react": "16.8.6",
     "react-test-renderer": "16.8.6",
     "rimraf": "^3.0.0",
     "style-loader": "^1.0.0",
@@ -65,16 +64,17 @@
     "typescript": "^3.5.3",
     "url-loader": "^2.1.0",
     "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.6",
+    "yoga-layout-prebuilt": "1.9.3"
   },
   "dependencies": {
     "nanoid": "^2.0.3",
     "object-assign": "^4.1.1",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-json-renderer": "^0.6.0",
     "rxjs": "^6.5.2",
-    "scheduler": "^0.15.0",
-    "yoga-layout-prebuilt": "^1.9.3"
+    "scheduler": "^0.15.0"
+  },
+  "peerDependencies": {
+    "react": "*"
   }
 }
