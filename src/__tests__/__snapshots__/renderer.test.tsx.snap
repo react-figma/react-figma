@@ -4,6 +4,7 @@ exports[`renderer insert new component between 1`] = `
 ChildrenMixinStub {
   "children": Array [
     ChildrenMixinStub {
+      "children": Array [],
       "parent": [Circular],
       "type": "PAGE",
     },
@@ -73,6 +74,7 @@ exports[`renderer remove component between 1`] = `
 ChildrenMixinStub {
   "children": Array [
     ChildrenMixinStub {
+      "children": Array [],
       "parent": [Circular],
       "type": "PAGE",
     },
