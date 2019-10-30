@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from '../renderer';
-import { Rectangle, Page, Text } from '..';
+import { Rectangle, Page, Text, Group } from '..';
 import { createFigma } from 'figma-api-stub';
 
 describe('renderer', () => {
@@ -73,6 +73,50 @@ describe('renderer', () => {
         expect(figma.createRectangle).toHaveBeenCalledTimes(2);
         expect(figma.createText).toHaveBeenCalledTimes(1);
         expect(figma.createPage).toHaveBeenCalledTimes(3);
+        expect(figma.root).toMatchSnapshot();
+    });
+
+    it('creates single group', () => {
+        figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
+        figma.createText = jest.fn().mockImplementation(figma.createText);
+        figma.createPage = jest.fn().mockImplementation(figma.createPage);
+        figma.group = jest.fn().mockImplementation(figma.group);
+
+        render(
+            <Page>
+                <Group>
+                    <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                </Group>
+            </Page>,
+            figma.root
+        );
+
+        expect(figma.group).toHaveBeenCalledTimes(1);
+        expect(figma.root).toMatchSnapshot();
+    });
+
+    it('creates nested groups', () => {
+        figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
+        figma.createText = jest.fn().mockImplementation(figma.createText);
+        figma.createPage = jest.fn().mockImplementation(figma.createPage);
+        figma.group = jest.fn().mockImplementation(figma.group);
+
+        render(
+            <Page>
+                <Group>
+                    <Group>
+                        <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                    </Group>
+                    <Group>
+                        <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                        <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                    </Group>
+                </Group>
+            </Page>,
+            figma.root
+        );
+
+        expect(figma.group).toHaveBeenCalledTimes(3);
         expect(figma.root).toMatchSnapshot();
     });
 });
