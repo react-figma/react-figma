@@ -17,6 +17,11 @@ export const YogaContextProvider = props => {
         }
         const handleYogaProps = (newProps, instance) => {
             const { children: yogaChildren, ...yogaPropsWithoutChildren } = newProps;
+            if (instance.parent && instance.parent.type === 'GROUP') {
+                yogaPropsWithoutChildren.x += instance.parent.x;
+                yogaPropsWithoutChildren.y += instance.parent.y;
+            }
+
             $subjectRef.current.next({ instance, props: yogaPropsWithoutChildren });
             if (instance.children) {
                 instance.children.forEach((child, index) => {

@@ -1,9 +1,170 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renderer creates nested groups 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "children": Array [],
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ChildrenMixinStub {
+      "children": Array [
+        ChildrenMixinStub {
+          "children": Array [
+            ChildrenMixinStub {
+              "children": Array [
+                LayoutMixinStub {
+                  "fills": Array [
+                    Object {
+                      "color": Object {
+                        "b": 0,
+                        "g": 1,
+                        "r": 0.07058823529411765,
+                      },
+                      "type": "SOLID",
+                    },
+                  ],
+                  "height": 100,
+                  "parent": [Circular],
+                  "pluginData": Object {
+                    "isReactFigmaNode": "true",
+                    "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                  },
+                  "type": "RECTANGLE",
+                  "width": 200,
+                },
+                LayoutMixinStub {
+                  "fills": Array [
+                    Object {
+                      "color": Object {
+                        "b": 0,
+                        "g": 1,
+                        "r": 0.07058823529411765,
+                      },
+                      "type": "SOLID",
+                    },
+                  ],
+                  "height": 100,
+                  "parent": [Circular],
+                  "pluginData": Object {
+                    "isReactFigmaNode": "true",
+                    "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                  },
+                  "type": "RECTANGLE",
+                  "width": 200,
+                },
+              ],
+              "parent": [Circular],
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+              },
+              "type": "GROUP",
+            },
+            ChildrenMixinStub {
+              "children": Array [
+                LayoutMixinStub {
+                  "fills": Array [
+                    Object {
+                      "color": Object {
+                        "b": 0,
+                        "g": 1,
+                        "r": 0.07058823529411765,
+                      },
+                      "type": "SOLID",
+                    },
+                  ],
+                  "height": 100,
+                  "parent": [Circular],
+                  "pluginData": Object {
+                    "isReactFigmaNode": "true",
+                    "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                  },
+                  "type": "RECTANGLE",
+                  "width": 200,
+                },
+              ],
+              "parent": [Circular],
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+              },
+              "type": "GROUP",
+            },
+          ],
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+          },
+          "type": "GROUP",
+        },
+      ],
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer creates single group 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "children": Array [],
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ChildrenMixinStub {
+      "children": Array [
+        ChildrenMixinStub {
+          "children": Array [
+            LayoutMixinStub {
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 0,
+                    "g": 1,
+                    "r": 0.07058823529411765,
+                  },
+                  "type": "SOLID",
+                },
+              ],
+              "height": 100,
+              "parent": [Circular],
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+              },
+              "type": "RECTANGLE",
+              "width": 200,
+            },
+          ],
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+          },
+          "type": "GROUP",
+        },
+      ],
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
 exports[`renderer insert new component between 1`] = `
 ChildrenMixinStub {
   "children": Array [
     ChildrenMixinStub {
+      "children": Array [],
       "parent": [Circular],
       "type": "PAGE",
     },
@@ -73,6 +234,7 @@ exports[`renderer remove component between (equal components) 1`] = `
 ChildrenMixinStub {
   "children": Array [
     ChildrenMixinStub {
+      "children": Array [],
       "parent": [Circular],
       "type": "PAGE",
     },
@@ -134,6 +296,7 @@ exports[`renderer remove component between 1`] = `
 ChildrenMixinStub {
   "children": Array [
     ChildrenMixinStub {
+      "children": Array [],
       "parent": [Circular],
       "type": "PAGE",
     },
@@ -263,6 +426,7 @@ exports[`renderer text instance without Text component (with hydration page) 1`]
 ChildrenMixinStub {
   "children": Array [
     ChildrenMixinStub {
+      "children": Array [],
       "parent": [Circular],
       "type": "PAGE",
     },
@@ -324,6 +488,7 @@ exports[`renderer text instance without Text component 1`] = `
 ChildrenMixinStub {
   "children": Array [
     ChildrenMixinStub {
+      "children": Array [],
       "parent": [Circular],
       "type": "PAGE",
     },

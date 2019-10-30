@@ -3,13 +3,25 @@ import * as renderers from './renderers';
 // todo replace with webpack aliasing, install @types/react-reconciler
 import * as createReconciler from './realm-adopted/react-reconciler';
 
+import { GroupsProcessor } from './renderers/group/groupsProcessor';
+import { PREGROUP_NODE_TYPE } from './renderers/group/pregroupNode';
+
 const isReactFigmaNode = child => child.getPluginData && child.getPluginData('isReactFigmaNode');
 
-const appendToContainer = (parentNode, childNode) => {
+const appendToContainerFactory = groupsProcessor => (parentNode, childNode) => {
     if (!childNode || !parentNode) {
         return;
     }
-    parentNode.appendChild(childNode);
+
+    if (childNode.type === PREGROUP_NODE_TYPE) {
+        if (childNode.groupNode) {
+            parentNode.appendChild(childNode.groupNode);
+        } else {
+            groupsProcessor.scheduleGroup(parentNode, childNode);
+        }
+    } else {
+        parentNode.appendChild(childNode);
+    }
 };
 
 const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
@@ -53,6 +65,9 @@ const getNextChildren = instance => {
 };
 
 export const render = async (jsx: any, rootNode) => {
+    const groupsProcessor = new GroupsProcessor();
+    const appendToContainer = appendToContainerFactory(groupsProcessor);
+
     const HostConfig = {
         now: Date.now,
         getRootHostContext: (...args) => {
@@ -97,8 +112,10 @@ export const render = async (jsx: any, rootNode) => {
             console.log('insertBefore', parentNode, newChildNode, beforeChildNode);
             insertToContainer(parentNode, newChildNode, beforeChildNode);
         },
-        finalizeInitialChildren: (...args) => {
-            console.log('finalizeInitialChildren', ...args);
+        finalizeInitialChildren: (element, type, ...args) => {
+            console.log('finalizeInitialChildren', type, ...args);
+
+            return type === 'page';
         },
         supportsMutation: true,
         supportsHydration: true,
@@ -163,6 +180,10 @@ export const render = async (jsx: any, rootNode) => {
         },
         commitMount: (instance, type, newProps, internalInstanceHandle) => {
             console.log('commitMount', instance, type, newProps, internalInstanceHandle);
+
+            if (type === 'page') {
+                groupsProcessor.mountGroups();
+            }
         }
     };
 
