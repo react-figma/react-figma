@@ -8,7 +8,7 @@ import { PREGROUP_NODE_TYPE } from './renderers/group/pregroupNode';
 
 const isReactFigmaNode = child => child.getPluginData && child.getPluginData('isReactFigmaNode');
 
-const appendToContainer = (groupsProcessor, parentNode, childNode) => {
+const appendToContainerFactory = groupsProcessor => (parentNode, childNode) => {
     if (!childNode || !parentNode) {
         return;
     }
@@ -66,6 +66,7 @@ const getNextChildren = instance => {
 
 export const render = async (jsx: any, rootNode) => {
     const groupsProcessor = new GroupsProcessor();
+    const appendToContainer = appendToContainerFactory(groupsProcessor);
 
     const HostConfig = {
         now: Date.now,
@@ -101,11 +102,11 @@ export const render = async (jsx: any, rootNode) => {
         // Append root node to a container
         appendInitialChild: (parentNode, childNode) => {
             console.log('appendInitialChild', parentNode, childNode);
-            appendToContainer(groupsProcessor, parentNode, childNode);
+            appendToContainer(parentNode, childNode);
         },
         appendChild: (parentNode, childNode) => {
             console.log('appendChild', parentNode, childNode);
-            appendToContainer(groupsProcessor, parentNode, childNode);
+            appendToContainer(parentNode, childNode);
         },
         insertBefore: (parentNode, newChildNode, beforeChildNode) => {
             console.log('insertBefore', parentNode, newChildNode, beforeChildNode);
@@ -120,7 +121,7 @@ export const render = async (jsx: any, rootNode) => {
         supportsHydration: true,
         appendChildToContainer: (parentNode, childNode) => {
             console.log('appendChildToContainer', parentNode, childNode);
-            appendToContainer(groupsProcessor, parentNode, childNode);
+            appendToContainer(parentNode, childNode);
         },
         insertInContainerBefore: (parentNode, newChildNode, beforeChildNode) => {
             console.log('insertInContainerBefore', parentNode, newChildNode, beforeChildNode);
