@@ -107,12 +107,11 @@ export const App = () => {
 
 * [basic](examples/basic)
 * [design-system](examples/design-system)
+* [groups](examples/groups)
 
 ## Roadmap
 
 * Adding components:
-  - Group
-  - Line
   - Ellipse
   - Etc.
 * Improving existing components:
