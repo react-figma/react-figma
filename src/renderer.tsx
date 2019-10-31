@@ -58,9 +58,7 @@ const getNextChildren = instance => {
         return;
     }
     const parent = instance.parent;
-    console.log('getNextHydratableSibling:children', parent.children);
     const instanceIndex = parent.children.indexOf(instance);
-    console.log('getNextHydratableSibling:instanceIndex', instanceIndex);
     return parent.children.slice(instanceIndex + 1).find(isReactFigmaNode);
 };
 
@@ -70,117 +68,73 @@ export const render = async (jsx: any, rootNode) => {
 
     const HostConfig = {
         now: Date.now,
-        getRootHostContext: (...args) => {
-            console.log('getRootHostContext', ...args);
+        getRootHostContext: () => {
             return true;
         },
-        prepareForCommit: (...args) => {
-            console.log('prepareForCommit', ...args);
-        },
-        resetAfterCommit: (...args) => {
-            console.log('resetAfterCommit', ...args);
-        },
-        getChildHostContext: (...args) => {
-            console.log('getChildHostContext', ...args);
+        prepareForCommit: () => {},
+        resetAfterCommit: () => {},
+        getChildHostContext: () => {
             return true;
         },
         shouldSetTextContent: () => false,
         getPublicInstance: instance => {
-            console.log('getPublicInstance', instance);
             return instance;
         },
-        createInstance: (type, props, ...other) => {
-            console.log('createInstance', type, props, ...other);
+        createInstance: (type, props) => {
             return renderInstance(type, null, props);
         },
-        createTextInstance: text => {
-            console.log('createTextInstance', text);
-        },
-        resetTextContent: node => {
-            console.log('resetTextContent', node);
-        },
-        // Append root node to a container
+        createTextInstance: () => {},
+        resetTextContent: () => {},
         appendInitialChild: (parentNode, childNode) => {
-            console.log('appendInitialChild', parentNode, childNode);
             appendToContainer(parentNode, childNode);
         },
         appendChild: (parentNode, childNode) => {
-            console.log('appendChild', parentNode, childNode);
             appendToContainer(parentNode, childNode);
         },
         insertBefore: (parentNode, newChildNode, beforeChildNode) => {
-            console.log('insertBefore', parentNode, newChildNode, beforeChildNode);
             insertToContainer(parentNode, newChildNode, beforeChildNode);
         },
-        finalizeInitialChildren: (element, type, ...args) => {
-            console.log('finalizeInitialChildren', type, ...args);
-
+        finalizeInitialChildren: (element, type) => {
             return type === 'page';
         },
         supportsMutation: true,
         supportsHydration: true,
         appendChildToContainer: (parentNode, childNode) => {
-            console.log('appendChildToContainer', parentNode, childNode);
             appendToContainer(parentNode, childNode);
         },
-        insertInContainerBefore: (parentNode, newChildNode, beforeChildNode) => {
-            console.log('insertInContainerBefore', parentNode, newChildNode, beforeChildNode);
-        },
-        removeChildFromContainer: (parentNode, childNode) => {
-            console.log('removeChildFromContainer', parentNode, childNode);
-        },
-        prepareUpdate: (...args) => {
-            console.log('prepareUpdate', ...args);
+        insertInContainerBefore: () => {},
+        removeChildFromContainer: () => {},
+        prepareUpdate: () => {
             return true;
         },
         commitUpdate: (node, updatePayload, type, oldProps, newProps) => {
             renderInstance(type, node, newProps);
-            console.log('commitUpdate', node, updatePayload, type, oldProps, newProps);
         },
-        commitTextUpdate: (node, oldText, newText) => {
-            console.log('commitTextUpdate', node, oldText, newText);
-        },
+        commitTextUpdate: () => {},
         removeChild: (parentNode, childNode) => {
-            console.log('removeChild', parentNode, childNode);
             remove(childNode);
         },
         canHydrateInstance: (instance, type, props) => {
-            console.log('canHydrateInstance', instance, type, props);
             if (!isReactFigmaNode(instance) || instance.type.toLowerCase() !== type) {
                 return null;
             }
             return instance;
         },
         hydrateInstance: (instance, type, props) => {
-            console.log('hydrateInstance', instance, type, props);
             return renderInstance(type, instance.type.toLowerCase() === type ? instance : null, props);
         },
         getFirstHydratableChild: parentInstance => {
-            console.log('getFirstHydratableChild', parentInstance);
             return getFirstChild(parentInstance);
         },
         getNextHydratableSibling: instance => {
-            console.log('getNextHydratableSibling', instance);
             return getNextChildren(instance);
         },
-        didNotHydrateContainerInstance: (...args) => {
-            console.log('didNotHydrateContainerInstance', ...args);
-        },
-        didNotFindHydratableContainerInstance: (...args) => {
-            console.log('didNotFindHydratableContainerInstance', ...args);
-        },
-        didNotFindHydratableInstance: (...args) => {
-            console.log('didNotFindHydratableInstance', ...args);
-        },
-        didNotFindHydratableTextInstance: (parentType, parentProps, parentInstance, text) => {
-            console.log('didNotFindHydratableTextInstance', parentType, parentProps, parentInstance, text);
-        },
-        didNotHydrateInstance: (parentType, parentProps, parentInstance, instance) => {
-            console.log('didNotHydrateInstance', parentType, parentProps, parentInstance, instance);
-        },
-        commitMount: (instance, type, newProps, internalInstanceHandle) => {
-            console.log('commitMount', instance, type, newProps, internalInstanceHandle);
-
+        didNotHydrateContainerInstance: () => {},
+        didNotFindHydratableContainerInstance: () => {},
+        didNotFindHydratableInstance: () => {},
+        didNotFindHydratableTextInstance: () => {},
+        didNotHydrateInstance: () => {},
+        commitMount: (instance, type) => {
             if (type === 'page') {
                 groupsProcessor.mountGroups();
             }

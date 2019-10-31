@@ -10,7 +10,6 @@ export const subscribeOnMessages = message => {
 
 type TMessagePromise = (value: any) => Promise<any>;
 export const messagePromise: TMessagePromise = value => {
-    console.log('messagePromise', value);
     const id = nanoid();
     const $responseMessage = $subject.pipe(
         filter((message: any) => message.id === id),

@@ -31,7 +31,6 @@ export const YogaContextProvider = props => {
         };
         const calculate = () => {
             yogaHandler(instance).then(newProps => {
-                console.log('yoga mixin result', newProps);
                 handleYogaProps(newProps, instance);
             });
         };

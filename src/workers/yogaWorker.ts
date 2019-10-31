@@ -82,15 +82,11 @@ export const yogaWorker = yoga => message => {
     }
 
     const props = message.value.value;
-    console.log('yogaWorker input', props);
 
     const cache = {};
     const yogaRoot = transformToYogaNode(yoga, cache, props, null, null);
 
     yogaRoot.calculateLayout(props.width, props.height, yoga.DIRECTION_LTR);
-
-    console.log('cache', cache);
-    console.log('transformCache', transformCache(cache));
 
     parent.postMessage(
         {
