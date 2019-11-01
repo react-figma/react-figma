@@ -3,6 +3,7 @@
 ## Content
 
 * Guides
+  + [Roadmap](./docs/roadmap.md)
   + [Architecture](./docs/architecture.md)
   + [Contributing](./contributing.md)
   + [Code of Conduct](./CODE_OF_CONDUCT.md)
