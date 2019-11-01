@@ -36,3 +36,8 @@
   - Documentation.
   - Typing.
   - Testing.
+* New logo
+  - Purpose
+    + 'I didn’t want the Figma marketing stormtroopers kicking my door in,
+      so I avoided using the Figma logo.' - [Making Figma feel more at home on the Mac.](https://medium.com/@normsheeran/making-figma-feel-more-at-home-on-the-mac-b35b6bb8a912)
+    + Logo can be even cooler.
