@@ -109,18 +109,7 @@ export const App = () => {
 * [design-system](examples/design-system)
 * [groups](examples/groups)
 
-## Roadmap
-
-* Adding components:
-  - Ellipse
-  - Etc.
-* Improving existing components:
-  - Adding support of all figma properties.
-  - Improving style prop support.
-  - Adding support of all yoga-layout properties.
-* react-primitives support.
-* HMR support.
-* styled-components support.
+## [Roadmap](docs/roadmap.md)
 
 ## Become a Contributor 🎖
 
