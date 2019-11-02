@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Ellipse /> Ellipse with color background 1`] = `
+<ellipse
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 1,
+          "r": 0.10588235294117647,
+        },
+        "type": "SOLID",
+      },
+    ]
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Object {
+      "backgroundColor": "#1bff00",
+    }
+  }
+/>
+`;
+
+exports[`<Ellipse /> Ellipse with image background 1`] = `
+<ellipse
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0.1607843137254902,
+          "g": 0.5450980392156862,
+          "r": 1,
+        },
+        "type": "SOLID",
+      },
+    ]
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Object {
+      "backgroundColor": "#ff8b29",
+      "backgroundImage": "./image.png",
+      "backgroundSize": "cover",
+    }
+  }
+/>
+`;
+
+exports[`<Ellipse /> Ellipse with layout style properties 1`] = `
+<ellipse
+  height={200}
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Object {
+      "height": 200,
+      "width": 100,
+    }
+  }
+  width={100}
+/>
+`;
+
+exports[`<Ellipse /> Ellipse without props 1`] = `
+<ellipse
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+/>
+`;

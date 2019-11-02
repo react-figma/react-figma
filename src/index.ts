@@ -12,3 +12,4 @@ export { Group } from './components/group/Group';
 export { Star } from './components/star/Star';
 export { Vector } from './components/vector/Vector';
 export { Line } from './components/line/Line';
+export { Ellipse } from './components/ellipse/Ellipse';

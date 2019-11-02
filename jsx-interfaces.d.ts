@@ -2,6 +2,7 @@ import { RectangleProps } from './src/components/rectangle/Rectangle';
 import { FrameProps } from './src/components/frame/Frame';
 import { TextProps } from './src/components/text/Text';
 import { GroupProps } from './src/components/group/Group';
+import { EllipseNodeProps } from './src/components/ellipse/Ellipse';
 
 declare global {
     namespace JSX {
@@ -14,6 +15,7 @@ declare global {
             // @ts-ignore
             text: TextProps;
             component: any;
+            ellipse: EllipseNodeProps;
         }
     }
 }
