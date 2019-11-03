@@ -15,6 +15,7 @@ import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 export interface EllipseProps extends DefaultShapeProps, CornerProps {
     style?: LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties;
     children?: undefined;
+    arcData?: ArcData;
 }
 
 export const Ellipse: React.ElementType<EllipseProps> = props => {
