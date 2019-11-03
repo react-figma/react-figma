@@ -50,6 +50,20 @@ export interface BorderProps {
     bottomRightRadius?: number;
 }
 
+export interface ExportProps {
+    exportSettings?: ExportSettings[];
+    exportAsyncSettings?: ExportSettings;
+    exportAsyncCallback?: (result: Uint8Array) => any;
+}
+
+export interface BlendProps {
+    opacity?: number;
+    blendMode?: BlendMode;
+    isMask?: boolean;
+    effects?: ReadonlyArray<Effect>;
+    effectStyleId?: string;
+}
+
 export interface TextNodeProps {
     characters?: string;
     textAlignHorizontal?: 'LEFT' | 'CENTER' | 'RIGHT' | 'JUSTIFIED';
@@ -65,20 +79,6 @@ export interface TextNodeProps {
     textDecoration?: TextDecoration | symbol;
     letterSpacing?: LetterSpacing | symbol;
     lineHeight?: LineHeight | symbol;
-}
-
-export interface ExportProps {
-    exportSettings?: ExportSettings[];
-    exportAsyncSettings?: ExportSettings;
-    exportAsyncCallback?: (result: Uint8Array) => any;
-}
-
-export interface BlendProps {
-    opacity?: number;
-    blendMode?: BlendMode;
-    isMask?: boolean;
-    effects?: ReadonlyArray<Effect>;
-    effectStyleId?: string;
 }
 
 export interface VectorNodeProps {
