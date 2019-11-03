@@ -20,5 +20,9 @@ export const Component: React.ElementType<ComponentProps> = props => {
     };
     const yogaChildProps = useYogaLayout({ yogaRef, ...componentProps });
 
-    return <component {...componentProps} {...yogaChildProps} innerRef={yogaRef} />;
+    return (
+        <YogaContextProvider yogaRef={yogaRef}>
+            <component {...componentProps} {...yogaChildProps} innerRef={yogaRef} />
+        </YogaContextProvider>
+    );
 };

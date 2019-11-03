@@ -198,5 +198,9 @@ export const Frame: React.ElementType<FrameProps> = props => {
     };
     const yogaChildProps = useYogaLayout({ yogaRef, ...frameProps });
 
-    return <frame {...frameProps} {...yogaChildProps} innerRef={yogaRef} />;
+    return (
+        <YogaContextProvider yogaRef={yogaRef}>
+            <frame {...frameProps} {...yogaChildProps} innerRef={yogaRef} />
+        </YogaContextProvider>
+    );
 };

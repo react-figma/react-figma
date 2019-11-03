@@ -4,7 +4,7 @@ import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
 } from '../../styleTransformers/transformLayoutStyleProperties';
-import { useYogaLayout } from '../../hooks/useYogaLayout';
+import { useYogaLayout, YogaContextProvider } from '../../hooks/useYogaLayout';
 import { BlendStyleProperties, transformBlendProperties } from '../../styleTransformers/transformBlendProperties';
 
 export interface GroupProps extends DefaultShapeProps {
@@ -21,5 +21,9 @@ export const Group: React.ElementType<GroupProps> = props => {
     };
     const yogaChildProps = useYogaLayout({ yogaRef, ...groupProps });
 
-    return <group {...groupProps} {...yogaChildProps} innerRef={yogaRef} />;
+    return (
+        <YogaContextProvider yogaRef={yogaRef}>
+            <group {...groupProps} {...yogaChildProps} innerRef={yogaRef} />
+        </YogaContextProvider>
+    );
 };

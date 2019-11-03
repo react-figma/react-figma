@@ -10,9 +10,12 @@ export const YogaContextProvider = props => {
     const $subjectRef = React.useRef(new Subject());
     const $recalculateRef = React.useRef<any>(new Subject());
 
+    const parentContext = React.useContext(YogaContext);
+    const isHaveParentContext = parentContext && parentContext.subject;
+
     React.useEffect(() => {
         const instance = yogaRef.current;
-        if (!instance) {
+        if (!instance || isHaveParentContext) {
             return;
         }
         const handleYogaProps = (newProps, instance) => {
@@ -40,11 +43,14 @@ export const YogaContextProvider = props => {
 
         recalculationPipe.subscribe(calculate);
         return () => recalculationPipe.unsubscribe();
-    }, []);
+    }, [isHaveParentContext]);
     return (
-        <YogaContext.Provider value={{ subject: $subjectRef.current, recalculate: $recalculateRef.current }}>
-            {props.children}
-        </YogaContext.Provider>
+        (!isHaveParentContext && (
+            <YogaContext.Provider value={{ subject: $subjectRef.current, recalculate: $recalculateRef.current }}>
+                {props.children}
+            </YogaContext.Provider>
+        )) ||
+        props.children
     );
 };
 
