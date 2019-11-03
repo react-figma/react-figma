@@ -1,5 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Ellipse /> Ellipse with arc data 1`] = `
+<ellipse
+  arcData={
+    Object {
+      "endingAngle": 3.141592653589793,
+      "innerRadius": 0.5,
+      "startingAngle": 0,
+    }
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+/>
+`;
+
 exports[`<Ellipse /> Ellipse with color background 1`] = `
 <ellipse
   fills={

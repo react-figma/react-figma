@@ -22,6 +22,21 @@ describe('<Ellipse />', () => {
         expect(tree).toMatchSnapshot();
     });
 
+    it('Ellipse with arc data', () => {
+        const tree = renderer
+            .create(
+                <Ellipse
+                    arcData={{
+                        startingAngle: 0,
+                        endingAngle: Math.PI,
+                        innerRadius: 0.5
+                    }}
+                />
+            )
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+
     it('Ellipse with color background', () => {
         const tree = renderer
             .create(
