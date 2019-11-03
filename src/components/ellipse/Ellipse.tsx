@@ -12,12 +12,12 @@ import {
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 
-export interface EllipseNodeProps extends DefaultShapeProps, CornerProps {
+export interface EllipseProps extends DefaultShapeProps, CornerProps {
     style?: LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties;
     children?: undefined;
 }
 
-export const Ellipse: React.ElementType<EllipseNodeProps> = props => {
+export const Ellipse: React.ElementType<EllipseProps> = props => {
     const yogaRef = React.useRef();
 
     const ellipseProps = {

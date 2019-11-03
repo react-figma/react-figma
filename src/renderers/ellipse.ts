@@ -5,9 +5,9 @@ import { refMixin } from '../mixins/refMixin';
 import { cornerMixin } from '../mixins/cornerMixin';
 import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
-import { EllipseNodeProps } from '../components/ellipse/Ellipse';
+import { EllipseProps } from '../components/ellipse/Ellipse';
 
-export const ellipse = (node: EllipseNode) => (props: EllipseNodeProps) => {
+export const ellipse = (node: EllipseNode) => (props: EllipseProps) => {
     const ellipseNode = node || figma.createEllipse();
 
     refMixin(ellipseNode)(props);
