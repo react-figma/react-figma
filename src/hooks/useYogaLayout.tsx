@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { $updatedYogaCoords } from '../yoga';
+import { $updatedYogaCoords } from '../yogaStream';
 import { filter, map } from 'rxjs/operators';
 
 export const useYogaLayout = props => {

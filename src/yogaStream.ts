@@ -1,5 +1,5 @@
 import { Observable, Subject } from 'rxjs';
-import { concatAll, map } from 'rxjs/operators';
+import { concatAll, debounceTime, map } from 'rxjs/operators';
 import { yogaHandler } from './yogaHandler';
 
 const $yogaRoot = new Subject();
@@ -8,6 +8,7 @@ export const $updatedYogaCoords = new Subject();
 
 $yogaRoot
     .pipe(
+        debounceTime(100),
         map((instance: any) => {
             return new Observable(subscriber => {
                 const handleYogaProps = (newProps, instance) => {
@@ -34,7 +35,6 @@ $yogaRoot
     )
     .subscribe($updatedYogaCoords);
 
-export const addRoot = (root: any) => {
-    console.log('addRoot', root);
+export const updateYogaRoot = (root: any) => {
     $yogaRoot.next(root);
 };
