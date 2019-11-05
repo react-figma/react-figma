@@ -102,7 +102,6 @@ export const render = async (jsx: any, rootNode) => {
         appendChildToContainer: (parentNode, childNode) => {
             appendToContainer(parentNode, childNode);
             updateYogaRoot(childNode);
-            childNode.setPluginData('isYogaRoot', 'true');
         },
         insertInContainerBefore: () => {},
         removeChildFromContainer: () => {},
@@ -123,9 +122,6 @@ export const render = async (jsx: any, rootNode) => {
             return instance;
         },
         hydrateInstance: (instance, type, props) => {
-            if (instance.type.toLowerCase() === type && instance.getPluginData('isYogaRoot')) {
-                updateYogaRoot(instance);
-            }
             return renderInstance(type, instance.type.toLowerCase() === type ? instance : null, props);
         },
         getFirstHydratableChild: parentInstance => {
@@ -144,8 +140,12 @@ export const render = async (jsx: any, rootNode) => {
                 groupsProcessor.mountGroups();
             }
         },
-        commitHydratedContainer: (...args) => {
-            console.log('commitHydratedContainer', ...args);
+        commitHydratedContainer: container => {
+            container.children.forEach(child => {
+                if (isReactFigmaNode(child)) {
+                    updateYogaRoot(child);
+                }
+            });
         }
     };
 
