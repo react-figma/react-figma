@@ -1,5 +1,5 @@
-import { asyncScheduler, Observable, Subject } from 'rxjs';
-import { concatAll, map, mergeAll, multicast, observeOn } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { concatAll, map } from 'rxjs/operators';
 import { yogaHandler } from './yogaHandler';
 
 const $yogaRoot = new Subject();

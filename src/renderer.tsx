@@ -103,6 +103,7 @@ export const render = async (jsx: any, rootNode) => {
         appendChildToContainer: (parentNode, childNode) => {
             appendToContainer(parentNode, childNode);
             addRoot(childNode);
+            childNode.setPluginData('isYogaRoot', 'true');
         },
         insertInContainerBefore: () => {},
         removeChildFromContainer: () => {},
@@ -123,6 +124,9 @@ export const render = async (jsx: any, rootNode) => {
             return instance;
         },
         hydrateInstance: (instance, type, props) => {
+            if (instance.type.toLowerCase() === type && instance.getPluginData('isYogaRoot')) {
+                addRoot(instance);
+            }
             return renderInstance(type, instance.type.toLowerCase() === type ? instance : null, props);
         },
         getFirstHydratableChild: parentInstance => {
