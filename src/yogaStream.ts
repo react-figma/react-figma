@@ -8,7 +8,6 @@ export const $updatedYogaCoords = new Subject();
 
 $yogaRoot
     .pipe(
-        debounceTime(100),
         map((instance: any) => {
             return new Observable(subscriber => {
                 const handleYogaProps = (newProps, instance) => {

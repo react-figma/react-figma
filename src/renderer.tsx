@@ -1,7 +1,8 @@
 import * as React from 'react';
 import * as renderers from './renderers';
-// todo replace with webpack aliasing, install @types/react-reconciler
-import * as createReconciler from './realm-adopted/react-reconciler';
+
+// * Development version of react-reconciler can't be used inside Figma realm.
+import * as createReconciler from 'react-reconciler/cjs/react-reconciler.production.min';
 
 import { GroupsProcessor } from './renderers/group/groupsProcessor';
 import { PREGROUP_NODE_TYPE } from './renderers/group/pregroupNode';
@@ -103,7 +104,6 @@ export const render = async (jsx: any, rootNode) => {
         appendChildToContainer: (parentNode, childNode) => {
             appendToContainer(parentNode, childNode);
             updateYogaRoot(childNode);
-            childNode.setPluginData('isYogaRoot', 'true');
         },
         insertInContainerBefore: () => {},
         removeChildFromContainer: () => {},
@@ -124,9 +124,6 @@ export const render = async (jsx: any, rootNode) => {
             return instance;
         },
         hydrateInstance: (instance, type, props) => {
-            if (instance.type.toLowerCase() === type && instance.getPluginData('isYogaRoot')) {
-                updateYogaRoot(instance);
-            }
             return renderInstance(type, instance.type.toLowerCase() === type ? instance : null, props);
         },
         getFirstHydratableChild: parentInstance => {
@@ -144,6 +141,13 @@ export const render = async (jsx: any, rootNode) => {
             if (type === 'page') {
                 groupsProcessor.mountGroups();
             }
+        },
+        commitHydratedContainer: container => {
+            container.children.forEach(child => {
+                if (isReactFigmaNode(child)) {
+                    updateYogaRoot(child);
+                }
+            });
         }
     };
 
