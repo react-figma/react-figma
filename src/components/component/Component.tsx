@@ -4,7 +4,7 @@ import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
 } from '../../styleTransformers/transformLayoutStyleProperties';
-import { useYogaLayout, YogaContextProvider } from '../../hooks/useYogaLayout';
+import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 
 export interface ComponentProps extends DefaultContainerProps {
