@@ -7,7 +7,6 @@ import * as whatsappIcon from './icons/003-whatsapp.png';
 import * as skypeIcon from './icons/006-skype.png';
 import * as youtubeIcon from './icons/008-youtube.png';
 import * as instagramIcon from './icons/011-instagram.png';
-import { YogaContextProvider } from '../../../src/hooks/useYogaLayout';
 
 const frameProps = {
     style: { paddingTop: 10, paddingBottom: 10, paddingLeft: 10, paddingRight: 10 }
@@ -194,14 +193,11 @@ const IconsFrame = props => {
 };
 
 export const App = () => {
-    const yogaRootRef = React.useRef();
     return (
-        <YogaContextProvider yogaRef={yogaRootRef}>
-            <Page yogaRef={yogaRootRef} name="Design system" style={{ flexDirection: 'row' }}>
-                <SpaceFrame />
-                <TypeFrame style={{ marginLeft: 50 }} />
-                <IconsFrame style={{ marginLeft: 50 }} />
-            </Page>
-        </YogaContextProvider>
+        <Page name="Design system" style={{ flexDirection: 'row' }}>
+            <SpaceFrame />
+            <TypeFrame style={{ marginLeft: 50 }} />
+            <IconsFrame style={{ marginLeft: 50 }} />
+        </Page>
     );
 };

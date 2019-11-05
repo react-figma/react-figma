@@ -101,6 +101,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "isYogaRoot": "true",
       },
       "type": "PAGE",
     },
@@ -152,6 +153,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "isYogaRoot": "true",
       },
       "type": "PAGE",
     },
@@ -222,6 +224,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "isYogaRoot": "true",
       },
       "type": "PAGE",
     },
@@ -284,6 +287,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "isYogaRoot": "true",
       },
       "type": "PAGE",
     },
@@ -346,6 +350,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "isYogaRoot": "true",
       },
       "type": "PAGE",
     },
@@ -374,6 +379,7 @@ ChildrenMixinStub {
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
+            "isYogaRoot": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
           },
           "type": "RECTANGLE",
@@ -408,6 +414,7 @@ ChildrenMixinStub {
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
+            "isYogaRoot": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
           },
           "type": "RECTANGLE",
@@ -476,6 +483,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "isYogaRoot": "true",
       },
       "type": "PAGE",
     },
@@ -538,6 +546,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "isYogaRoot": "true",
       },
       "type": "PAGE",
     },

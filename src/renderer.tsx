@@ -5,6 +5,7 @@ import * as createReconciler from './realm-adopted/react-reconciler';
 
 import { GroupsProcessor } from './renderers/group/groupsProcessor';
 import { PREGROUP_NODE_TYPE } from './renderers/group/pregroupNode';
+import { updateYogaRoot } from './yogaStream';
 
 const isReactFigmaNode = child => child.getPluginData && child.getPluginData('isReactFigmaNode');
 
@@ -101,6 +102,8 @@ export const render = async (jsx: any, rootNode) => {
         supportsHydration: true,
         appendChildToContainer: (parentNode, childNode) => {
             appendToContainer(parentNode, childNode);
+            updateYogaRoot(childNode);
+            childNode.setPluginData('isYogaRoot', 'true');
         },
         insertInContainerBefore: () => {},
         removeChildFromContainer: () => {},
@@ -121,6 +124,9 @@ export const render = async (jsx: any, rootNode) => {
             return instance;
         },
         hydrateInstance: (instance, type, props) => {
+            if (instance.type.toLowerCase() === type && instance.getPluginData('isYogaRoot')) {
+                updateYogaRoot(instance);
+            }
             return renderInstance(type, instance.type.toLowerCase() === type ? instance : null, props);
         },
         getFirstHydratableChild: parentInstance => {

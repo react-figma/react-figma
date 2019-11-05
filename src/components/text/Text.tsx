@@ -8,7 +8,7 @@ import {
     TextStyleProperties,
     transformTextStyleProperties
 } from '../../styleTransformers/transformTextStyleProperties';
-import { useYogaLayout, YogaContextProvider } from '../../hooks/useYogaLayout';
+import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 
 export interface TextProps extends TextNodeProps, DefaultShapeProps {
