@@ -72,6 +72,7 @@
     "nanoid": "^2.0.3",
     "object-assign": "^4.1.1",
     "prop-types": "^15.7.2",
+    "react-reconciler": "^0.23.0",
     "rxjs": "^6.5.2",
     "scheduler": "^0.15.0"
   },

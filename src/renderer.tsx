@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as renderers from './renderers';
-// todo replace with webpack aliasing, install @types/react-reconciler
-import * as createReconciler from './realm-adopted/react-reconciler';
+import * as createReconciler from 'react-reconciler/cjs/react-reconciler.production.min';
 
 import { GroupsProcessor } from './renderers/group/groupsProcessor';
 import { PREGROUP_NODE_TYPE } from './renderers/group/pregroupNode';
@@ -144,6 +143,9 @@ export const render = async (jsx: any, rootNode) => {
             if (type === 'page') {
                 groupsProcessor.mountGroups();
             }
+        },
+        commitHydratedContainer: (...args) => {
+            console.log('commitHydratedContainer', ...args);
         }
     };
 
