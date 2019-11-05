@@ -1,5 +1,7 @@
 import * as React from 'react';
 import * as renderers from './renderers';
+
+// * Development version of react-reconciler can't be used inside Figma realm.
 import * as createReconciler from 'react-reconciler/cjs/react-reconciler.production.min';
 
 import { GroupsProcessor } from './renderers/group/groupsProcessor';
