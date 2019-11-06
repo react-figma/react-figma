@@ -194,7 +194,7 @@ const IconsFrame = props => {
 
 export const App = () => {
     return (
-        <Page name="Design system" style={{ flexDirection: 'row' }}>
+        <Page isCurrent name="Design system" style={{ flexDirection: 'row' }}>
             <SpaceFrame />
             <TypeFrame style={{ marginLeft: 50 }} />
             <IconsFrame style={{ marginLeft: 50 }} />

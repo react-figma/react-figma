@@ -173,4 +173,14 @@ describe('renderer', () => {
         expect(figma.group).toHaveBeenCalledTimes(3);
         expect(figma.root).toMatchSnapshot();
     });
+
+    it('mark page isCurrent=true', () => {
+        render(<Page isCurrent name={'New page'} />, figma.root);
+        expect(figma.currentPage).toMatchSnapshot();
+    });
+
+    it('mark page isCurrent=false', () => {
+        render(<Page name={'New page'} />, figma.root);
+        expect(figma.currentPage).toMatchSnapshot();
+    });
 });
