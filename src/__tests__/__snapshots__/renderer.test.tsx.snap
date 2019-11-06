@@ -230,6 +230,50 @@ ChildrenMixinStub {
 }
 `;
 
+exports[`renderer mark page isCurrent=false 1`] = `
+ChildrenMixinStub {
+  "children": Array [],
+  "parent": ChildrenMixinStub {
+    "children": Array [
+      [Circular],
+      ChildrenMixinStub {
+        "children": Array [],
+        "name": "New page",
+        "parent": [Circular],
+        "pluginData": Object {
+          "isReactFigmaNode": "true",
+        },
+        "type": "PAGE",
+      },
+    ],
+    "type": "DOCUMENT",
+  },
+  "type": "PAGE",
+}
+`;
+
+exports[`renderer mark page isCurrent=true 1`] = `
+ChildrenMixinStub {
+  "children": Array [],
+  "name": "New page",
+  "parent": ChildrenMixinStub {
+    "children": Array [
+      ChildrenMixinStub {
+        "children": Array [],
+        "parent": [Circular],
+        "type": "PAGE",
+      },
+      [Circular],
+    ],
+    "type": "DOCUMENT",
+  },
+  "pluginData": Object {
+    "isReactFigmaNode": "true",
+  },
+  "type": "PAGE",
+}
+`;
+
 exports[`renderer remove component between (equal components) 1`] = `
 ChildrenMixinStub {
   "children": Array [

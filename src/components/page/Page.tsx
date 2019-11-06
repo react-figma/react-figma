@@ -3,6 +3,7 @@ import { BaseNodeProps, ChildrenProps, LayoutProps, ExportProps } from '../../ty
 
 export interface PageProps extends BaseNodeProps, ChildrenProps, ExportProps {
     yogaRef: any;
+    isCurrent?: boolean;
 }
 
 export const Page: React.ElementType<PageProps> = props => {

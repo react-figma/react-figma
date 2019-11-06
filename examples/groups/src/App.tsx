@@ -3,7 +3,7 @@ import { Page, Rectangle, Group } from '../../../src';
 
 export const App = () => {
     return (
-        <Page name="New page">
+        <Page isCurrent name="New page">
             <Group name="1">
                 <Rectangle name="1.1" style={{ width: 200, height: 100, backgroundColor: '#f24e1e' }} />
             </Group>
