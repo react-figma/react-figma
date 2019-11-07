@@ -128,6 +128,12 @@ Whether you're helping us implement features, fix bugs or improve the docs, we'd
 
 Check out our [Contributing Guide](./contributing.md) for ideas on contributing and setup steps for getting repository up and running on your local machine.
 
+## Acknowledgements
+
+React Figma team wishes to thank the following invaluable contributions:
+
+* [Lera Lesik](https://twitter.com/Lera_Lesik), for creating project logo.
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
