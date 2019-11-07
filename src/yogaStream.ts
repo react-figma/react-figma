@@ -1,6 +1,7 @@
-import { Observable, Subject } from 'rxjs';
-import { concatAll, debounceTime, map } from 'rxjs/operators';
+import { asapScheduler, Observable, Subject } from 'rxjs';
+import { concatAll, debounceTime, map, mergeAll, observeOn } from 'rxjs/operators';
 import { yogaHandler } from './yogaHandler';
+import { isReactFigmaNode } from './isReactFigmaNode';
 
 const $yogaRoot = new Subject();
 
@@ -31,10 +32,19 @@ $yogaRoot
                 });
             });
         }),
-        concatAll()
+        mergeAll(1)
     )
     .subscribe($updatedYogaCoords);
 
 export const updateYogaRoot = (root: any) => {
     $yogaRoot.next(root);
+};
+
+export const updateYogaNode = (node: any) => {
+    const parent = node.parent;
+    if (!parent || !isReactFigmaNode(parent)) {
+        updateYogaRoot(node);
+    } else {
+        updateYogaNode(parent);
+    }
 };
