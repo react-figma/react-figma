@@ -1,12 +1,16 @@
 import * as React from 'react';
 import { BaseNodeProps, ChildrenProps, LayoutProps, ExportProps } from '../../types';
+import { transformLayoutStyleProperties } from '../../styleTransformers/transformLayoutStyleProperties';
+import { transformBlendProperties } from '../../styleTransformers/transformBlendProperties';
+import { useYogaLayout } from '../../hooks/useYogaLayout';
 
 export interface PageProps extends BaseNodeProps, ChildrenProps, ExportProps {
-    yogaRef: any;
     isCurrent?: boolean;
 }
 
 export const Page: React.ElementType<PageProps> = props => {
-    const { yogaRef } = props;
-    return <page {...props} innerRef={yogaRef} />;
+    const yogaRef = React.useRef();
+
+    const yogaChildProps = useYogaLayout({ yogaRef, ...props });
+    return <page {...props} {...yogaChildProps} innerRef={yogaRef} />;
 };
