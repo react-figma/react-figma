@@ -1,3 +1,4 @@
+import * as React from 'react';
 export type Color = string;
 
 export interface BaseNodeProps {
@@ -23,7 +24,7 @@ export interface LayoutProps {
 }
 
 export interface ChildrenProps {
-    children?: ReadonlyArray<BaseNode>;
+    children?: React.ReactNode;
 }
 
 export interface GeometryProps {

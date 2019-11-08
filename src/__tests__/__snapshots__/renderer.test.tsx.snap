@@ -101,6 +101,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "reactStyle": "{}",
       },
       "type": "PAGE",
     },
@@ -152,6 +153,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "reactStyle": "{}",
       },
       "type": "PAGE",
     },
@@ -195,6 +197,7 @@ ChildrenMixinStub {
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
+            "reactStyle": "{}",
           },
           "type": "TEXT",
         },
@@ -222,6 +225,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "reactStyle": "{}",
       },
       "type": "PAGE",
     },
@@ -242,6 +246,7 @@ ChildrenMixinStub {
         "parent": [Circular],
         "pluginData": Object {
           "isReactFigmaNode": "true",
+          "reactStyle": "{}",
         },
         "type": "PAGE",
       },
@@ -269,6 +274,7 @@ ChildrenMixinStub {
   },
   "pluginData": Object {
     "isReactFigmaNode": "true",
+    "reactStyle": "{}",
   },
   "type": "PAGE",
 }
@@ -328,6 +334,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "reactStyle": "{}",
       },
       "type": "PAGE",
     },
@@ -390,6 +397,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "reactStyle": "{}",
       },
       "type": "PAGE",
     },
@@ -520,6 +528,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "reactStyle": "{}",
       },
       "type": "PAGE",
     },
@@ -582,6 +591,7 @@ ChildrenMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
+        "reactStyle": "{}",
       },
       "type": "PAGE",
     },
