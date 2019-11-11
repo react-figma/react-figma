@@ -1,4 +1,4 @@
-import { messagePromise } from './helpers/messagePromise';
+import { messagePromise } from '../helpers/messagePromise';
 import * as nanoid from 'nanoid/non-secure';
 
 const transformNodesToTree = node => {

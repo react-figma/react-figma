@@ -1,7 +1,7 @@
 import { Observable, Subject } from 'rxjs';
 import { concatMap, debounceTime } from 'rxjs/operators';
 import { yogaHandler } from './yogaHandler';
-import { isReactFigmaNode } from './isReactFigmaNode';
+import { isReactFigmaNode } from '../isReactFigmaNode';
 
 const $yogaRoot = new Subject();
 
