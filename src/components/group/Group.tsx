@@ -11,7 +11,7 @@ export interface GroupProps extends DefaultShapeProps {
     style?: LayoutStyleProperties & BlendStyleProperties;
 }
 
-export const Group: React.ElementType<GroupProps> = props => {
+export const Group: React.FC<GroupProps> = props => {
     const yogaRef = React.useRef();
 
     const groupProps = {

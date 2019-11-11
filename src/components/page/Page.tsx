@@ -8,7 +8,7 @@ export interface PageProps extends BaseNodeProps, ChildrenProps, ExportProps {
     isCurrent?: boolean;
 }
 
-export const Page: React.ElementType<PageProps> = props => {
+export const Page: React.FC<PageProps> = props => {
     const yogaRef = React.useRef();
 
     const yogaChildProps = useYogaLayout({ yogaRef, ...props });

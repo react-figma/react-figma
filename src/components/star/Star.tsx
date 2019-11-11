@@ -17,7 +17,7 @@ export interface StarProps extends DefaultShapeProps, CornerProps, StarNodeProps
     children?: undefined;
 }
 
-export const Star: React.ElementType<StarProps> = props => {
+export const Star: React.FC<StarProps> = props => {
     const yogaRef = React.useRef();
 
     const starProps = {

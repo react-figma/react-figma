@@ -186,7 +186,7 @@ export interface FrameProps extends DefaultContainerProps {
     preset?: Preset;
 }
 
-export const Frame: React.ElementType<FrameProps> = props => {
+export const Frame: React.FC<FrameProps> = props => {
     const yogaRef = React.useRef();
 
     const { preset, ...propWithoutPreset } = props;

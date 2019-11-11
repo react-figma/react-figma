@@ -17,7 +17,7 @@ export interface VectorProps extends VectorNodeProps, DefaultShapeProps, CornerP
     children?: undefined;
 }
 
-export const Vector: React.ElementType<VectorProps> = props => {
+export const Vector: React.FC<VectorProps> = props => {
     const yogaRef = React.useRef();
     const vectorProps = {
         ...transformLayoutStyleProperties(props.style),
