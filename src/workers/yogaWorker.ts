@@ -42,6 +42,7 @@ const transformJustifyContent = yoga => (value: string) => {
 const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
     const yogaNode = yoga.Node.create();
     cache.node = yogaNode;
+    cache.nodeBatchId = node.nodeBatchId;
     if (node.width && node.height && !node.children) {
         yogaNode.setWidth(node.width);
         yogaNode.setHeight(node.height);
@@ -104,12 +105,10 @@ const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
 
 const transformCache = cache => {
     const result = cache.node.getComputedLayout();
-    if (!cache.children) {
-        return result;
-    }
     return {
         ...result,
-        children: cache.children.map(transformCache)
+        nodeBatchId: cache.nodeBatchId,
+        ...(cache.children ? { children: cache.children.map(transformCache) } : {})
     };
 };
 

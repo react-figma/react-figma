@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { $updatedYogaCoords } from '../yogaStream';
+import { $updatedYogaCoords, updateYogaNode } from '../yogaStream';
 import { filter, map } from 'rxjs/operators';
 
 export const useYogaLayout = props => {
@@ -17,6 +17,16 @@ export const useYogaLayout = props => {
 
         return () => subscription.unsubscribe();
     }, []);
+
+    const didMountRef = React.useRef(false);
+    React.useEffect(() => {
+        if (!didMountRef.current) {
+            didMountRef.current = true;
+            return;
+        }
+        const instance = yogaRef.current;
+        updateYogaNode(instance);
+    }, [props.children, props.width, props.height, props.style, props.characters, props.fontSize]);
 
     return yogaProps;
 };
