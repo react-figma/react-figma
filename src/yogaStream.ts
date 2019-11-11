@@ -26,10 +26,14 @@ $yogaRoot
         concatMap((instance: any) => {
             return new Observable(subscriber => {
                 const handleYogaProps = (newProps, instance) => {
-                    const { children: yogaChildren, ...yogaPropsWithoutChildren } = newProps;
+                    const { children: yogaChildren, nodeBatchId, ...yogaPropsWithoutChildren } = newProps;
                     if (instance.parent && instance.parent.type === 'GROUP') {
                         yogaPropsWithoutChildren.x += instance.parent.x;
                         yogaPropsWithoutChildren.y += instance.parent.y;
+                    }
+
+                    if (nodeBatchId != instance.getPluginData('nodeBatchId')) {
+                        updateYogaNode(instance);
                     }
 
                     subscriber.next({ instance, props: yogaPropsWithoutChildren });
