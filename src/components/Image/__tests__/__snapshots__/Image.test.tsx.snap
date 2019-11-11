@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Image /> Image with resizeMode prop 1`] = `
+<rectangle
+  fills={Array []}
+  height={200}
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  resizeMode="stretch"
+  source="./image.png"
+  style={
+    Object {
+      "backgroundImage": "./image.png",
+      "backgroundSize": "stretch",
+      "height": 200,
+      "width": 100,
+    }
+  }
+  width={100}
+/>
+`;
+
+exports[`<Image /> Image with source and layout style properties 1`] = `
+<rectangle
+  fills={Array []}
+  height={200}
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  source="./image.png"
+  style={
+    Object {
+      "backgroundImage": "./image.png",
+      "backgroundSize": undefined,
+      "height": 200,
+      "width": 100,
+    }
+  }
+  width={100}
+/>
+`;
