@@ -1,6 +1,5 @@
 import { BorderProps } from '../types';
-
-type TSize = number | string;
+import { TSize, transformSize } from '../helpers/size';
 
 export type BorderStyleProperties = {
     borderRadius?: TSize;
@@ -8,13 +7,6 @@ export type BorderStyleProperties = {
     borderBottomRightRadius?: TSize;
     borderTopLeftRadius?: TSize;
     borderTopRightRadius?: TSize;
-};
-
-const transformSize = (size: TSize): number => {
-    if (typeof size === 'number') {
-        return size;
-    }
-    return parseInt(size);
 };
 
 export const transformBorderStyleProperties = (styles?: BorderStyleProperties): BorderProps => {

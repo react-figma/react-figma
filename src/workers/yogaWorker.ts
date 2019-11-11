@@ -11,6 +11,34 @@ const transformFlexDirection = yoga => (value: string) => {
     }
 };
 
+const transformAlignItems = yoga => (value: string) => {
+    switch (value) {
+        case 'flex-end':
+            return yoga.ALIGN_FLEX_END;
+        case 'center':
+            return yoga.ALIGN_CENTER;
+        case 'stretch':
+            return yoga.ALIGN_STRETCH;
+        default:
+            return yoga.ALIGN_FLEX_START;
+    }
+};
+
+const transformJustifyContent = yoga => (value: string) => {
+    switch (value) {
+        case 'flex-end':
+            return yoga.JUSTIFY_FLEX_END;
+        case 'center':
+            return yoga.JUSTIFY_CENTER;
+        case 'space-between':
+            return yoga.JUSTIFY_SPACE_BETWEEN;
+        case 'space-around':
+            return yoga.JUSTIFY_SPACE_AROUND;
+        default:
+            return yoga.JUSTIFY_FLEX_START;
+    }
+};
+
 const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
     const yogaNode = yoga.Node.create();
     cache.node = yogaNode;
@@ -19,6 +47,15 @@ const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
         yogaNode.setHeight(node.height);
     }
     if (node.style) {
+        if (node.style.width) {
+            yogaNode.setWidth(node.style.width);
+        }
+        if (node.style.height) {
+            yogaNode.setHeight(node.style.height);
+        }
+        if (node.style.minHeight) {
+            yogaNode.setMinHeight(node.style.minHeight);
+        }
         if (node.style.flexDirection) {
             yogaNode.setFlexDirection(transformFlexDirection(yoga)(node.style.flexDirection));
         }
@@ -46,8 +83,8 @@ const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
         if (node.style.marginRight) {
             yogaNode.setMargin(yoga.EDGE_RIGHT, node.style.marginRight);
         }
-        yogaNode.setAlignItems(yoga.ALIGN_FLEX_START);
-        yogaNode.setJustifyContent(yoga.JUSTIFY_FLEX_START);
+        yogaNode.setAlignItems(transformAlignItems(yoga)(node.style.alignItems));
+        yogaNode.setJustifyContent(transformJustifyContent(yoga)(node.style.justifyContent));
     }
     if (node.children) {
         node.children.forEach((child, id) => {
