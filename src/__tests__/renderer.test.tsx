@@ -2,6 +2,8 @@ import * as React from 'react';
 import { render } from '../renderer';
 import { Rectangle, Page, Text, Group } from '..';
 import { createFigma } from 'figma-api-stub';
+import { Subject } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 describe('renderer', () => {
     beforeEach(() => {
@@ -182,5 +184,46 @@ describe('renderer', () => {
     it('mark page isCurrent=false', () => {
         render(<Page name={'New page'} />, figma.root);
         expect(figma.currentPage).toMatchSnapshot();
+    });
+
+    it('Text component supported text instance children', () => {
+        figma.createText = jest.fn().mockImplementation(figma.createText);
+        render(<Text>Some text</Text>, figma.currentPage);
+        expect(figma.createText).toHaveBeenCalledTimes(1);
+        expect(figma.root).toMatchSnapshot();
+    });
+
+    it('Text instance hydration', () => {
+        figma.createText = jest.fn().mockImplementation(figma.createText);
+        render(<Text>Some text</Text>, figma.currentPage);
+        render(<Text>Some text 2</Text>, figma.currentPage);
+        expect(figma.createText).toHaveBeenCalledTimes(1);
+        expect(figma.root).toMatchSnapshot();
+    });
+
+    it('Text instance updating', async () => {
+        const waiting = new Subject();
+        figma.createText = jest.fn().mockImplementation(figma.createText);
+
+        const Component = () => {
+            const [text, setText] = React.useState('text 1');
+            React.useEffect(() => {
+                setTimeout(() => {
+                    setText('text 2');
+                    waiting.next();
+                });
+            }, []);
+
+            return <Text>{text}</Text>;
+        };
+
+        render(<Component />, figma.currentPage);
+
+        return new Promise(resolve => {
+            waiting.pipe(take(1)).subscribe(() => {
+                expect(figma.root).toMatchSnapshot();
+                resolve();
+            });
+        });
     });
 });

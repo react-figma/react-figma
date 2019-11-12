@@ -15,6 +15,7 @@ import { StyleSheet } from '../..';
 
 export interface TextProps extends TextNodeProps, DefaultShapeProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & TextStyleProperties & BlendStyleProperties>;
+    children?: string;
 }
 
 export const Text: React.FC<TextProps> = props => {

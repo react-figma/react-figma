@@ -22,6 +22,11 @@ const appendToContainerFactory = groupsProcessor => (parentNode, childNode) => {
         } else {
             groupsProcessor.scheduleGroup(parentNode, childNode);
         }
+    } else if (childNode.type === 'TEXT_CONTAINER') {
+        if (parentNode.type === 'TEXT') {
+            childNode.parent = parentNode;
+            parentNode.characters = childNode.value;
+        }
     } else {
         parentNode.appendChild(childNode);
     }
@@ -89,7 +94,9 @@ export const render = async (jsx: any, rootNode) => {
         createInstance: (type, props) => {
             return renderInstance(type, null, props);
         },
-        createTextInstance: () => {},
+        createTextInstance: (text, rootContainerInstance, hostContext, internalInstanceHandle) => {
+            return { type: 'TEXT_CONTAINER', value: text };
+        },
         resetTextContent: () => {},
         appendInitialChild: (parentNode, childNode) => {
             appendToContainer(parentNode, childNode);
@@ -117,7 +124,14 @@ export const render = async (jsx: any, rootNode) => {
         commitUpdate: (node, updatePayload, type, oldProps, newProps) => {
             renderInstance(type, node, newProps);
         },
-        commitTextUpdate: () => {},
+        commitTextUpdate: (textInstance, oldText, newText) => {
+            if (textInstance.type === 'TEXT_CONTAINER') {
+                textInstance.value = newText;
+            }
+            if (textInstance.type === 'TEXT_CONTAINER' && textInstance.parent) {
+                textInstance.parent.characters = newText;
+            }
+        },
         removeChild: (parentNode, childNode) => {
             remove(childNode);
         },
