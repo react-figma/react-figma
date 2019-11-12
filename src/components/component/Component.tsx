@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultContainerProps } from '../../types';
+import { DefaultContainerProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -7,16 +7,18 @@ import {
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
+import { StyleSheet } from '../..';
 
 export interface ComponentProps extends DefaultContainerProps {
-    style?: YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties;
+    style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
 }
 
 export const Component: React.FC<ComponentProps> = props => {
     const yogaRef = React.useRef();
+    const style = StyleSheet.flatten(props.style);
     const componentProps = {
-        ...transformLayoutStyleProperties(props.style),
-        ...transformBlendProperties(props.style),
+        ...transformLayoutStyleProperties(style),
+        ...transformBlendProperties(style),
         ...props
     };
     const yogaChildProps = useYogaLayout({ yogaRef, ...componentProps });

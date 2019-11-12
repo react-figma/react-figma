@@ -108,6 +108,17 @@ const style = {
 }
 
 <View style={style} />
+
+// StyleSheet
+const styles = StyleSheet.create({
+  foo: {
+    backgroundColor: 'hotPink',
+    width: 300,
+  }
+})
+
+<View style={styles.foo} />
+<View style={[styles.foo, styles.bar]} />
 ```
 
 You can use variables in your styles just like a standard React application:

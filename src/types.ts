@@ -1,6 +1,8 @@
 import * as React from 'react';
 export type Color = string;
 
+export type StyleOf<T> = T | T[];
+
 export interface BaseNodeProps {
     name?: string;
     pluginData?: {

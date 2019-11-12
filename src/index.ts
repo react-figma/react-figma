@@ -13,3 +13,5 @@ export { Vector } from './components/vector/Vector';
 export { Line } from './components/line/Line';
 export { Ellipse } from './components/ellipse/Ellipse';
 export { View } from './components/view/View';
+
+export { StyleSheet } from './helpers/StyleSheet';
