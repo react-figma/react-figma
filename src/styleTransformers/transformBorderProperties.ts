@@ -1,7 +1,11 @@
-import { BorderProps } from '../types';
+import { BorderProps, GeometryProps } from '../types';
 import { TSize, transformSize } from '../helpers/size';
+import { colorToRGB } from '../helpers/color';
 
 export type BorderStyleProperties = {
+    borderColor?: string;
+    borderWidth?: TSize;
+
     borderRadius?: TSize;
     borderBottomLeftRadius?: TSize;
     borderBottomRightRadius?: TSize;
@@ -9,31 +13,44 @@ export type BorderStyleProperties = {
     borderTopRightRadius?: TSize;
 };
 
-export const transformBorderStyleProperties = (styles?: BorderStyleProperties): BorderProps => {
+export const transformBorderStyleProperties = (styles?: BorderStyleProperties): BorderProps & GeometryProps => {
     if (!styles) {
         return {};
     }
 
-    const border: BorderProps = {};
+    const props: BorderProps & GeometryProps = {};
 
     if (styles.borderRadius) {
-        border.topLeftRadius = transformSize(styles.borderRadius);
-        border.topRightRadius = transformSize(styles.borderRadius);
-        border.bottomLeftRadius = transformSize(styles.borderRadius);
-        border.bottomRightRadius = transformSize(styles.borderRadius);
+        props.topLeftRadius = transformSize(styles.borderRadius);
+        props.topRightRadius = transformSize(styles.borderRadius);
+        props.bottomLeftRadius = transformSize(styles.borderRadius);
+        props.bottomRightRadius = transformSize(styles.borderRadius);
     }
     if (styles.borderTopLeftRadius) {
-        border.topLeftRadius = transformSize(styles.borderTopLeftRadius);
+        props.topLeftRadius = transformSize(styles.borderTopLeftRadius);
     }
     if (styles.borderTopRightRadius) {
-        border.topLeftRadius = transformSize(styles.borderTopRightRadius);
+        props.topLeftRadius = transformSize(styles.borderTopRightRadius);
     }
     if (styles.borderBottomLeftRadius) {
-        border.topLeftRadius = transformSize(styles.borderBottomLeftRadius);
+        props.topLeftRadius = transformSize(styles.borderBottomLeftRadius);
     }
     if (styles.borderBottomRightRadius) {
-        border.topLeftRadius = transformSize(styles.borderBottomRightRadius);
+        props.topLeftRadius = transformSize(styles.borderBottomRightRadius);
     }
 
-    return border;
+    if (styles.borderColor) {
+        props.strokes = [
+            {
+                type: 'SOLID',
+                color: colorToRGB(styles.borderColor)
+            }
+        ];
+    }
+
+    if (styles.borderWidth) {
+        props.strokeWeight = transformSize(styles.borderWidth);
+    }
+
+    return props;
 };

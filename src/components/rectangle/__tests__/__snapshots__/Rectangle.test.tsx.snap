@@ -1,5 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Rectangle /> Rectangle with border props 1`] = `
+<rectangle
+  height={100}
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  strokeWeight={10}
+  strokes={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0.1607843137254902,
+          "g": 0.5450980392156862,
+          "r": 1,
+        },
+        "type": "SOLID",
+      },
+    ]
+  }
+  style={
+    Object {
+      "borderColor": "#ff8b29",
+      "borderWidth": 10,
+      "height": 100,
+      "width": 200,
+    }
+  }
+  width={200}
+/>
+`;
+
 exports[`<Rectangle /> Rectangle with color background 1`] = `
 <rectangle
   fills={
