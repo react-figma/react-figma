@@ -133,6 +133,7 @@ Check out our [Contributing Guide](./contributing.md) for ideas on contributing 
 React Figma team wishes to thank the following invaluable contributions:
 
 * [Lera Lesik](https://twitter.com/Lera_Lesik), for creating project logo.
+* [Maksim](https://github.com/pret-a-porter), for TypeScript counseling.
 
 ## Contributors ✨
 
