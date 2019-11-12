@@ -51,4 +51,20 @@ describe('<Rectangle />', () => {
             .toJSON();
         expect(tree).toMatchSnapshot();
     });
+
+    it('Rectangle with border props', () => {
+        const tree = renderer
+            .create(
+                <Rectangle
+                    style={{
+                        width: 200,
+                        height: 100,
+                        borderWidth: 10,
+                        borderColor: '#ff8b29'
+                    }}
+                />
+            )
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });

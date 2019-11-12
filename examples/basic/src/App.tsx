@@ -1,6 +1,15 @@
 import * as React from 'react';
-import { Page, Rectangle, Text } from '../../../src';
+import { Rectangle } from '../../../src';
 
 export const App = () => {
-    return <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />;
+    return (
+        <Rectangle
+            style={{
+                width: 200,
+                height: 100,
+                borderWidth: 10,
+                borderColor: '#ff8b29'
+            }}
+        />
+    );
 };
