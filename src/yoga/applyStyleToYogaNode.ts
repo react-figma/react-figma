@@ -76,6 +76,9 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style) => {
     if (style.marginRight) {
         yogaNode.setMargin(yoga.EDGE_RIGHT, style.marginRight);
     }
+    if (style.borderWidth) {
+        yogaNode.setBorder(yoga.EDGE_ALL, style.borderWidth);
+    }
     yogaNode.setAlignItems(transformAlignItems(yoga)(style.alignItems));
     yogaNode.setJustifyContent(transformJustifyContent(yoga)(style.justifyContent));
 };
