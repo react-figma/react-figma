@@ -35,7 +35,9 @@ export const text = (node: TextNode) => (props: TextProps) => {
     exportMixin(textNode)(props);
     blendMixin(textNode)(props);
 
-    textNode.characters = props.characters;
+    if (props.characters) {
+        textNode.characters = props.characters;
+    }
 
     textNodePropsAssign(textNode)(props);
 

@@ -183,4 +183,19 @@ describe('renderer', () => {
         render(<Page name={'New page'} />, figma.root);
         expect(figma.currentPage).toMatchSnapshot();
     });
+
+    it('Text component supported text instance children', () => {
+        figma.createText = jest.fn().mockImplementation(figma.createText);
+        render(<Text>Some text</Text>, figma.currentPage);
+        expect(figma.createText).toHaveBeenCalledTimes(1);
+        expect(figma.root).toMatchSnapshot();
+    });
+
+    it('Text instance hydration', () => {
+        figma.createText = jest.fn().mockImplementation(figma.createText);
+        render(<Text>Some text</Text>, figma.currentPage);
+        render(<Text>Some text 2</Text>, figma.currentPage);
+        expect(figma.createText).toHaveBeenCalledTimes(1);
+        expect(figma.root).toMatchSnapshot();
+    });
 });
