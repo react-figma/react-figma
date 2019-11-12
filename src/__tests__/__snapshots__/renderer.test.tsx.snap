@@ -46,6 +46,29 @@ ChildrenMixinStub {
 }
 `;
 
+exports[`renderer Text instance updating 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "characters": "text 2",
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "type": "TEXT",
+        },
+      ],
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
 exports[`renderer creates nested groups 1`] = `
 ChildrenMixinStub {
   "children": Array [
