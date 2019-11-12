@@ -50,7 +50,7 @@ Components use CSS styles + flexbox layout.
 | `zIndex`                  | `number`                                                                                    | ⛔         |
 | `backfaceVisibility`      | `visible` &#124; `hidden`                                                                   | ⛔️         |
 | `backgroundColor`         | `Color`                                                                                     | ✅         |
-| `borderColor`             | `Color`                                                                                     | ⛔         |
+| `borderColor`             | `Color`                                                                                     | ✅         |
 | `borderTopColor`          | `Color`                                                                                     | ⛔         |
 | `borderRightColor`        | `Color`                                                                                     | ⛔         |
 | `borderBottomColor`       | `Color`                                                                                     | ⛔         |
@@ -61,7 +61,7 @@ Components use CSS styles + flexbox layout.
 | `borderBottomLeftRadius`  | `number` &#124; `percentage`                                                                | ✅         |
 | `borderBottomRightRadius` | `number` &#124; `percentage`                                                                | ✅         |
 | `borderStyle`             | `solid` &#124; `dotted` &#124; `dashed`                                                     | ⛔         |
-| `borderWidth`             | `number` &#124; `percentage`                                                                | ⛔         |
+| `borderWidth`             | `number` &#124; `percentage`                                                                | ✅         |
 | `borderTopWidth`          | `number` &#124; `percentage`                                                                | ⛔         |
 | `borderRightWidth`        | `number` &#124; `percentage`                                                                | ⛔         |
 | `borderBottomWidth`       | `number` &#124; `percentage`                                                                | ⛔         |
