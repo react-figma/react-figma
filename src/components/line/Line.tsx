@@ -15,7 +15,7 @@ export interface LineProps extends DefaultShapeProps, CornerProps, BorderProps {
     style?: LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties;
 }
 
-export const Line: React.ElementType<LineProps> = props => {
+export const Line: React.FC<LineProps> = props => {
     const yogaRef = React.useRef();
 
     const lineProps = {

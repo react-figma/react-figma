@@ -10,7 +10,7 @@ export interface ViewProps extends DefaultContainerProps, DefaultShapeProps, Cor
     style?: LayoutStyleProperties & GeometryStyleProperties & BorderStyleProperties & BlendStyleProperties;
 }
 
-export const View: React.ElementType<ViewProps> = props => {
+export const View: React.FC<ViewProps> = props => {
     if (props.children) {
         return <Group {...props} />;
     } else {
