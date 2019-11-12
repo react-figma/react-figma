@@ -10,9 +10,10 @@ import {
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
+import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 
 export interface LineProps extends DefaultShapeProps, CornerProps, BorderProps {
-    style?: LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties;
+    style?: YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties;
 }
 
 export const Line: React.FC<LineProps> = props => {

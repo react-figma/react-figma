@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { BaseNodeProps, ChildrenProps, LayoutProps, ExportProps } from '../../types';
-import { transformLayoutStyleProperties } from '../../styleTransformers/transformLayoutStyleProperties';
-import { transformBlendProperties } from '../../styleTransformers/transformBlendProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
+import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 
 export interface PageProps extends BaseNodeProps, ChildrenProps, ExportProps {
+    style?: YogaStyleProperties;
     isCurrent?: boolean;
 }
 

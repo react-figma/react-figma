@@ -7,6 +7,8 @@ import * as whatsappIcon from './icons/003-whatsapp.png';
 import * as skypeIcon from './icons/006-skype.png';
 import * as youtubeIcon from './icons/008-youtube.png';
 import * as instagramIcon from './icons/011-instagram.png';
+import { GeometryStyleProperties } from '../../../src/styleTransformers/transformGeometryStyleProperties';
+import { LayoutStyleProperties } from '../../../src/styleTransformers/transformLayoutStyleProperties';
 
 const frameProps = {
     style: { paddingTop: 10, paddingBottom: 10, paddingLeft: 10, paddingRight: 10 }
@@ -130,11 +132,11 @@ const IconsFrame = props => {
             marginTop: 10
         }
     };
-    const iconStyle = {
+    const iconStyle: GeometryStyleProperties & LayoutStyleProperties = {
         width: 16,
         height: 16,
         backgroundColor: '#ffffff',
-        backgroundSize: 'FIT'
+        backgroundSize: 'contain'
     };
     return (
         <Frame name="Icons" style={{ ...frameProps.style, ...props.style }}>
@@ -143,8 +145,10 @@ const IconsFrame = props => {
             <Component name="IconFacebook" {...componentStyle}>
                 <Rectangle
                     style={{
-                        ...iconStyle,
-                        backgroundImage: facebookIcon
+                        width: 16,
+                        height: 16,
+                        backgroundColor: '#ffffff',
+                        backgroundSize: 'contain'
                     }}
                 />
             </Component>

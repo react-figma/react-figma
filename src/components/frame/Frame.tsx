@@ -7,6 +7,7 @@ import {
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import { ResizeMode, transformGeometryStyleProperties } from '../../styleTransformers/transformGeometryStyleProperties';
+import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 
 interface Preset {
     name: string;
@@ -187,7 +188,8 @@ export interface FrameProps extends DefaultContainerProps {
         backgroundColor?: string;
         backgroundImage?: string;
         backgroundSize?: ResizeMode;
-    } & LayoutStyleProperties &
+    } & YogaStyleProperties &
+        LayoutStyleProperties &
         BlendStyleProperties;
     preset?: Preset;
 }

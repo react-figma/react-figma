@@ -11,9 +11,10 @@ import {
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
+import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 
 export interface StarProps extends DefaultShapeProps, CornerProps, StarNodeProps {
-    style?: LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties;
+    style?: YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties;
     children?: undefined;
 }
 

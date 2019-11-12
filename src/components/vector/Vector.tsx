@@ -11,9 +11,10 @@ import {
     transformGeometryStyleProperties,
     GeometryStyleProperties
 } from '../../styleTransformers/transformGeometryStyleProperties';
+import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 
 export interface VectorProps extends VectorNodeProps, DefaultShapeProps, CornerProps {
-    style?: LayoutStyleProperties & BlendStyleProperties & GeometryStyleProperties;
+    style?: YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties & GeometryStyleProperties;
     children?: undefined;
 }
 
