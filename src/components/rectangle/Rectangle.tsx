@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultShapeProps, BorderProps, CornerProps } from '../../types';
+import { DefaultShapeProps, BorderProps, CornerProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -15,20 +15,23 @@ import {
     transformBorderStyleProperties
 } from '../../styleTransformers/transformBorderProperties';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
+import { StyleSheet } from '../..';
 
 export interface RectangleProps extends DefaultShapeProps, CornerProps, BorderProps {
-    style?: LayoutStyleProperties & GeometryStyleProperties & BorderStyleProperties & BlendStyleProperties;
+    style?: StyleOf<LayoutStyleProperties & GeometryStyleProperties & BorderStyleProperties & BlendStyleProperties>;
     children?: undefined;
 }
 
 export const Rectangle: React.FC<RectangleProps> = props => {
     const yogaRef = React.useRef();
 
+    const style = StyleSheet.flatten(props.style);
+
     const rectangleProps = {
-        ...transformLayoutStyleProperties(props.style),
-        ...transformGeometryStyleProperties(props.style),
-        ...transformBorderStyleProperties(props.style),
-        ...transformBlendProperties(props.style),
+        ...transformLayoutStyleProperties(style),
+        ...transformGeometryStyleProperties(style),
+        ...transformBorderStyleProperties(style),
+        ...transformBlendProperties(style),
         ...props
     };
     const fills = useFillsPreprocessor(rectangleProps);

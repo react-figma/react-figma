@@ -1,4 +1,5 @@
 import { applyStyleToYogaNode } from '../yoga/applyStyleToYogaNode';
+import { StyleSheet } from '..';
 
 const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
     const yogaNode = yoga.Node.create();
@@ -9,7 +10,7 @@ const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
         yogaNode.setHeight(node.height);
     }
     if (node.style) {
-        applyStyleToYogaNode(yoga)(yogaNode, node.style);
+        applyStyleToYogaNode(yoga)(yogaNode, StyleSheet.flatten(node.style));
     }
     if (node.children) {
         node.children.forEach((child, id) => {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultContainerProps } from '../../types';
+import { DefaultContainerProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -8,6 +8,7 @@ import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import { ResizeMode, transformGeometryStyleProperties } from '../../styleTransformers/transformGeometryStyleProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
+import { StyleSheet } from '../../helpers/StyleSheet';
 
 interface Preset {
     name: string;
@@ -184,25 +185,29 @@ export const FRAME_PRESETS = {
 };
 
 export interface FrameProps extends DefaultContainerProps {
-    style?: {
-        backgroundColor?: string;
-        backgroundImage?: string;
-        backgroundSize?: ResizeMode;
-    } & YogaStyleProperties &
-        LayoutStyleProperties &
-        BlendStyleProperties;
+    style?: StyleOf<
+        {
+            backgroundColor?: string;
+            backgroundImage?: string;
+            backgroundSize?: ResizeMode;
+        } & YogaStyleProperties &
+            LayoutStyleProperties &
+            BlendStyleProperties
+    >;
     preset?: Preset;
 }
 
 export const Frame: React.FC<FrameProps> = props => {
     const yogaRef = React.useRef();
 
+    const style = StyleSheet.flatten(props.style);
+
     const { preset, ...propWithoutPreset } = props;
     const frameProps = {
         ...(preset || {}),
-        ...transformLayoutStyleProperties(props.style),
-        ...transformBlendProperties(props.style),
-        ...transformGeometryStyleProperties(props.style),
+        ...transformLayoutStyleProperties(style),
+        ...transformBlendProperties(style),
+        ...transformGeometryStyleProperties(style),
         ...propWithoutPreset
     };
     const yogaChildProps = useYogaLayout({ yogaRef, ...frameProps });

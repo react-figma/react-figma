@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { RectangleProps, Rectangle } from '../rectangle/Rectangle';
 import { ResizeMode } from '../../styleTransformers/transformGeometryStyleProperties';
+import { StyleSheet } from '../..';
 
 export interface ImageProps extends RectangleProps {
     source: string;
@@ -8,7 +9,7 @@ export interface ImageProps extends RectangleProps {
 }
 
 export const Image: React.FC<ImageProps> = props => {
-    const style = props.style || {};
+    const style = (props.style && StyleSheet.flatten(props.style)) || {};
 
     style.backgroundImage = props.source;
     style.backgroundSize = props.resizeMode;

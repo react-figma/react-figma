@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultShapeProps, CornerProps } from '../../types';
+import { DefaultShapeProps, CornerProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -12,20 +12,22 @@ import {
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
+import { StyleSheet } from '../..';
 
 export interface EllipseProps extends DefaultShapeProps, CornerProps {
-    style?: YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties;
+    style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
     children?: undefined;
     arcData?: ArcData;
 }
 
 export const Ellipse: React.FC<EllipseProps> = props => {
     const yogaRef = React.useRef();
+    const style = StyleSheet.flatten(props.style);
 
     const ellipseProps = {
-        ...transformLayoutStyleProperties(props.style),
-        ...transformBlendProperties(props.style),
-        ...transformGeometryStyleProperties(props.style),
+        ...transformLayoutStyleProperties(style),
+        ...transformBlendProperties(style),
+        ...transformGeometryStyleProperties(style),
         ...props
     };
     const fills = useFillsPreprocessor(ellipseProps);
