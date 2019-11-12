@@ -11,9 +11,10 @@ import {
     transformGeometryStyleProperties
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
+import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 
 export interface EllipseProps extends DefaultShapeProps, CornerProps {
-    style?: LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties;
+    style?: YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties;
     children?: undefined;
     arcData?: ArcData;
 }

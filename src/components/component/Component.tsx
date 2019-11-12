@@ -6,9 +6,10 @@ import {
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
+import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 
 export interface ComponentProps extends DefaultContainerProps {
-    style?: LayoutStyleProperties & BlendStyleProperties;
+    style?: YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties;
 }
 
 export const Component: React.FC<ComponentProps> = props => {

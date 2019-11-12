@@ -10,9 +10,10 @@ import {
 } from '../../styleTransformers/transformTextStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
+import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 
 export interface TextProps extends TextNodeProps, DefaultShapeProps {
-    style?: LayoutStyleProperties & TextStyleProperties & BlendStyleProperties;
+    style?: YogaStyleProperties & LayoutStyleProperties & TextStyleProperties & BlendStyleProperties;
 }
 
 export const Text: React.FC<TextProps> = props => {

@@ -1,14 +1,16 @@
 import * as React from 'react';
 import { Page, Rectangle, Group, Frame } from '../../../src';
+import { YogaStyleProperties } from '../../../src/yoga/YogaStyleProperties';
+import { GeometryStyleProperties } from '../../../src/styleTransformers/transformGeometryStyleProperties';
 
-const frameProps = {
+const frameProps: { style: YogaStyleProperties & GeometryStyleProperties } = {
     style: {
         paddingTop: 10,
         paddingBottom: 10,
         paddingLeft: 10,
         paddingRight: 10,
         flexDirection: 'row',
-        background: '#ffffff'
+        backgroundColor: '#ffffff'
     }
 };
 

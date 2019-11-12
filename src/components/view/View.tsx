@@ -5,9 +5,14 @@ import { GeometryStyleProperties } from '../../styleTransformers/transformGeomet
 import { BorderStyleProperties } from '../../styleTransformers/transformBorderProperties';
 import { BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import { Group, Rectangle } from '../..';
+import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 
 export interface ViewProps extends DefaultContainerProps, DefaultShapeProps, CornerProps, BorderProps {
-    style?: LayoutStyleProperties & GeometryStyleProperties & BorderStyleProperties & BlendStyleProperties;
+    style?: YogaStyleProperties &
+        LayoutStyleProperties &
+        GeometryStyleProperties &
+        BorderStyleProperties &
+        BlendStyleProperties;
 }
 
 export const View: React.FC<ViewProps> = props => {
