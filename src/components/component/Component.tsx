@@ -11,7 +11,7 @@ export interface ComponentProps extends DefaultContainerProps {
     style?: LayoutStyleProperties & BlendStyleProperties;
 }
 
-export const Component: React.ElementType<ComponentProps> = props => {
+export const Component: React.FC<ComponentProps> = props => {
     const yogaRef = React.useRef();
     const componentProps = {
         ...transformLayoutStyleProperties(props.style),

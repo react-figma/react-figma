@@ -6,11 +6,10 @@ import * as createReconciler from 'react-reconciler/cjs/react-reconciler.product
 
 import { GroupsProcessor } from './renderers/group/groupsProcessor';
 import { PREGROUP_NODE_TYPE } from './renderers/group/pregroupNode';
-import { updateYogaRoot } from './yogaStream';
+import { updateYogaRoot } from './yoga/yogaStream';
+import { isReactFigmaNode } from './isReactFigmaNode';
 
 let lastPage;
-
-const isReactFigmaNode = child => child.getPluginData && child.getPluginData('isReactFigmaNode');
 
 const appendToContainerFactory = groupsProcessor => (parentNode, childNode) => {
     if (!childNode || !parentNode) {

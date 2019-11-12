@@ -21,7 +21,7 @@ export interface RectangleProps extends DefaultShapeProps, CornerProps, BorderPr
     children?: undefined;
 }
 
-export const Rectangle: React.ElementType<RectangleProps> = props => {
+export const Rectangle: React.FC<RectangleProps> = props => {
     const yogaRef = React.useRef();
 
     const rectangleProps = {

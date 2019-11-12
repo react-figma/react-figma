@@ -15,7 +15,7 @@ export interface TextProps extends TextNodeProps, DefaultShapeProps {
     style?: LayoutStyleProperties & TextStyleProperties & BlendStyleProperties;
 }
 
-export const Text: React.ElementType<TextProps> = props => {
+export const Text: React.FC<TextProps> = props => {
     const yogaRef = React.useRef();
     const textProps = {
         ...transformLayoutStyleProperties(props.style),

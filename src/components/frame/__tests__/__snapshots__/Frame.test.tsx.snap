@@ -2,6 +2,18 @@
 
 exports[`<Frame /> Frame with color background 1`] = `
 <frame
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 1,
+          "r": 0.10588235294117647,
+        },
+        "type": "SOLID",
+      },
+    ]
+  }
   innerRef={
     Object {
       "current": undefined,
@@ -17,6 +29,23 @@ exports[`<Frame /> Frame with color background 1`] = `
 
 exports[`<Frame /> Frame with image background 1`] = `
 <frame
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0.1607843137254902,
+          "g": 0.5450980392156862,
+          "r": 1,
+        },
+        "type": "SOLID",
+      },
+      Object {
+        "image": "./image.png",
+        "scaleMode": "FILL",
+        "type": "IMAGE",
+      },
+    ]
+  }
   innerRef={
     Object {
       "current": undefined,

@@ -7,7 +7,7 @@ export interface ImageProps extends RectangleProps {
     resizeMode?: ResizeMode;
 }
 
-export const Image: React.ElementType<ImageProps> = props => {
+export const Image: React.FC<ImageProps> = props => {
     const style = props.style || {};
 
     style.backgroundImage = props.source;

@@ -18,7 +18,7 @@ export interface EllipseProps extends DefaultShapeProps, CornerProps {
     arcData?: ArcData;
 }
 
-export const Ellipse: React.ElementType<EllipseProps> = props => {
+export const Ellipse: React.FC<EllipseProps> = props => {
     const yogaRef = React.useRef();
 
     const ellipseProps = {
