@@ -24,7 +24,7 @@ export const Line: React.FC<LineProps> = props => {
 
     const lineProps = {
         ...transformLayoutStyleProperties(style),
-        ...transformGeometryStyleProperties(style),
+        ...transformGeometryStyleProperties('fills', style),
         ...transformBlendProperties(style),
         ...props
     };

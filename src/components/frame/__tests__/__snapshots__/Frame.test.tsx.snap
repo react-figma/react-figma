@@ -2,7 +2,7 @@
 
 exports[`<Frame /> Frame with color background 1`] = `
 <frame
-  fills={
+  backgrounds={
     Array [
       Object {
         "color": Object {
@@ -29,7 +29,7 @@ exports[`<Frame /> Frame with color background 1`] = `
 
 exports[`<Frame /> Frame with image background 1`] = `
 <frame
-  fills={
+  backgrounds={
     Array [
       Object {
         "color": Object {

@@ -29,7 +29,7 @@ export const Rectangle: React.FC<RectangleProps> = props => {
 
     const rectangleProps = {
         ...transformLayoutStyleProperties(style),
-        ...transformGeometryStyleProperties(style),
+        ...transformGeometryStyleProperties('fills', style),
         ...transformBorderStyleProperties(style),
         ...transformBlendProperties(style),
         ...props

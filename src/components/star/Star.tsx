@@ -26,7 +26,7 @@ export const Star: React.FC<StarProps> = props => {
 
     const starProps = {
         ...transformLayoutStyleProperties(style),
-        ...transformGeometryStyleProperties(style),
+        ...transformGeometryStyleProperties('fills', style),
         ...transformBlendProperties(style),
         ...props
     };

@@ -184,7 +184,7 @@ export const FRAME_PRESETS = {
     }
 };
 
-export interface FrameProps extends DefaultContainerProps {
+export interface FrameNodeProps extends DefaultContainerProps {
     style?: StyleOf<
         {
             backgroundColor?: string;
@@ -197,7 +197,7 @@ export interface FrameProps extends DefaultContainerProps {
     preset?: Preset;
 }
 
-export const Frame: React.FC<FrameProps> = props => {
+export const Frame: React.FC<FrameNodeProps> = props => {
     const yogaRef = React.useRef();
 
     const style = StyleSheet.flatten(props.style);
@@ -207,10 +207,12 @@ export const Frame: React.FC<FrameProps> = props => {
         ...(preset || {}),
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
-        ...transformGeometryStyleProperties(style),
+        ...transformGeometryStyleProperties('backgrounds', style),
         ...propWithoutPreset
     };
     const yogaChildProps = useYogaLayout({ yogaRef, ...frameProps });
+
+    console.log(frameProps);
 
     return <frame {...frameProps} {...yogaChildProps} innerRef={yogaRef} />;
 };

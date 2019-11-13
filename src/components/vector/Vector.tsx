@@ -27,7 +27,7 @@ export const Vector: React.FC<VectorProps> = props => {
     const vectorProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
-        ...transformGeometryStyleProperties(style),
+        ...transformGeometryStyleProperties('fills', style),
         ...props
     };
     const fills = useFillsPreprocessor(vectorProps);
