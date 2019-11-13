@@ -60,6 +60,7 @@
     "react-test-renderer": "16.8.6",
     "rimraf": "^3.0.0",
     "style-loader": "^1.0.0",
+    "svg-inline-loader": "^0.8.0",
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
