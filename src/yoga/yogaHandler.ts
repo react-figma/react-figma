@@ -1,7 +1,11 @@
 import { messagePromise } from '../helpers/messagePromise';
 import * as nanoid from 'nanoid/non-secure';
+import { isReactFigmaNode } from '../isReactFigmaNode';
 
 const transformNodesToTree = node => {
+    if (!isReactFigmaNode(node)) {
+        return;
+    }
     const nodeBatchId = nanoid();
     node.setPluginData('nodeBatchId', nodeBatchId);
     return {
@@ -10,7 +14,7 @@ const transformNodesToTree = node => {
         style:
             (node.getPluginData && node.getPluginData('reactStyle') && JSON.parse(node.getPluginData('reactStyle'))) ||
             undefined,
-        children: node.children && node.children.map(transformNodesToTree),
+        children: node.children && node.children.map(transformNodesToTree).filter(item => !!item),
         nodeBatchId
     };
 };

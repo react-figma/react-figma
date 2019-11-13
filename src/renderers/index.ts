@@ -9,3 +9,4 @@ export { vector } from './vector';
 export { line } from './line';
 export { group } from './group/group';
 export { ellipse } from './ellipse';
+export { svg } from './svg';
