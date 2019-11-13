@@ -5,11 +5,24 @@ import { baseNodeMixin } from '../../mixins/baseNodeMixin';
 import { exportMixin } from '../../mixins/exportMixin';
 import { blendMixin } from '../../mixins/blendMixin';
 import { PregroupNode } from './pregroupNode';
+import { geometryMixin } from '../../mixins/geometryMixin';
 
 export const group = node => props => {
     let newNode;
-    const didMountHandler = () => {
+
+    const applyProps = () => {
         refMixin(newNode.figmaNode)(props);
+
+        saveStyleMixin(newNode.figmaNode)(props);
+        baseNodeMixin(newNode.figmaNode)(props);
+        layoutMixin(newNode.figmaNode)(props);
+        exportMixin(newNode.figmaNode)(props);
+        geometryMixin(newNode.figmaNode)(props);
+        blendMixin(newNode.figmaNode)(props);
+    };
+
+    const didMountHandler = () => {
+        applyProps();
     };
 
     if (node && node.type === 'GROUP') {
@@ -22,13 +35,7 @@ export const group = node => props => {
     }
 
     if (newNode.figmaNode) {
-        const groupNode = newNode.figmaNode;
-
-        saveStyleMixin(groupNode)(props);
-        baseNodeMixin(groupNode)(props);
-        layoutMixin(groupNode)(props);
-        exportMixin(groupNode)(props);
-        blendMixin(groupNode)(props);
+        applyProps();
     }
 
     return newNode;

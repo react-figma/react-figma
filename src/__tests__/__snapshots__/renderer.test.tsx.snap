@@ -127,6 +127,7 @@ ChildrenMixinStub {
               "parent": [Circular],
               "pluginData": Object {
                 "isReactFigmaNode": "true",
+                "reactStyle": "{}",
               },
               "type": "GROUP",
             },
@@ -156,6 +157,7 @@ ChildrenMixinStub {
               "parent": [Circular],
               "pluginData": Object {
                 "isReactFigmaNode": "true",
+                "reactStyle": "{}",
               },
               "type": "GROUP",
             },
@@ -163,6 +165,7 @@ ChildrenMixinStub {
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
+            "reactStyle": "{}",
           },
           "type": "GROUP",
         },
@@ -215,6 +218,7 @@ ChildrenMixinStub {
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
+            "reactStyle": "{}",
           },
           "type": "GROUP",
         },
