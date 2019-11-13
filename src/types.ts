@@ -42,7 +42,7 @@ export interface GeometryProps {
 }
 
 export interface FrameProps {
-    backgrounds: ReadonlyArray<Paint>;
+    backgrounds?: ReadonlyArray<Paint>;
 }
 
 export interface CornerProps {
