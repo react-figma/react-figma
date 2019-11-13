@@ -6,7 +6,10 @@ import {
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
-import { ResizeMode, transformGeometryStyleProperties } from '../../styleTransformers/transformGeometryStyleProperties';
+import {
+    GeometryStyleProperties,
+    transformGeometryStyleProperties
+} from '../../styleTransformers/transformGeometryStyleProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../../helpers/StyleSheet';
 
@@ -185,15 +188,7 @@ export const FRAME_PRESETS = {
 };
 
 export interface FrameNodeProps extends DefaultContainerProps {
-    style?: StyleOf<
-        {
-            backgroundColor?: string;
-            backgroundImage?: string;
-            backgroundSize?: ResizeMode;
-        } & YogaStyleProperties &
-            LayoutStyleProperties &
-            BlendStyleProperties
-    >;
+    style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     preset?: Preset;
 }
 

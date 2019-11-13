@@ -6,6 +6,7 @@ import { exportMixin } from '../../mixins/exportMixin';
 import { blendMixin } from '../../mixins/blendMixin';
 import { PregroupNode } from './pregroupNode';
 import { geometryMixin } from '../../mixins/geometryMixin';
+import { frameMixin } from '../../mixins/frameMixin';
 
 export const group = node => props => {
     let newNode;
@@ -19,6 +20,7 @@ export const group = node => props => {
         exportMixin(newNode.figmaNode)(props);
         geometryMixin(newNode.figmaNode)(props);
         blendMixin(newNode.figmaNode)(props);
+        frameMixin(newNode.figmaNode)(props);
     };
 
     const didMountHandler = () => {
