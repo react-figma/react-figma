@@ -27,7 +27,7 @@ export const Ellipse: React.FC<EllipseProps> = props => {
     const ellipseProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
-        ...transformGeometryStyleProperties(style),
+        ...transformGeometryStyleProperties('fills', style),
         ...props
     };
     const fills = useFillsPreprocessor(ellipseProps);

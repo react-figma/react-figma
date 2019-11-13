@@ -8,12 +8,16 @@ import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { BlendStyleProperties, transformBlendProperties } from '../../styleTransformers/transformBlendProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
+import {
+    GeometryStyleProperties,
+    transformGeometryStyleProperties
+} from '../../styleTransformers/transformGeometryStyleProperties';
 
-export interface GroupProps extends DefaultShapeProps {
-    style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
+export interface GroupNodeProps extends DefaultShapeProps {
+    style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
 }
 
-export const Group: React.FC<GroupProps> = props => {
+export const Group: React.FC<GroupNodeProps> = props => {
     const yogaRef = React.useRef();
 
     const style = StyleSheet.flatten(props.style);
@@ -21,6 +25,7 @@ export const Group: React.FC<GroupProps> = props => {
     const groupProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
+        ...transformGeometryStyleProperties('backgrounds', style),
         ...props
     };
     const yogaChildProps = useYogaLayout({ yogaRef, ...groupProps });

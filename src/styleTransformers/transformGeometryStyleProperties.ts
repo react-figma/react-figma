@@ -21,6 +21,7 @@ const backgroundSizeToScaleMode = {
 };
 
 export const transformGeometryStyleProperties = (
+    property: 'fills' | 'backgrounds',
     style?: LayoutStyleProperties & GeometryStyleProperties
 ): GeometryProps => {
     if (!style) {
@@ -51,6 +52,6 @@ export const transformGeometryStyleProperties = (
     }
 
     return {
-        ...((fills.length > 0 && { fills }) || {})
+        ...((fills.length > 0 && { [property]: fills }) || {})
     };
 };

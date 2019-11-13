@@ -2,11 +2,14 @@ import { baseNodeMixin } from '../mixins/baseNodeMixin';
 import { layoutMixin } from '../mixins/layoutMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
 import { refMixin } from '../mixins/refMixin';
-import { FrameProps } from '../components/frame/Frame';
+import { FrameNodeProps } from '../components/frame/Frame';
 import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
+import { propsAssign } from '../helpers/propsAssign';
+import { BorderProps } from '../types';
+import { frameMixin } from '../mixins/frameMixin';
 
-export const frame = (node: FrameNode) => (props: FrameProps) => {
+export const frame = (node: FrameNode) => (props: FrameNodeProps) => {
     const frameNode = node || figma.createFrame();
 
     refMixin(frameNode)(props);
@@ -16,6 +19,8 @@ export const frame = (node: FrameNode) => (props: FrameProps) => {
     layoutMixin(frameNode)(props);
     exportMixin(frameNode)(props);
     blendMixin(frameNode)(props);
+
+    frameMixin(frameNode)(props);
 
     return frameNode;
 };

@@ -41,6 +41,10 @@ export interface GeometryProps {
     strokeStyleId?: string;
 }
 
+export interface FrameProps {
+    backgrounds?: ReadonlyArray<Paint>;
+}
+
 export interface CornerProps {
     cornerRadius?: number | symbol;
     cornerSmoothing?: number;
@@ -97,4 +101,10 @@ export interface StarNodeProps {
 
 export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps, BlendProps {}
 
-export interface DefaultContainerProps extends BaseNodeProps, ChildrenProps, LayoutProps, ExportProps, BlendProps {}
+export interface DefaultContainerProps
+    extends BaseNodeProps,
+        ChildrenProps,
+        LayoutProps,
+        ExportProps,
+        BlendProps,
+        FrameProps {}
