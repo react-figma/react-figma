@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BorderProps, CornerProps, DefaultContainerProps, DefaultShapeProps } from '../../types';
+import { BorderProps, CornerProps, DefaultContainerProps, DefaultShapeProps, StyleOf } from '../../types';
 import { LayoutStyleProperties } from '../../styleTransformers/transformLayoutStyleProperties';
 import { GeometryStyleProperties } from '../../styleTransformers/transformGeometryStyleProperties';
 import { BorderStyleProperties } from '../../styleTransformers/transformBorderProperties';
@@ -8,11 +8,13 @@ import { Group, Rectangle } from '../..';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 
 export interface ViewProps extends DefaultContainerProps, DefaultShapeProps, CornerProps, BorderProps {
-    style?: YogaStyleProperties &
-        LayoutStyleProperties &
-        GeometryStyleProperties &
-        BorderStyleProperties &
-        BlendStyleProperties;
+    style?: StyleOf<
+        YogaStyleProperties &
+            LayoutStyleProperties &
+            GeometryStyleProperties &
+            BorderStyleProperties &
+            BlendStyleProperties
+    >;
 }
 
 export const View: React.FC<ViewProps> = props => {
