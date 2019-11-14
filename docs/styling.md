@@ -21,9 +21,9 @@ Components use CSS styles + flexbox layout.
 | `maxWidth`                | `number` &#124; `percentage`                                                                | ✅         |
 | `minHeight`               | `number` &#124; `percentage`                                                                | ✅         |
 | `maxHeight`               | `number` &#124; `percentage`                                                                | ✅         |
-| `margin`                  | `number` &#124; `percentage`                                                                | ⛔         |
-| `marginVertical`          | `number` &#124; `percentage`                                                                | ⛔         |
-| `marginHorizontal`        | `number` &#124; `percentage`                                                                | ⛔         |
+| `margin`                  | `number` &#124; `percentage`                                                                | ✅         |
+| `marginVertical`          | `number` &#124; `percentage`                                                                | ✅         |
+| `marginHorizontal`        | `number` &#124; `percentage`                                                                | ✅         |
 | `marginTop`               | `number` &#124; `percentage`                                                                | ✅         |
 | `marginBottom`            | `number` &#124; `percentage`                                                                | ✅         |
 | `marginLeft`              | `number` &#124; `percentage`                                                                | ✅         |

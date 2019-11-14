@@ -17,9 +17,12 @@ export type YogaStyleProperties = {
     paddingRight?: Dimension;
     paddingVertical?: Dimension;
     paddingHorizontal?: Dimension;
+    margin?: Dimension;
     marginTop?: Dimension;
     marginBottom?: Dimension;
     marginLeft?: Dimension;
     marginRight?: Dimension;
+    marginVertical?: Dimension;
+    marginHorizontal?: Dimension;
     borderWidth?: number;
 };
