@@ -1,4 +1,4 @@
-type Dimension = number;
+type Dimension = number | string;
 
 export type YogaStyleProperties = {
     width?: Dimension;
@@ -15,4 +15,5 @@ export type YogaStyleProperties = {
     marginBottom?: Dimension;
     marginLeft?: Dimension;
     marginRight?: Dimension;
+    borderWidth?: number;
 };
