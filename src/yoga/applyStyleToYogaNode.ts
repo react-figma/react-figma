@@ -76,6 +76,11 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStylePropertie
     if (style.flexDirection) {
         yogaNode.setFlexDirection(transformFlexDirection(yoga)(style.flexDirection));
     }
+    if (style.padding) {
+        transformDimensionMapper(style.padding)
+            .px(value => yogaNode.setPadding(yoga.EDGE_ALL, value))
+            .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_ALL, value));
+    }
     if (style.paddingTop) {
         transformDimensionMapper(style.paddingTop)
             .px(value => yogaNode.setPadding(yoga.EDGE_TOP, value))
@@ -95,6 +100,16 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStylePropertie
         transformDimensionMapper(style.paddingRight)
             .px(value => yogaNode.setPadding(yoga.EDGE_RIGHT, value))
             .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_RIGHT, value));
+    }
+    if (style.paddingVertical) {
+        transformDimensionMapper(style.paddingVertical)
+            .px(value => yogaNode.setPadding(yoga.EDGE_VERTICAL, value))
+            .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_VERTICAL, value));
+    }
+    if (style.paddingHorizontal) {
+        transformDimensionMapper(style.paddingHorizontal)
+            .px(value => yogaNode.setPadding(yoga.EDGE_HORIZONTAL, value))
+            .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_HORIZONTAL, value));
     }
     if (style.marginTop) {
         transformDimensionMapper(style.marginTop)

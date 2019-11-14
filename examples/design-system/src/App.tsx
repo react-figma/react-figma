@@ -11,10 +11,7 @@ import { ResizeMode } from '../../../src/styleTransformers/transformGeometryStyl
 
 const styles = StyleSheet.create({
     frame: {
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: 10,
-        paddingRight: 10
+        padding: 10
     },
     component: {
         marginTop: 10

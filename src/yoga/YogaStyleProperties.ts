@@ -10,10 +10,13 @@ export type YogaStyleProperties = {
     flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
     alignItems?: 'flex-start' | 'center' | 'stretch' | 'flex-end';
     justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around';
+    padding?: Dimension;
     paddingTop?: Dimension;
     paddingBottom?: Dimension;
     paddingLeft?: Dimension;
     paddingRight?: Dimension;
+    paddingVertical?: Dimension;
+    paddingHorizontal?: Dimension;
     marginTop?: Dimension;
     marginBottom?: Dimension;
     marginLeft?: Dimension;

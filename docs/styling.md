@@ -17,10 +17,10 @@ Components use CSS styles + flexbox layout.
 | `left`                    | `number` &#124; `percentage`                                                                | ⛔         |
 | `right`                   | `number` &#124; `percentage`                                                                | ⛔         |
 | `bottom`                  | `number` &#124; `percentage`                                                                | ⛔         |
-| `minWidth`                | `number` &#124; `percentage`                                                                | ⛔         |
-| `maxWidth`                | `number` &#124; `percentage`                                                                | ⛔         |
+| `minWidth`                | `number` &#124; `percentage`                                                                | ✅         |
+| `maxWidth`                | `number` &#124; `percentage`                                                                | ✅         |
 | `minHeight`               | `number` &#124; `percentage`                                                                | ✅         |
-| `maxHeight`               | `number` &#124; `percentage`                                                                | ⛔         |
+| `maxHeight`               | `number` &#124; `percentage`                                                                | ✅         |
 | `margin`                  | `number` &#124; `percentage`                                                                | ⛔         |
 | `marginVertical`          | `number` &#124; `percentage`                                                                | ⛔         |
 | `marginHorizontal`        | `number` &#124; `percentage`                                                                | ⛔         |
@@ -28,9 +28,9 @@ Components use CSS styles + flexbox layout.
 | `marginBottom`            | `number` &#124; `percentage`                                                                | ✅         |
 | `marginLeft`              | `number` &#124; `percentage`                                                                | ✅         |
 | `marginRight`             | `number` &#124; `percentage`                                                                | ✅         |
-| `padding`                 | `number` &#124; `percentage`                                                                | ⛔         |
-| `paddingVertical`         | `number` &#124; `percentage`                                                                | ⛔         |
-| `paddingHorizontal`       | `number` &#124; `percentage`                                                                | ⛔         |
+| `padding`                 | `number` &#124; `percentage`                                                                | ✅         |
+| `paddingVertical`         | `number` &#124; `percentage`                                                                | ✅         |
+| `paddingHorizontal`       | `number` &#124; `percentage`                                                                | ✅         |
 | `paddingTop`              | `number` &#124; `percentage`                                                                | ✅         |
 | `paddingBottom`           | `number` &#124; `percentage`                                                                | ✅         |
 | `paddingLeft`             | `number` &#124; `percentage`                                                                | ✅         |
