@@ -42,7 +42,19 @@ const transformJustifyContent = yoga => (value: string) => {
     }
 };
 
+const transformPosition = yoga => (value: string) => {
+    switch (value) {
+        case 'absolute':
+            return yoga.POSITION_TYPE_ABSOLUTE;
+        default:
+            return yoga.POSITION_TYPE_RELATIVE;
+    }
+};
+
 export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStyleProperties) => {
+    if (style.position) {
+        yogaNode.setPositionType(transformPosition(yoga)(style.position));
+    }
     if (style.width) {
         transformDimensionMapper(style.width)
             .px(yogaNode.setWidth.bind(yogaNode))

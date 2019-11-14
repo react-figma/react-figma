@@ -35,7 +35,7 @@ Components use CSS styles + flexbox layout.
 | `paddingBottom`           | `number` &#124; `percentage`                                                                | ✅         |
 | `paddingLeft`             | `number` &#124; `percentage`                                                                | ✅         |
 | `paddingRight`            | `number` &#124; `percentage`                                                                | ✅         |
-| `position`                | `absolute` &#124; `relative`                                                                | ⛔         |
+| `position`                | `absolute` &#124; `relative`                                                                | ✅         |
 | `flexDirection`           | `row` &#124; `row-reverse` &#124; `column` &#124; `column-reverse`                          | ✅         |
 | `flexWrap`                | `wrap` &#124; `nowrap`                                                                      | ✅         |
 | `justifyContent`          | `flex-start` &#124; `flex-end` &#124; `center` &#124; `space-between` &#124; `space-around` | ✅         |
