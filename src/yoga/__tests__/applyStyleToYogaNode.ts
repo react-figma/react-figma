@@ -13,6 +13,14 @@ describe('applyStyleToYogaNode', () => {
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
 
+    it('width with percentage', () => {
+        const yogaNode = yoga.Node.create();
+        applyStyleToYogaNodeConnected(yogaNode, {
+            width: '50%'
+        });
+        expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
+    });
+
     it('flexDirection', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
