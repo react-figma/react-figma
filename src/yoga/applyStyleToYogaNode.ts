@@ -53,10 +53,25 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStylePropertie
             .px(yogaNode.setHeight.bind(yogaNode))
             .percentage(yogaNode.setHeightPercent.bind(yogaNode));
     }
+    if (style.minWidth) {
+        transformDimensionMapper(style.minWidth)
+            .px(yogaNode.setMinWidth.bind(yogaNode))
+            .percentage(yogaNode.setMinWidthPercent.bind(yogaNode));
+    }
+    if (style.maxWidth) {
+        transformDimensionMapper(style.maxWidth)
+            .px(yogaNode.setMaxWidth.bind(yogaNode))
+            .percentage(yogaNode.setMaxWidth.bind(yogaNode));
+    }
     if (style.minHeight) {
         transformDimensionMapper(style.minHeight)
             .px(yogaNode.setMinHeight.bind(yogaNode))
             .percentage(yogaNode.setMinHeightPercent.bind(yogaNode));
+    }
+    if (style.maxHeight) {
+        transformDimensionMapper(style.maxHeight)
+            .px(yogaNode.setMaxHeight.bind(yogaNode))
+            .percentage(yogaNode.setMaxHeight.bind(yogaNode));
     }
     if (style.flexDirection) {
         yogaNode.setFlexDirection(transformFlexDirection(yoga)(style.flexDirection));
