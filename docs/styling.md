@@ -13,10 +13,10 @@ Components use CSS styles + flexbox layout.
 | `shadowRadius`            | `number` &#124; `percentage`                                                                | ⛔         |
 | `width`                   | `number` &#124; `percentage`                                                                | ✅         |
 | `height`                  | `number` &#124; `percentage`                                                                | ✅         |
-| `top`                     | `number` &#124; `percentage`                                                                | ⛔         |
-| `left`                    | `number` &#124; `percentage`                                                                | ⛔         |
-| `right`                   | `number` &#124; `percentage`                                                                | ⛔         |
-| `bottom`                  | `number` &#124; `percentage`                                                                | ⛔         |
+| `top`                     | `number` &#124; `percentage`                                                                | ✅         |
+| `left`                    | `number` &#124; `percentage`                                                                | ✅         |
+| `right`                   | `number` &#124; `percentage`                                                                | ✅         |
+| `bottom`                  | `number` &#124; `percentage`                                                                | ✅         |
 | `minWidth`                | `number` &#124; `percentage`                                                                | ✅         |
 | `maxWidth`                | `number` &#124; `percentage`                                                                | ✅         |
 | `minHeight`               | `number` &#124; `percentage`                                                                | ✅         |

@@ -55,6 +55,26 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStylePropertie
     if (style.position) {
         yogaNode.setPositionType(transformPosition(yoga)(style.position));
     }
+    if (style.top) {
+        transformDimensionMapper(style.top)
+            .px(value => yogaNode.setPosition(yoga.EDGE_TOP, value))
+            .percentage(value => yogaNode.setPositionPercent(yoga.EDGE_TOP, value));
+    }
+    if (style.left) {
+        transformDimensionMapper(style.left)
+            .px(value => yogaNode.setPosition(yoga.EDGE_LEFT, value))
+            .percentage(value => yogaNode.setPositionPercent(yoga.EDGE_LEFT, value));
+    }
+    if (style.right) {
+        transformDimensionMapper(style.right)
+            .px(value => yogaNode.setPosition(yoga.EDGE_RIGHT, value))
+            .percentage(value => yogaNode.setPositionPercent(yoga.EDGE_RIGHT, value));
+    }
+    if (style.bottom) {
+        transformDimensionMapper(style.bottom)
+            .px(value => yogaNode.setPosition(yoga.EDGE_BOTTOM, value))
+            .percentage(value => yogaNode.setPositionPercent(yoga.EDGE_BOTTOM, value));
+    }
     if (style.width) {
         transformDimensionMapper(style.width)
             .px(yogaNode.setWidth.bind(yogaNode))

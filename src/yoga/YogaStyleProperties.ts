@@ -2,6 +2,10 @@ type Dimension = number | string;
 
 export type YogaStyleProperties = {
     position?: 'absolute' | 'relative';
+    top?: Dimension;
+    left?: Dimension;
+    right?: Dimension;
+    bottom?: Dimension;
     width?: Dimension;
     height?: Dimension;
     minWidth?: Dimension;
