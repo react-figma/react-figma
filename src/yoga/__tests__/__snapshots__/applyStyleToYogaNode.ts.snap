@@ -1,0 +1,1021 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`applyStyleToYogaNode alignItems 1`] = `
+Object {
+  "alignContent": 1,
+  "alignItems": 2,
+  "alignSelf": 0,
+  "aspectRatio": NaN,
+  "border": Object {
+    "all": NaN,
+    "bottom": NaN,
+    "end": NaN,
+    "horizontal": NaN,
+    "left": NaN,
+    "right": NaN,
+    "start": NaN,
+    "top": NaN,
+    "vertical": NaN,
+  },
+  "display": 0,
+  "flexBasis": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+  "flexDirection": 0,
+  "flexGrow": 0,
+  "flexShrink": 0,
+  "flexWrap": 0,
+  "height": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+  "justifyContent": 0,
+  "margin": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "maxHeight": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "maxWidth": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "minHeight": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "minWidth": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "overflow": 0,
+  "padding": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "position": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "positionType": 0,
+  "width": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+}
+`;
+
+exports[`applyStyleToYogaNode flexDirection 1`] = `
+Object {
+  "alignContent": 1,
+  "alignItems": 1,
+  "alignSelf": 0,
+  "aspectRatio": NaN,
+  "border": Object {
+    "all": NaN,
+    "bottom": NaN,
+    "end": NaN,
+    "horizontal": NaN,
+    "left": NaN,
+    "right": NaN,
+    "start": NaN,
+    "top": NaN,
+    "vertical": NaN,
+  },
+  "display": 0,
+  "flexBasis": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+  "flexDirection": 2,
+  "flexGrow": 0,
+  "flexShrink": 0,
+  "flexWrap": 0,
+  "height": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+  "justifyContent": 0,
+  "margin": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "maxHeight": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "maxWidth": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "minHeight": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "minWidth": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "overflow": 0,
+  "padding": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "position": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "positionType": 0,
+  "width": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+}
+`;
+
+exports[`applyStyleToYogaNode justifyContent 1`] = `
+Object {
+  "alignContent": 1,
+  "alignItems": 1,
+  "alignSelf": 0,
+  "aspectRatio": NaN,
+  "border": Object {
+    "all": NaN,
+    "bottom": NaN,
+    "end": NaN,
+    "horizontal": NaN,
+    "left": NaN,
+    "right": NaN,
+    "start": NaN,
+    "top": NaN,
+    "vertical": NaN,
+  },
+  "display": 0,
+  "flexBasis": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+  "flexDirection": 0,
+  "flexGrow": 0,
+  "flexShrink": 0,
+  "flexWrap": 0,
+  "height": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+  "justifyContent": 1,
+  "margin": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "maxHeight": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "maxWidth": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "minHeight": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "minWidth": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "overflow": 0,
+  "padding": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "position": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "positionType": 0,
+  "width": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+}
+`;
+
+exports[`applyStyleToYogaNode marginLeft 1`] = `
+Object {
+  "alignContent": 1,
+  "alignItems": 1,
+  "alignSelf": 0,
+  "aspectRatio": NaN,
+  "border": Object {
+    "all": NaN,
+    "bottom": NaN,
+    "end": NaN,
+    "horizontal": NaN,
+    "left": NaN,
+    "right": NaN,
+    "start": NaN,
+    "top": NaN,
+    "vertical": NaN,
+  },
+  "display": 0,
+  "flexBasis": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+  "flexDirection": 0,
+  "flexGrow": 0,
+  "flexShrink": 0,
+  "flexWrap": 0,
+  "height": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+  "justifyContent": 0,
+  "margin": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 1,
+      "value": 20,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "maxHeight": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "maxWidth": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "minHeight": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "minWidth": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "overflow": 0,
+  "padding": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "position": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "positionType": 0,
+  "width": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+}
+`;
+
+exports[`applyStyleToYogaNode paddingTop 1`] = `
+Object {
+  "alignContent": 1,
+  "alignItems": 1,
+  "alignSelf": 0,
+  "aspectRatio": NaN,
+  "border": Object {
+    "all": NaN,
+    "bottom": NaN,
+    "end": NaN,
+    "horizontal": NaN,
+    "left": NaN,
+    "right": NaN,
+    "start": NaN,
+    "top": NaN,
+    "vertical": NaN,
+  },
+  "display": 0,
+  "flexBasis": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+  "flexDirection": 0,
+  "flexGrow": 0,
+  "flexShrink": 0,
+  "flexWrap": 0,
+  "height": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+  "justifyContent": 0,
+  "margin": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "maxHeight": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "maxWidth": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "minHeight": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "minWidth": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "overflow": 0,
+  "padding": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 1,
+      "value": 20,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "position": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "positionType": 0,
+  "width": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+}
+`;
+
+exports[`applyStyleToYogaNode width 1`] = `
+Object {
+  "alignContent": 1,
+  "alignItems": 1,
+  "alignSelf": 0,
+  "aspectRatio": NaN,
+  "border": Object {
+    "all": NaN,
+    "bottom": NaN,
+    "end": NaN,
+    "horizontal": NaN,
+    "left": NaN,
+    "right": NaN,
+    "start": NaN,
+    "top": NaN,
+    "vertical": NaN,
+  },
+  "display": 0,
+  "flexBasis": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+  "flexDirection": 0,
+  "flexGrow": 0,
+  "flexShrink": 0,
+  "flexWrap": 0,
+  "height": Value {
+    "unit": 3,
+    "value": NaN,
+  },
+  "justifyContent": 0,
+  "margin": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "maxHeight": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "maxWidth": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "minHeight": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "minWidth": Value {
+    "unit": 0,
+    "value": NaN,
+  },
+  "overflow": 0,
+  "padding": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "position": Object {
+    "all": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "bottom": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "end": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "horizontal": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "left": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "right": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "start": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "top": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+    "vertical": Value {
+      "unit": 0,
+      "value": NaN,
+    },
+  },
+  "positionType": 0,
+  "width": Value {
+    "unit": 1,
+    "value": 200,
+  },
+}
+`;
