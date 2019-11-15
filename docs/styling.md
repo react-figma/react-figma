@@ -6,11 +6,11 @@ Components use CSS styles + flexbox layout.
 
 | property                  | type                                                                                        | supported? |
 | ------------------------- | ------------------------------------------------------------------------------------------- | ---------- |
-| `shadowColor`             | `Color`                                                                                     | ⛔         |
-| `shadowOffset`            | `{ width: number, height: number }`                                                         | ⛔         |
-| `shadowOpacity`           | `number`                                                                                    | ⛔         |
+| `shadowColor`             | `Color`                                                                                     | ✅         |
+| `shadowOffset`            | `{ width: number, height: number }`                                                         | ✅         |
+| `shadowOpacity`           | `number`                                                                                    | ✅         |
 | `shadowSpread`            | `number`                                                                                    | ⛔         |
-| `shadowRadius`            | `number` &#124; `percentage`                                                                | ⛔         |
+| `shadowRadius`            | `number`                                                                                    | ✅         |
 | `width`                   | `number` &#124; `percentage`                                                                | ✅         |
 | `height`                  | `number` &#124; `percentage`                                                                | ✅         |
 | `top`                     | `number` &#124; `percentage`                                                                | ✅         |

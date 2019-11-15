@@ -13,3 +13,10 @@ export const colorToRGB = (color: Color): RGB => {
         };
     }
 };
+
+export const colorToRGBA = (color: Color, opacity: number): RGBA => {
+    return {
+        ...colorToRGB(color),
+        a: opacity
+    };
+};
