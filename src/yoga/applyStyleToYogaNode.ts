@@ -42,7 +42,39 @@ const transformJustifyContent = yoga => (value: string) => {
     }
 };
 
+const transformPosition = yoga => (value: string) => {
+    switch (value) {
+        case 'absolute':
+            return yoga.POSITION_TYPE_ABSOLUTE;
+        default:
+            return yoga.POSITION_TYPE_RELATIVE;
+    }
+};
+
 export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStyleProperties) => {
+    if (style.position) {
+        yogaNode.setPositionType(transformPosition(yoga)(style.position));
+    }
+    if (style.top) {
+        transformDimensionMapper(style.top)
+            .px(value => yogaNode.setPosition(yoga.EDGE_TOP, value))
+            .percentage(value => yogaNode.setPositionPercent(yoga.EDGE_TOP, value));
+    }
+    if (style.left) {
+        transformDimensionMapper(style.left)
+            .px(value => yogaNode.setPosition(yoga.EDGE_LEFT, value))
+            .percentage(value => yogaNode.setPositionPercent(yoga.EDGE_LEFT, value));
+    }
+    if (style.right) {
+        transformDimensionMapper(style.right)
+            .px(value => yogaNode.setPosition(yoga.EDGE_RIGHT, value))
+            .percentage(value => yogaNode.setPositionPercent(yoga.EDGE_RIGHT, value));
+    }
+    if (style.bottom) {
+        transformDimensionMapper(style.bottom)
+            .px(value => yogaNode.setPosition(yoga.EDGE_BOTTOM, value))
+            .percentage(value => yogaNode.setPositionPercent(yoga.EDGE_BOTTOM, value));
+    }
     if (style.width) {
         transformDimensionMapper(style.width)
             .px(yogaNode.setWidth.bind(yogaNode))
@@ -53,13 +85,33 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStylePropertie
             .px(yogaNode.setHeight.bind(yogaNode))
             .percentage(yogaNode.setHeightPercent.bind(yogaNode));
     }
+    if (style.minWidth) {
+        transformDimensionMapper(style.minWidth)
+            .px(yogaNode.setMinWidth.bind(yogaNode))
+            .percentage(yogaNode.setMinWidthPercent.bind(yogaNode));
+    }
+    if (style.maxWidth) {
+        transformDimensionMapper(style.maxWidth)
+            .px(yogaNode.setMaxWidth.bind(yogaNode))
+            .percentage(yogaNode.setMaxWidth.bind(yogaNode));
+    }
     if (style.minHeight) {
         transformDimensionMapper(style.minHeight)
             .px(yogaNode.setMinHeight.bind(yogaNode))
             .percentage(yogaNode.setMinHeightPercent.bind(yogaNode));
     }
+    if (style.maxHeight) {
+        transformDimensionMapper(style.maxHeight)
+            .px(yogaNode.setMaxHeight.bind(yogaNode))
+            .percentage(yogaNode.setMaxHeight.bind(yogaNode));
+    }
     if (style.flexDirection) {
         yogaNode.setFlexDirection(transformFlexDirection(yoga)(style.flexDirection));
+    }
+    if (style.padding) {
+        transformDimensionMapper(style.padding)
+            .px(value => yogaNode.setPadding(yoga.EDGE_ALL, value))
+            .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_ALL, value));
     }
     if (style.paddingTop) {
         transformDimensionMapper(style.paddingTop)
@@ -81,6 +133,21 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStylePropertie
             .px(value => yogaNode.setPadding(yoga.EDGE_RIGHT, value))
             .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_RIGHT, value));
     }
+    if (style.paddingVertical) {
+        transformDimensionMapper(style.paddingVertical)
+            .px(value => yogaNode.setPadding(yoga.EDGE_VERTICAL, value))
+            .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_VERTICAL, value));
+    }
+    if (style.paddingHorizontal) {
+        transformDimensionMapper(style.paddingHorizontal)
+            .px(value => yogaNode.setPadding(yoga.EDGE_HORIZONTAL, value))
+            .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_HORIZONTAL, value));
+    }
+    if (style.margin) {
+        transformDimensionMapper(style.margin)
+            .px(value => yogaNode.setMargin(yoga.EDGE_ALL, value))
+            .percentage(value => yogaNode.setMarginPercent(yoga.EDGE_ALL, value));
+    }
     if (style.marginTop) {
         transformDimensionMapper(style.marginTop)
             .px(value => yogaNode.setMargin(yoga.EDGE_TOP, value))
@@ -100,6 +167,16 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStylePropertie
         transformDimensionMapper(style.marginRight)
             .px(value => yogaNode.setMargin(yoga.EDGE_RIGHT, value))
             .percentage(value => yogaNode.setMarginPercent(yoga.EDGE_RIGHT, value));
+    }
+    if (style.marginVertical) {
+        transformDimensionMapper(style.marginVertical)
+            .px(value => yogaNode.setMargin(yoga.EDGE_VERTICAL, value))
+            .percentage(value => yogaNode.setMarginPercent(yoga.EDGE_VERTICAL, value));
+    }
+    if (style.marginHorizontal) {
+        transformDimensionMapper(style.marginHorizontal)
+            .px(value => yogaNode.setMargin(yoga.EDGE_HORIZONTAL, value))
+            .percentage(value => yogaNode.setMarginPercent(yoga.EDGE_HORIZONTAL, value));
     }
     if (style.borderWidth) {
         yogaNode.setBorder(yoga.EDGE_ALL, style.borderWidth);
