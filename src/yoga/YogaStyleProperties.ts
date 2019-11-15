@@ -16,4 +16,8 @@ export type YogaStyleProperties = {
     marginLeft?: Dimension;
     marginRight?: Dimension;
     borderWidth?: number;
+    flex?: number;
+    flexGrow?: number;
+    flexShrink?: number;
+    flexBasis?: Dimension;
 };

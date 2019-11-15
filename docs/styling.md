@@ -42,10 +42,10 @@ Components use CSS styles + flexbox layout.
 | `alignItems`              | `flex-start` &#124; `flex-end` &#124; `center` &#124; `stretch`                             | ✅         |
 | `alignSelf`               | `auto` &#124; `flex-start` &#124; `flex-end` &#124; `center` &#124; `stretch`               | ⛔         |
 | `overflow`                | `visible` &#124; `hidden` &#124; `scroll`                                                   | ⛔         |
-| `flex`                    | `number`                                                                                    | ⛔         |
-| `flexGrow`                | `number`                                                                                    | ⛔         |
-| `flexShrink`              | `number`                                                                                    | ⛔         |
-| `flexBasis`               | `number`                                                                                    | ⛔         |
+| `flex`                    | `number`                                                                                    | ✅         |
+| `flexGrow`                | `number`                                                                                    | ✅         |
+| `flexShrink`              | `number`                                                                                    | ✅         |
+| `flexBasis`               | `number` &#124; `percentage`                                                                | ✅         |
 | `aspectRatio`             | `number`                                                                                    | ⛔️         |
 | `zIndex`                  | `number`                                                                                    | ⛔         |
 | `backfaceVisibility`      | `visible` &#124; `hidden`                                                                   | ⛔️         |

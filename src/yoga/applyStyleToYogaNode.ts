@@ -104,6 +104,20 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStylePropertie
     if (style.borderWidth) {
         yogaNode.setBorder(yoga.EDGE_ALL, style.borderWidth);
     }
+    if (style.flex) {
+        yogaNode.setFlex(style.flex);
+    }
+    if (style.flexGrow) {
+        yogaNode.setFlexGrow(style.flexGrow);
+    }
+    if (style.flexShrink) {
+        yogaNode.setFlexShrink(style.flexShrink);
+    }
+    if (style.flexBasis) {
+        transformDimensionMapper(style.flexBasis)
+            .px(yogaNode.setFlexBasis.bind(yogaNode))
+            .percentage(yogaNode.setFlexBasisPercent.bind(yogaNode));
+    }
     yogaNode.setAlignItems(transformAlignItems(yoga)(style.alignItems));
     yogaNode.setJustifyContent(transformJustifyContent(yoga)(style.justifyContent));
 };
