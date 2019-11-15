@@ -30,4 +30,10 @@ export type YogaStyleProperties = {
     marginVertical?: Dimension;
     marginHorizontal?: Dimension;
     borderWidth?: number;
+    flex?: number;
+    flexGrow?: number;
+    flexShrink?: number;
+    flexBasis?: Dimension;
+    aspectRatio?: number;
+    alignSelf?: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'stretch';
 };
