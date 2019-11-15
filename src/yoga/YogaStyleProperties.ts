@@ -35,4 +35,5 @@ export type YogaStyleProperties = {
     flexShrink?: number;
     flexBasis?: Dimension;
     aspectRatio?: number;
+    alignSelf?: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'stretch';
 };

@@ -14,8 +14,23 @@ const transformFlexDirection = yoga => (value: string) => {
     }
 };
 
-const transformAlignItems = yoga => (value: string) => {
+const transformAlignItems = yoga => (value: YogaStyleProperties['alignItems']) => {
     switch (value) {
+        case 'flex-end':
+            return yoga.ALIGN_FLEX_END;
+        case 'center':
+            return yoga.ALIGN_CENTER;
+        case 'stretch':
+            return yoga.ALIGN_STRETCH;
+        default:
+            return yoga.ALIGN_FLEX_START;
+    }
+};
+
+const transformAlignSelf = yoga => (value: YogaStyleProperties['alignSelf']) => {
+    switch (value) {
+        case 'auto':
+            return yoga.ALIGN_AUTO;
         case 'flex-end':
             return yoga.ALIGN_FLEX_END;
         case 'center':
@@ -197,6 +212,9 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStylePropertie
     }
     if (style.aspectRatio) {
         yogaNode.setAspectRatio(style.aspectRatio);
+    }
+    if (style.alignSelf) {
+        yogaNode.setAlignSelf(transformAlignSelf(yoga)(style.alignSelf));
     }
     yogaNode.setAlignItems(transformAlignItems(yoga)(style.alignItems));
     yogaNode.setJustifyContent(transformJustifyContent(yoga)(style.justifyContent));

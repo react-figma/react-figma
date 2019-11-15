@@ -119,4 +119,12 @@ describe('applyStyleToYogaNode', () => {
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
+
+    it('alignItems', () => {
+        const yogaNode = yoga.Node.create();
+        applyStyleToYogaNodeConnected(yogaNode, {
+            alignItems: 'flex-end'
+        });
+        expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
+    });
 });

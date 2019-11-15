@@ -40,7 +40,7 @@ Components use CSS styles + flexbox layout.
 | `flexWrap`                | `wrap` &#124; `nowrap`                                                                      | ✅         |
 | `justifyContent`          | `flex-start` &#124; `flex-end` &#124; `center` &#124; `space-between` &#124; `space-around` | ✅         |
 | `alignItems`              | `flex-start` &#124; `flex-end` &#124; `center` &#124; `stretch`                             | ✅         |
-| `alignSelf`               | `auto` &#124; `flex-start` &#124; `flex-end` &#124; `center` &#124; `stretch`               | ⛔         |
+| `alignSelf`               | `auto` &#124; `flex-start` &#124; `flex-end` &#124; `center` &#124; `stretch`               | ✅         |
 | `overflow`                | `visible` &#124; `hidden` &#124; `scroll`                                                   | ⛔         |
 | `flex`                    | `number`                                                                                    | ✅         |
 | `flexGrow`                | `number`                                                                                    | ✅         |
