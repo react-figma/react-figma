@@ -60,4 +60,23 @@ describe('applyStyleToYogaNode', () => {
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
+
+    it('position: absolute', () => {
+        const yogaNode = yoga.Node.create();
+        applyStyleToYogaNodeConnected(yogaNode, {
+            position: 'absolute'
+        });
+        expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
+    });
+
+    it('top / left / right / bottom', () => {
+        const yogaNode = yoga.Node.create();
+        applyStyleToYogaNodeConnected(yogaNode, {
+            top: 10,
+            left: 20,
+            right: 30,
+            bottom: 40
+        });
+        expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
+    });
 });
