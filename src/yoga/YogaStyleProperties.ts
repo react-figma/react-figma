@@ -34,4 +34,5 @@ export type YogaStyleProperties = {
     flexGrow?: number;
     flexShrink?: number;
     flexBasis?: Dimension;
+    aspectRatio?: number;
 };

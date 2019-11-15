@@ -111,4 +111,12 @@ describe('applyStyleToYogaNode', () => {
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
+
+    it('aspectRatio', () => {
+        const yogaNode = yoga.Node.create();
+        applyStyleToYogaNodeConnected(yogaNode, {
+            aspectRatio: 1.25
+        });
+        expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
+    });
 });

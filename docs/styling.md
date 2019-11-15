@@ -46,7 +46,7 @@ Components use CSS styles + flexbox layout.
 | `flexGrow`                | `number`                                                                                    | ✅         |
 | `flexShrink`              | `number`                                                                                    | ✅         |
 | `flexBasis`               | `number` &#124; `percentage`                                                                | ✅         |
-| `aspectRatio`             | `number`                                                                                    | ⛔️         |
+| `aspectRatio`             | `number`                                                                                    | ✅         |
 | `zIndex`                  | `number`                                                                                    | ⛔         |
 | `backfaceVisibility`      | `visible` &#124; `hidden`                                                                   | ⛔️         |
 | `backgroundColor`         | `Color`                                                                                     | ✅         |

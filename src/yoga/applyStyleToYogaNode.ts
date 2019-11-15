@@ -195,6 +195,9 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStylePropertie
             .px(yogaNode.setFlexBasis.bind(yogaNode))
             .percentage(yogaNode.setFlexBasisPercent.bind(yogaNode));
     }
+    if (style.aspectRatio) {
+        yogaNode.setAspectRatio(style.aspectRatio);
+    }
     yogaNode.setAlignItems(transformAlignItems(yoga)(style.alignItems));
     yogaNode.setJustifyContent(transformJustifyContent(yoga)(style.justifyContent));
 };
