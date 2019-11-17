@@ -4,31 +4,31 @@ import * as renderers from './renderers';
 // * Development version of react-reconciler can't be used inside Figma realm.
 import * as createReconciler from 'react-reconciler/cjs/react-reconciler.production.min';
 
-import { GroupsProcessor } from './renderers/group/groupsProcessor';
-import { PREGROUP_NODE_TYPE } from './renderers/group/pregroupNode';
 import { updateYogaRoot } from './yoga/yogaStream';
 import { isReactFigmaNode } from './isReactFigmaNode';
 
 let lastPage;
 
-const appendToContainerFactory = groupsProcessor => (parentNode, childNode) => {
+const appendToContainer = (parentNode, childNode) => {
     if (!childNode || !parentNode) {
         return;
     }
 
-    if (childNode.type === PREGROUP_NODE_TYPE) {
-        if (childNode.groupNode) {
-            parentNode.appendChild(childNode.groupNode);
-        } else {
-            groupsProcessor.scheduleGroup(parentNode, childNode);
-        }
-    } else if (childNode.type === 'TEXT_CONTAINER') {
+    if (childNode.type === 'TEXT_CONTAINER') {
         if (parentNode.type === 'TEXT') {
             childNode.parent = parentNode;
             parentNode.characters = childNode.value;
         }
     } else {
         parentNode.appendChild(childNode);
+    }
+
+    if (parentNode.type === 'GROUP') {
+        parentNode.children.forEach(child => {
+            if (child.getPluginData('isGroupStubElement')) {
+                child.remove();
+            }
+        });
     }
 };
 
@@ -74,9 +74,6 @@ const getNextChildren = instance => {
 };
 
 export const render = async (jsx: any, rootNode) => {
-    const groupsProcessor = new GroupsProcessor();
-    const appendToContainer = appendToContainerFactory(groupsProcessor);
-
     const HostConfig = {
         now: Date.now,
         getRootHostContext: () => {
@@ -155,11 +152,7 @@ export const render = async (jsx: any, rootNode) => {
         didNotFindHydratableInstance: () => {},
         didNotFindHydratableTextInstance: () => {},
         didNotHydrateInstance: () => {},
-        commitMount: (instance, type) => {
-            if (type === 'page') {
-                groupsProcessor.mountGroups();
-            }
-        },
+        commitMount: (instance, type) => {},
         commitHydratedContainer: container => {
             container.children.forEach(child => {
                 if (isReactFigmaNode(child)) {

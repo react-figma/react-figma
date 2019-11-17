@@ -103,6 +103,16 @@ ChildrenMixinStub {
                   "type": "RECTANGLE",
                   "width": 200,
                 },
+              ],
+              "parent": [Circular],
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{}",
+              },
+              "type": "GROUP",
+            },
+            ChildrenMixinStub {
+              "children": Array [
                 LayoutMixinStub {
                   "fills": Array [
                     Object {
@@ -123,16 +133,6 @@ ChildrenMixinStub {
                   "type": "RECTANGLE",
                   "width": 200,
                 },
-              ],
-              "parent": [Circular],
-              "pluginData": Object {
-                "isReactFigmaNode": "true",
-                "reactStyle": "{}",
-              },
-              "type": "GROUP",
-            },
-            ChildrenMixinStub {
-              "children": Array [
                 LayoutMixinStub {
                   "fills": Array [
                     Object {
