@@ -7,6 +7,6 @@ export { component } from './component';
 export { star } from './star';
 export { vector } from './vector';
 export { line } from './line';
-export { group } from './group/group';
+export { group } from './group';
 export { ellipse } from './ellipse';
 export { svg } from './svg';

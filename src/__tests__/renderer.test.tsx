@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from '../renderer';
-import { Rectangle, Page, Text, Group } from '..';
+import { Rectangle, Page, Text, Group, Frame } from '..';
 import { createFigma } from 'figma-api-stub';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -174,6 +174,45 @@ describe('renderer', () => {
 
         expect(figma.group).toHaveBeenCalledTimes(3);
         expect(figma.root).toMatchSnapshot();
+    });
+
+    it('Groups inserting', async () => {
+        const waiting = new Subject();
+
+        const Component = () => {
+            const [flag, setFlag] = React.useState(false);
+            React.useEffect(() => {
+                setTimeout(() => {
+                    setFlag(true);
+                    waiting.next();
+                });
+            }, []);
+
+            return (
+                <Frame>
+                    <Group>
+                        <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0054ff' }} />
+                    </Group>
+                    {flag && (
+                        <Group>
+                            <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff0017' }} />
+                        </Group>
+                    )}
+                    <Group>
+                        <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                    </Group>
+                </Frame>
+            );
+        };
+
+        render(<Component />, figma.currentPage);
+
+        return new Promise(resolve => {
+            waiting.pipe(take(1)).subscribe(() => {
+                expect(figma.root).toMatchSnapshot();
+                resolve();
+            });
+        });
     });
 
     it('mark page isCurrent=true', () => {
