@@ -16,3 +16,4 @@ export { View } from './components/view/View';
 export { Svg } from './components/svg/Svg';
 
 export { StyleSheet } from './helpers/StyleSheet';
+export { Platform } from './helpers/Platform';
