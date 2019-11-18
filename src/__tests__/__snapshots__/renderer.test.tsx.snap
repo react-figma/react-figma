@@ -1,5 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renderer Groups inserting 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "children": Array [
+        ChildrenMixinStub {
+          "children": Array [
+            ChildrenMixinStub {
+              "children": Array [
+                LayoutMixinStub {
+                  "fills": Array [
+                    Object {
+                      "color": Object {
+                        "b": 1,
+                        "g": 0.32941176470588235,
+                        "r": 0,
+                      },
+                      "type": "SOLID",
+                    },
+                  ],
+                  "height": 100,
+                  "parent": [Circular],
+                  "pluginData": Object {
+                    "isReactFigmaNode": "true",
+                    "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#0054ff\\"}",
+                  },
+                  "type": "RECTANGLE",
+                  "width": 200,
+                },
+              ],
+              "parent": [Circular],
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{}",
+              },
+              "type": "GROUP",
+            },
+            ChildrenMixinStub {
+              "children": Array [
+                LayoutMixinStub {
+                  "fills": Array [
+                    Object {
+                      "color": Object {
+                        "b": 0.09019607843137255,
+                        "g": 0,
+                        "r": 1,
+                      },
+                      "type": "SOLID",
+                    },
+                  ],
+                  "height": 100,
+                  "parent": [Circular],
+                  "pluginData": Object {
+                    "isReactFigmaNode": "true",
+                    "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff0017\\"}",
+                  },
+                  "type": "RECTANGLE",
+                  "width": 200,
+                },
+              ],
+              "parent": [Circular],
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{}",
+              },
+              "type": "GROUP",
+            },
+            ChildrenMixinStub {
+              "children": Array [
+                LayoutMixinStub {
+                  "fills": Array [
+                    Object {
+                      "color": Object {
+                        "b": 0,
+                        "g": 1,
+                        "r": 0.07058823529411765,
+                      },
+                      "type": "SOLID",
+                    },
+                  ],
+                  "height": 100,
+                  "parent": [Circular],
+                  "pluginData": Object {
+                    "isReactFigmaNode": "true",
+                    "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                  },
+                  "type": "RECTANGLE",
+                  "width": 200,
+                },
+              ],
+              "parent": [Circular],
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{}",
+              },
+              "type": "GROUP",
+            },
+          ],
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "type": "FRAME",
+        },
+      ],
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
 exports[`renderer Text component supported text instance children 1`] = `
 ChildrenMixinStub {
   "children": Array [

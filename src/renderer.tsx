@@ -9,20 +9,7 @@ import { isReactFigmaNode } from './isReactFigmaNode';
 
 let lastPage;
 
-const appendToContainer = (parentNode, childNode) => {
-    if (!childNode || !parentNode) {
-        return;
-    }
-
-    if (childNode.type === 'TEXT_CONTAINER') {
-        if (parentNode.type === 'TEXT') {
-            childNode.parent = parentNode;
-            parentNode.characters = childNode.value;
-        }
-    } else {
-        parentNode.appendChild(childNode);
-    }
-
+const cleanGroupStubElement = parentNode => {
     if (parentNode.type === 'GROUP') {
         parentNode.children.forEach(child => {
             if (child.getPluginData('isGroupStubElement')) {
@@ -32,12 +19,39 @@ const appendToContainer = (parentNode, childNode) => {
     }
 };
 
+const setTextInstance = (parentNode, childNode) => {
+    childNode.parent = parentNode;
+    parentNode.characters = childNode.value;
+};
+
+const appendToContainer = (parentNode, childNode) => {
+    if (!childNode || !parentNode) {
+        return;
+    }
+
+    if (childNode.type === 'TEXT_CONTAINER') {
+        if (parentNode.type === 'TEXT') {
+            setTextInstance(parentNode, childNode);
+        }
+    } else {
+        parentNode.appendChild(childNode);
+    }
+    cleanGroupStubElement(parentNode);
+};
+
 const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
     if (!parentNode || !newChildNode || !beforeChildNode) {
         return;
     }
-    const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
-    parentNode.insertChild(beforeChildIndex, newChildNode);
+    if (newChildNode.type === 'TEXT_CONTAINER') {
+        if (parentNode.type === 'TEXT') {
+            setTextInstance(parentNode, newChildNode);
+        }
+    } else {
+        const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
+        parentNode.insertChild(beforeChildIndex, newChildNode);
+    }
+    cleanGroupStubElement(parentNode);
 };
 
 const remove = childNode => {
