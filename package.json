@@ -24,8 +24,7 @@
   "license": "MIT",
   "pre-commit": [
     "prettify",
-    "tsc",
-    "test"
+    "tsc"
   ],
   "repository": {
     "type": "git",
