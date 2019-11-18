@@ -74,7 +74,7 @@ Components use CSS styles + flexbox layout.
 | -------------------- | -------------------------------------------------------------------- | ---------- |
 | `color`              | `Color`                                                              | ✅         |
 | `fontFamily`         | `string`                                                             | ✅         |
-| `fontSize`           | `number`                                                             | ✅         |
+| `fontSize`           | `number`                                                             | ⛔         |
 | `fontStyle`          | `normal` &#124; `italic`                                             | ⛔         |
 | `fontWeight`         | `string` &#124; `number`                                             | ⛔         |
 | `textDecorationLine` | `none` &#124; `underline` &#124; `double` &#124; `line-through`      | ⛔         |
