@@ -1,3 +1,5 @@
+import { APIBridgeMessage } from './messages';
+
 /**
  * Handles event messages in main realm and makes changes to the Figma document
  */

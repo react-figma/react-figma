@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Rectangle } from '../../../src';
 
-export const App = () => {
+const App = () => {
     return (
         <Rectangle
             style={{
@@ -20,3 +20,8 @@ export const App = () => {
         />
     );
 };
+
+// This type of export is preferred,
+// it allows to inspect component's name in React DevTools
+// instead of 'Anonymous'
+export { App };

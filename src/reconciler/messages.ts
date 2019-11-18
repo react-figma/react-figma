@@ -1,6 +1,6 @@
-type APIBridgeMessageType = 'createInstance';
+export type APIBridgeMessageType = 'createInstance';
 
-interface APIBridgeMessage {
+export interface APIBridgeMessage {
     readonly type: APIBridgeMessageType;
     readonly options?: any;
 }

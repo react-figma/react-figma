@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { render } from '../../../src/';
-import { App } from './App';
+import { injectCanvasManager } from '../../../src/reconciler/hooks';
 
 (async () => {
+    injectCanvasManager();
+
     await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
-    render(<App />, figma.currentPage);
-    figma.closePlugin();
+    figma.showUI(__html__);
 })();
