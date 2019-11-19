@@ -26,9 +26,10 @@ Feel free to discuss any problem at the [#development](https://spectrum.chat/rea
 ### Setup
 
 1. Install [Node.js](https://nodejs.org) >= 8 and [yarn](https://yarnpkg.com).
-2. Clone repo: `git clone git@github.com:react-figma/react-figma.git`
-3. Go to directory: `cd react-figma`
-4. Install dependencies: `yarn`
+2. Install webpack & dependencies: `yarn global add webpack webpack-cli webpack-dev-server`
+3. Clone repo: `git clone git@github.com:react-figma/react-figma.git`
+4. Go to directory: `cd react-figma`
+5. Install dependencies: `yarn`
 
 ### Running examples
 
