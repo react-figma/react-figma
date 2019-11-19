@@ -58,6 +58,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "SeanPrashad",
+      "name": "sprashad",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/13009507?v=4",
+      "profile": "https://seanprashad.com",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
