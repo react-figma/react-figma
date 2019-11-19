@@ -27,6 +27,9 @@ class CanvasManager {
             case 'removeChild':
                 this.removeChild(message.options);
                 break;
+            case 'insertBefore':
+                this.insertBefore(message.options);
+                break;
         }
     }
 
@@ -53,6 +56,22 @@ class CanvasManager {
 
         childNode.remove();
         this.instances.delete(child);
+    }
+
+    private insertBefore({ parent, child, beforeChild }) {
+        const parentNode = this.instances.get(parent) as ChildrenMixin;
+        const childNode = this.instances.get(child);
+        const beforeChildNode = this.instances.get(beforeChild);
+
+        if (!parentNode || !childNode || !childNode) {
+            return;
+        }
+
+        // TODO: text support
+        // TODO: remove group stub element
+
+        const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
+        parentNode.insertChild(beforeChildIndex, childNode);
     }
 
     private renderInstance({ tag, type, props }) {

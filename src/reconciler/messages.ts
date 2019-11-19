@@ -1,4 +1,4 @@
-export type APIBridgeMessageType = 'createInstance' | 'appendChild' | 'commitUpdate' | 'removeChild';
+export type APIBridgeMessageType = 'createInstance' | 'appendChild' | 'commitUpdate' | 'removeChild' | 'insertBefore';
 
 export interface APIBridgeMessage {
     readonly type: APIBridgeMessageType;

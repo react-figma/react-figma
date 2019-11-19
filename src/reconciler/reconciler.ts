@@ -1,19 +1,14 @@
 import * as Reconciler from 'react-reconciler';
 import { APIBridge, APIBridgeComponent } from './APIBridge';
-import { propsDiff, shallowDiff } from './utils';
+import { propsDiff, ReconcilerMethodNotImplemented, shallowDiff } from './utils';
 
 export const render = async (jsx: any, rootNode) => {
     const apiBridge = new APIBridge();
 
     // TODO:
-    // - getPublic instance - uncleared purpose
     // - createTextInstance
     // - resetTextContent
     // - commitTextUpdate
-    // - insertBefore
-    // - appendChildToContainer
-    // - insertInContainerBefore
-    // - removeChildFromContainer
     // - HYDRATION
     const HostConfig = {
         now: Date.now,
@@ -27,6 +22,7 @@ export const render = async (jsx: any, rootNode) => {
         resetAfterCommit: () => {},
         getChildHostContext: () => {},
         shouldSetTextContent: () => false,
+        getPublicInstance: instance => instance,
 
         createInstance: (type: string, props) => {
             const { children, ...pureProps } = props;
@@ -34,10 +30,18 @@ export const render = async (jsx: any, rootNode) => {
             return apiBridge.createInstance(type, pureProps);
         },
 
-        finalizeInitialChildren: () => false,
-        appendChildToContainer: (parent, child) => {
+        appendChildToContainer: () => {
+            // Not implemented since we don't have actual container node
             // TODO: implement page support
         },
+        insertInContainerBefore: () => {
+            throw new ReconcilerMethodNotImplemented('insertInContainerBefore is not implemented');
+        },
+        removeChildFromContainer: () => {
+            throw new ReconcilerMethodNotImplemented('removeChildFromContainer is not implemented');
+        },
+
+        finalizeInitialChildren: () => false,
         appendInitialChild: (parent: APIBridgeComponent, child: APIBridgeComponent) => {
             apiBridge.appendChild(parent, child);
         },
@@ -46,6 +50,9 @@ export const render = async (jsx: any, rootNode) => {
         },
         removeChild: (parent: APIBridgeComponent, child: APIBridgeComponent) => {
             apiBridge.removeChild(child);
+        },
+        insertBefore(parent: APIBridgeComponent, child: APIBridgeComponent, beforeChild: APIBridgeComponent) {
+            apiBridge.insertBefore(parent, child, beforeChild);
         },
 
         prepareUpdate: (instance: APIBridgeComponent, type: string, oldProps, newProps): Array<string> => {

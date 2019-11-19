@@ -39,6 +39,10 @@ class APIBridge {
         this.sendMessage('removeChild', { child: instance.tag });
     }
 
+    insertBefore(parent: APIBridgeComponent, child: APIBridgeComponent, beforeChild: APIBridgeComponent) {
+        this.sendMessage('insertBefore', { parent: parent.tag, child: child.tag, beforeChild: beforeChild.tag });
+    }
+
     private sendMessage(type: APIBridgeMessageType, options?: object) {
         console.log('UI -> main:', type, options);
         parent.postMessage({ pluginMessage: { type, options } }, '*');

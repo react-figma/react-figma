@@ -25,3 +25,5 @@ export const propsDiff = (oldProps: object, newProps: object, updatePayload: Arr
 
     return [isDirty, diff];
 };
+
+export class ReconcilerMethodNotImplemented extends Error {}
