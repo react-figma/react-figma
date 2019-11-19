@@ -24,104 +24,98 @@ const styles = StyleSheet.create({
         height: 16,
         backgroundColor: '#ffffff',
         backgroundSize: 'contain' as ResizeMode
+    },
+    sizingDescription: {
+        fontSize: 8,
+        marginTop: 4
+    },
+    hint: {
+        fontSize: 6,
+        marginTop: 2,
+        color: '#a0a0a0'
+    },
+    heading: {
+        fontSize: 14
     }
 });
 
 const SpaceFrame = () => {
-    const sizingDescriptionProps = {
-        fontSize: 8,
-        style: { marginTop: 4 }
-    };
-    const sizingHintProps = {
-        fontSize: 6,
-        style: {
-            marginTop: 2,
-            color: '#a0a0a0'
-        }
-    };
     return (
         <Frame name="Space" style={styles.frame}>
-            <Text characters={'Space'} fontSize={14} />
+            <Text characters={'Space'} style={styles.heading} />
 
             <Component name="SizingXSmall" style={styles.component}>
                 <Rectangle style={[styles.sizingBlock, { width: 8, height: 8 }]} />
             </Component>
-            <Text characters={'X-Small'} {...sizingDescriptionProps} />
-            <Text characters="8px" {...sizingHintProps} />
+            <Text characters={'X-Small'} style={styles.sizingDescription} />
+            <Text characters="8px" style={styles.hint} />
 
             <Component name="SizingSmall" style={styles.component}>
                 <Rectangle style={[styles.sizingBlock, { width: 16, height: 16 }]} />
             </Component>
-            <Text characters={'Small'} {...sizingDescriptionProps} />
-            <Text characters="16px" {...sizingHintProps} />
+            <Text characters={'Small'} style={styles.sizingDescription} />
+            <Text characters="16px" style={styles.hint} />
 
             <Component name="SizingMedium" style={styles.component}>
                 <Rectangle style={[styles.sizingBlock, { width: 24, height: 24 }]} />
             </Component>
-            <Text characters={'Medium'} {...sizingDescriptionProps} />
-            <Text characters="24px" {...sizingHintProps} />
+            <Text characters={'Medium'} style={styles.sizingDescription} />
+            <Text characters="24px" style={styles.hint} />
 
             <Component name="SizingLarge" style={styles.component}>
                 <Rectangle style={[styles.sizingBlock, { width: 44, height: 44 }]} />
             </Component>
-            <Text characters={'Large'} {...sizingDescriptionProps} />
-            <Text characters="44px" {...sizingHintProps} />
+            <Text characters={'Large'} style={styles.sizingDescription} />
+            <Text characters="44px" style={styles.hint} />
 
             <Component name="SizingXLarge" style={styles.component}>
                 <Rectangle style={[styles.sizingBlock, { width: 64, height: 64 }]} />
             </Component>
-            <Text characters={'X-Large'} {...sizingDescriptionProps} />
-            <Text characters="64px" {...sizingHintProps} />
+            <Text characters={'X-Large'} style={styles.sizingDescription} />
+            <Text characters="64px" style={styles.hint} />
         </Frame>
     );
 };
 
 const TypeFrame = props => {
-    const textHintProps = {
-        fontSize: 6,
-        style: {
-            marginTop: 2,
-            color: '#a0a0a0'
-        }
-    };
     return (
         <Frame name="Type" style={[styles.frame, props.style]}>
-            <Text characters={'Type'} fontSize={14} />
+            <Text characters={'Type'} style={styles.heading} />
 
             <Component name="HeaderH1" style={styles.component}>
-                <Text characters={'Header 1'} fontSize={64} />
+                <Text characters={'Header 1'} style={{ fontSize: 64 }} />
             </Component>
-            <Text characters="64px" {...textHintProps} />
+            <Text characters="64px" style={styles.hint} />
 
             <Component name="HeaderH2" style={styles.component}>
-                <Text characters={'Header 2'} fontSize={44} />
+                <Text characters={'Header 2'} style={{ fontSize: 44 }} />
             </Component>
-            <Text characters="44px" {...textHintProps} />
+            <Text characters="44px" style={styles.hint} />
 
             <Component name="HeaderH3" style={styles.component}>
-                <Text characters={'Heading 3'} fontSize={24} />
+                <Text characters={'Heading 3'} style={{ fontSize: 24 }} />
             </Component>
-            <Text characters="24px" {...textHintProps} />
+            <Text characters="24px" style={styles.hint} />
 
             <Component name="HeaderH4" style={styles.component}>
-                <Text characters={'HEADER 4'} fontSize={16} />
+                <Text characters={'HEADER 4'} style={{ fontSize: 16 }} />
             </Component>
-            <Text characters="16px" {...textHintProps} />
+            <Text characters="16px" style={styles.hint} />
 
             <Component name="RegularText" style={styles.component}>
-                <Text characters={'Regular text'} fontSize={16} />
+                <Text characters={'Regular text'} style={{ fontSize: 16 }} />
             </Component>
-            <Text characters="16px" {...textHintProps} />
+            <Text characters="16px" style={styles.hint} />
 
             <Component name="SmallText" style={styles.component}>
-                <Text characters={'Small text'} fontSize={14} />
+                <Text characters={'Small text'} style={{ fontSize: 14 }} />
             </Component>
-            <Text characters="14px" {...textHintProps} />
+            <Text characters="14px" style={styles.hint} />
 
             <Component name="XSmallText" style={styles.component}>
-                <Text characters={'X-Small text'} fontSize={11} />
+                <Text characters={'X-Small text'} style={{ fontSize: 11 }} />
             </Component>
-            <Text characters="11px" {...textHintProps} />
+            <Text characters="11px" style={styles.hint} />
         </Frame>
     );
 };
@@ -129,7 +123,7 @@ const TypeFrame = props => {
 const IconsFrame = props => {
     return (
         <Frame name="Icons" style={[styles.frame, props.style]}>
-            <Text characters={'Icons'} fontSize={14} />
+            <Text characters={'Icons'} style={styles.heading} />
 
             <Component name="IconFacebook" style={styles.component}>
                 <Rectangle style={[styles.icon, { backgroundImage: facebookIcon }]} />
