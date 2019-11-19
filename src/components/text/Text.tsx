@@ -19,7 +19,7 @@ export interface TextProps extends TextNodeProps, DefaultShapeProps {
 }
 
 export const Text: React.FC<TextProps> = props => {
-    const yogaRef = React.useRef();
+    // const yogaRef = React.useRef();
 
     const style = StyleSheet.flatten(props.style);
 
@@ -29,7 +29,8 @@ export const Text: React.FC<TextProps> = props => {
         ...transformBlendProperties(style),
         ...props
     };
-    const yogaProps = useYogaLayout({ yogaRef, ...textProps });
+    // const yogaProps = useYogaLayout({ yogaRef, ...textProps });
     // @ts-ignore
-    return <text {...textProps} {...yogaProps} innerRef={yogaRef} />;
+    // return <text {...textProps} {...yogaProps} innerRef={yogaRef} />;
+    return <text {...textProps} />;
 };

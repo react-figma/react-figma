@@ -1,14 +1,11 @@
 import * as Reconciler from 'react-reconciler';
 import { APIBridge, APIBridgeComponent } from './APIBridge';
-import { propsDiff, ReconcilerMethodNotImplemented, shallowDiff } from './utils';
+import { propsDiff, shallowDiff, ReconcilerMethodNotImplemented } from './utils';
 
 export const render = async (jsx: any, rootNode) => {
     const apiBridge = new APIBridge();
 
     // TODO:
-    // - createTextInstance
-    // - resetTextContent
-    // - commitTextUpdate
     // - HYDRATION
     const HostConfig = {
         now: Date.now,
@@ -70,7 +67,15 @@ export const render = async (jsx: any, rootNode) => {
             if (shouldUpdate) {
                 apiBridge.commitUpdate(type, instance, diff);
             }
-        }
+        },
+
+        createTextInstance: (text: string) => {
+            return apiBridge.createTextInstance(text);
+        },
+        commitTextUpdate: (textInstance: APIBridgeComponent, oldText: string, newText: string) => {
+            apiBridge.commitTextUpdate(textInstance, newText);
+        },
+        resetTextContent: () => {}
     };
 
     const reconciler = Reconciler(HostConfig);

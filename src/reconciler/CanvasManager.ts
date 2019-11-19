@@ -1,14 +1,23 @@
 import * as renderers from '../renderers';
 import { APIBridgeMessage } from './messages';
+import { isBaseNode, isImplementsChildrenMixin, isTextNode, patchTextNode } from './utils';
+
+/**
+ * Represents raw string entity that is stored inside actual TextNode
+ */
+export class RawTextInstance {
+    value: string;
+    parent: TextNode;
+}
 
 /**
  * Handles event messages in main realm and makes changes to the Figma document
  */
 class CanvasManager {
-    private instances: Map<number, BaseNode>;
+    private instances: Map<number, BaseNode | RawTextInstance>;
 
     constructor() {
-        this.instances = new Map<number, BaseNode>();
+        this.instances = new Map<number, BaseNode | RawTextInstance>();
     }
 
     onMessage(message: APIBridgeMessage) {
@@ -18,11 +27,17 @@ class CanvasManager {
             case 'createInstance':
                 this.renderInstance(message.options);
                 break;
+            case 'createTextInstance':
+                this.renderTextInstance(message.options);
+                break;
             case 'appendChild':
                 this.appendChild(message.options);
                 break;
             case 'commitUpdate':
                 this.renderInstance(message.options);
+                break;
+            case 'commitTextUpdate':
+                this.renderTextInstance(message.options);
                 break;
             case 'removeChild':
                 this.removeChild(message.options);
@@ -34,21 +49,25 @@ class CanvasManager {
     }
 
     private appendChild({ parent, child }) {
-        const parentNode = this.instances.get(parent) as ChildrenMixin;
+        const parentNode = this.instances.get(parent);
         const childNode = this.instances.get(child);
 
         if (!parentNode || !childNode) {
             return;
         }
 
-        // TODO: text support
         // TODO: remove group stub element
-
-        parentNode.appendChild(childNode);
+        if (childNode instanceof RawTextInstance) {
+            if (isBaseNode(parentNode) && isTextNode(parentNode)) {
+                patchTextNode(childNode, parentNode);
+            }
+        } else {
+            (parentNode as ChildrenMixin).appendChild(childNode);
+        }
     }
 
     private removeChild({ child }) {
-        const childNode = this.instances.get(child);
+        const childNode = this.instances.get(child) as BaseNode;
 
         if (!childNode || childNode.removed) {
             return;
@@ -59,19 +78,23 @@ class CanvasManager {
     }
 
     private insertBefore({ parent, child, beforeChild }) {
-        const parentNode = this.instances.get(parent) as ChildrenMixin;
+        const parentNode = this.instances.get(parent);
         const childNode = this.instances.get(child);
-        const beforeChildNode = this.instances.get(beforeChild);
+        const beforeChildNode = this.instances.get(beforeChild) as BaseNode;
 
         if (!parentNode || !childNode || !childNode) {
             return;
         }
 
-        // TODO: text support
         // TODO: remove group stub element
-
-        const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
-        parentNode.insertChild(beforeChildIndex, childNode);
+        if (childNode instanceof RawTextInstance) {
+            if (isBaseNode(parentNode) && isTextNode(parentNode)) {
+                patchTextNode(childNode, parentNode);
+            }
+        } else if (isImplementsChildrenMixin(parentNode)) {
+            const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
+            (parentNode as ChildrenMixin).insertChild(beforeChildIndex, childNode);
+        }
     }
 
     private renderInstance({ tag, type, props }) {
@@ -85,6 +108,18 @@ class CanvasManager {
         }
 
         this.instances.set(tag, figmaNode);
+    }
+
+    private renderTextInstance({ tag, text }) {
+        const instance = (this.instances.get(tag) as RawTextInstance) || new RawTextInstance();
+
+        instance.value = text;
+
+        if (instance.parent) {
+            instance.parent.characters = text;
+        }
+
+        this.instances.set(tag, instance);
     }
 }
 

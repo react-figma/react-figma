@@ -27,12 +27,22 @@ class APIBridge {
         return new APIBridgeComponent(tag);
     }
 
+    createTextInstance(text: string): APIBridgeComponent {
+        const tag = this.allocateTag();
+        this.sendMessage('createTextInstance', { tag, text });
+        return new APIBridgeComponent(tag);
+    }
+
     appendChild(parent: APIBridgeComponent, child: APIBridgeComponent) {
         this.sendMessage('appendChild', { child: child.tag, parent: parent.tag });
     }
 
     commitUpdate(type: string, instance: APIBridgeComponent, update: object) {
         this.sendMessage('commitUpdate', { type, tag: instance.tag, props: update });
+    }
+
+    commitTextUpdate(textInstance: APIBridgeComponent, newText: string) {
+        this.sendMessage('commitTextUpdate', { tag: textInstance.tag, text: newText });
     }
 
     removeChild(instance: APIBridgeComponent) {
