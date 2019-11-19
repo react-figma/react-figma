@@ -5,7 +5,7 @@ exports[`<Text /> Text with fontFamily 1`] = `
   fontName={
     Object {
       "family": "Helvetica",
-      "style": "bold",
+      "style": "Regular",
     }
   }
   innerRef={
@@ -16,6 +16,50 @@ exports[`<Text /> Text with fontFamily 1`] = `
   style={
     Object {
       "fontFamily": "Helvetica",
+    }
+  }
+/>
+`;
+
+exports[`<Text /> Text with fontFamily, fontWeight 1`] = `
+<text
+  fontName={
+    Object {
+      "family": "Helvetica",
+      "style": "Bold",
+    }
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Object {
+      "fontFamily": "Helvetica",
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`<Text /> Text with fontFamily, fontWeight, fontStyle 1`] = `
+<text
+  fontName={
+    Object {
+      "family": "Helvetica",
+      "style": "Bold Italic",
+    }
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Object {
+      "fontFamily": "Helvetica",
+      "fontStyle": "italic",
       "fontWeight": "bold",
     }
   }
