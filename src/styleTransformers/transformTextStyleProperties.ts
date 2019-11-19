@@ -1,10 +1,12 @@
 import { GeometryProps, TextNodeProps } from '../types';
 import { colorToRGB } from '../helpers/color';
+import { convertFontStyle } from './converFontStyle';
 
 export type TextStyleProperties = {
     color?: string;
     fontFamily?: string;
-    fontWeight?: string;
+    fontWeight?: string | number;
+    fontStyle?: 'normal' | 'italic';
     fontSize?: number;
 };
 
@@ -18,8 +20,9 @@ export const transformTextStyleProperties = (style?: TextStyleProperties): TextP
     return {
         ...((style && style.color && { fills: [{ type: 'SOLID', color: colorToRGB(style.color) }] }) || {}),
         ...(style &&
-            style.fontFamily &&
-            style.fontWeight && { fontName: { family: style.fontFamily, style: style.fontWeight } }),
+            style.fontFamily && {
+                fontName: { family: style.fontFamily, style: convertFontStyle(style.fontWeight, style.fontStyle) }
+            }),
         ...(style && style.fontSize && { fontSize: style.fontSize })
     };
 };

@@ -35,6 +35,9 @@ const styles = StyleSheet.create({
         color: '#a0a0a0'
     },
     heading: {
+        fontFamily: 'Helvetica Neue',
+        fontWeight: 'bold',
+        fontStyle: 'italic' as any,
         fontSize: 14
     }
 });
