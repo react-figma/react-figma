@@ -7,7 +7,10 @@ import { blendMixin } from '../mixins/blendMixin';
 import { frameMixin } from '../mixins/frameMixin';
 import { SvgNodeProps } from '../components/svg/Svg';
 
-export const svg = node => (props: SvgNodeProps) => {
+export const svg = node => (props: SvgNodeProps & { isWaitParts: boolean }) => {
+    if (props.isWaitParts) {
+        return node || { type: 'SVG_ROOT', children: [], ...props };
+    }
     const frameNode = node || figma.createNodeFromSvg(props.source);
 
     refMixin(frameNode)(props);

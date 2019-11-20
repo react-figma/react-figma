@@ -18,7 +18,12 @@ export interface SvgNodeProps extends DefaultContainerProps {
     source?: string;
 }
 
-export const Svg: React.FC<SvgNodeProps> = props => {
+type SvgParts = {
+    G: React.FC<any>;
+    Path: React.FC<any>;
+};
+
+export const Svg: React.FC<SvgNodeProps> & SvgParts = props => {
     const nodeRef = React.useRef();
 
     const style = StyleSheet.flatten(props.style);
@@ -31,5 +36,13 @@ export const Svg: React.FC<SvgNodeProps> = props => {
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
 
-    return <svg {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
+    return <svg {...frameProps} {...yogaChildProps} isWaitParts={!!props.children} innerRef={nodeRef} />;
+};
+
+Svg.G = props => {
+    return <svgPart svgTag="g" {...props} />;
+};
+
+Svg.Path = props => {
+    return <svgPart svgTag="path" {...props} />;
 };
