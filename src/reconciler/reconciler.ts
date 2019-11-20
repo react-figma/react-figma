@@ -88,11 +88,9 @@ export const render = async (jsx: any, rootNode) => {
 
     const container = reconciler.createContainer(
         rootNode, // container
-        true, // isAsync
+        false, // isAsync
         true // hydrate
     );
-
     reconciler.updateContainer(jsx, container);
-
     return container;
 };

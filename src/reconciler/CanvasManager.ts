@@ -1,6 +1,6 @@
 import * as renderers from '../renderers';
 import { APIBridgeMessage } from './messages';
-import { isBaseNode, isImplementsChildrenMixin, isTextNode, patchTextNode } from './utils';
+import { isBaseNode, isImplementsChildrenMixin, isPageNode, isTextNode, patchTextNode } from './utils';
 
 /**
  * Represents raw string entity that is stored inside actual TextNode
@@ -23,6 +23,8 @@ class CanvasManager {
     onMessage(message: APIBridgeMessage) {
         console.log('-> Main', message);
 
+        // TODO: probably switch-case can be replaced
+        //  with something like this[message.type](message.options)
         switch (message.type) {
             case 'createInstance':
                 this.renderInstance(message.options);
@@ -105,6 +107,10 @@ class CanvasManager {
         if (!instance) {
             figmaNode.setPluginData('reactFigmaNode', 'true');
             figmaNode.setPluginData('reactFigmaTag', String(tag));
+        }
+
+        if (isPageNode(figmaNode) && props.isCurrent) {
+            figma.currentPage = figmaNode;
         }
 
         this.instances.set(tag, figmaNode);

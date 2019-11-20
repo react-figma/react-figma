@@ -42,6 +42,10 @@ export const isTextNode = (node: BaseNode): node is TextNode => {
     return (<TextNode>node).type === 'TEXT';
 };
 
+export const isPageNode = (node: BaseNode): node is PageNode => {
+    return (<PageNode>node).type === 'PAGE';
+};
+
 export const isImplementsChildrenMixin = (node: any): node is ChildrenMixin => {
     return (<ChildrenMixin>node).children !== undefined;
 };
