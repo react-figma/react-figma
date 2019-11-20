@@ -207,7 +207,5 @@ export const Frame: React.FC<FrameNodeProps> = props => {
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
 
-    console.log(frameProps);
-
     return <frame {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
 };
