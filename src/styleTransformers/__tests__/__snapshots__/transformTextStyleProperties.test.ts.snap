@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformTextStyleProperties textAlign auto 1`] = `Object {}`;
+
+exports[`transformTextStyleProperties textAlign center 1`] = `
+Object {
+  "textAlignHorizontal": "CENTER",
+}
+`;
+
+exports[`transformTextStyleProperties textAlign justify 1`] = `
+Object {
+  "textAlignHorizontal": "JUSTIFIED",
+}
+`;

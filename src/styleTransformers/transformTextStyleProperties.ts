@@ -8,9 +8,17 @@ export type TextStyleProperties = {
     fontWeight?: string | number;
     fontStyle?: 'normal' | 'italic';
     fontSize?: number;
+    textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
 };
 
 interface TextProperties extends GeometryProps, TextNodeProps {}
+
+const textAlignMapping = {
+    left: 'LEFT',
+    right: 'RIGHT',
+    center: 'CENTER',
+    justify: 'JUSTIFIED'
+};
 
 export const transformTextStyleProperties = (style?: TextStyleProperties): TextProperties => {
     if (!style) {
@@ -23,6 +31,9 @@ export const transformTextStyleProperties = (style?: TextStyleProperties): TextP
             style.fontFamily && {
                 fontName: { family: style.fontFamily, style: convertFontStyle(style.fontWeight, style.fontStyle) }
             }),
-        ...(style && style.fontSize && { fontSize: style.fontSize })
+        ...(style && style.fontSize && { fontSize: style.fontSize }),
+        ...(style &&
+            style.textAlign &&
+            textAlignMapping[style.textAlign] && { textAlignHorizontal: textAlignMapping[style.textAlign] })
     };
 };

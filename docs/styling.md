@@ -83,7 +83,7 @@ Components use CSS styles + flexbox layout.
 | `textShadowColor`    | `Color`                                                              | ⛔          |
 | `letterSpacing`      | `number`                                                             | ⛔          |
 | `lineHeight`         | `number`                                                             | ⛔          |
-| `textAlign`          | `auto` &#124; `left` &#124; `right` &#124; `center` &#124; `justify` | ⛔          |
+| `textAlign`          | `auto` &#124; `left` &#124; `right` &#124; `center` &#124; `justify` | ✅          |
 | `writingDirection`   | `auto` &#124; `ltr` &#124; `rtl`                                     | ⛔️         |
 | `opacity`            | `number`                                                             | ✅          |
 | `percentage`         | `points` &#124; `percentages`                                        | ✅          |
