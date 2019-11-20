@@ -4,6 +4,7 @@ import { Rectangle, Page, Text, Group, Frame } from '..';
 import { createFigma } from 'figma-api-stub';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { wait } from '../helpers/wait';
 
 describe('renderer', () => {
     beforeEach(() => {
@@ -225,13 +226,10 @@ describe('renderer', () => {
     it('Text component supported text instance children', async () => {
         figma.createText = jest.fn().mockImplementation(figma.createText);
         render(<Text>Some text</Text>, figma.currentPage);
-        return new Promise(resolve => {
-            setTimeout(() => {
-                expect(figma.createText).toHaveBeenCalledTimes(1);
-                expect(figma.root).toMatchSnapshot();
-                resolve();
-            });
-        });
+        await wait();
+        await wait();
+        expect(figma.createText).toHaveBeenCalledTimes(1);
+        expect(figma.root).toMatchSnapshot();
     });
 
     it('Text instance hydration', async () => {
@@ -239,35 +237,25 @@ describe('renderer', () => {
         render(<Text>Some text</Text>, figma.currentPage);
         render(<Text>Some text 2</Text>, figma.currentPage);
 
-        return new Promise(resolve => {
-            setTimeout(() => {
-                expect(figma.createText).toHaveBeenCalledTimes(1);
-                expect(figma.root).toMatchSnapshot();
-                resolve();
-            });
-        });
+        await wait();
+
+        expect(figma.createText).toHaveBeenCalledTimes(1);
+        expect(figma.root).toMatchSnapshot();
     });
 
     it('Text characters applied', async () => {
         render(<Text characters="some text" />, figma.currentPage);
-
-        return new Promise(resolve => {
-            setTimeout(() => {
-                expect(figma.root).toMatchSnapshot();
-                resolve();
-            }, 20);
-        });
+        await wait();
+        await wait();
+        expect(figma.root).toMatchSnapshot();
     });
 
     it('Text with custom font applied', async () => {
         render(<Text style={{ fontFamily: 'Helvetica', fontWeight: 'bold' }}>some text</Text>, figma.currentPage);
 
-        return new Promise(resolve => {
-            setTimeout(() => {
-                expect(figma.root).toMatchSnapshot();
-                resolve();
-            }, 20);
-        });
+        await wait();
+        await wait();
+        expect(figma.root).toMatchSnapshot();
     });
 
     it('Text instance updating', async () => {
