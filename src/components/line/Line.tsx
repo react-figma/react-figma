@@ -18,7 +18,7 @@ export interface LineProps extends DefaultShapeProps, CornerProps, BorderProps {
 }
 
 export const Line: React.FC<LineProps> = props => {
-    const yogaRef = React.useRef();
+    const nodeRef = React.useRef();
 
     const style = StyleSheet.flatten(props.style);
 
@@ -29,8 +29,8 @@ export const Line: React.FC<LineProps> = props => {
         ...props
     };
 
-    const yogaProps = useYogaLayout({ yogaRef, ...lineProps });
+    const yogaProps = useYogaLayout({ nodeRef, ...lineProps });
 
     // @ts-ignore
-    return <line {...lineProps} {...yogaProps} innerRef={yogaRef} />;
+    return <line {...lineProps} {...yogaProps} innerRef={nodeRef} />;
 };

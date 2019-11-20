@@ -193,7 +193,7 @@ export interface FrameNodeProps extends DefaultContainerProps {
 }
 
 export const Frame: React.FC<FrameNodeProps> = props => {
-    const yogaRef = React.useRef();
+    const nodeRef = React.useRef();
 
     const style = StyleSheet.flatten(props.style);
 
@@ -205,9 +205,9 @@ export const Frame: React.FC<FrameNodeProps> = props => {
         ...transformGeometryStyleProperties('backgrounds', style),
         ...propWithoutPreset
     };
-    const yogaChildProps = useYogaLayout({ yogaRef, ...frameProps });
+    const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
 
     console.log(frameProps);
 
-    return <frame {...frameProps} {...yogaChildProps} innerRef={yogaRef} />;
+    return <frame {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
 };

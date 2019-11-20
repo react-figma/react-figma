@@ -21,11 +21,11 @@ export interface TextProps extends TextNodeProps, DefaultShapeProps {
 }
 
 export const Text: React.FC<TextProps> = props => {
-    const yogaRef = React.useRef();
+    const nodeRef = React.useRef();
 
     const style = StyleSheet.flatten(props.style);
 
-    const charactersByChildren = useTextChildren(yogaRef);
+    const charactersByChildren = useTextChildren(nodeRef);
 
     const textProps = {
         ...transformLayoutStyleProperties(style),
@@ -36,7 +36,7 @@ export const Text: React.FC<TextProps> = props => {
     };
     // @ts-ignore
     const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });
-    const yogaProps = useYogaLayout({ yogaRef, ...textProps });
+    const yogaProps = useYogaLayout({ nodeRef, ...textProps });
     // @ts-ignore
-    return <text {...textProps} {...yogaProps} loadedFont={loadedFont} innerRef={yogaRef} />;
+    return <text {...textProps} {...yogaProps} loadedFont={loadedFont} innerRef={nodeRef} />;
 };

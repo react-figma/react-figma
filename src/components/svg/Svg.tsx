@@ -19,7 +19,7 @@ export interface SvgNodeProps extends DefaultContainerProps {
 }
 
 export const Svg: React.FC<SvgNodeProps> = props => {
-    const yogaRef = React.useRef();
+    const nodeRef = React.useRef();
 
     const style = StyleSheet.flatten(props.style);
 
@@ -29,7 +29,7 @@ export const Svg: React.FC<SvgNodeProps> = props => {
         ...transformGeometryStyleProperties('backgrounds', style),
         ...props
     };
-    const yogaChildProps = useYogaLayout({ yogaRef, ...frameProps });
+    const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
 
-    return <svg {...frameProps} {...yogaChildProps} innerRef={yogaRef} />;
+    return <svg {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
 };

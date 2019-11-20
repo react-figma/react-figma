@@ -21,7 +21,7 @@ export interface EllipseProps extends DefaultShapeProps, CornerProps {
 }
 
 export const Ellipse: React.FC<EllipseProps> = props => {
-    const yogaRef = React.useRef();
+    const nodeRef = React.useRef();
     const style = StyleSheet.flatten(props.style);
 
     const ellipseProps = {
@@ -31,6 +31,6 @@ export const Ellipse: React.FC<EllipseProps> = props => {
         ...props
     };
     const fills = useFillsPreprocessor(ellipseProps);
-    const yogaChildProps = useYogaLayout({ yogaRef, ...ellipseProps });
-    return <ellipse {...ellipseProps} {...yogaChildProps} {...(fills && { fills })} innerRef={yogaRef} />;
+    const yogaChildProps = useYogaLayout({ nodeRef, ...ellipseProps });
+    return <ellipse {...ellipseProps} {...yogaChildProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };

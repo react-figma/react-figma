@@ -23,7 +23,7 @@ export interface RectangleProps extends DefaultShapeProps, CornerProps, BorderPr
 }
 
 export const Rectangle: React.FC<RectangleProps> = props => {
-    const yogaRef = React.useRef();
+    const nodeRef = React.useRef();
 
     const style = StyleSheet.flatten(props.style);
 
@@ -35,8 +35,8 @@ export const Rectangle: React.FC<RectangleProps> = props => {
         ...props
     };
     const fills = useFillsPreprocessor(rectangleProps);
-    const yogaProps = useYogaLayout({ yogaRef, ...rectangleProps });
+    const yogaProps = useYogaLayout({ nodeRef, ...rectangleProps });
 
     // @ts-ignore
-    return <rectangle {...rectangleProps} {...yogaProps} {...(fills && { fills })} innerRef={yogaRef} />;
+    return <rectangle {...rectangleProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };
