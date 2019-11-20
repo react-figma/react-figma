@@ -14,11 +14,7 @@ describe('<Vector />', () => {
                 <Vector
                     vectorNetwork={{
                         // The vertices of the triangle
-                        vertices: [
-                            { x: 0, y: 100 },
-                            { x: 100, y: 100 },
-                            { x: 50, y: 0 }
-                        ],
+                        vertices: [{ x: 0, y: 100 }, { x: 100, y: 100 }, { x: 50, y: 0 }],
 
                         // The edges of the triangle.
                         segments: [

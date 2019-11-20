@@ -9,6 +9,7 @@ import { TextProps } from '../components/text/Text';
 import { blendMixin } from '../mixins/blendMixin';
 
 const textNodePropsAssign = propsAssign<TextProps>([
+    'characters',
     'textAlignHorizontal',
     'textAlignVertical',
     'textAlignVertical',
@@ -17,14 +18,15 @@ const textNodePropsAssign = propsAssign<TextProps>([
     'paragraphSpacing',
     'autoRename',
     'fontSize',
-    'fontName',
     'textCase',
     'textDecoration',
     'letterSpacing',
     'lineHeight'
 ]);
 
-export const text = (node: TextNode) => (props: TextProps) => {
+const defaultFont = { family: 'Roboto', style: 'Regular' };
+
+export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontName }) => {
     const textNode = node || figma.createText();
 
     refMixin(textNode)(props);
@@ -35,11 +37,14 @@ export const text = (node: TextNode) => (props: TextProps) => {
     exportMixin(textNode)(props);
     blendMixin(textNode)(props);
 
-    if (props.characters) {
-        textNode.characters = props.characters;
+    const { loadedFont = defaultFont, fontName = defaultFont } = props;
+    // @ts-ignore
+    if (loadedFont && fontName && loadedFont.family === fontName.family && loadedFont.style === fontName.style) {
+        if (props.fontName) {
+            textNode.fontName = props.fontName;
+        }
+        textNodePropsAssign(textNode)(props);
     }
-
-    textNodePropsAssign(textNode)(props);
 
     return textNode;
 };
