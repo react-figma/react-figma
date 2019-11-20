@@ -121,7 +121,6 @@ ChildrenMixinStub {
       "children": Array [
         LayoutMixinStub {
           "_characters": "some text",
-          "_fontName": undefined,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -145,7 +144,6 @@ ChildrenMixinStub {
       "children": Array [
         LayoutMixinStub {
           "_characters": "Some text",
-          "_fontName": undefined,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -169,7 +167,6 @@ ChildrenMixinStub {
       "children": Array [
         LayoutMixinStub {
           "_characters": "Some text 2",
-          "_fontName": undefined,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -193,11 +190,37 @@ ChildrenMixinStub {
       "children": Array [
         LayoutMixinStub {
           "_characters": "text 2",
-          "_fontName": undefined,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
+          },
+          "type": "TEXT",
+        },
+      ],
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer Text with custom font applied 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "_characters": "some text",
+          "_fontName": Object {
+            "family": "Helvetica",
+            "style": "Bold",
+          },
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"fontFamily\\":\\"Helvetica\\",\\"fontWeight\\":\\"bold\\"}",
           },
           "type": "TEXT",
         },

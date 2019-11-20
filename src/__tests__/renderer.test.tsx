@@ -249,9 +249,18 @@ describe('renderer', () => {
     });
 
     it('Text characters applied', async () => {
-        figma.createText = jest.fn().mockImplementation(figma.createText);
-
         render(<Text characters="some text" />, figma.currentPage);
+
+        return new Promise(resolve => {
+            setTimeout(() => {
+                expect(figma.root).toMatchSnapshot();
+                resolve();
+            }, 20);
+        });
+    });
+
+    it('Text with custom font applied', async () => {
+        render(<Text style={{ fontFamily: 'Helvetica', fontWeight: 'bold' }}>some text</Text>, figma.currentPage);
 
         return new Promise(resolve => {
             setTimeout(() => {

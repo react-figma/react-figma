@@ -40,7 +40,9 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
     const { loadedFont = defaultFont, fontName = defaultFont } = props;
     // @ts-ignore
     if (loadedFont && fontName && loadedFont.family === fontName.family && loadedFont.style === fontName.style) {
-        textNode.fontName = props.fontName;
+        if (props.fontName) {
+            textNode.fontName = props.fontName;
+        }
         textNodePropsAssign(textNode)(props);
     }
 
