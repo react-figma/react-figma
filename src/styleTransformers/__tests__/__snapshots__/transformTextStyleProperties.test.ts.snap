@@ -1,5 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`transformTextStyleProperties lineHeight "50%" 1`] = `
+Object {
+  "lineHeight": Object {
+    "unit": "PERCENT",
+    "value": 50,
+  },
+}
+`;
+
+exports[`transformTextStyleProperties lineHeight 1.4 1`] = `
+Object {
+  "lineHeight": Object {
+    "unit": "PIXELS",
+    "value": 1.4,
+  },
+}
+`;
+
+exports[`transformTextStyleProperties lineHeight auto 1`] = `
+Object {
+  "lineHeight": Object {
+    "unit": "AUTO",
+  },
+}
+`;
+
 exports[`transformTextStyleProperties textAlign auto 1`] = `Object {}`;
 
 exports[`transformTextStyleProperties textAlign center 1`] = `

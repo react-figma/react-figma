@@ -32,4 +32,11 @@ describe('transformDimension', () => {
             type: 'percentage'
         });
     });
+
+    it('auto', () => {
+        const result = transformDimension('auto');
+        expect(result).toMatchObject({
+            type: 'auto'
+        });
+    });
 });

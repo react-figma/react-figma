@@ -1,6 +1,7 @@
 import { GeometryProps, TextNodeProps } from '../types';
 import { colorToRGB } from '../helpers/color';
 import { convertFontStyle } from './converFontStyle';
+import { transformDimensionMapper } from './transformDimension';
 
 export type TextStyleProperties = {
     color?: string;
@@ -9,6 +10,7 @@ export type TextStyleProperties = {
     fontStyle?: 'normal' | 'italic';
     fontSize?: number;
     textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
+    lineHeight?: number | string;
 };
 
 interface TextProperties extends GeometryProps, TextNodeProps {}
@@ -34,6 +36,14 @@ export const transformTextStyleProperties = (style?: TextStyleProperties): TextP
         ...(style && style.fontSize && { fontSize: style.fontSize }),
         ...(style &&
             style.textAlign &&
-            textAlignMapping[style.textAlign] && { textAlignHorizontal: textAlignMapping[style.textAlign] })
+            textAlignMapping[style.textAlign] && { textAlignHorizontal: textAlignMapping[style.textAlign] }),
+        ...(style &&
+            (typeof style.lineHeight === 'number' || typeof style.lineHeight === 'string') && {
+                lineHeight: transformDimensionMapper<LineHeight, LineHeight, LineHeight>(style.lineHeight)
+                    .px(value => ({ value, unit: 'PIXELS' }))
+                    .percentage(value => ({ value, unit: 'PERCENT' }))
+                    .auto(() => ({ unit: 'AUTO' }))
+                    .value()
+            })
     };
 };
