@@ -31,8 +31,6 @@ class CanvasManager {
     onMessage(message: APIBridgeMessage) {
         console.log('-> Main', message);
 
-        // TODO: probably switch-case can be replaced
-        //  with something like this[message.type](message.options)
         switch (message.type) {
             case 'createInstance':
                 this.renderInstance(message.options);
