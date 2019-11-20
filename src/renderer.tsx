@@ -6,6 +6,7 @@ import * as createReconciler from 'react-reconciler/cjs/react-reconciler.product
 
 import { updateYogaRoot } from './yoga/yogaStream';
 import { isReactFigmaNode } from './isReactFigmaNode';
+import { setTextChildren } from './hooks/useTextChildren';
 
 let lastPage;
 
@@ -21,7 +22,7 @@ const cleanGroupStubElement = parentNode => {
 
 const setTextInstance = (parentNode, childNode) => {
     childNode.parent = parentNode;
-    parentNode.characters = childNode.value;
+    setTextChildren(parentNode, childNode.value);
 };
 
 const appendToContainer = (parentNode, childNode) => {
@@ -140,7 +141,7 @@ export const render = async (jsx: any, rootNode) => {
                 textInstance.value = newText;
             }
             if (textInstance.type === 'TEXT_CONTAINER' && textInstance.parent) {
-                textInstance.parent.characters = newText;
+                setTextChildren(textInstance.parent, newText);
             }
         },
         removeChild: (parentNode, childNode) => {

@@ -30,7 +30,6 @@ describe('renderer', () => {
 
     it('insert new component between', () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
-        figma.createText = jest.fn().mockImplementation(figma.createText);
         figma.createPage = jest.fn().mockImplementation(figma.createPage);
         render(
             <Page>
@@ -42,13 +41,12 @@ describe('renderer', () => {
         render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
-                <Text characters="test" />
+                <Rectangle style={{ width: 200, height: 100, backgroundColor: '#005aff' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>,
             figma.root
         );
-        expect(figma.createRectangle).toHaveBeenCalledTimes(2);
-        expect(figma.createText).toHaveBeenCalledTimes(1);
+        expect(figma.createRectangle).toHaveBeenCalledTimes(3);
         expect(figma.createPage).toHaveBeenCalledTimes(3);
         expect(figma.root).toMatchSnapshot();
     });
@@ -60,7 +58,7 @@ describe('renderer', () => {
         render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
-                <Text characters="test" />
+                <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0050ff' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>,
             figma.root
@@ -72,8 +70,7 @@ describe('renderer', () => {
             </Page>,
             figma.root
         );
-        expect(figma.createRectangle).toHaveBeenCalledTimes(2);
-        expect(figma.createText).toHaveBeenCalledTimes(1);
+        expect(figma.createRectangle).toHaveBeenCalledTimes(3);
         expect(figma.createPage).toHaveBeenCalledTimes(3);
         expect(figma.root).toMatchSnapshot();
     });
@@ -225,19 +222,43 @@ describe('renderer', () => {
         expect(figma.currentPage).toMatchSnapshot();
     });
 
-    it('Text component supported text instance children', () => {
+    it('Text component supported text instance children', async () => {
         figma.createText = jest.fn().mockImplementation(figma.createText);
         render(<Text>Some text</Text>, figma.currentPage);
-        expect(figma.createText).toHaveBeenCalledTimes(1);
-        expect(figma.root).toMatchSnapshot();
+        return new Promise(resolve => {
+            setTimeout(() => {
+                expect(figma.createText).toHaveBeenCalledTimes(1);
+                expect(figma.root).toMatchSnapshot();
+                resolve();
+            });
+        });
     });
 
-    it('Text instance hydration', () => {
+    it('Text instance hydration', async () => {
         figma.createText = jest.fn().mockImplementation(figma.createText);
         render(<Text>Some text</Text>, figma.currentPage);
         render(<Text>Some text 2</Text>, figma.currentPage);
-        expect(figma.createText).toHaveBeenCalledTimes(1);
-        expect(figma.root).toMatchSnapshot();
+
+        return new Promise(resolve => {
+            setTimeout(() => {
+                expect(figma.createText).toHaveBeenCalledTimes(1);
+                expect(figma.root).toMatchSnapshot();
+                resolve();
+            });
+        });
+    });
+
+    it('Text characters applied', async () => {
+        figma.createText = jest.fn().mockImplementation(figma.createText);
+
+        render(<Text characters="some text" />, figma.currentPage);
+
+        return new Promise(resolve => {
+            setTimeout(() => {
+                expect(figma.root).toMatchSnapshot();
+                resolve();
+            }, 20);
+        });
     });
 
     it('Text instance updating', async () => {

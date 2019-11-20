@@ -40,10 +40,7 @@ export const transformGeometryStyleProperties = (
                 type: 'IMAGE',
                 image: style.backgroundImage,
                 scaleMode: backgroundSizeToScaleMode.stretch,
-                imageTransform: [
-                    [transformSize(style.width), 0, 0],
-                    [0, transformSize(style.height), 0]
-                ]
+                imageTransform: [[transformSize(style.width), 0, 0], [0, transformSize(style.height), 0]]
             });
         } else {
             fills.push({

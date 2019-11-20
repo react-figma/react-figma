@@ -13,6 +13,7 @@ exports[`<Text /> Text with fontFamily 1`] = `
       "current": undefined,
     }
   }
+  loadedFont={null}
   style={
     Object {
       "fontFamily": "Helvetica",
@@ -34,6 +35,7 @@ exports[`<Text /> Text with fontFamily, fontWeight 1`] = `
       "current": undefined,
     }
   }
+  loadedFont={null}
   style={
     Object {
       "fontFamily": "Helvetica",
@@ -56,6 +58,7 @@ exports[`<Text /> Text with fontFamily, fontWeight, fontStyle 1`] = `
       "current": undefined,
     }
   }
+  loadedFont={null}
   style={
     Object {
       "fontFamily": "Helvetica",
@@ -73,5 +76,6 @@ exports[`<Text /> Text without props 1`] = `
       "current": undefined,
     }
   }
+  loadedFont={null}
 />
 `;

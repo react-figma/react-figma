@@ -114,13 +114,38 @@ ChildrenMixinStub {
 }
 `;
 
+exports[`renderer Text characters applied 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "_characters": "some text",
+          "_fontName": undefined,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "type": "TEXT",
+        },
+      ],
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
 exports[`renderer Text component supported text instance children 1`] = `
 ChildrenMixinStub {
   "children": Array [
     ChildrenMixinStub {
       "children": Array [
         LayoutMixinStub {
-          "characters": "Some text",
+          "_characters": "Some text",
+          "_fontName": undefined,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -143,7 +168,8 @@ ChildrenMixinStub {
     ChildrenMixinStub {
       "children": Array [
         LayoutMixinStub {
-          "characters": "Some text 2",
+          "_characters": "Some text 2",
+          "_fontName": undefined,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -166,7 +192,8 @@ ChildrenMixinStub {
     ChildrenMixinStub {
       "children": Array [
         LayoutMixinStub {
-          "characters": "text 2",
+          "_characters": "text 2",
+          "_fontName": undefined,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -380,13 +407,24 @@ ChildrenMixinStub {
           "width": 200,
         },
         LayoutMixinStub {
-          "characters": "test",
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 1,
+                "g": 0.35294117647058826,
+                "r": 0,
+              },
+              "type": "SOLID",
+            },
+          ],
+          "height": 100,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
-            "reactStyle": "{}",
+            "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#005aff\\"}",
           },
-          "type": "TEXT",
+          "type": "RECTANGLE",
+          "width": 200,
         },
         LayoutMixinStub {
           "fills": Array [
