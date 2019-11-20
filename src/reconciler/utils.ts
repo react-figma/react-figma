@@ -33,6 +33,20 @@ export const patchTextNode = (childNode: RawTextInstance, parentNode: TextNode) 
     parentNode.characters = childNode.value;
 };
 
+/**
+ * Since groups rendering uses stub element to append its children
+ * we need to remove it when it's no longer needed
+ */
+export const removeGroupStubElements = (parentNode: FrameNode) => {
+    if (parentNode.type === 'GROUP') {
+        parentNode.children.forEach(child => {
+            if (child.getPluginData('reactFigmaGroupStubElement')) {
+                child.remove();
+            }
+        });
+    }
+};
+
 // Some type assertions required for reconciler
 export const isBaseNode = (node: BaseNode | RawTextInstance): node is BaseNode => {
     return (<BaseNode>node).id !== undefined;
@@ -44,6 +58,10 @@ export const isTextNode = (node: BaseNode): node is TextNode => {
 
 export const isPageNode = (node: BaseNode): node is PageNode => {
     return (<PageNode>node).type === 'PAGE';
+};
+
+export const isGroupNode = (node: BaseNode): node is FrameNode => {
+    return (<FrameNode>node).type === 'GROUP';
 };
 
 export const isImplementsChildrenMixin = (node: any): node is ChildrenMixin => {

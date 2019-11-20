@@ -8,7 +8,7 @@ import { frameMixin } from '../mixins/frameMixin';
 
 const createNewGroup = () => {
     const rect = figma.createRectangle();
-    rect.setPluginData('isGroupStubElement', 'true');
+    rect.setPluginData('reactFigmaGroupStubElement', 'true');
     return figma.group([rect], figma.currentPage);
 };
 

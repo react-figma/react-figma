@@ -1,6 +1,14 @@
 import * as renderers from '../renderers';
 import { APIBridgeMessage } from './messages';
-import { isBaseNode, isImplementsChildrenMixin, isPageNode, isTextNode, patchTextNode } from './utils';
+import {
+    isBaseNode,
+    isGroupNode,
+    isImplementsChildrenMixin,
+    isPageNode,
+    isTextNode,
+    patchTextNode,
+    removeGroupStubElements
+} from './utils';
 
 /**
  * Represents raw string entity that is stored inside actual TextNode
@@ -54,17 +62,20 @@ class CanvasManager {
         const parentNode = this.instances.get(parent);
         const childNode = this.instances.get(child);
 
-        if (!parentNode || !childNode) {
+        if (!parentNode || !childNode || !isBaseNode(parentNode)) {
             return;
         }
 
-        // TODO: remove group stub element
         if (childNode instanceof RawTextInstance) {
             if (isBaseNode(parentNode) && isTextNode(parentNode)) {
                 patchTextNode(childNode, parentNode);
             }
         } else {
             (parentNode as ChildrenMixin).appendChild(childNode);
+        }
+
+        if (isGroupNode(parentNode)) {
+            removeGroupStubElements(parentNode);
         }
     }
 
@@ -84,11 +95,10 @@ class CanvasManager {
         const childNode = this.instances.get(child);
         const beforeChildNode = this.instances.get(beforeChild) as BaseNode;
 
-        if (!parentNode || !childNode || !childNode) {
+        if (!parentNode || !childNode || !childNode || !isBaseNode(parentNode)) {
             return;
         }
 
-        // TODO: remove group stub element
         if (childNode instanceof RawTextInstance) {
             if (isBaseNode(parentNode) && isTextNode(parentNode)) {
                 patchTextNode(childNode, parentNode);
@@ -96,6 +106,10 @@ class CanvasManager {
         } else if (isImplementsChildrenMixin(parentNode)) {
             const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
             (parentNode as ChildrenMixin).insertChild(beforeChildIndex, childNode);
+        }
+
+        if (isGroupNode(parentNode)) {
+            removeGroupStubElements(parentNode);
         }
     }
 
