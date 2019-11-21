@@ -81,7 +81,7 @@ Components use CSS styles + flexbox layout.
 | `textShadowOffset`   | `{ width: number, height: number }`                                  | ⛔          |
 | `textShadowRadius`   | `number`                                                             | ⛔          |
 | `textShadowColor`    | `Color`                                                              | ⛔          |
-| `letterSpacing`      | `number`                                                             | ⛔          |
+| `letterSpacing`      | `number` &#124; `percentage`                                         | ✅          |
 | `lineHeight`         | `auto` &#124; `number` &#124; `percentage`                           | ✅          |
 | `textAlign`          | `auto` &#124; `left` &#124; `right` &#124; `center` &#124; `justify` | ✅          |
 | `writingDirection`   | `auto` &#124; `ltr` &#124; `rtl`                                     | ⛔️         |

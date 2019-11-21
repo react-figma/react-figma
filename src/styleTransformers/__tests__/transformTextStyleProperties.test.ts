@@ -30,4 +30,14 @@ describe('transformTextStyleProperties', () => {
         const result = transformTextStyleProperties({ lineHeight: 'auto' });
         expect(result).toMatchSnapshot();
     });
+
+    it('letterSpacing "50%"', () => {
+        const result = transformTextStyleProperties({ letterSpacing: '50%' });
+        expect(result).toMatchSnapshot();
+    });
+
+    it('letterSpacing 1.4', () => {
+        const result = transformTextStyleProperties({ letterSpacing: 1.4 });
+        expect(result).toMatchSnapshot();
+    });
 });

@@ -11,6 +11,7 @@ export type TextStyleProperties = {
     fontSize?: number;
     textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
     lineHeight?: number | string;
+    letterSpacing?: number | string;
 };
 
 interface TextProperties extends GeometryProps, TextNodeProps {}
@@ -43,6 +44,15 @@ export const transformTextStyleProperties = (style?: TextStyleProperties): TextP
                     .px(value => ({ value, unit: 'PIXELS' }))
                     .percentage(value => ({ value, unit: 'PERCENT' }))
                     .auto(() => ({ unit: 'AUTO' }))
+                    .value()
+            }),
+        ...(style &&
+            (typeof style.letterSpacing === 'number' || typeof style.letterSpacing === 'string') && {
+                letterSpacing: transformDimensionMapper<LetterSpacing, LetterSpacing, LetterSpacing>(
+                    style.letterSpacing
+                )
+                    .px(value => ({ value, unit: 'PIXELS' }))
+                    .percentage(value => ({ value, unit: 'PERCENT' }))
                     .value()
             })
     };

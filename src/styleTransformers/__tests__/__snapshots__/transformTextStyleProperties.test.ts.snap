@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`transformTextStyleProperties letterSpacing "50%" 1`] = `
+Object {
+  "letterSpacing": Object {
+    "unit": "PERCENT",
+    "value": 50,
+  },
+}
+`;
+
+exports[`transformTextStyleProperties letterSpacing 1.4 1`] = `
+Object {
+  "letterSpacing": Object {
+    "unit": "PIXELS",
+    "value": 1.4,
+  },
+}
+`;
+
 exports[`transformTextStyleProperties lineHeight "50%" 1`] = `
 Object {
   "lineHeight": Object {
