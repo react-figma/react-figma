@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformColors colorToRGB #9b9fff 1`] = `
+Object {
+  "b": 1,
+  "g": 0.6235294117647059,
+  "r": 0.6078431372549019,
+}
+`;
+
+exports[`transformColors colorToRGB #ff0000 1`] = `
+Object {
+  "b": 0,
+  "g": 0,
+  "r": 1,
+}
+`;
+
+exports[`transformColors colorToRGB #ff00ff00 1`] = `
+Object {
+  "b": 1,
+  "g": 0,
+  "r": 1,
+}
+`;
+
+exports[`transformColors colorToRGB aliceblue 1`] = `
+Object {
+  "b": 1,
+  "g": 0.9725490196078431,
+  "r": 0.9411764705882353,
+}
+`;
+
+exports[`transformColors colorToRGB red 1`] = `
+Object {
+  "b": 0,
+  "g": 0,
+  "r": 1,
+}
+`;
+
+exports[`transformColors colorToRGB rgb(255, 0, 255) 1`] = `
+Object {
+  "b": 1,
+  "g": 0,
+  "r": 1,
+}
+`;
+
+exports[`transformColors colorToRGB rgba(255, 255, 255, 1.0) 1`] = `
+Object {
+  "b": 1,
+  "g": 1,
+  "r": 1,
+}
+`;
+
+exports[`transformColors colorToRGB transparent 1`] = `
+Object {
+  "b": 0,
+  "g": 0,
+  "r": 0,
+}
+`;
+
+exports[`transformColors colorToRGBA #ff0000 0.5 1`] = `
+Object {
+  "a": 0.5,
+  "b": 0,
+  "g": 0,
+  "r": 1,
+}
+`;

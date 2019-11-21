@@ -1,5 +1,5 @@
 import { GeometryProps } from '../types';
-import { colorToRGB } from '../helpers/color';
+import { colorToRGB } from './transformColors';
 import { LayoutStyleProperties } from './transformLayoutStyleProperties';
 import { transformSize } from '../helpers/size';
 
