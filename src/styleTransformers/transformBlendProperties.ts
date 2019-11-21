@@ -1,5 +1,6 @@
 import { BlendProps, Color } from '../types';
 import { colorToRGBA } from '../helpers/color';
+import { transformShadowToEffect } from './transformShadowToEffect';
 
 export type CSSBlendMode =
     | 'normal'
@@ -85,24 +86,7 @@ export const transformBlendProperties = (styles?: BlendStyleProperties): BlendPr
     }
 
     if (styles.shadowColor) {
-        blendProps.effects = [
-            {
-                type: 'DROP_SHADOW',
-                color: colorToRGBA(styles.shadowColor, styles.shadowOpacity || 1),
-                offset: styles.shadowOffset
-                    ? {
-                          x: styles.shadowOffset.width,
-                          y: styles.shadowOffset.height
-                      }
-                    : {
-                          x: 0,
-                          y: 0
-                      },
-                radius: styles.shadowRadius || 0,
-                visible: true,
-                blendMode: 'NORMAL'
-            }
-        ];
+        blendProps.effects = [transformShadowToEffect(styles)];
     }
 
     return blendProps;

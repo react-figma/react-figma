@@ -1,7 +1,8 @@
-import { GeometryProps, TextNodeProps } from '../types';
+import { Color, GeometryProps, TextNodeProps } from '../types';
 import { colorToRGB } from '../helpers/color';
 import { convertFontStyle } from './converFontStyle';
 import { transformDimensionMapper } from './transformDimension';
+import { transformShadowToEffect } from './transformShadowToEffect';
 
 export type TextStyleProperties = {
     color?: string;
@@ -13,6 +14,9 @@ export type TextStyleProperties = {
     lineHeight?: number | string;
     letterSpacing?: number | string;
     textDecorationLine?: 'none' | 'underline' | 'line-through';
+    textShadowColor?: Color;
+    textShadowOffset?: { width: number; height: number };
+    textShadowRadius?: number;
 };
 
 interface TextProperties extends GeometryProps, TextNodeProps {}
@@ -66,6 +70,16 @@ export const transformTextStyleProperties = (style?: TextStyleProperties): TextP
             style.textDecorationLine &&
             textDecorationLineMapping[style.textDecorationLine] && {
                 textDecorationLine: textDecorationLineMapping[style.textDecorationLine]
+            }),
+        ...(style &&
+            style.textShadowColor && {
+                effects: [
+                    transformShadowToEffect({
+                        shadowColor: style.textShadowColor,
+                        shadowOffset: style.textShadowOffset,
+                        shadowRadius: style.textShadowRadius
+                    })
+                ]
             })
     };
 };

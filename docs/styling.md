@@ -78,9 +78,9 @@ Components use CSS styles + flexbox layout.
 | `fontStyle`          | `normal` &#124; `italic`                                             | ✅          |
 | `fontWeight`         | `string` &#124; `number`                                             | ✅          |
 | `textDecorationLine` | `none` &#124; `underline` &#124; `line-through`                      | ✅          |
-| `textShadowOffset`   | `{ width: number, height: number }`                                  | ⛔          |
-| `textShadowRadius`   | `number`                                                             | ⛔          |
-| `textShadowColor`    | `Color`                                                              | ⛔          |
+| `textShadowOffset`   | `{ width: number, height: number }`                                  | ✅          |
+| `textShadowRadius`   | `number`                                                             | ✅          |
+| `textShadowColor`    | `Color`                                                              | ✅          |
 | `letterSpacing`      | `number` &#124; `percentage`                                         | ✅          |
 | `lineHeight`         | `auto` &#124; `number` &#124; `percentage`                           | ✅          |
 | `textAlign`          | `auto` &#124; `left` &#124; `right` &#124; `center` &#124; `justify` | ✅          |
