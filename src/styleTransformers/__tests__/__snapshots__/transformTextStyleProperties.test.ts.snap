@@ -57,3 +57,9 @@ Object {
   "textAlignHorizontal": "JUSTIFIED",
 }
 `;
+
+exports[`transformTextStyleProperties textDecorationLine line-through 1`] = `
+Object {
+  "textDecorationLine": "STRIKETHROUGH",
+}
+`;

@@ -12,6 +12,7 @@ export type TextStyleProperties = {
     textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
     lineHeight?: number | string;
     letterSpacing?: number | string;
+    textDecorationLine?: 'none' | 'underline' | 'line-through';
 };
 
 interface TextProperties extends GeometryProps, TextNodeProps {}
@@ -21,6 +22,12 @@ const textAlignMapping = {
     right: 'RIGHT',
     center: 'CENTER',
     justify: 'JUSTIFIED'
+};
+
+const textDecorationLineMapping = {
+    none: 'NONE',
+    underline: 'UNDERLINE',
+    'line-through': 'STRIKETHROUGH'
 };
 
 export const transformTextStyleProperties = (style?: TextStyleProperties): TextProperties => {
@@ -54,6 +61,11 @@ export const transformTextStyleProperties = (style?: TextStyleProperties): TextP
                     .px(value => ({ value, unit: 'PIXELS' }))
                     .percentage(value => ({ value, unit: 'PERCENT' }))
                     .value()
+            }),
+        ...(style &&
+            style.textDecorationLine &&
+            textDecorationLineMapping[style.textDecorationLine] && {
+                textDecorationLine: textDecorationLineMapping[style.textDecorationLine]
             })
     };
 };

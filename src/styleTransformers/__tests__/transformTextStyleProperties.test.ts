@@ -40,4 +40,9 @@ describe('transformTextStyleProperties', () => {
         const result = transformTextStyleProperties({ letterSpacing: 1.4 });
         expect(result).toMatchSnapshot();
     });
+
+    it('textDecorationLine line-through', () => {
+        const result = transformTextStyleProperties({ textDecorationLine: 'line-through' });
+        expect(result).toMatchSnapshot();
+    });
 });
