@@ -1,4 +1,4 @@
-import { colorToRGBA } from '../helpers/color';
+import { colorToRGBA } from './transformColors';
 import { Color } from '../types';
 
 export const transformShadowToEffect = (styles: {

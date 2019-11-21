@@ -1,5 +1,5 @@
 import { Color, GeometryProps, TextNodeProps } from '../types';
-import { colorToRGB } from '../helpers/color';
+import { colorToRGB } from './transformColors';
 import { convertFontStyle } from './converFontStyle';
 import { transformDimensionMapper } from './transformDimension';
 import { transformShadowToEffect } from './transformShadowToEffect';

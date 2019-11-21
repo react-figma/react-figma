@@ -1,5 +1,5 @@
 import { BlendProps, Color } from '../types';
-import { colorToRGBA } from '../helpers/color';
+import { colorToRGBA } from './transformColors';
 import { transformShadowToEffect } from './transformShadowToEffect';
 
 export type CSSBlendMode =
