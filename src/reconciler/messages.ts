@@ -1,9 +1,11 @@
 export type APIBridgeMessageType =
     | 'createInstance'
     | 'appendChild'
+    | 'appendChildToRoot'
     | 'commitUpdate'
     | 'removeChild'
     | 'insertBefore'
+    | 'insertInRootBefore'
     | 'createTextInstance'
     | 'commitTextUpdate'
     | 'fetchDocumentTree';

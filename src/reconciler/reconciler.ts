@@ -24,13 +24,11 @@ export const render = async (jsx: any, rootNode) => {
             return apiBridge.createInstance(type, pureProps);
         },
 
-        appendChildToContainer: () => {
-            // Not implemented since we don't have actual container node
-            // TODO: implement page support
-            throw new ReconcilerMethodNotImplemented('appendChildToContainer is not implemented');
+        appendChildToContainer: (container, child: APIBridgeComponent) => {
+            apiBridge.appendChildToRoot(child);
         },
-        insertInContainerBefore: () => {
-            throw new ReconcilerMethodNotImplemented('insertInContainerBefore is not implemented');
+        insertInContainerBefore: (container, child: APIBridgeComponent, beforeChild: APIBridgeComponent) => {
+            apiBridge.insertInRootBefore(child, beforeChild);
         },
         removeChildFromContainer: (container, instance: APIBridgeComponent) => {
             apiBridge.removeChild(instance);
@@ -78,6 +76,9 @@ export const render = async (jsx: any, rootNode) => {
         // Hydration
         didNotFindHydratableInstance: () => {},
         didNotHydrateContainerInstance: () => {},
+        didNotFindHydratableContainerInstance: () => {},
+        didNotFindHydratableTextInstance: () => {},
+        didNotHydrateInstance: () => {},
         commitHydratedContainer: () => {},
         commitMount: () => {},
 

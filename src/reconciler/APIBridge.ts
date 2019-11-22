@@ -57,6 +57,10 @@ class APIBridge {
         this.sendMessage('appendChild', { child: child.tag, parent: parent.tag });
     }
 
+    appendChildToRoot(child: APIBridgeComponent) {
+        this.sendMessage('appendChildToRoot', { child: child.tag });
+    }
+
     commitUpdate(type: string, instance: APIBridgeComponent, update: object) {
         this.sendMessage('commitUpdate', { type, tag: instance.tag, props: update });
     }
@@ -71,6 +75,10 @@ class APIBridge {
 
     insertBefore(parent: APIBridgeComponent, child: APIBridgeComponent, beforeChild: APIBridgeComponent) {
         this.sendMessage('insertBefore', { parent: parent.tag, child: child.tag, beforeChild: beforeChild.tag });
+    }
+
+    insertInRootBefore(child: APIBridgeComponent, beforeChild: APIBridgeComponent) {
+        this.sendMessage('insertInRootBefore', { child: child.tag, beforeChild: beforeChild.tag });
     }
 
     private sendMessage(type: APIBridgeMessageType, options?: object) {

@@ -28,6 +28,7 @@ class CanvasManager {
 
     constructor() {
         this.instances = new Map<number, BaseNode | RawTextInstance>();
+        this.instances.set(-1, figma.root);
     }
 
     onMessage(message: APIBridgeMessage) {
@@ -43,6 +44,9 @@ class CanvasManager {
             case 'appendChild':
                 this.appendChild(message.options);
                 break;
+            case 'appendChildToRoot':
+                this.appendChildToRoot(message.options);
+                break;
             case 'commitUpdate':
                 this.renderInstance(message.options);
                 break;
@@ -54,6 +58,9 @@ class CanvasManager {
                 break;
             case 'insertBefore':
                 this.insertBefore(message.options);
+                break;
+            case 'insertInRootBefore':
+                this.insertInRootBefore(message.options);
                 break;
             case 'fetchDocumentTree':
                 this.sendDocumentTree(message);
@@ -80,6 +87,10 @@ class CanvasManager {
         if (isGroupNode(parentNode)) {
             removeGroupStubElements(parentNode);
         }
+    }
+
+    private appendChildToRoot({ child }) {
+        this.appendChild({ child, parent: -1 });
     }
 
     private removeChild({ child }) {
@@ -114,6 +125,10 @@ class CanvasManager {
         if (isGroupNode(parentNode)) {
             removeGroupStubElements(parentNode);
         }
+    }
+
+    private insertInRootBefore({ child, beforeChild }) {
+        this.insertBefore({ parent: -1, child, beforeChild });
     }
 
     private renderInstance({ tag, type, props }) {
