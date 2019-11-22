@@ -1,4 +1,6 @@
 import { APIBridgeMessageType } from './messages';
+import { UIToPluginMessagePromise } from '..';
+import { getMaxTagByTree, linkTreeParents } from './utils';
 
 class APIBridgeComponent {
     readonly tag: number;
@@ -7,6 +9,13 @@ class APIBridgeComponent {
         this.tag = tag;
     }
 }
+
+type TBridgeFigmaTreeNode = {
+    type: NodeType;
+    tag: number;
+    children: Array<TBridgeFigmaTreeNode>;
+    parent?: TBridgeFigmaTreeNode;
+};
 
 /**
  * Implements interface for communication between the UI realm and the main realm.
@@ -17,8 +26,19 @@ class APIBridge {
     // Used to avoid ambiguity when referencing to Figma nodes
     private currentTag = 0;
 
+    // Used for hydration only and can be off-sync with actual tree most of the time
+    private figmaTree: TBridgeFigmaTreeNode = null;
+
     allocateTag(): number {
         return ++this.currentTag;
+    }
+
+    // TODO: actually, I don't like naming of this method and
+    //  guess we can do something with it later
+    async fetchDocumentTree() {
+        const { tree } = await UIToPluginMessagePromise({ type: 'fetchDocumentTree', test: '123' });
+        this.figmaTree = linkTreeParents(null, tree);
+        this.currentTag = getMaxTagByTree(this.figmaTree);
     }
 
     createInstance(type: string, props?: object): APIBridgeComponent {

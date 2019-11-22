@@ -5,7 +5,8 @@ export type APIBridgeMessageType =
     | 'removeChild'
     | 'insertBefore'
     | 'createTextInstance'
-    | 'commitTextUpdate';
+    | 'commitTextUpdate'
+    | 'fetchDocumentTree';
 
 export interface APIBridgeMessage {
     readonly type: APIBridgeMessageType;

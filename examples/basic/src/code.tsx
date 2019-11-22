@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { injectCanvasManager } from '../../../src/reconciler/hooks';
+import { CanvasManager } from '../../../src/reconciler/CanvasManager';
+import { subscribeOnUIMessages } from '../../../src/helpers/messagePromise';
 
 (async () => {
-    injectCanvasManager();
+    const canvasManager = new CanvasManager();
+    figma.ui.onmessage = message => {
+        canvasManager.onMessage(message);
+        subscribeOnUIMessages(message);
+    };
 
     await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
     figma.showUI(__html__);

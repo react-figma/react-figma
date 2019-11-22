@@ -6,9 +6,11 @@ import {
     isImplementsChildrenMixin,
     isPageNode,
     isTextNode,
+    mapTree,
     patchTextNode,
     removeGroupStubElements
 } from './utils';
+import { respondToUIMessage } from '../helpers/messagePromise';
 
 /**
  * Represents raw string entity that is stored inside actual TextNode
@@ -52,6 +54,9 @@ class CanvasManager {
                 break;
             case 'insertBefore':
                 this.insertBefore(message.options);
+                break;
+            case 'fetchDocumentTree':
+                this.sendDocumentTree(message);
                 break;
         }
     }
@@ -138,6 +143,16 @@ class CanvasManager {
         }
 
         this.instances.set(tag, instance);
+    }
+
+    private sendDocumentTree(message) {
+        const tree = mapTree(figma.root, node => {
+            return {
+                type: node.type,
+                tag: parseInt(node.getPluginData('reactFigmaTag'), 10)
+            };
+        });
+        respondToUIMessage(message, { tree });
     }
 }
 

@@ -4,6 +4,7 @@ import { propsDiff, shallowDiff, ReconcilerMethodNotImplemented } from './utils'
 
 export const render = async (jsx: any, rootNode) => {
     const apiBridge = new APIBridge();
+    await apiBridge.fetchDocumentTree();
 
     // TODO:
     // - HYDRATION

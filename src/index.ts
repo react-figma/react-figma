@@ -1,4 +1,4 @@
-export { render, injectCanvasManager } from './reconciler';
+export { render } from './reconciler';
 export { uiWorker } from './uiWorker';
 export {
     pluginToUIMessagePromise,

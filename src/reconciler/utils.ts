@@ -3,6 +3,8 @@
  * @return Array<string> props names where difference occurs
  */
 import { RawTextInstance } from './CanvasManager';
+import { map } from 'rxjs/operators';
+import { isReactFigmaNode } from '../isReactFigmaNode';
 
 export const shallowDiff = (oldObject: object, newObject: object): Array<string> => {
     const uniqueProps = new Set([...Object.keys(oldObject), ...Object.keys(newObject)]);
@@ -69,3 +71,50 @@ export const isImplementsChildrenMixin = (node: any): node is ChildrenMixin => {
 };
 
 export class ReconcilerMethodNotImplemented extends Error {}
+
+// Tree processing functions
+export const mapTree = (node: BaseNode, callback: (node: BaseNode) => Object) => {
+    if (!node || (node.type !== 'PAGE' && node.type !== 'DOCUMENT' && !isReactFigmaNode(node))) {
+        return;
+    }
+
+    const result = {
+        ...callback(node)
+    };
+
+    if (isImplementsChildrenMixin(node)) {
+        result['children'] = node.children.map(child => mapTree(child, callback));
+    }
+
+    if (isPageNode(node)) {
+        result['isCurrentPage'] = node.id === figma.currentPage.id;
+    }
+
+    return result;
+};
+
+export const linkTreeParents = (parent, node) => {
+    if (!node) {
+        return;
+    }
+
+    node.parent = parent;
+
+    if (node.children) {
+        node.children.forEach(child => linkTreeParents(node, child));
+    }
+
+    return node;
+};
+
+export const getMaxTagByTree = (node, initialTag = -1): number => {
+    if (!node) {
+        return initialTag;
+    }
+
+    const nodeTag = node.tag ? node.tag : initialTag;
+    const childTags = node.children ? node.children.map(child => getMaxTagByTree(child, nodeTag)) : [];
+    return Math.max(nodeTag, initialTag, ...childTags);
+};
+
+// TODO: probably, in future this file have to be split into separate ones
