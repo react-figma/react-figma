@@ -1,19 +1,15 @@
 import * as Reconciler from 'react-reconciler';
-import { APIBridge, APIBridgeComponent } from './APIBridge';
+import { APIBridge, APIBridgeComponent, TBridgeFigmaTreeNode } from './APIBridge';
 import { propsDiff, shallowDiff, ReconcilerMethodNotImplemented } from './utils';
 
 export const render = async (jsx: any, rootNode) => {
     const apiBridge = new APIBridge();
     await apiBridge.fetchDocumentTree();
 
-    // TODO:
-    // - HYDRATION
     const HostConfig = {
         now: Date.now,
         supportsMutation: true,
-
-        // For now, no hydration supported
-        supportsHydration: false,
+        supportsHydration: true,
 
         getRootHostContext: () => {},
         prepareForCommit: () => {},
@@ -31,12 +27,13 @@ export const render = async (jsx: any, rootNode) => {
         appendChildToContainer: () => {
             // Not implemented since we don't have actual container node
             // TODO: implement page support
+            throw new ReconcilerMethodNotImplemented('appendChildToContainer is not implemented');
         },
         insertInContainerBefore: () => {
             throw new ReconcilerMethodNotImplemented('insertInContainerBefore is not implemented');
         },
-        removeChildFromContainer: () => {
-            throw new ReconcilerMethodNotImplemented('removeChildFromContainer is not implemented');
+        removeChildFromContainer: (container, instance: APIBridgeComponent) => {
+            apiBridge.removeChild(instance);
         },
 
         finalizeInitialChildren: () => false,
@@ -76,7 +73,45 @@ export const render = async (jsx: any, rootNode) => {
         commitTextUpdate: (textInstance: APIBridgeComponent, oldText: string, newText: string) => {
             apiBridge.commitTextUpdate(textInstance, newText);
         },
-        resetTextContent: () => {}
+        resetTextContent: () => {},
+
+        // Hydration
+        didNotFindHydratableInstance: () => {},
+        didNotHydrateContainerInstance: () => {},
+        commitHydratedContainer: () => {},
+        commitMount: () => {},
+
+        getFirstHydratableChild: (parent: TBridgeFigmaTreeNode | null) => {
+            // TODO: it's a tricky but we assume that if no parent passed
+            //  then we have to hydrate starting from documentRoot,
+            //  main con of it: we can't hydrate anything that is not wrapped within <Page> component
+            const treeNode = parent || apiBridge.figmaTree;
+            if (!treeNode || !treeNode.children || treeNode.children.length === 0) {
+                return null;
+            }
+            return treeNode.children[0];
+        },
+        canHydrateInstance: (instance: TBridgeFigmaTreeNode, type: string) => {
+            return instance.type.toLowerCase() === type ? instance : null;
+        },
+        getNextHydratableSibling: (instance: TBridgeFigmaTreeNode) => {
+            if (!instance || !instance.parent) {
+                return null;
+            }
+
+            const parent = instance.parent;
+            const instanceIndex = parent.children.indexOf(instance);
+            const successors = parent.children.slice(instanceIndex + 1);
+
+            if (successors.length > 0) {
+                return successors[0];
+            }
+
+            return null;
+        },
+        hydrateInstance: (instance: TBridgeFigmaTreeNode, type: string, props) => {
+            return shallowDiff({}, props);
+        }
     };
 
     const reconciler = Reconciler(HostConfig);

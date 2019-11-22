@@ -10,7 +10,7 @@ class APIBridgeComponent {
     }
 }
 
-type TBridgeFigmaTreeNode = {
+export type TBridgeFigmaTreeNode = {
     type: NodeType;
     tag: number;
     children: Array<TBridgeFigmaTreeNode>;
@@ -27,7 +27,7 @@ class APIBridge {
     private currentTag = 0;
 
     // Used for hydration only and can be off-sync with actual tree most of the time
-    private figmaTree: TBridgeFigmaTreeNode = null;
+    figmaTree: TBridgeFigmaTreeNode;
 
     allocateTag(): number {
         return ++this.currentTag;

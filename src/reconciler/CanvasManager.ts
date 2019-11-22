@@ -146,12 +146,25 @@ class CanvasManager {
     }
 
     private sendDocumentTree(message) {
-        const tree = mapTree(figma.root, node => {
+        let tree = mapTree(figma.root, node => {
+            const tag = parseInt(node.getPluginData('reactFigmaTag'), 10);
+
+            if (tag) {
+                this.instances.set(tag, node);
+            }
+
             return {
                 type: node.type,
-                tag: parseInt(node.getPluginData('reactFigmaTag'), 10)
+                tag
             };
         });
+
+        // Remove pages that have no figma nodes
+        if (tree.children) {
+            tree.children = tree.children.filter(
+                child => !isNaN(child.tag) || (child.children && child.children.length > 0)
+            );
+        }
         respondToUIMessage(message, { tree });
     }
 }
