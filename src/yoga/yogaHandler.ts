@@ -1,4 +1,4 @@
-import { messagePromise } from '../helpers/messagePromise';
+import { pluginToUIMessagePromise } from '../helpers/messagePromise';
 import * as nanoid from 'nanoid/non-secure';
 import { isReactFigmaNode } from '../isReactFigmaNode';
 
@@ -31,7 +31,7 @@ const transformYogaToCoords = result => {
 };
 
 export const yogaHandler = async node => {
-    const result = await messagePromise({
+    const result = await pluginToUIMessagePromise({
         type: 'calculateLayout',
         value: transformNodesToTree(node)
     });

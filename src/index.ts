@@ -1,6 +1,11 @@
 export { render, injectCanvasManager } from './reconciler';
 export { uiWorker } from './uiWorker';
-export { subscribeOnMessages } from './helpers/messagePromise';
+export {
+    pluginToUIMessagePromise,
+    subscribeOnPluginMessages,
+    subscribeOnUIMessages,
+    UIToPluginMessagePromise
+} from './helpers/messagePromise';
 
 export { Text } from './components/text/Text';
 export { Rectangle } from './components/rectangle/Rectangle';
