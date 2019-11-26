@@ -8,7 +8,4 @@ figma.ui.onmessage = message => {
     subscribeOnUIMessages(message);
 };
 
-(async () => {
-    await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
-    render(<App />, figma.root);
-})();
+render(<App />, figma.root);

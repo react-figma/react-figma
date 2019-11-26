@@ -5,6 +5,7 @@ import {
     isGroupNode,
     isImplementsChildrenMixin,
     isPageNode,
+    isSceneNode,
     isTextNode,
     mapTree,
     patchTextNode,
@@ -80,7 +81,7 @@ class CanvasManager {
             if (isBaseNode(parentNode) && isTextNode(parentNode)) {
                 patchTextNode(childNode, parentNode);
             }
-        } else {
+        } else if (isSceneNode(childNode)) {
             (parentNode as ChildrenMixin).appendChild(childNode);
         }
 
@@ -117,7 +118,7 @@ class CanvasManager {
             if (isBaseNode(parentNode) && isTextNode(parentNode)) {
                 patchTextNode(childNode, parentNode);
             }
-        } else if (isImplementsChildrenMixin(parentNode)) {
+        } else if (isImplementsChildrenMixin(parentNode) && isSceneNode(beforeChildNode) && isSceneNode(childNode)) {
             const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
             (parentNode as ChildrenMixin).insertChild(beforeChildIndex, childNode);
         }

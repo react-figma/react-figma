@@ -12,6 +12,8 @@ import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
+import { useFontName } from '../../hooks/useFontName';
+import { useTextChildren } from '../../hooks/useTextChildren';
 
 export interface TextProps extends TextNodeProps, DefaultShapeProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & TextStyleProperties & BlendStyleProperties>;
@@ -19,18 +21,23 @@ export interface TextProps extends TextNodeProps, DefaultShapeProps {
 }
 
 export const Text: React.FC<TextProps> = props => {
-    // const yogaRef = React.useRef();
+    // const nodeRef = React.useRef();
 
     const style = StyleSheet.flatten(props.style);
+
+    // const charactersByChildren = useTextChildren(nodeRef);
 
     const textProps = {
         ...transformLayoutStyleProperties(style),
         ...transformTextStyleProperties(style),
         ...transformBlendProperties(style),
         ...props
+        // characters: charactersByChildren || props.characters
     };
-    // const yogaProps = useYogaLayout({ yogaRef, ...textProps });
     // @ts-ignore
-    // return <text {...textProps} {...yogaProps} innerRef={yogaRef} />;
+    const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });
+    // const yogaProps = useYogaLayout({ nodeRef, ...textProps });
+    // @ts-ignore
+    // return <text {...textProps} {...yogaProps} loadedFont={loadedFont} innerRef={nodeRef} />;
     return <text {...textProps} />;
 };

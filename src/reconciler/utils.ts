@@ -70,6 +70,10 @@ export const isImplementsChildrenMixin = (node: any): node is ChildrenMixin => {
     return (<ChildrenMixin>node).children !== undefined;
 };
 
+export const isSceneNode = (node: BaseNode): node is SceneNode => {
+    return node.type !== 'DOCUMENT' && node.type !== 'PAGE';
+};
+
 export class ReconcilerMethodNotImplemented extends Error {}
 
 // Tree processing functions

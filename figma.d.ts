@@ -1,3 +1,5 @@
+// Figma Plugin API version 1, update 5
+
 // Global variable with Figma's plugin API.
 declare const figma: PluginAPI
 declare const __html__: string
@@ -5,9 +7,10 @@ declare const __html__: string
 interface PluginAPI {
   readonly apiVersion: "1.0.0"
   readonly command: string
-  readonly root: DocumentNode
   readonly viewport: ViewportAPI
   closePlugin(message?: string): void
+
+  notify(message: string, options?: NotificationOptions): NotificationHandler
 
   showUI(html: string, options?: ShowUIOptions): void
   readonly ui: UIAPI
@@ -17,7 +20,12 @@ interface PluginAPI {
   getNodeById(id: string): BaseNode | null
   getStyleById(id: string): BaseStyle | null
 
+  readonly root: DocumentNode
   currentPage: PageNode
+
+  on(type: "selectionchange" | "currentpagechange" | "close", callback: () => void)
+  once(type: "selectionchange" | "currentpagechange" | "close", callback: () => void)
+  off(type: "selectionchange" | "currentpagechange" | "close", callback: () => void)
 
   readonly mixed: symbol
 
@@ -28,16 +36,26 @@ interface PluginAPI {
   createStar(): StarNode
   createVector(): VectorNode
   createText(): TextNode
-  createBooleanOperation(): BooleanOperationNode
   createFrame(): FrameNode
   createComponent(): ComponentNode
   createPage(): PageNode
   createSlice(): SliceNode
+  /**
+   * [DEPRECATED]: This API often fails to create a valid boolean operation. Use figma.union, figma.subtract, figma.intersect and figma.exclude instead.
+   */
+  createBooleanOperation(): BooleanOperationNode
 
   createPaintStyle(): PaintStyle
   createTextStyle(): TextStyle
   createEffectStyle(): EffectStyle
   createGridStyle(): GridStyle
+
+  // The styles are returned in the same order as displayed in the UI. Only
+  // local styles are returned. Never styles from team library.
+  getLocalPaintStyles(): PaintStyle[]
+  getLocalTextStyles(): TextStyle[]
+  getLocalEffectStyles(): EffectStyle[]
+  getLocalGridStyles(): GridStyle[]
 
   importComponentByKeyAsync(key: string): Promise<ComponentNode>
   importStyleByKeyAsync(key: string): Promise<BaseStyle>
@@ -53,6 +71,11 @@ interface PluginAPI {
 
   group(nodes: ReadonlyArray<BaseNode>, parent: BaseNode & ChildrenMixin, index?: number): FrameNode
   flatten(nodes: ReadonlyArray<BaseNode>, parent?: BaseNode & ChildrenMixin, index?: number): VectorNode
+
+  union(nodes: ReadonlyArray<BaseNode>, parent: BaseNode & ChildrenMixin, index?: number): BooleanOperationNode
+  subtract(nodes: ReadonlyArray<BaseNode>, parent: BaseNode & ChildrenMixin, index?: number): BooleanOperationNode
+  intersect(nodes: ReadonlyArray<BaseNode>, parent: BaseNode & ChildrenMixin, index?: number): BooleanOperationNode
+  exclude(nodes: ReadonlyArray<BaseNode>, parent: BaseNode & ChildrenMixin, index?: number): BooleanOperationNode
 }
 
 interface ClientStorageAPI {
@@ -60,19 +83,30 @@ interface ClientStorageAPI {
   setAsync(key: string, value: any): Promise<void>
 }
 
-type ShowUIOptions = {
+interface NotificationOptions {
+  timeout?: number,
+}
+
+interface NotificationHandler {
+  cancel: () => void,
+}
+
+interface ShowUIOptions {
   visible?: boolean,
   width?: number,
   height?: number,
+  position?: 'default' | 'last' | 'auto' // PROPOSED API ONLY
 }
 
-type UIPostMessageOptions = {
-  targetOrigin?: string,
+interface UIPostMessageOptions {
+  origin?: string,
 }
 
-type OnMessageProperties = {
-  sourceOrigin: string,
+interface OnMessageProperties {
+  origin: string,
 }
+
+type MessageEventHandler = (pluginMessage: any, props: OnMessageProperties) => void
 
 interface UIAPI {
   show(): void
@@ -81,7 +115,10 @@ interface UIAPI {
   close(): void
 
   postMessage(pluginMessage: any, options?: UIPostMessageOptions): void
-  onmessage: ((pluginMessage: any, props: OnMessageProperties) => void) | undefined
+  onmessage: MessageEventHandler | undefined
+  on(type: "message", callback: MessageEventHandler)
+  once(type: "message", callback: MessageEventHandler)
+  off(type: "message", callback: MessageEventHandler)
 }
 
 interface ViewportAPI {
@@ -161,13 +198,13 @@ interface ColorStop {
 }
 
 interface ImageFilters {
-  exposure?: number
-  contrast?: number
-  saturation?: number
-  temperature?: number
-  tint?: number
-  highlights?: number
-  shadows?: number
+  readonly exposure?: number
+  readonly contrast?: number
+  readonly saturation?: number
+  readonly temperature?: number
+  readonly tint?: number
+  readonly highlights?: number
+  readonly shadows?: number
 }
 
 interface SolidPaint {
@@ -297,7 +334,7 @@ interface VectorPath {
 
 type VectorPaths = ReadonlyArray<VectorPath>
 
-type LetterSpacing = {
+interface LetterSpacing {
   readonly value: number
   readonly unit: "PIXELS" | "PERCENT"
 }
@@ -340,7 +377,7 @@ interface Font {
 interface BaseNodeMixin {
   readonly id: string
   readonly parent: (BaseNode & ChildrenMixin) | null
-  name: string // Note: setting this also sets `autoRename` to false on TextNodes
+  name: string // Note: setting this also sets \`autoRename\` to false on TextNodes
   readonly removed: boolean
   toString(): string
   remove(): void
@@ -360,13 +397,13 @@ interface SceneNodeMixin {
 }
 
 interface ChildrenMixin {
-  readonly children: ReadonlyArray<BaseNode>
+  readonly children: ReadonlyArray<SceneNode>
 
-  appendChild(child: BaseNode): void
-  insertChild(index: number, child: BaseNode): void
+  appendChild(child: SceneNode): void
+  insertChild(index: number, child: SceneNode): void
 
-  findAll(callback?: (node: BaseNode) => boolean): ReadonlyArray<BaseNode>
-  findOne(callback: (node: BaseNode) => boolean): BaseNode | null
+  findAll(callback?: (node: SceneNode) => boolean): SceneNode[]
+  findOne(callback: (node: SceneNode) => boolean): SceneNode | null
 }
 
 interface ConstraintMixin {
@@ -426,7 +463,7 @@ interface CornerMixin {
 }
 
 interface ExportMixin {
-  exportSettings: ExportSettings[]
+  exportSettings: ReadonlyArray<ExportSettings>
   exportAsync(settings?: ExportSettings): Promise<Uint8Array> // Defaults to PNG format
 }
 
@@ -444,8 +481,16 @@ interface DefaultContainerMixin extends
 ////////////////////////////////////////////////////////////////////////////////
 // Nodes
 
-interface DocumentNode extends BaseNodeMixin, ChildrenMixin {
+interface DocumentNode extends BaseNodeMixin {
   readonly type: "DOCUMENT"
+
+  readonly children: ReadonlyArray<PageNode>
+
+  appendChild(child: PageNode): void
+  insertChild(index: number, child: PageNode): void
+
+  findAll(callback?: (node: (PageNode | SceneNode)) => boolean): Array<PageNode | SceneNode>
+  findOne(callback: (node: (PageNode | SceneNode)) => boolean): PageNode | SceneNode | null
 }
 
 interface PageNode extends BaseNodeMixin, ChildrenMixin, ExportMixin {
@@ -454,6 +499,8 @@ interface PageNode extends BaseNodeMixin, ChildrenMixin, ExportMixin {
 
   guides: ReadonlyArray<Guide>
   selection: ReadonlyArray<SceneNode>
+
+  backgrounds: ReadonlyArray<Paint>
 }
 
 interface FrameNode extends DefaultContainerMixin {

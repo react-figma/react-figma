@@ -9,8 +9,8 @@ export interface PageProps extends BaseNodeProps, ChildrenProps, ExportProps {
 }
 
 export const Page: React.FC<PageProps> = props => {
-    const yogaRef = React.useRef();
+    const nodeRef = React.useRef();
 
-    const yogaChildProps = useYogaLayout({ yogaRef, ...props });
-    return <page {...props} {...yogaChildProps} innerRef={yogaRef} />;
+    const yogaChildProps = useYogaLayout({ nodeRef, ...props });
+    return <page {...props} {...yogaChildProps} innerRef={nodeRef} />;
 };

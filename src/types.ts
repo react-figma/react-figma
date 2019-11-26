@@ -58,7 +58,7 @@ export interface BorderProps {
 }
 
 export interface ExportProps {
-    exportSettings?: ExportSettings[];
+    exportSettings?: ReadonlyArray<ExportSettings>;
     exportAsyncSettings?: ExportSettings;
     exportAsyncCallback?: (result: Uint8Array) => any;
 }

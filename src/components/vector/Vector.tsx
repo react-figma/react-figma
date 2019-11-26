@@ -20,7 +20,7 @@ export interface VectorProps extends VectorNodeProps, DefaultShapeProps, CornerP
 }
 
 export const Vector: React.FC<VectorProps> = props => {
-    const yogaRef = React.useRef();
+    const nodeRef = React.useRef();
 
     const style = StyleSheet.flatten(props.style);
 
@@ -31,7 +31,7 @@ export const Vector: React.FC<VectorProps> = props => {
         ...props
     };
     const fills = useFillsPreprocessor(vectorProps);
-    const yogaProps = useYogaLayout({ yogaRef, ...vectorProps });
+    const yogaProps = useYogaLayout({ nodeRef, ...vectorProps });
     // @ts-ignore
-    return <vector {...vectorProps} {...yogaProps} {...(fills && { fills })} innerRef={yogaRef} />;
+    return <vector {...vectorProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };

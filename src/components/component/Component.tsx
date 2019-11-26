@@ -14,14 +14,14 @@ export interface ComponentProps extends DefaultContainerProps {
 }
 
 export const Component: React.FC<ComponentProps> = props => {
-    const yogaRef = React.useRef();
+    const nodeRef = React.useRef();
     const style = StyleSheet.flatten(props.style);
     const componentProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
         ...props
     };
-    const yogaChildProps = useYogaLayout({ yogaRef, ...componentProps });
+    const yogaChildProps = useYogaLayout({ nodeRef, ...componentProps });
 
-    return <component {...componentProps} {...yogaChildProps} innerRef={yogaRef} />;
+    return <component {...componentProps} {...yogaChildProps} innerRef={nodeRef} />;
 };

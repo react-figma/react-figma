@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Frame, Page, Rectangle, Text, Component, StyleSheet } from '../../../src';
+import { Frame, Page, View, Text, Component, StyleSheet } from '../../../src';
 
 import * as facebookIcon from './icons/001-facebook.png';
 import * as twitterIcon from './icons/002-twitter.png';
@@ -24,104 +24,101 @@ const styles = StyleSheet.create({
         height: 16,
         backgroundColor: '#ffffff',
         backgroundSize: 'contain' as ResizeMode
+    },
+    sizingDescription: {
+        fontSize: 8,
+        marginTop: 4
+    },
+    hint: {
+        fontSize: 6,
+        marginTop: 2,
+        color: '#a0a0a0'
+    },
+    heading: {
+        fontFamily: 'Helvetica Neue',
+        fontWeight: 'bold',
+        fontStyle: 'italic' as any,
+        fontSize: 14
     }
 });
 
 const SpaceFrame = () => {
-    const sizingDescriptionProps = {
-        fontSize: 8,
-        style: { marginTop: 4 }
-    };
-    const sizingHintProps = {
-        fontSize: 6,
-        style: {
-            marginTop: 2,
-            color: '#a0a0a0'
-        }
-    };
     return (
         <Frame name="Space" style={styles.frame}>
-            <Text characters={'Space'} fontSize={14} />
+            <Text style={styles.heading}>Space</Text>
 
             <Component name="SizingXSmall" style={styles.component}>
-                <Rectangle style={[styles.sizingBlock, { width: 8, height: 8 }]} />
+                <View style={[styles.sizingBlock, { width: 8, height: 8 }]} />
             </Component>
-            <Text characters={'X-Small'} {...sizingDescriptionProps} />
-            <Text characters="8px" {...sizingHintProps} />
+            <Text style={styles.sizingDescription}>X-Small</Text>
+            <Text style={styles.hint}>8px</Text>
 
             <Component name="SizingSmall" style={styles.component}>
-                <Rectangle style={[styles.sizingBlock, { width: 16, height: 16 }]} />
+                <View style={[styles.sizingBlock, { width: 16, height: 16 }]} />
             </Component>
-            <Text characters={'Small'} {...sizingDescriptionProps} />
-            <Text characters="16px" {...sizingHintProps} />
+            <Text style={styles.sizingDescription}>Small</Text>
+            <Text style={styles.hint}>16px</Text>
 
             <Component name="SizingMedium" style={styles.component}>
-                <Rectangle style={[styles.sizingBlock, { width: 24, height: 24 }]} />
+                <View style={[styles.sizingBlock, { width: 24, height: 24 }]} />
             </Component>
-            <Text characters={'Medium'} {...sizingDescriptionProps} />
-            <Text characters="24px" {...sizingHintProps} />
+            <Text style={styles.sizingDescription}>Medium</Text>
+            <Text style={styles.hint}>24px</Text>
 
             <Component name="SizingLarge" style={styles.component}>
-                <Rectangle style={[styles.sizingBlock, { width: 44, height: 44 }]} />
+                <View style={[styles.sizingBlock, { width: 44, height: 44 }]} />
             </Component>
-            <Text characters={'Large'} {...sizingDescriptionProps} />
-            <Text characters="44px" {...sizingHintProps} />
+            <Text style={styles.sizingDescription}>Large</Text>
+            <Text style={styles.hint}>44px</Text>
 
             <Component name="SizingXLarge" style={styles.component}>
-                <Rectangle style={[styles.sizingBlock, { width: 64, height: 64 }]} />
+                <View style={[styles.sizingBlock, { width: 64, height: 64 }]} />
             </Component>
-            <Text characters={'X-Large'} {...sizingDescriptionProps} />
-            <Text characters="64px" {...sizingHintProps} />
+            <Text style={styles.sizingDescription}>X-Large</Text>
+            <Text style={styles.hint}>64px</Text>
         </Frame>
     );
 };
 
 const TypeFrame = props => {
-    const textHintProps = {
-        fontSize: 6,
-        style: {
-            marginTop: 2,
-            color: '#a0a0a0'
-        }
-    };
     return (
         <Frame name="Type" style={[styles.frame, props.style]}>
-            <Text characters={'Type'} fontSize={14} />
+            <Text style={styles.heading}>Type</Text>
 
             <Component name="HeaderH1" style={styles.component}>
-                <Text characters={'Header 1'} fontSize={64} />
+                <Text style={{ fontSize: 64 }}>Header 1</Text>
             </Component>
-            <Text characters="64px" {...textHintProps} />
+            <Text style={styles.hint}>64px</Text>
 
             <Component name="HeaderH2" style={styles.component}>
-                <Text characters={'Header 2'} fontSize={44} />
+                <Text style={{ fontSize: 44 }}>Header 2</Text>
             </Component>
-            <Text characters="44px" {...textHintProps} />
+            <Text style={styles.hint}>44px</Text>
 
             <Component name="HeaderH3" style={styles.component}>
-                <Text characters={'Heading 3'} fontSize={24} />
+                <Text style={{ fontSize: 24 }}>Heading 3</Text>
             </Component>
-            <Text characters="24px" {...textHintProps} />
+            <Text style={styles.hint}>24px</Text>
 
             <Component name="HeaderH4" style={styles.component}>
-                <Text characters={'HEADER 4'} fontSize={16} />
+                <Text style={{ fontSize: 16 }}>HEADER 4</Text>
             </Component>
-            <Text characters="16px" {...textHintProps} />
+            <Text style={styles.hint}>16px</Text>
 
             <Component name="RegularText" style={styles.component}>
-                <Text characters={'Regular text'} fontSize={16} />
+                <Text style={{ fontSize: 16 }}>Regular text</Text>
             </Component>
-            <Text characters="16px" {...textHintProps} />
+            <Text style={styles.hint}>16px</Text>
 
             <Component name="SmallText" style={styles.component}>
-                <Text characters={'Small text'} fontSize={14} />
+                <Text style={{ fontSize: 14 }}>Small text</Text>
             </Component>
-            <Text characters="14px" {...textHintProps} />
+            <Text style={styles.hint}>14px</Text>
 
             <Component name="XSmallText" style={styles.component}>
-                <Text characters={'X-Small text'} fontSize={11} />
+                <Text style={{ fontSize: 11 }}>X-Small text</Text>
             </Component>
-            <Text characters="11px" {...textHintProps} />
+            <Text style={styles.hint}>11px</Text>
         </Frame>
     );
 };
@@ -129,25 +126,25 @@ const TypeFrame = props => {
 const IconsFrame = props => {
     return (
         <Frame name="Icons" style={[styles.frame, props.style]}>
-            <Text characters={'Icons'} fontSize={14} />
+            <Text style={styles.heading}>Icons</Text>
 
             <Component name="IconFacebook" style={styles.component}>
-                <Rectangle style={[styles.icon, { backgroundImage: facebookIcon }]} />
+                <View style={[styles.icon, { backgroundImage: facebookIcon }]} />
             </Component>
             <Component name="IconTwitter" style={styles.component}>
-                <Rectangle style={[styles.icon, { backgroundImage: twitterIcon }]} />
+                <View style={[styles.icon, { backgroundImage: twitterIcon }]} />
             </Component>
             <Component name="IconWhatsapp" style={styles.component}>
-                <Rectangle style={[styles.icon, { backgroundImage: whatsappIcon }]} />
+                <View style={[styles.icon, { backgroundImage: whatsappIcon }]} />
             </Component>
             <Component name="IconSkype" style={styles.component}>
-                <Rectangle style={[styles.icon, { backgroundImage: skypeIcon }]} />
+                <View style={[styles.icon, { backgroundImage: skypeIcon }]} />
             </Component>
             <Component name="IconYoutube" style={styles.component}>
-                <Rectangle style={[styles.icon, { backgroundImage: youtubeIcon }]} />
+                <View style={[styles.icon, { backgroundImage: youtubeIcon }]} />
             </Component>
             <Component name="IconInstagram" style={styles.component}>
-                <Rectangle style={[styles.icon, { backgroundImage: instagramIcon }]} />
+                <View style={[styles.icon, { backgroundImage: instagramIcon }]} />
             </Component>
         </Frame>
     );

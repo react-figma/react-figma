@@ -2,14 +2,14 @@
 
 # React Figma
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
 [![npm version](https://img.shields.io/npm/v/react-figma.svg)](https://www.npmjs.com/package/react-figma)
 [![CircleCI](https://circleci.com/gh/react-figma/react-figma.svg?style=svg)](https://circleci.com/gh/react-figma/react-figma)
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/react-figma)
 
 Render React components to Figma.
 
-* 💡 Inspired by [react-sketchapp](https://github.com/airbnb/react-sketchapp).
+* 🍬 Compatible with [react-native](https://facebook.github.io/react-native/), [react-sketchapp](https://github.com/airbnb/react-sketchapp) API.
 * 🎨 Designed to create manageable design systems.
 * 🦄 Flexible layouts support with [Yoga Layout](https://yogalayout.com/)
 * ♻️ Hydration support.
@@ -21,13 +21,15 @@ Example of code:
 
 ```javascript
 import * as React from 'react';
-import { Page, Rectangle, Text } from 'react-figma';
+import { Page, View, Text } from 'react-figma';
 
 export const App = () => {
     return (
         <Page name="New page">
-            <Rectangle style={{ width: 200, height: 100, backgroundColor: '#dd55aa' }} />
-            <Text characters="text" style={{ color: '#ffffff' }} />
+            <View>
+                <View style={{ width: 200, height: 100, backgroundColor: '#dd55aa' }} />
+                <Text characters="text" style={{ color: '#ffffff' }} />
+            </View>
         </Page>
     );
 };
@@ -149,6 +151,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://corrinachow.com"><img src="https://avatars1.githubusercontent.com/u/35117708?v=4" width="100px;" alt="corrina"/><br /><sub><b>corrina</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=corrinachow" title="Code">💻</a></td>
     <td align="center"><a href="http://www.zacharyquintenwitt.com"><img src="https://avatars1.githubusercontent.com/u/5651980?v=4" width="100px;" alt="Zachary Witt"/><br /><sub><b>Zachary Witt</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=zqwitt" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/theashraf"><img src="https://avatars1.githubusercontent.com/u/39750790?v=4" width="100px;" alt="Abdelrahman Ashraf"/><br /><sub><b>Abdelrahman Ashraf</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=theashraf" title="Code">💻</a></td>
+    <td align="center"><a href="https://seanprashad.com"><img src="https://avatars2.githubusercontent.com/u/13009507?v=4" width="100px;" alt="sprashad"/><br /><sub><b>sprashad</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=SeanPrashad" title="Documentation">📖</a></td>
   </tr>
 </table>
 
