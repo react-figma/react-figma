@@ -1,7 +1,9 @@
 # Text
 
+Analog of `Text` component at [React Native](https://facebook.github.io/react-native/docs/text), 
+[React Sketchapp](http://airbnb.io/react-sketchapp/docs/API.html#text). 
 Wrapper for Figma [Text](https://www.figma.com/plugin-docs/api/TextNode/).
-`Text` component supports auto loading fonts defined through `fontFamily`, `fontWeight`, `fontStyle` prop. 
+`Text` component supports auto loading fonts defined through `fontFamily`, `fontWeight`, `fontStyle` props. 
 
 #### Props
 
