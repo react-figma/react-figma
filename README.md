@@ -9,7 +9,7 @@
 
 Render React components to Figma.
 
-* 💡 Inspired by [react-sketchapp](https://github.com/airbnb/react-sketchapp).
+* 🍬 Compatible with [react-native](https://facebook.github.io/react-native/), [react-sketchapp](https://github.com/airbnb/react-sketchapp) API.
 * 🎨 Designed to create manageable design systems.
 * 🦄 Flexible layouts support with [Yoga Layout](https://yogalayout.com/)
 * ♻️ Hydration support.
@@ -21,13 +21,15 @@ Example of code:
 
 ```javascript
 import * as React from 'react';
-import { Page, Rectangle, Text } from 'react-figma';
+import { Page, View, Text } from 'react-figma';
 
 export const App = () => {
     return (
         <Page name="New page">
-            <Rectangle style={{ width: 200, height: 100, backgroundColor: '#dd55aa' }} />
-            <Text characters="text" style={{ color: '#ffffff' }} />
+            <View>
+                <View style={{ width: 200, height: 100, backgroundColor: '#dd55aa' }} />
+                <Text characters="text" style={{ color: '#ffffff' }} />
+            </View>
         </Page>
     );
 };
