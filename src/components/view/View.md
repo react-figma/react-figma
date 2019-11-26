@@ -10,7 +10,7 @@ Render Figma rectangle node if hasn't children and Figma group node if has child
 | ---------- | -------- | ------- | ------------------------------------------------- |
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
 | `children` | `Node`   |         |                                                   |
-| `style`    | [`Style`](/docs/styling.md)   |         |                                                 |
+| `style`    | [`Style`](/docs/styling.md)   |         | Supports can be different depends on `children`     |
 
 Also, supports fields of [FrameNode](https://www.figma.com/plugin-docs/api/FrameNode/) as props if has children, 
 supports fields of [RectangleNode](https://www.figma.com/plugin-docs/api/RectangleNode/) as props if hasn't children.
