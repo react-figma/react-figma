@@ -10,7 +10,8 @@
   + [Code of Conduct](./CODE_OF_CONDUCT.md)
 * API
   + [render](./src/render.md)
-  + [Page](./src/components/page/Page.md)  
+  + [Page](./src/components/page/Page.md)
+  + [Component](./src/components/component/Component.md)  
 * Examples
   + [Design system](./examples/design-system/README.md)
   + [Groups](./examples/groups/README.md)
