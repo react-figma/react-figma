@@ -15,6 +15,7 @@
   + [View](./src/components/view/View.md)
   + [Text](./src/components/text/Text.md)
   + [Image](./src/components/Image/Image.md)
+  + [Platform](./src/helpers/Platform.md)
   + [Component](./src/components/component/Component.md)  
 * Examples
   + [Design system](./examples/design-system/README.md)
