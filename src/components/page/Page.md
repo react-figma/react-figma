@@ -1,7 +1,7 @@
 # Page
 
 Wrapper for Figma [Pages](https://www.figma.com/plugin-docs/api/PageNode/).
-Figma document (`figmaRoot`) should be a parent.
+Figma document (`figma.root`) should be a parent.
 
 
 #### Props
