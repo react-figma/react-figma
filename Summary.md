@@ -12,6 +12,7 @@
   + [render](./src/render.md)
   + [Page](./src/components/page/Page.md)
   + [Frame](./src/components/frame/Frame.md)
+  + [View](./src/components/view/View.md)
   + [Component](./src/components/component/Component.md)  
 * Examples
   + [Design system](./examples/design-system/README.md)
