@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { render } from '../renderer';
-import { Rectangle, Page, Text, Group, Frame } from '..';
-import { createFigma } from 'figma-api-stub';
+import { render } from '../reconciler';
+import { Rectangle, Page, Text, Group, Frame, subscribeOnPluginMessages, subscribeOnUIMessages } from '..';
+import { createFigma, createParentPostMessage } from 'figma-api-stub';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { wait } from '../helpers/wait';
+import { CanvasManager } from '../reconciler/CanvasManager';
 
 describe('renderer', () => {
     beforeEach(() => {
@@ -12,9 +13,27 @@ describe('renderer', () => {
         global.figma = createFigma({
             simulateErrors: true
         });
+
+        // @ts-ignore
+        global.parent.postMessage = createParentPostMessage(global.figma);
+
+        const canvasManager = new CanvasManager();
+
+        // @ts-ignore
+        global.figma.ui.onmessage = message => {
+            console.log('got UI msg', message);
+            canvasManager.onMessage(message);
+            subscribeOnUIMessages(message);
+        };
+
+        // @ts-ignore
+        global.onmessage = message => {
+            console.log('got plugin msg', message.data.pluginMessage);
+            subscribeOnPluginMessages(message);
+        };
     });
 
-    it('render single component', () => {
+    it('render single component', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />, figma.currentPage);
         expect(figma.createRectangle).toHaveBeenCalledTimes(1);
