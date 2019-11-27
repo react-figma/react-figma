@@ -24,6 +24,7 @@
     - [Line](./src/components/line/Line.md)
     - [Rectangle](./src/components/rectangle/Rectangle.md)    
     - [Star](./src/components/star/Star.md)
+    - [Vector](./src/components/vector/Vector.md)
 * Examples
   + [Design system](./examples/design-system/README.md)
   + [Groups](./examples/groups/README.md)
