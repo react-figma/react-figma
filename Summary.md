@@ -18,6 +18,7 @@
   + [StyleSheet](./src/helpers/StyleSheet.md)
   + [Platform](./src/helpers/Platform.md)
   + [Component](./src/components/component/Component.md)
+  + [Svg](./src/components/svg/Svg.md)
   + Others
     - [Group](./src/components/group/Group.md)
     - [Line](./src/components/line/Line.md)
