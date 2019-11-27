@@ -1,10 +1,10 @@
 import * as Reconciler from 'react-reconciler';
-import { APIBridge, APIBridgeComponent, TBridgeFigmaTreeNode } from './APIBridge';
-import { propsDiff, shallowDiff, ReconcilerMethodNotImplemented } from './utils';
+import { APIBridge, APIBridgeComponent } from './APIBridge';
+import { propsDiff, shallowDiff } from './utils';
 
 export const render = async (jsx: any, rootNode) => {
     const apiBridge = new APIBridge();
-    await apiBridge.fetchDocumentTree();
+    await apiBridge.syncDocumentTree();
 
     const HostConfig = {
         now: Date.now,
@@ -31,7 +31,7 @@ export const render = async (jsx: any, rootNode) => {
             apiBridge.insertInRootBefore(child, beforeChild);
         },
         removeChildFromContainer: (container, instance: APIBridgeComponent) => {
-            apiBridge.removeChild(instance);
+            apiBridge.removeChild(null, instance);
         },
 
         finalizeInitialChildren: () => false,
@@ -42,7 +42,7 @@ export const render = async (jsx: any, rootNode) => {
             apiBridge.appendChild(parent, child);
         },
         removeChild: (parent: APIBridgeComponent, child: APIBridgeComponent) => {
-            apiBridge.removeChild(child);
+            apiBridge.removeChild(parent, child);
         },
         insertBefore(parent: APIBridgeComponent, child: APIBridgeComponent, beforeChild: APIBridgeComponent) {
             apiBridge.insertBefore(parent, child, beforeChild);
@@ -82,20 +82,20 @@ export const render = async (jsx: any, rootNode) => {
         commitHydratedContainer: () => {},
         commitMount: () => {},
 
-        getFirstHydratableChild: (parent: TBridgeFigmaTreeNode | null) => {
+        getFirstHydratableChild: (parent: APIBridgeComponent | null) => {
             // TODO: it's a tricky but we assume that if no parent passed
             //  then we have to hydrate starting from documentRoot,
             //  main con of it: we can't hydrate anything that is not wrapped within <Page> component
-            const treeNode = parent || apiBridge.figmaTree;
+            const treeNode = parent || apiBridge.tree;
             if (!treeNode || !treeNode.children || treeNode.children.length === 0) {
                 return null;
             }
             return treeNode.children[0];
         },
-        canHydrateInstance: (instance: TBridgeFigmaTreeNode, type: string) => {
+        canHydrateInstance: (instance: APIBridgeComponent, type: string) => {
             return instance.type.toLowerCase() === type ? instance : null;
         },
-        getNextHydratableSibling: (instance: TBridgeFigmaTreeNode) => {
+        getNextHydratableSibling: (instance: APIBridgeComponent) => {
             if (!instance || !instance.parent) {
                 return null;
             }
@@ -110,7 +110,7 @@ export const render = async (jsx: any, rootNode) => {
 
             return null;
         },
-        hydrateInstance: (instance: TBridgeFigmaTreeNode, type: string, props) => {
+        hydrateInstance: (instance: APIBridgeComponent, type: string, props) => {
             return shallowDiff({}, props);
         }
     };

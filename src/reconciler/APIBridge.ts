@@ -1,21 +1,7 @@
 import { APIBridgeMessageType } from './messages';
 import { UIToPluginMessagePromise } from '..';
-import { getMaxTagByTree, linkTreeParents } from './utils';
-
-class APIBridgeComponent {
-    readonly tag: number;
-
-    constructor(tag: number) {
-        this.tag = tag;
-    }
-}
-
-export type TBridgeFigmaTreeNode = {
-    type: NodeType;
-    tag: number;
-    children: Array<TBridgeFigmaTreeNode>;
-    parent?: TBridgeFigmaTreeNode;
-};
+import { getMaxTagByTree, buildBridgeComponentsTree } from './utils';
+import { APIBridgeComponent } from './APIBridgeComponent';
 
 /**
  * Implements interface for communication between the UI realm and the main realm.
@@ -26,39 +12,43 @@ class APIBridge {
     // Used to avoid ambiguity when referencing to Figma nodes
     private currentTag = 0;
 
-    // Used for hydration only and can be off-sync with actual tree most of the time
-    figmaTree: TBridgeFigmaTreeNode;
+    // Stores actual structure of document, used primarily for hydration
+    tree: APIBridgeComponent;
+
+    constructor() {
+        this.tree = new APIBridgeComponent(NaN, 'document');
+    }
 
     allocateTag(): number {
         return ++this.currentTag;
     }
 
-    // TODO: actually, I don't like naming of this method and
-    //  guess we can do something with it later
-    async fetchDocumentTree() {
-        const { tree } = await UIToPluginMessagePromise({ type: 'fetchDocumentTree', test: '123' });
-        this.figmaTree = linkTreeParents(null, tree);
-        this.currentTag = getMaxTagByTree(this.figmaTree);
+    async syncDocumentTree() {
+        const { tree } = await UIToPluginMessagePromise({ type: 'syncDocumentTree' });
+        this.tree = buildBridgeComponentsTree(null, tree);
+        this.currentTag = getMaxTagByTree(this.tree);
     }
 
     createInstance(type: string, props?: object): APIBridgeComponent {
         const tag = this.allocateTag();
         this.sendMessage('createInstance', { tag, type, props });
-        return new APIBridgeComponent(tag);
+        return new APIBridgeComponent(tag, type);
     }
 
     createTextInstance(text: string): APIBridgeComponent {
         const tag = this.allocateTag();
         this.sendMessage('createTextInstance', { tag, text });
-        return new APIBridgeComponent(tag);
+        return new APIBridgeComponent(tag, 'raw_text');
     }
 
     appendChild(parent: APIBridgeComponent, child: APIBridgeComponent) {
         this.sendMessage('appendChild', { child: child.tag, parent: parent.tag });
+        parent.appendChild(child);
     }
 
     appendChildToRoot(child: APIBridgeComponent) {
         this.sendMessage('appendChildToRoot', { child: child.tag });
+        this.tree.appendChild(child);
     }
 
     commitUpdate(type: string, instance: APIBridgeComponent, update: object) {
@@ -69,16 +59,24 @@ class APIBridge {
         this.sendMessage('commitTextUpdate', { tag: textInstance.tag, text: newText });
     }
 
-    removeChild(instance: APIBridgeComponent) {
-        this.sendMessage('removeChild', { child: instance.tag });
+    removeChild(parent: APIBridgeComponent, child: APIBridgeComponent) {
+        this.sendMessage('removeChild', { child: child.tag });
+
+        if (parent) {
+            parent.removeChild(child);
+        } else {
+            this.tree.removeChild(child);
+        }
     }
 
     insertBefore(parent: APIBridgeComponent, child: APIBridgeComponent, beforeChild: APIBridgeComponent) {
         this.sendMessage('insertBefore', { parent: parent.tag, child: child.tag, beforeChild: beforeChild.tag });
+        parent.insertChildBefore(child, beforeChild);
     }
 
     insertInRootBefore(child: APIBridgeComponent, beforeChild: APIBridgeComponent) {
         this.sendMessage('insertInRootBefore', { child: child.tag, beforeChild: beforeChild.tag });
+        this.tree.insertChildBefore(child, beforeChild);
     }
 
     private sendMessage(type: APIBridgeMessageType, options?: object) {

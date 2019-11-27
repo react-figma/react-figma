@@ -3,8 +3,8 @@
  * @return Array<string> props names where difference occurs
  */
 import { RawTextInstance } from './CanvasManager';
-import { map } from 'rxjs/operators';
 import { isReactFigmaNode } from '../isReactFigmaNode';
+import { APIBridgeComponent } from './APIBridgeComponent';
 
 export const shallowDiff = (oldObject: object, newObject: object): Array<string> => {
     const uniqueProps = new Set([...Object.keys(oldObject), ...Object.keys(newObject)]);
@@ -74,8 +74,6 @@ export const isSceneNode = (node: BaseNode): node is SceneNode => {
     return node.type !== 'DOCUMENT' && node.type !== 'PAGE';
 };
 
-export class ReconcilerMethodNotImplemented extends Error {}
-
 // Tree processing functions
 export const mapTree = (node: BaseNode, callback: (node: BaseNode) => Object) => {
     if (!node || (node.type !== 'PAGE' && node.type !== 'DOCUMENT' && !isReactFigmaNode(node))) {
@@ -98,18 +96,19 @@ export const mapTree = (node: BaseNode, callback: (node: BaseNode) => Object) =>
     return result;
 };
 
-export const linkTreeParents = (parent, node) => {
+export const buildBridgeComponentsTree = (parent, node) => {
     if (!node) {
         return;
     }
 
-    node.parent = parent;
+    const bridgeComponent = new APIBridgeComponent(node.tag, node.type);
+    bridgeComponent.parent = parent;
 
     if (node.children) {
-        node.children.forEach(child => linkTreeParents(node, child));
+        bridgeComponent.children = node.children.map(child => buildBridgeComponentsTree(bridgeComponent, child));
     }
 
-    return node;
+    return bridgeComponent;
 };
 
 export const getMaxTagByTree = (node, initialTag = -1): number => {

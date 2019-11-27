@@ -63,7 +63,7 @@ class CanvasManager {
             case 'insertInRootBefore':
                 this.insertInRootBefore(message.options);
                 break;
-            case 'fetchDocumentTree':
+            case 'syncDocumentTree':
                 this.sendDocumentTree(message);
                 break;
         }
@@ -170,7 +170,7 @@ class CanvasManager {
             }
 
             return {
-                type: node.type,
+                type: node.type.toLowerCase(),
                 tag
             };
         });
