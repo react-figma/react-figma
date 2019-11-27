@@ -1,14 +1,14 @@
 # StyleSheet
 
 A StyleSheet is an abstraction similar to CSS StyleSheets.
-Analog of `StyleSheet` module at [React Native](https://facebook.github.io/react-native/docs/stylesheet), 
+Analog of the `StyleSheet` module at [React Native](https://facebook.github.io/react-native/docs/stylesheet), 
 [React Sketchapp](http://airbnb.io/react-sketchapp/docs/API.html#stylesheet).
 
 ## API
 
 `create(styles)`
 
-Create an optimized StyleSheet reference from a style object.
+Create an optimized StyleSheet reference from the style object.
 
 `flatten(styles)`
 

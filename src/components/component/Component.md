@@ -1,6 +1,6 @@
 ## Component
 
-Wrapper for Figma [Component](https://www.figma.com/plugin-docs/api/ComponentNode/).
+Wrapper for the Figma [Component](https://www.figma.com/plugin-docs/api/ComponentNode/).
 
 #### Props
 
@@ -10,7 +10,7 @@ Wrapper for Figma [Component](https://www.figma.com/plugin-docs/api/ComponentNod
 | `children` | `Node`   |         |                                                   |
 | `style`    | [`Style`](/docs/styling.md)   |         | Not all props                                                 |
 
-Also, most of [ComponentNode](https://www.figma.com/plugin-docs/api/ComponentNode/) fields supported as props.
+Also, most of the [ComponentNode](https://www.figma.com/plugin-docs/api/ComponentNode/) fields are supported as props.
 
 #### Example
 

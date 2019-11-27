@@ -15,7 +15,7 @@ Also, most of [FrameNode](https://www.figma.com/plugin-docs/api/FrameNode/) fiel
 
 #### Presets
 
-Preset is object, that contains `Frame` props:
+Preset is an object, that contains `Frame` props:
 
 | Prop       | Type     |
 | ---------- | -------- |

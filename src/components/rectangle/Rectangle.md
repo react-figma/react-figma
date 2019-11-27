@@ -1,6 +1,6 @@
 ## Rectangle
 
-Wrapper for Figma [Rectangle](https://www.figma.com/plugin-docs/api/RectangleNode/).
+Wrapper for the Figma [Rectangle](https://www.figma.com/plugin-docs/api/RectangleNode/).
 
 #### Props
 
@@ -13,7 +13,7 @@ Wrapper for Figma [Rectangle](https://www.figma.com/plugin-docs/api/RectangleNod
 | `height` | `Number` |  |  |
 | `style`    | [`Style`](/docs/styling.md)   |  | Not all props 
 
-Also, most of [RectangleNode](https://www.figma.com/plugin-docs/api/RectangleNode/) fields supported as props.
+Also, most of the [RectangleNode](https://www.figma.com/plugin-docs/api/RectangleNode/) fields are supported as props.
 
 #### Example
 

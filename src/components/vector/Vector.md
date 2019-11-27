@@ -1,6 +1,6 @@
 ## Vector
 
-Wrapper for Figma [Vector](https://www.figma.com/plugin-docs/api/VectorNode/).
+Wrapper for the Figma [Vector](https://www.figma.com/plugin-docs/api/VectorNode/).
 
 #### Props
 
@@ -12,7 +12,7 @@ Wrapper for Figma [Vector](https://www.figma.com/plugin-docs/api/VectorNode/).
 | `handleMirroring` | [HandleMirroring](https://www.figma.com/plugin-docs/api/HandleMirroring/) |         |  |
 | `style`    | [`Style`](/docs/styling.md)   |         | Not all props                                                 |
 
-Also, most of [VectorNode](https://www.figma.com/plugin-docs/api/VectorNode/) fields supported as props.
+Also, most of the [VectorNode](https://www.figma.com/plugin-docs/api/VectorNode/) fields are supported as props.
 
 #### Example
 

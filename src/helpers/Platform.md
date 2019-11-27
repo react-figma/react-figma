@@ -1,6 +1,6 @@
 # Platform
 
-Analog of `Platform` module at [React Native](https://facebook.github.io/react-native/docs/platform-specific-code), 
+Analog of the `Platform` module at [React Native](https://facebook.github.io/react-native/docs/platform-specific-code), 
 [React Sketchapp](http://airbnb.io/react-sketchapp/docs/API.html#platform).
 
 #### API
@@ -15,7 +15,7 @@ Analog of `Platform` module at [React Native](https://facebook.github.io/react-n
 
 **Platform.select** 
 
-That given an object containing Platform.OS as keys, 
+When given an object containing Platform.OS as keys, 
 returns the value for the platform you are currently running on.
 
 ```typescript

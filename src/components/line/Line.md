@@ -1,6 +1,6 @@
 ## Line
 
-Wrapper for Figma [Line](https://www.figma.com/plugin-docs/api/LineNode/).
+Wrapper for the Figma [Line](https://www.figma.com/plugin-docs/api/LineNode/).
 
 #### Props
 
@@ -11,7 +11,7 @@ Wrapper for Figma [Line](https://www.figma.com/plugin-docs/api/LineNode/).
 | `strokes` | Array of [Paint](https://www.figma.com/plugin-docs/api/Paint/) |         |  |
 | `style`    | [`Style`](/docs/styling.md)   |         | Not all props                                                 |
 
-Also, most of [LineNode](https://www.figma.com/plugin-docs/api/LineNode/) fields supported as props.
+Also, most of the [LineNode](https://www.figma.com/plugin-docs/api/LineNode/) fields are supported as props.
 
 #### Example
 

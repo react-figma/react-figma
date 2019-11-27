@@ -1,6 +1,6 @@
 ## Star
 
-Wrapper for Figma [Star](https://www.figma.com/plugin-docs/api/StarNode/).
+Wrapper for the Figma [Star](https://www.figma.com/plugin-docs/api/StarNode/).
 
 #### Props
 
@@ -11,7 +11,7 @@ Wrapper for Figma [Star](https://www.figma.com/plugin-docs/api/StarNode/).
 | `innerRadius` | `Number` |  |  |
 | `style`    | [`Style`](/docs/styling.md)   |  | Not all props 
 
-Also, most of [StarNode](https://www.figma.com/plugin-docs/api/StarNode/) fields supported as props.
+Also, most of the [StarNode](https://www.figma.com/plugin-docs/api/StarNode/) fields are supported as props.
 
 #### Example
 

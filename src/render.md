@@ -21,7 +21,7 @@ Example:
 
 ##### `container` (required)
 
-The element to render into. Recommended use `figma.root` or `figma.currentPage`.
+The element to render into. It's recommended to use `figma.root` or `figma.currentPage`.
 
 #### Examples
 

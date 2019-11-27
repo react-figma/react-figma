@@ -2,7 +2,7 @@
 
 Analog of `View` component at [React Native](https://facebook.github.io/react-native/docs/view), [React Sketchapp](http://airbnb.io/react-sketchapp/docs/API.html#view).
 The most fundamental component for building a UI. 
-Render Figma rectangle node if hasn't children and Figma group node if has children.
+Component renders Figma group node if it has children, rectangle node otherwise.
 
 #### Props
 
@@ -13,7 +13,7 @@ Render Figma rectangle node if hasn't children and Figma group node if has child
 | `style`    | [`Style`](/docs/styling.md)   |         | Supports can be different depends on `children`     |
 
 Also, supports fields of [FrameNode](https://www.figma.com/plugin-docs/api/FrameNode/) as props if has children, 
-supports fields of [RectangleNode](https://www.figma.com/plugin-docs/api/RectangleNode/) as props if hasn't children.
+supports fields of [RectangleNode](https://www.figma.com/plugin-docs/api/RectangleNode/) as props if has no children.
 
 #### Examples
 

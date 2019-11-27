@@ -1,7 +1,7 @@
 ## Svg
 
-Creates frame with figma nodes inside by svg source code. 
-Wrapper for Figma [createNodeFromSvg](https://www.figma.com/plugin-docs/api/createNodeFromSvg/).
+Creates frame with figma nodes inside from svg source code. 
+Wrapper for the Figma [createNodeFromSvg](https://www.figma.com/plugin-docs/api/createNodeFromSvg/).
 
 #### Props
 
@@ -11,11 +11,11 @@ Wrapper for Figma [createNodeFromSvg](https://www.figma.com/plugin-docs/api/crea
 | `source`   | `String` |         | Code of svg                            |
 | `style`    | [`Style`](/docs/styling.md)   |  | Not all props 
 
-Also, most of [Frame](../frame/Frame.md) props supported.
+Also, most of the [Frame](../frame/Frame.md) props are supported.
 
 #### Example
 
-[`svg-inline-loader`](https://github.com/webpack-contrib/svg-inline-loader) supported:
+[`svg-inline-loader`](https://github.com/webpack-contrib/svg-inline-loader) is supported:
 
 ```javascript
 import * as icon from './icon.svg';

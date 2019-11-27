@@ -1,8 +1,8 @@
 ## Image
 
-Analog of `Image` component at [React Native](https://facebook.github.io/react-native/docs/image), 
+Analog of the `Image` component at [React Native](https://facebook.github.io/react-native/docs/image), 
 [React Sketchapp](http://airbnb.io/react-sketchapp/docs/API.html#image). 
-Rendered Figma rectangle node with background.
+Renders Figma rectangle node with background.
 
 #### Props
 
