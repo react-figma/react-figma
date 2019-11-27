@@ -8,7 +8,7 @@
   + [Roadmap](./docs/roadmap.md)
   + [Contributing](./contributing.md)
   + [Code of Conduct](./CODE_OF_CONDUCT.md)
-* API
+* [API](./docs/API.md)
   + [render](./src/render.md)
   + [Page](./src/components/page/Page.md)
   + [Frame](./src/components/frame/Frame.md)
