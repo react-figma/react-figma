@@ -17,7 +17,9 @@
   + [Image](./src/components/Image/Image.md)
   + [StyleSheet](./src/helpers/StyleSheet.md)
   + [Platform](./src/helpers/Platform.md)
-  + [Component](./src/components/component/Component.md)  
+  + [Component](./src/components/component/Component.md)
+  + Others
+    - [Group](./src/components/group/Group.md)  
 * Examples
   + [Design system](./examples/design-system/README.md)
   + [Groups](./examples/groups/README.md)
