@@ -19,7 +19,9 @@
   + [Platform](./src/helpers/Platform.md)
   + [Component](./src/components/component/Component.md)
   + Others
-    - [Group](./src/components/group/Group.md)  
+    - [Group](./src/components/group/Group.md)
+    - [Line](./src/components/line/Line.md)
+    - [Rectangle](./src/components/rectangle/Rectangle.md)    
 * Examples
   + [Design system](./examples/design-system/README.md)
   + [Groups](./examples/groups/README.md)
