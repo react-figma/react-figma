@@ -9,7 +9,7 @@ Also, there is [`render`](../src/render.md) function - entry point for React App
 
 ## UI Primitives
 
-Components, that have compatible with react-native API.
+Components that compatible with react-native API.
 
 * [View](../src/components/view/View.md) — The most fundamental component for building a UI.
 * [Text](../src/components/text/Text.md) - A React component for displaying text.
