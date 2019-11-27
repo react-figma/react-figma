@@ -17,13 +17,31 @@ Also, most of [VectorNode](https://www.figma.com/plugin-docs/api/VectorNode/) fi
 #### Example
 
 ```javascript
-<Line
-    name="line"
-    strokeWeight={4}
-    strokeAlign="CENTER"
-    opacity={0.5}
-    strokes={[{ type: 'SOLID', color: { r: 1, g: 0, b: 1 } }]}
-    strokeCap="ROUND"
-    dashPattern={[2, 10, 2, 10]}
+<Vector
+    vectorNetwork={{
+        // The vertices of the triangle
+        vertices: [{ x: 0, y: 100 }, { x: 100, y: 100 }, { x: 50, y: 0 }],
+
+        // The edges of the triangle. The index refers to the vertices array.
+        segments: [
+            {
+                start: 0,
+                end: 1
+            },
+            {
+                start: 1,
+                end: 2
+            },
+            {
+                start: 2,
+                end: 0
+            }
+        ],
+
+        // The loop that forms the triangle. Each loop is a
+        // sequence of indices into the segments array.
+        regions: [{ windingRule: 'NONZERO', loops: [[0, 1, 2]] }]
+    }}
+    style={{ backgroundColor: '#ff0000' }}
 />
 ```
