@@ -20,6 +20,7 @@
   + [Component](./src/components/component/Component.md)
   + [Svg](./src/components/svg/Svg.md)
   + Others
+    - [Ellipse](./src/components/ellipse/Ellipse.md)
     - [Group](./src/components/group/Group.md)
     - [Line](./src/components/line/Line.md)
     - [Rectangle](./src/components/rectangle/Rectangle.md)    
