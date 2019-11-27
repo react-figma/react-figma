@@ -4,7 +4,7 @@ import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
 } from '../../styleTransformers/transformLayoutStyleProperties';
-import { useYogaLayout } from '../../hooks/useYogaLayout';
+// import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import {
     GeometryStyleProperties,
@@ -193,7 +193,7 @@ export interface FrameNodeProps extends DefaultContainerProps {
 }
 
 export const Frame: React.FC<FrameNodeProps> = props => {
-    // const nodeRef = React.useRef();
+    const nodeRef = React.useRef();
 
     const style = StyleSheet.flatten(props.style);
 
@@ -208,5 +208,6 @@ export const Frame: React.FC<FrameNodeProps> = props => {
     // const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
 
     // return <frame {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
-    return <frame {...frameProps} />;
+    // @ts-ignore
+    return <frame {...frameProps} ref={nodeRef} />;
 };

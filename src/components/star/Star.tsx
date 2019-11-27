@@ -34,5 +34,5 @@ export const Star: React.FC<StarProps> = props => {
     const yogaProps = useYogaLayout({ nodeRef, ...starProps });
 
     // @ts-ignore
-    return <star {...starProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
+    return <star {...starProps} {...yogaProps} {...(fills && { fills })} ref={nodeRef} />;
 };

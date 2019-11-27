@@ -18,7 +18,7 @@ export interface GroupNodeProps extends DefaultShapeProps {
 }
 
 export const Group: React.FC<GroupNodeProps> = props => {
-    // const nodeRef = React.useRef();
+    const nodeRef = React.useRef();
 
     const style = StyleSheet.flatten(props.style);
 
@@ -31,5 +31,5 @@ export const Group: React.FC<GroupNodeProps> = props => {
     // const yogaChildProps = useYogaLayout({ nodeRef, ...groupProps });
 
     // return <group {...groupProps} {...yogaChildProps} innerRef={nodeRef} />;
-    return <group {...groupProps} />;
+    return <group {...groupProps} ref={nodeRef} />;
 };

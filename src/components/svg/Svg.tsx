@@ -31,5 +31,5 @@ export const Svg: React.FC<SvgNodeProps> = props => {
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
 
-    return <svg {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
+    return <svg {...frameProps} {...yogaChildProps} ref={nodeRef} />;
 };

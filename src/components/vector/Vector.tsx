@@ -33,5 +33,5 @@ export const Vector: React.FC<VectorProps> = props => {
     const fills = useFillsPreprocessor(vectorProps);
     const yogaProps = useYogaLayout({ nodeRef, ...vectorProps });
     // @ts-ignore
-    return <vector {...vectorProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
+    return <vector {...vectorProps} {...yogaProps} {...(fills && { fills })} ref={nodeRef} />;
 };

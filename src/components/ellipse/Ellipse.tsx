@@ -32,5 +32,5 @@ export const Ellipse: React.FC<EllipseProps> = props => {
     };
     const fills = useFillsPreprocessor(ellipseProps);
     const yogaChildProps = useYogaLayout({ nodeRef, ...ellipseProps });
-    return <ellipse {...ellipseProps} {...yogaChildProps} {...(fills && { fills })} innerRef={nodeRef} />;
+    return <ellipse {...ellipseProps} {...yogaChildProps} {...(fills && { fills })} ref={nodeRef} />;
 };

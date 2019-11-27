@@ -23,5 +23,5 @@ export const Component: React.FC<ComponentProps> = props => {
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...componentProps });
 
-    return <component {...componentProps} {...yogaChildProps} innerRef={nodeRef} />;
+    return <component {...componentProps} {...yogaChildProps} ref={nodeRef} />;
 };
