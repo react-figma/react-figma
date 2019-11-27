@@ -1,6 +1,6 @@
 ## Group
 
-Wrapper for Figma [Group](https://www.figma.com/plugin-docs/api/GroupNode/).
+Wrapper for Figma [group](https://www.figma.com/plugin-docs/api/figma/#group).
 
 #### Props
 
@@ -10,7 +10,7 @@ Wrapper for Figma [Group](https://www.figma.com/plugin-docs/api/GroupNode/).
 | `children` | `Node`   |         |                                                   |
 | `style`    | [`Style`](/docs/styling.md)   |         | Not all props                                                 |
 
-Also, most of [GroupNode](https://www.figma.com/plugin-docs/api/GroupNode/) fields supported as props.
+Also, most of [FrameNode](https://www.figma.com/plugin-docs/api/FrameNode/) fields supported as props.
 
 #### Example
 
