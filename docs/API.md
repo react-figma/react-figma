@@ -21,6 +21,7 @@ Components, that have compatible with react-native API.
 
 * [Page](../src/components/page/Page.md) — A React component for displaying Figma page.
 * [Frame](../src/components/frame/Frame.md) — A React component for displaying Figma frame.
+* [Component](../src/components/frame/Frame.md) — A React component that wrap nodes to Figma component.
 * [Svg](../src/components/svg/Svg.md) — A React component that transform SVG source to Figma nodes.
 * [Ellipse](../src/components/ellipse/Ellipse.md) — A React component for displaying Figma ellipse.
 * [Group](../src/components/group/Group.md) — A React component for grouping Figma nodes.
