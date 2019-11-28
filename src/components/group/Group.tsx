@@ -28,8 +28,7 @@ export const Group: React.FC<GroupNodeProps> = props => {
         ...transformGeometryStyleProperties('backgrounds', style),
         ...props
     };
-    // const yogaChildProps = useYogaLayout({ nodeRef, ...groupProps });
+    const yogaChildProps = useYogaLayout({ nodeRef, ...groupProps });
 
-    // return <group {...groupProps} {...yogaChildProps} innerRef={nodeRef} />;
-    return <group {...groupProps} ref={nodeRef} />;
+    return <group {...groupProps} {...yogaChildProps} ref={nodeRef} />;
 };

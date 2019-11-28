@@ -4,7 +4,7 @@ import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
 } from '../../styleTransformers/transformLayoutStyleProperties';
-// import { useYogaLayout } from '../../hooks/useYogaLayout';
+import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import {
     GeometryStyleProperties,
@@ -205,9 +205,7 @@ export const Frame: React.FC<FrameNodeProps> = props => {
         ...transformGeometryStyleProperties('backgrounds', style),
         ...propWithoutPreset
     };
-    // const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
+    const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
 
-    // return <frame {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
-    // @ts-ignore
-    return <frame {...frameProps} ref={nodeRef} />;
+    return <frame {...frameProps} {...yogaChildProps} ref={nodeRef} />;
 };

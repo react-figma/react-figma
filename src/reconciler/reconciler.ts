@@ -1,6 +1,7 @@
 import * as Reconciler from 'react-reconciler';
 import { APIBridge, APIBridgeComponent } from './APIBridge';
-import { propsDiff, shallowDiff } from './utils';
+import { propsDiff } from './utils';
+import { updateYogaRoot } from '../yoga/yogaStream';
 
 export const render = async (jsx: any, rootNode) => {
     const apiBridge = new APIBridge();
@@ -26,6 +27,7 @@ export const render = async (jsx: any, rootNode) => {
 
         appendChildToContainer: (container, child: APIBridgeComponent) => {
             apiBridge.appendChildToRoot(child);
+            updateYogaRoot(child);
         },
         insertInContainerBefore: (container, child: APIBridgeComponent, beforeChild: APIBridgeComponent) => {
             apiBridge.insertInRootBefore(child, beforeChild);
@@ -49,7 +51,10 @@ export const render = async (jsx: any, rootNode) => {
         },
 
         prepareUpdate: (instance: APIBridgeComponent, type: string, oldProps, newProps): Array<string> => {
-            return shallowDiff(oldProps, newProps);
+            // TODO: we have to compare props and apply only diff
+            //  but currently implemented mixins do not handle it properly,
+            //  e.g saveStyleMixin overrides styles with empty object
+            return Object.keys(newProps);
         },
         commitUpdate: (
             instance: APIBridgeComponent,
@@ -79,7 +84,6 @@ export const render = async (jsx: any, rootNode) => {
         didNotFindHydratableContainerInstance: () => {},
         didNotFindHydratableTextInstance: () => {},
         didNotHydrateInstance: () => {},
-        commitHydratedContainer: () => {},
         commitMount: () => {},
 
         getFirstHydratableChild: (parent: APIBridgeComponent | null) => {
@@ -111,7 +115,10 @@ export const render = async (jsx: any, rootNode) => {
             return null;
         },
         hydrateInstance: (instance: APIBridgeComponent, type: string, props) => {
-            return shallowDiff({}, props);
+            return Object.keys(props);
+        },
+        commitHydratedContainer: () => {
+            apiBridge.tree.children.forEach(child => updateYogaRoot(child));
         }
     };
 

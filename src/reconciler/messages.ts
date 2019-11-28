@@ -8,7 +8,8 @@ export type APIBridgeMessageType =
     | 'insertInRootBefore'
     | 'createTextInstance'
     | 'commitTextUpdate'
-    | 'syncDocumentTree';
+    | 'syncDocumentTree'
+    | 'sendYogaSubtree';
 
 export interface APIBridgeMessage {
     readonly type: APIBridgeMessageType;

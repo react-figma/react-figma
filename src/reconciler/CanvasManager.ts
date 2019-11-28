@@ -12,6 +12,7 @@ import {
     removeGroupStubElements
 } from './utils';
 import { respondToUIMessage } from '../helpers/messagePromise';
+import { mapFigmaNodeToYogaTreeNode } from '../yoga/mapFigmaNodeToYogaTreeNode';
 
 /**
  * Represents raw string entity that is stored inside actual TextNode
@@ -65,6 +66,9 @@ class CanvasManager {
                 break;
             case 'syncDocumentTree':
                 this.sendDocumentTree(message);
+                break;
+            case 'sendYogaSubtree':
+                this.sendYogaSubtree(message);
                 break;
         }
     }
@@ -181,6 +185,12 @@ class CanvasManager {
                 child => !isNaN(child.tag) || (child.children && child.children.length > 0)
             );
         }
+        respondToUIMessage(message, { tree });
+    }
+
+    private sendYogaSubtree(message) {
+        const root = this.instances.get(message.tag) as BaseNode;
+        let tree = mapTree(root, mapFigmaNodeToYogaTreeNode);
         respondToUIMessage(message, { tree });
     }
 }

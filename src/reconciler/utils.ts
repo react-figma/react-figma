@@ -86,7 +86,7 @@ export const mapTree = (node: BaseNode, callback: (node: BaseNode) => Object) =>
     };
 
     if (isImplementsChildrenMixin(node)) {
-        result.children = node.children.map(child => mapTree(child, callback));
+        result.children = node.children.map(child => mapTree(child, callback)).filter(child => !!child);
     }
 
     if (isPageNode(node)) {

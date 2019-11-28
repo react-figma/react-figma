@@ -1,22 +1,23 @@
 import { Observable, Subject } from 'rxjs';
 import { concatMap, debounceTime } from 'rxjs/operators';
 import { yogaHandler } from './yogaHandler';
-import { isReactFigmaNode } from '../isReactFigmaNode';
+import { APIBridgeComponent } from '../reconciler/APIBridgeComponent';
 
 const $yogaRoot = new Subject();
 
 export const $updatedYogaCoords = new Subject();
 
-export const updateYogaRoot = (root: any) => {
+export const updateYogaRoot = (root: APIBridgeComponent) => {
     $yogaRoot.next(root);
 };
 
-export const updateYogaNode = (node: any) => {
-    const parent = node.parent;
-    if (!parent || !isReactFigmaNode(parent)) {
-        updateYogaRoot(node);
-    } else {
+export const updateYogaNode = (node: APIBridgeComponent) => {
+    const { parent } = node;
+
+    if (parent) {
         updateYogaNode(parent);
+    } else {
+        updateYogaRoot(node);
     }
 };
 
@@ -25,15 +26,12 @@ $yogaRoot
         debounceTime(100),
         concatMap((instance: any) => {
             return new Observable(subscriber => {
-                const handleYogaProps = (newProps, instance) => {
+                const handleYogaProps = (newProps, instance, parentProps) => {
                     const { children: yogaChildren, nodeBatchId, ...yogaPropsWithoutChildren } = newProps;
-                    if (instance.parent && instance.parent.type === 'GROUP') {
-                        yogaPropsWithoutChildren.x += instance.parent.x;
-                        yogaPropsWithoutChildren.y += instance.parent.y;
-                    }
 
-                    if (nodeBatchId != instance.getPluginData('nodeBatchId')) {
-                        updateYogaNode(instance);
+                    if (instance.parent && instance.parent.type === 'group' && parentProps) {
+                        yogaPropsWithoutChildren.x += parentProps.x;
+                        yogaPropsWithoutChildren.y += parentProps.y;
                     }
 
                     subscriber.next({ instance, props: yogaPropsWithoutChildren });
@@ -43,12 +41,12 @@ $yogaRoot
                                 updateYogaNode(child);
                                 return;
                             }
-                            handleYogaProps(yogaChildren[index], child);
+                            handleYogaProps(yogaChildren[index], child, yogaPropsWithoutChildren);
                         });
                     }
                 };
                 yogaHandler(instance).then(newProps => {
-                    handleYogaProps(newProps, instance);
+                    handleYogaProps(newProps, instance, null);
                     subscriber.complete();
                 });
             });

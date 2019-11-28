@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { $updatedYogaCoords, updateYogaNode } from '../yoga/yogaStream';
 import { filter, map } from 'rxjs/operators';
+import { APIBridgeComponent } from '../reconciler/APIBridgeComponent';
 
 export const useYogaLayout = props => {
     const { nodeRef } = props;
     const [yogaProps, setYogaProps] = React.useState<any>({});
 
     React.useEffect(() => {
-        const instance = nodeRef.current;
+        const instance: APIBridgeComponent = nodeRef.current;
         const subject = $updatedYogaCoords.pipe(
             filter((message: any) => message.instance === instance),
             map((message: any) => message.props)
@@ -24,7 +25,7 @@ export const useYogaLayout = props => {
             didMountRef.current = true;
             return;
         }
-        const instance = nodeRef.current;
+        const instance: APIBridgeComponent = nodeRef.current;
         updateYogaNode(instance);
     }, [props.children, props.width, props.height, props.style, props.characters, props.fontSize]);
 

@@ -1,7 +1,8 @@
+import * as yoga from 'yoga-layout-prebuilt';
 import { transformDimensionMapper } from '../styleTransformers/transformDimension';
 import { YogaStyleProperties } from './YogaStyleProperties';
 
-const transformFlexDirection = yoga => (value: string) => {
+const transformFlexDirection = (value: string) => {
     switch (value) {
         case 'row':
             return yoga.FLEX_DIRECTION_ROW;
@@ -14,7 +15,7 @@ const transformFlexDirection = yoga => (value: string) => {
     }
 };
 
-const transformAlignItems = yoga => (value: YogaStyleProperties['alignItems']) => {
+const transformAlignItems = (value: YogaStyleProperties['alignItems']) => {
     switch (value) {
         case 'flex-end':
             return yoga.ALIGN_FLEX_END;
@@ -27,7 +28,7 @@ const transformAlignItems = yoga => (value: YogaStyleProperties['alignItems']) =
     }
 };
 
-const transformAlignSelf = yoga => (value: YogaStyleProperties['alignSelf']) => {
+const transformAlignSelf = (value: YogaStyleProperties['alignSelf']) => {
     switch (value) {
         case 'auto':
             return yoga.ALIGN_AUTO;
@@ -42,7 +43,7 @@ const transformAlignSelf = yoga => (value: YogaStyleProperties['alignSelf']) => 
     }
 };
 
-const transformJustifyContent = yoga => (value: string) => {
+const transformJustifyContent = (value: string) => {
     switch (value) {
         case 'flex-end':
             return yoga.JUSTIFY_FLEX_END;
@@ -57,7 +58,7 @@ const transformJustifyContent = yoga => (value: string) => {
     }
 };
 
-const transformPosition = yoga => (value: string) => {
+const transformPosition = (value: string) => {
     switch (value) {
         case 'absolute':
             return yoga.POSITION_TYPE_ABSOLUTE;
@@ -66,9 +67,9 @@ const transformPosition = yoga => (value: string) => {
     }
 };
 
-export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStyleProperties) => {
+export const applyStyleToYogaNode = (yogaNode, style: YogaStyleProperties) => {
     if (style.position) {
-        yogaNode.setPositionType(transformPosition(yoga)(style.position));
+        yogaNode.setPositionType(transformPosition(style.position));
     }
     if (style.top) {
         transformDimensionMapper(style.top)
@@ -121,7 +122,7 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStylePropertie
             .percentage(yogaNode.setMaxHeight.bind(yogaNode));
     }
     if (style.flexDirection) {
-        yogaNode.setFlexDirection(transformFlexDirection(yoga)(style.flexDirection));
+        yogaNode.setFlexDirection(transformFlexDirection(style.flexDirection));
     }
     if (style.padding) {
         transformDimensionMapper(style.padding)
@@ -214,8 +215,8 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStylePropertie
         yogaNode.setAspectRatio(style.aspectRatio);
     }
     if (style.alignSelf) {
-        yogaNode.setAlignSelf(transformAlignSelf(yoga)(style.alignSelf));
+        yogaNode.setAlignSelf(transformAlignSelf(style.alignSelf));
     }
-    yogaNode.setAlignItems(transformAlignItems(yoga)(style.alignItems));
-    yogaNode.setJustifyContent(transformJustifyContent(yoga)(style.justifyContent));
+    yogaNode.setAlignItems(transformAlignItems(style.alignItems));
+    yogaNode.setJustifyContent(transformJustifyContent(style.justifyContent));
 };

@@ -1,23 +1,6 @@
-import { pluginToUIMessagePromise } from '../helpers/messagePromise';
-import * as nanoid from 'nanoid/non-secure';
-import { isReactFigmaNode } from '../isReactFigmaNode';
-
-const transformNodesToTree = node => {
-    if (!isReactFigmaNode(node)) {
-        return;
-    }
-    const nodeBatchId = nanoid();
-    node.setPluginData('nodeBatchId', nodeBatchId);
-    return {
-        width: node.width,
-        height: node.height,
-        style:
-            (node.getPluginData && node.getPluginData('reactStyle') && JSON.parse(node.getPluginData('reactStyle'))) ||
-            undefined,
-        children: node.children && node.children.map(transformNodesToTree).filter(item => !!item),
-        nodeBatchId
-    };
-};
+import { UIToPluginMessagePromise } from '../helpers/messagePromise';
+import { APIBridgeComponent } from '../reconciler/APIBridgeComponent';
+import { yogaWorker } from './yogaWorker';
 
 const transformYogaToCoords = result => {
     return {
@@ -25,15 +8,16 @@ const transformYogaToCoords = result => {
         y: result.top,
         width: result.width,
         height: result.height,
-        children: result.children && result.children.map(transformYogaToCoords),
-        nodeBatchId: result.nodeBatchId
+        children: result.children && result.children.map(transformYogaToCoords)
     };
 };
 
-export const yogaHandler = async node => {
-    const result = await pluginToUIMessagePromise({
-        type: 'calculateLayout',
-        value: transformNodesToTree(node)
+export const yogaHandler = async (node: APIBridgeComponent) => {
+    const { tree } = await UIToPluginMessagePromise({
+        type: 'sendYogaSubtree',
+        tag: node.tag
     });
+
+    const result = yogaWorker(tree);
     return transformYogaToCoords(result);
 };
