@@ -16,7 +16,7 @@ import { useFontName } from '../../hooks/useFontName';
 import { useTextChildren } from '../../hooks/useTextChildren';
 
 export interface TextProps extends TextNodeProps, DefaultShapeProps {
-    style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & TextStyleProperties & BlendStyleProperties>;
+    style?: StyleOf<LayoutStyleProperties & TextStyleProperties & BlendStyleProperties>;
     children?: string;
 }
 

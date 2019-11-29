@@ -12,12 +12,16 @@ exports[`<Image /> Image with resizeMode prop 1`] = `
   resizeMode="stretch"
   source="./image.png"
   style={
-    Object {
-      "backgroundImage": "./image.png",
-      "backgroundSize": "stretch",
-      "height": 200,
-      "width": 100,
-    }
+    Array [
+      Object {
+        "height": 200,
+        "width": 100,
+      },
+      Object {
+        "backgroundImage": "./image.png",
+        "backgroundSize": "stretch",
+      },
+    ]
   }
   width={100}
 />
@@ -34,12 +38,16 @@ exports[`<Image /> Image with source and layout style properties 1`] = `
   }
   source="./image.png"
   style={
-    Object {
-      "backgroundImage": "./image.png",
-      "backgroundSize": undefined,
-      "height": 200,
-      "width": 100,
-    }
+    Array [
+      Object {
+        "height": 200,
+        "width": 100,
+      },
+      Object {
+        "backgroundImage": "./image.png",
+        "backgroundSize": undefined,
+      },
+    ]
   }
   width={100}
 />

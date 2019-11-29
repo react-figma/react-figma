@@ -6,9 +6,9 @@ import { transformSize } from '../helpers/size';
 export type ResizeMode = 'contain' | 'cover' | 'stretch' | 'center' | 'repeat' | 'none';
 
 export type GeometryStyleProperties = {
-    backgroundColor?: string;
-    backgroundImage?: string;
-    backgroundSize?: ResizeMode;
+    backgroundColor: string;
+    backgroundImage: string;
+    backgroundSize: ResizeMode;
 };
 
 const backgroundSizeToScaleMode = {
@@ -22,7 +22,7 @@ const backgroundSizeToScaleMode = {
 
 export const transformGeometryStyleProperties = (
     property: 'fills' | 'backgrounds',
-    style?: LayoutStyleProperties & GeometryStyleProperties
+    style?: Partial<LayoutStyleProperties & GeometryStyleProperties>
 ): GeometryProps => {
     if (!style) {
         return {};
