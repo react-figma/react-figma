@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": ".",
     "module": "commonjs",
     "target": "es5",
     "lib": ["es5", "es6", "es7", "es2017", "dom"],
@@ -14,5 +14,5 @@
     "declaration": true
   },
   "include": ["src/**/*", "figma.d.ts", "jsx-interfaces.d.ts", "images.d.ts"],
-  "exclude": ["node_modules", "dist", "**/__tests__/**"]
+  "exclude": ["node_modules", "**/__tests__/**"]
 }
