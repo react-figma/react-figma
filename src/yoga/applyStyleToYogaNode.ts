@@ -66,7 +66,7 @@ const transformPosition = yoga => (value: string) => {
     }
 };
 
-export const applyStyleToYogaNode = yoga => (yogaNode, style: YogaStyleProperties) => {
+export const applyStyleToYogaNode = yoga => (yogaNode, style: Partial<YogaStyleProperties>) => {
     if (style.position) {
         yogaNode.setPositionType(transformPosition(yoga)(style.position));
     }
