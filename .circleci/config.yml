@@ -10,61 +10,44 @@ defaults: &defaults
     - image: circleci/node:10.15
 
 jobs:
+  install:
+    - checkout
+
+    # Download and cache dependencies
+    - restore_cache:
+        keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+    - run: yarn --frozen-lockfile
+
+    - save_cache:
+        paths:
+          - node_modules
+        key: v1-dependencies-{{ checksum "package.json" }}
+
+    - persist_to_workspace:
+        root: ~/repo
+        paths: .
+
   typescript:
     <<: *defaults
 
     steps:
-      - checkout
-
-        # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: yarn --frozen-lockfile
-
       - run:
           name: Run TypeScript
           command: npm run tsc
 
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
 
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
 
   test:
     <<: *defaults
 
     steps:
-      - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: yarn --frozen-lockfile
-
       - run:
           name: Run tests
           command: npm test
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
 
   deploy:
     <<: *defaults
@@ -82,16 +65,25 @@ workflows:
   version: 2
   test-deploy:
     jobs:
+      - install:
+          - filters:
+              tags:
+                only: /^v.*/
       - typescript:
+          requires:
+            - install
           filters:
             tags:
               only: /^v.*/
       - test:
+          requires:
+            - install
           filters:
             tags:
               only: /^v.*/
       - deploy:
           requires:
+            - typescript
             - test
           filters:
             tags:
