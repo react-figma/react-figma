@@ -1,14 +1,14 @@
 import { LayoutProps } from '../types';
-import { TSize, transformSize } from '../helpers/size';
+import { transformSize, TSize } from '../helpers/size';
 
-export type LayoutStyleProperties = {
-    width?: TSize;
-    height?: TSize;
-    left?: TSize;
-    top?: TSize;
-};
+export interface LayoutStyleProperties {
+    width: TSize;
+    height: TSize;
+    left: TSize;
+    top: TSize;
+}
 
-export const transformLayoutStyleProperties = (styles?: LayoutStyleProperties): LayoutProps => {
+export const transformLayoutStyleProperties = (styles?: Partial<LayoutStyleProperties>): LayoutProps => {
     if (!styles) {
         return {};
     }

@@ -16,9 +16,16 @@ import {
 } from '../../styleTransformers/transformBorderProperties';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import { StyleSheet } from '../..';
+import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 
 export interface RectangleProps extends DefaultShapeProps, CornerProps, BorderProps {
-    style?: StyleOf<LayoutStyleProperties & GeometryStyleProperties & BorderStyleProperties & BlendStyleProperties>;
+    style?: StyleOf<
+        LayoutStyleProperties &
+            YogaStyleProperties &
+            BorderStyleProperties &
+            BlendStyleProperties &
+            GeometryStyleProperties
+    >;
     children?: undefined;
 }
 

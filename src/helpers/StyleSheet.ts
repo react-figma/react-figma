@@ -1,9 +1,11 @@
+import { CommonStyle } from '../types';
+
 export class StyleSheet {
-    static create<T extends Object>(value: T): T {
-        return value;
+    static create<T extends { [P in keyof T]: Partial<CommonStyle> }>(styles: T): T {
+        return styles;
     }
 
-    static flatten<C extends Object>(styles: C | C[]): C {
+    static flatten<C extends Partial<CommonStyle>>(styles: C | C[]): C {
         if (Array.isArray(styles)) {
             return styles.reduce((acc, item) => ({ ...acc, ...item }), {} as any);
         } else {
@@ -11,7 +13,7 @@ export class StyleSheet {
         }
     }
 
-    static resolve<T extends Object>(value: T): T {
+    static resolve<T extends { [key: string]: Partial<CommonStyle> }>(value: T): T {
         return value;
     }
 }

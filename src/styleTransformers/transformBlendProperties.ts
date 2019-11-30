@@ -21,12 +21,12 @@ export type CSSBlendMode =
     | 'luminosity';
 
 export interface BlendStyleProperties {
-    opacity?: number;
-    blendMode?: CSSBlendMode;
-    shadowColor?: Color;
-    shadowOffset?: { width: number; height: number };
-    shadowOpacity?: number;
-    shadowRadius?: number;
+    opacity: number;
+    blendMode: CSSBlendMode;
+    shadowColor: Color;
+    shadowOffset: { width: number; height: number };
+    shadowOpacity: number;
+    shadowRadius: number;
 }
 
 const transofrmBlendMode = (cssBlendMode: CSSBlendMode): BlendMode => {
@@ -71,7 +71,7 @@ const transofrmBlendMode = (cssBlendMode: CSSBlendMode): BlendMode => {
     }
 };
 
-export const transformBlendProperties = (styles?: BlendStyleProperties): BlendProps => {
+export const transformBlendProperties = (styles?: Partial<BlendStyleProperties>): BlendProps => {
     if (!styles) {
         return {};
     }

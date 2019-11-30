@@ -1,19 +1,21 @@
 import { BorderProps, GeometryProps } from '../types';
-import { TSize, transformSize } from '../helpers/size';
+import { transformSize, TSize } from '../helpers/size';
 import { colorToRGB } from './transformColors';
 
-export type BorderStyleProperties = {
-    borderColor?: string;
-    borderWidth?: TSize;
+export interface BorderStyleProperties {
+    borderColor: string;
+    borderWidth: number;
 
-    borderRadius?: TSize;
-    borderBottomLeftRadius?: TSize;
-    borderBottomRightRadius?: TSize;
-    borderTopLeftRadius?: TSize;
-    borderTopRightRadius?: TSize;
-};
+    borderRadius: TSize;
+    borderBottomLeftRadius: TSize;
+    borderBottomRightRadius: TSize;
+    borderTopLeftRadius: TSize;
+    borderTopRightRadius: TSize;
+}
 
-export const transformBorderStyleProperties = (styles?: BorderStyleProperties): BorderProps & GeometryProps => {
+export const transformBorderStyleProperties = (
+    styles?: Partial<BorderStyleProperties>
+): BorderProps & GeometryProps => {
     if (!styles) {
         return {};
     }

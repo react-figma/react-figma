@@ -7,7 +7,6 @@ import * as whatsappIcon from './icons/003-whatsapp.png';
 import * as skypeIcon from './icons/006-skype.png';
 import * as youtubeIcon from './icons/008-youtube.png';
 import * as instagramIcon from './icons/011-instagram.png';
-import { ResizeMode } from '../../../src/styleTransformers/transformGeometryStyleProperties';
 
 const styles = StyleSheet.create({
     frame: {
@@ -23,7 +22,7 @@ const styles = StyleSheet.create({
         width: 16,
         height: 16,
         backgroundColor: '#ffffff',
-        backgroundSize: 'contain' as ResizeMode
+        backgroundSize: 'contain'
     },
     sizingDescription: {
         fontSize: 8,
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'Helvetica Neue',
         fontWeight: 'bold',
-        fontStyle: 'italic' as any,
+        fontStyle: 'italic',
         fontSize: 14
     }
 });
