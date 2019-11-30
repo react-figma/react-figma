@@ -11,25 +11,28 @@ defaults: &defaults
 
 jobs:
   install:
-    - checkout
+    <<: *defaults
 
-    # Download and cache dependencies
-    - restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+    steps:
+      - checkout
 
-    - run: yarn --frozen-lockfile
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
 
-    - save_cache:
-        paths:
-          - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
+      - run: yarn --frozen-lockfile
 
-    - persist_to_workspace:
-        root: ~/repo
-        paths: .
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
 
   typescript:
     <<: *defaults
