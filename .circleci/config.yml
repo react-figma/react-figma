@@ -38,16 +38,18 @@ jobs:
     <<: *defaults
 
     steps:
+      - attach_workspace:
+          at: ~/repo
       - run:
           name: Run TypeScript
           command: npm run tsc
-
-
 
   test:
     <<: *defaults
 
     steps:
+      - attach_workspace:
+          at: ~/repo
       - run:
           name: Run tests
           command: npm test
