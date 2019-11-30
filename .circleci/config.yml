@@ -7,26 +7,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:8.15
-
-install_node_modules: &install_node_modules
-  # Download and cache dependencies
-  - restore_cache:
-      keys:
-        - v1-dependencies-{{ checksum "package.json" }}
-        # fallback to using the latest cache if no exact match is found
-        - v1-dependencies-
-
-  - run: npm install
-
-  - save_cache:
-      paths:
-        - node_modules
-      key: v1-dependencies-{{ checksum "package.json" }}
-
-  - persist_to_workspace:
-      root: ~/repo
-      paths: .
+    - image: circleci/node:10.15
 
 jobs:
   typescript:
@@ -35,11 +16,27 @@ jobs:
     steps:
       - checkout
 
-      <<: *install_node_modules
+        # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run: yarn --frozen-lockfile
 
       - run:
           name: Run TypeScript
           command: npm run tsc
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
 
   test:
     <<: *defaults
@@ -54,7 +51,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm install
+      - run: yarn --frozen-lockfile
 
       - run:
           name: Run tests
