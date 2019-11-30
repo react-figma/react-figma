@@ -35,7 +35,7 @@ jobs:
     steps:
       - checkout
 
-      - <<: *install_node_modules
+      <<: *install_node_modules
 
       - run:
           name: Run TypeScript
