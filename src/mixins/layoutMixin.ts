@@ -4,16 +4,16 @@ export const layoutMixin = (node: LayoutMixin & BaseNode) => (props: LayoutProps
     if (props.relativeTransform) {
         node.relativeTransform = props.relativeTransform;
     }
-    if (props.x) {
+    if (typeof props.x === 'number') {
         node.x = props.x;
     }
-    if (props.y) {
+    if (typeof props.y === 'number') {
         node.y = props.y;
     }
-    if (props.rotation) {
+    if (typeof props.rotation === 'number') {
         node.rotation = props.rotation;
     }
-    if (props.width && props.height && node.type !== 'LINE') {
+    if (typeof props.width === 'number' && typeof props.height === 'number' && node.type !== 'LINE') {
         if (props.isWithoutConstraints) {
             node.resizeWithoutConstraints(props.width, props.height);
         } else {
@@ -21,7 +21,7 @@ export const layoutMixin = (node: LayoutMixin & BaseNode) => (props: LayoutProps
         }
     }
 
-    if (props.width && node.type === 'LINE') {
+    if (typeof props.width === 'number' && node.type === 'LINE') {
         if (props.isWithoutConstraints) {
             node.resizeWithoutConstraints(props.width, 0);
         } else {
