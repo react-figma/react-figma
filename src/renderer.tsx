@@ -88,6 +88,16 @@ const getNextChildren = instance => {
     return parent.children.slice(instanceIndex + 1).find(isReactFigmaNode);
 };
 
+const checkInstanceMatchType = (instance, type) => {
+    if (instance.type.toLowerCase() === type) {
+        return true;
+    }
+    if (instance.type === 'FRAME' && type === 'svg') {
+        return true;
+    }
+    return false;
+};
+
 export const render = async (jsx: any, rootNode) => {
     const HostConfig = {
         now: Date.now,
@@ -148,13 +158,13 @@ export const render = async (jsx: any, rootNode) => {
             remove(childNode);
         },
         canHydrateInstance: (instance, type, props) => {
-            if (!isReactFigmaNode(instance) || instance.type.toLowerCase() !== type) {
+            if (!isReactFigmaNode(instance) || !checkInstanceMatchType(instance, type)) {
                 return null;
             }
             return instance;
         },
         hydrateInstance: (instance, type, props) => {
-            return renderInstance(type, instance.type.toLowerCase() === type ? instance : null, props);
+            return renderInstance(type, checkInstanceMatchType(instance, type) ? instance : null, props);
         },
         getFirstHydratableChild: parentInstance => {
             return getFirstChild(parentInstance);

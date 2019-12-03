@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from '../renderer';
-import { Rectangle, Page, Text, Group, Frame } from '..';
+import { Rectangle, Page, Text, Group, Frame, Svg } from '..';
 import { createFigma } from 'figma-api-stub';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -278,6 +278,98 @@ describe('renderer', () => {
 
         return new Promise(resolve => {
             waiting.pipe(take(1)).subscribe(() => {
+                expect(figma.root).toMatchSnapshot();
+                resolve();
+            });
+        });
+    });
+
+    it('Svg render', () => {
+        figma.createNodeFromSvg = jest.fn(source => {
+            const rect = figma.createRectangle();
+            rect.fills = [
+                {
+                    color: {
+                        b: 1,
+                        g: 0,
+                        r: 0
+                    },
+                    type: 'SOLID'
+                }
+            ];
+
+            const frame = figma.createFrame();
+            frame.appendChild(rect);
+            return frame;
+        });
+
+        render(<Svg source={'<svg />'} />, figma.currentPage);
+        expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(1);
+        expect(figma.root).toMatchSnapshot();
+    });
+
+    it('Svg hydration', () => {
+        figma.createNodeFromSvg = jest.fn(source => {
+            const rect = figma.createRectangle();
+            rect.fills = [
+                {
+                    color: {
+                        b: source === 'source1' ? 1 : 0,
+                        g: source === 'source2' ? 1 : 0,
+                        r: 0
+                    },
+                    type: 'SOLID'
+                }
+            ];
+
+            const frame = figma.createFrame();
+            frame.appendChild(rect);
+            return frame;
+        });
+
+        render(<Svg source="source1" />, figma.currentPage);
+        render(<Svg source="source2" />, figma.currentPage);
+        expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(2);
+        expect(figma.root).toMatchSnapshot();
+    });
+
+    it('Svg instance updating', async () => {
+        figma.createNodeFromSvg = jest.fn(source => {
+            const rect = figma.createRectangle();
+            rect.fills = [
+                {
+                    color: {
+                        b: source === 'source1' ? 1 : 0,
+                        g: source === 'source2' ? 1 : 0,
+                        r: 0
+                    },
+                    type: 'SOLID'
+                }
+            ];
+
+            const frame = figma.createFrame();
+            frame.appendChild(rect);
+            return frame;
+        });
+
+        const waiting = new Subject();
+        const Component = () => {
+            const [source, setSource] = React.useState('source1');
+            React.useEffect(() => {
+                setTimeout(() => {
+                    setSource('source2');
+                    waiting.next();
+                });
+            }, []);
+
+            return <Svg source={source} />;
+        };
+
+        render(<Component />, figma.currentPage);
+
+        return new Promise(resolve => {
+            waiting.pipe(take(1)).subscribe(() => {
+                expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(2);
                 expect(figma.root).toMatchSnapshot();
                 resolve();
             });
