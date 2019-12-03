@@ -114,6 +114,123 @@ ChildrenMixinStub {
 }
 `;
 
+exports[`renderer Svg hydration 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "children": Array [
+        ChildrenMixinStub {
+          "children": Array [
+            LayoutMixinStub {
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 0,
+                    "g": 1,
+                    "r": 0,
+                  },
+                  "type": "SOLID",
+                },
+              ],
+              "parent": [Circular],
+              "type": "RECTANGLE",
+            },
+          ],
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+            "svgHash": "-2021876873",
+          },
+          "type": "FRAME",
+        },
+      ],
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer Svg instance updating 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "children": Array [
+        ChildrenMixinStub {
+          "children": Array [
+            LayoutMixinStub {
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 0,
+                    "g": 1,
+                    "r": 0,
+                  },
+                  "type": "SOLID",
+                },
+              ],
+              "parent": [Circular],
+              "type": "RECTANGLE",
+            },
+          ],
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+            "svgHash": "-2021876873",
+          },
+          "type": "FRAME",
+        },
+      ],
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer Svg render 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "children": Array [
+        ChildrenMixinStub {
+          "children": Array [
+            LayoutMixinStub {
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 1,
+                    "g": 0,
+                    "r": 0,
+                  },
+                  "type": "SOLID",
+                },
+              ],
+              "parent": [Circular],
+              "type": "RECTANGLE",
+            },
+          ],
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+            "svgHash": "820074599",
+          },
+          "type": "FRAME",
+        },
+      ],
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
 exports[`renderer Text characters applied 1`] = `
 ChildrenMixinStub {
   "children": Array [

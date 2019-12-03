@@ -13,7 +13,7 @@ Wrapper for the Figma [createNodeFromSvg](https://www.figma.com/plugin-docs/api/
 
 Also, most of the [Frame](../frame/Frame.md) props are supported.
 
-#### Example
+#### Examples
 
 [`svg-inline-loader`](https://github.com/webpack-contrib/svg-inline-loader) is supported:
 
@@ -22,4 +22,12 @@ import * as icon from './icon.svg';
 
 ...
 <Svg source={icon} style={{ width: 300, height: 300 }} />
+```
+
+Also dynamic source supported:
+```javascript
+
+const source = `<svg><path fill=`${flag ? "#ff0000" : "#00ff00"}`></path></svg>`
+
+<Svg source={source}  />
 ```
