@@ -1,6 +1,14 @@
 import { layoutMixin } from '../layoutMixin';
+import { createFigma } from 'figma-api-stub';
 
 describe('layoutMixin', () => {
+    beforeEach(() => {
+        // @ts-ignore
+        global.figma = createFigma({
+            simulateErrors: true
+        });
+    });
+
     it('resizing', () => {
         const resize = jest.fn((width, height) => ({ width, height }));
         layoutMixin({ type: 'RECTANGLE', resize } as any)({ width: 500, height: 200 });
@@ -29,5 +37,49 @@ describe('layoutMixin', () => {
         const node = { type: 'RECTANGLE', y: 100 } as any;
         layoutMixin(node)({ y: 0 });
         expect(node.y).toEqual(0);
+    });
+
+    it('resizing with zero width', () => {
+        const node = figma.createRectangle();
+        // @ts-ignore
+        node.width = 100;
+        // @ts-ignore
+        node.height = 100;
+        layoutMixin(node)({ width: 0, height: 10 });
+        expect(node.width).toEqual(100);
+        expect(node.height).toEqual(100);
+    });
+
+    it('resizing with negative width', () => {
+        const node = figma.createRectangle();
+        // @ts-ignore
+        node.width = 100;
+        // @ts-ignore
+        node.height = 100;
+        layoutMixin(node)({ width: -10, height: 10 });
+        expect(node.width).toEqual(100);
+        expect(node.height).toEqual(100);
+    });
+
+    it('resizing with zero height', () => {
+        const node = figma.createRectangle();
+        // @ts-ignore
+        node.width = 100;
+        // @ts-ignore
+        node.height = 100;
+        layoutMixin(node)({ width: 10, height: 0 });
+        expect(node.width).toEqual(100);
+        expect(node.height).toEqual(100);
+    });
+
+    it('resizing with negative height', () => {
+        const node = figma.createRectangle();
+        // @ts-ignore
+        node.width = 100;
+        // @ts-ignore
+        node.height = 100;
+        layoutMixin(node)({ width: 10, height: -10 });
+        expect(node.width).toEqual(100);
+        expect(node.height).toEqual(100);
     });
 });

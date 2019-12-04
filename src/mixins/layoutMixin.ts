@@ -1,5 +1,9 @@
 import { LayoutProps } from '../types';
 
+const isValidSize = (size?: number) => {
+    return size && size >= 0.01;
+};
+
 export const layoutMixin = (node: LayoutMixin & BaseNode) => (props: LayoutProps) => {
     if (props.relativeTransform) {
         node.relativeTransform = props.relativeTransform;
@@ -13,7 +17,7 @@ export const layoutMixin = (node: LayoutMixin & BaseNode) => (props: LayoutProps
     if (typeof props.rotation === 'number') {
         node.rotation = props.rotation;
     }
-    if (typeof props.width === 'number' && typeof props.height === 'number' && node.type !== 'LINE') {
+    if (isValidSize(props.width) && isValidSize(props.height) && node.type !== 'LINE') {
         if (props.isWithoutConstraints) {
             node.resizeWithoutConstraints(props.width, props.height);
         } else {
@@ -21,7 +25,7 @@ export const layoutMixin = (node: LayoutMixin & BaseNode) => (props: LayoutProps
         }
     }
 
-    if (typeof props.width === 'number' && node.type === 'LINE') {
+    if (isValidSize(props.width) && node.type === 'LINE') {
         if (props.isWithoutConstraints) {
             node.resizeWithoutConstraints(props.width, 0);
         } else {
