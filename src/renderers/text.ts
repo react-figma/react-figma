@@ -13,7 +13,6 @@ const textNodePropsAssign = propsAssign<TextProps>([
     'textAlignHorizontal',
     'textAlignVertical',
     'textAlignVertical',
-    'textAutoResize',
     'paragraphIndent',
     'paragraphSpacing',
     'autoRename',
@@ -28,6 +27,8 @@ const defaultFont = { family: 'Roboto', style: 'Regular' };
 
 export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontName }) => {
     const textNode = node || figma.createText();
+
+    textNode.textAutoResize = props.textAutoResize || 'WIDTH_AND_HEIGHT';
 
     refMixin(textNode)(props);
     baseNodeMixin(textNode)(props);
