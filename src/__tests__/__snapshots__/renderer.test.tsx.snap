@@ -238,12 +238,12 @@ ChildrenMixinStub {
       "children": Array [
         LayoutMixinStub {
           "_characters": "some text",
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
-          "textAutoResize": "WIDTH_AND_HEIGHT",
           "type": "TEXT",
         },
       ],
@@ -262,12 +262,12 @@ ChildrenMixinStub {
       "children": Array [
         LayoutMixinStub {
           "_characters": "Some text",
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
-          "textAutoResize": "WIDTH_AND_HEIGHT",
           "type": "TEXT",
         },
       ],
@@ -286,12 +286,12 @@ ChildrenMixinStub {
       "children": Array [
         LayoutMixinStub {
           "_characters": "Some text 2",
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
-          "textAutoResize": "WIDTH_AND_HEIGHT",
           "type": "TEXT",
         },
       ],
@@ -310,12 +310,12 @@ ChildrenMixinStub {
       "children": Array [
         LayoutMixinStub {
           "_characters": "text 2",
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
-          "textAutoResize": "WIDTH_AND_HEIGHT",
           "type": "TEXT",
         },
       ],
@@ -338,12 +338,12 @@ ChildrenMixinStub {
             "family": "Helvetica",
             "style": "Bold",
           },
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"fontFamily\\":\\"Helvetica\\",\\"fontWeight\\":\\"bold\\"}",
           },
-          "textAutoResize": "WIDTH_AND_HEIGHT",
           "type": "TEXT",
         },
       ],
