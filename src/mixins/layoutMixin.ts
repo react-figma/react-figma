@@ -1,8 +1,5 @@
 import { LayoutProps } from '../types';
-
-const isValidSize = (size?: number) => {
-    return size && size >= 0.01;
-};
+import { isValidSize } from '../helpers/isValidSize';
 
 export const layoutMixin = (node: LayoutMixin & BaseNode) => (props: LayoutProps) => {
     if (props.relativeTransform) {

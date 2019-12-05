@@ -23,4 +23,16 @@ describe('text renderer', () => {
         const textNode = text(null)({ textAutoResize: 'HEIGHT' });
         expect(textNode.textAutoResize).toEqual('HEIGHT');
     });
+
+    // * Motivation *
+    // When there is width prop we should resize the only height.
+    // --------------
+    it('textAutoResize: HEIGHT when has width prop', async () => {
+        await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
+        const node = figma.createText();
+        // @ts-ignore
+        node.height = 20;
+        const textNode = text(node)({ width: 200 });
+        expect(textNode.textAutoResize).toEqual('HEIGHT');
+    });
 });

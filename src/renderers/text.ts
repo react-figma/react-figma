@@ -7,6 +7,7 @@ import { refMixin } from '../mixins/refMixin';
 import { exportMixin } from '../mixins/exportMixin';
 import { TextProps } from '../components/text/Text';
 import { blendMixin } from '../mixins/blendMixin';
+import { isValidSize } from '../helpers/isValidSize';
 
 const textNodePropsAssign = propsAssign<TextProps>([
     'characters',
@@ -42,7 +43,12 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
         if (props.fontName) {
             textNode.fontName = props.fontName;
         }
-        textNode.textAutoResize = props.textAutoResize || 'WIDTH_AND_HEIGHT';
+        if (isValidSize(props.width) && isValidSize(textNode.height) && !props.textAutoResize) {
+            textNode.resize(props.width, textNode.height);
+            textNode.textAutoResize = 'HEIGHT';
+        } else {
+            textNode.textAutoResize = props.textAutoResize || 'WIDTH_AND_HEIGHT';
+        }
         textNodePropsAssign(textNode)(props);
     }
 
