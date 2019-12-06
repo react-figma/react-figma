@@ -6,6 +6,8 @@ export { Text } from './components/text/Text';
 export { Rectangle } from './components/rectangle/Rectangle';
 export { Page } from './components/page/Page';
 export { Component } from './components/component/Component';
+export { Instance } from './components/component/Instance';
+export { createComponent } from './components/component/createComponent';
 export { Frame, FRAME_PRESETS } from './components/frame/Frame';
 export { Group } from './components/group/Group';
 export { Star } from './components/star/Star';

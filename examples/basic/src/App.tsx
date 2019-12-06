@@ -1,22 +1,31 @@
 import * as React from 'react';
-import { Rectangle } from '../../../src';
+import { createComponent, Frame, Page, Rectangle } from '../../../src';
+
+const Rect = createComponent();
 
 export const App = () => {
     return (
-        <Rectangle
-            style={{
-                width: 200,
-                height: 100,
-                borderWidth: 10,
-                borderColor: '#ff8b29',
-                shadowColor: '#000000',
-                shadowOpacity: 0.5,
-                shadowRadius: 10,
-                shadowOffset: {
-                    width: 10,
-                    height: 10
-                }
-            }}
-        />
+        <Page isCurrent name="Basic">
+            <Frame style={{ flexDirection: 'column' }}>
+                <Rect.Component name="rect-component">
+                    <Rectangle
+                        style={{
+                            width: 200,
+                            height: 100,
+                            borderWidth: 10,
+                            borderColor: '#ff8b29',
+                            shadowColor: '#000000',
+                            shadowOpacity: 0.5,
+                            shadowRadius: 10,
+                            shadowOffset: {
+                                width: 10,
+                                height: 10
+                            }
+                        }}
+                    />
+                </Rect.Component>
+                <Rect.Instance style={{ marginTop: 20 }} />
+            </Frame>
+        </Page>
     );
 };

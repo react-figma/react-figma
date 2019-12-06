@@ -9,13 +9,13 @@ import { transformBlendProperties, BlendStyleProperties } from '../../styleTrans
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 
-export interface ComponentProps extends DefaultContainerProps {
+export interface InstanceProps extends DefaultContainerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
-    nodeRef?: any;
+    component: ComponentNode;
 }
 
-export const Component: React.FC<ComponentProps> = props => {
-    const nodeRef = props.nodeRef || React.useRef();
+export const Instance: React.FC<InstanceProps> = props => {
+    const nodeRef = React.useRef();
     const style = StyleSheet.flatten(props.style);
     const componentProps = {
         ...transformLayoutStyleProperties(style),
@@ -24,5 +24,5 @@ export const Component: React.FC<ComponentProps> = props => {
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...componentProps });
 
-    return <component {...componentProps} {...yogaChildProps} innerRef={nodeRef} />;
+    return <instance {...componentProps} {...yogaChildProps} innerRef={nodeRef} />;
 };

@@ -16,6 +16,7 @@ declare global {
             text: TextProps;
             component: any;
             ellipse: EllipseProps;
+            instance: any
         }
     }
 }

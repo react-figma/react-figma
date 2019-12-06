@@ -62,10 +62,17 @@ const remove = childNode => {
     childNode.remove();
 };
 
+const setIsReactFigmaNode = (instance, isAffectChildren) => {
+    instance.setPluginData('isReactFigmaNode', 'true');
+    if (instance.children && isAffectChildren) {
+        instance.children.forEach(child => setIsReactFigmaNode(child, true));
+    }
+};
+
 const renderInstance = (type, node, props) => {
     const instance = renderers[type](node)(props);
     if (!node) {
-        instance.setPluginData('isReactFigmaNode', 'true');
+        setIsReactFigmaNode(instance, type === 'instance');
     }
     if (type === 'page' && props.isCurrent) {
         lastPage = instance;
