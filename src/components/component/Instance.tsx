@@ -22,7 +22,9 @@ export const Instance: React.FC<InstanceProps> = props => {
         ...transformBlendProperties(style),
         ...props
     };
-    const yogaChildProps = useYogaLayout({ nodeRef, ...componentProps });
+    // todo fix
+    const { x, y, width, height } = useYogaLayout({ nodeRef, ...componentProps });
+    console.log('Instance', width, height);
 
-    return <instance {...componentProps} {...yogaChildProps} innerRef={nodeRef} />;
+    return <instance {...componentProps} x={x} y={y} innerRef={nodeRef} />;
 };

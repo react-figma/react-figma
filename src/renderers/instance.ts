@@ -8,6 +8,7 @@ import { InstanceProps } from '../components/component/Instance';
 
 export const instance = (node: InstanceNode) => (props: InstanceProps) => {
     const instanceNode = node || props.component.createInstance();
+    console.log('instance', instanceNode.width, instanceNode.height);
 
     refMixin(instanceNode)(props);
 

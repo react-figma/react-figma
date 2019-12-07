@@ -30,6 +30,7 @@ const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
 
 const transformCache = cache => {
     const result = cache.node.getComputedLayout();
+    console.log('transformCache', result);
     return {
         ...result,
         nodeBatchId: cache.nodeBatchId,
