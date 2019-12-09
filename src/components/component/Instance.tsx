@@ -11,6 +11,7 @@ import { StyleSheet } from '../..';
 
 export interface InstanceProps extends DefaultContainerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
+    overrides?: { [key: string]: Object };
     component: ComponentNode;
 }
 
