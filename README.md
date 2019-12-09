@@ -1,6 +1,7 @@
-<p align="center"><img src="./logo.svg" width="128"></p>
-
 # React Figma
+
+<img src="./logo.svg" align="right"
+     alt="React Figma logo by Lera Lesik" width="160" height="160">
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
 [![npm version](https://img.shields.io/npm/v/react-figma.svg)](https://www.npmjs.com/package/react-figma)
