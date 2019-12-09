@@ -24,7 +24,8 @@ export const App = () => {
                         }}
                     />
                 </Rect.Component>
-                <Rect.Instance style={{ marginTop: 20 }} />
+                <Rect.Instance style={{ marginTop: 20, width: '100%' }} />
+                <Rect.Instance style={{ marginTop: 20, width: '150px' }} />
             </Frame>
         </Page>
     );
