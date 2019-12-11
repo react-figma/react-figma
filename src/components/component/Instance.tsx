@@ -8,12 +8,17 @@ import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
+import * as all from '../../index';
 
 export interface InstanceProps extends DefaultContainerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     overrides?: { [key: string]: Object };
     component: ComponentNode;
 }
+
+const findNodeByName = (children, name) => {
+    return children && children.find(child => child.name === name || findNodeByName(child.children, name));
+};
 
 export const Instance: React.FC<InstanceProps> = props => {
     const nodeRef = React.useRef();
@@ -25,5 +30,27 @@ export const Instance: React.FC<InstanceProps> = props => {
     };
     const yogaProps = useYogaLayout({ nodeRef, ...componentProps });
 
-    return <instance {...componentProps} {...yogaProps} innerRef={nodeRef} />;
+    return (
+        <instance {...componentProps} {...yogaProps} innerRef={nodeRef}>
+            {nodeRef.current && props.overrides
+                ? Object.keys(props.overrides).map(overrideName => {
+                      // @ts-ignore
+                      const instanceItemNode = findNodeByName(nodeRef.current.children, overrideName);
+                      if (instanceItemNode) {
+                          const type = instanceItemNode.type;
+                          const componentName = type.charAt(0) + type.substring(1).toLowerCase();
+                          const Component = all[componentName];
+                          return (
+                              <Component
+                                  key={overrideName}
+                                  preventResizing
+                                  node={instanceItemNode}
+                                  {...props.overrides[overrideName]}
+                              />
+                          );
+                      }
+                  })
+                : null}
+        </instance>
+    );
 };

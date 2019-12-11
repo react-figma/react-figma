@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultShapeProps, StyleOf } from '../../types';
+import { CornerProps, DefaultShapeProps, InstanceItemProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -13,7 +13,7 @@ import {
     transformGeometryStyleProperties
 } from '../../styleTransformers/transformGeometryStyleProperties';
 
-export interface GroupNodeProps extends DefaultShapeProps {
+export interface GroupNodeProps extends DefaultShapeProps, InstanceItemProps {
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
 }
 

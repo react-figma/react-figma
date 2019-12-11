@@ -18,7 +18,7 @@ const rectangleNodePropsAssign = propsAssign<BorderProps>([
 ]);
 
 export const rectangle = (node: RectangleNode) => (props: RectangleProps) => {
-    const rect = node || figma.createRectangle();
+    const rect = node || props.node || figma.createRectangle();
 
     refMixin(rect)(props);
     baseNodeMixin(rect)(props);

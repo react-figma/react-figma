@@ -15,7 +15,7 @@ const createNodeFromSvg = source => {
 };
 
 export const svg = node => (props: SvgNodeProps) => {
-    let frameNode = node || createNodeFromSvg(props.source);
+    let frameNode = node || props.node || createNodeFromSvg(props.source);
 
     const savedHash = frameNode.getPluginData('svgHash');
     if (savedHash != hashCode(props.source)) {

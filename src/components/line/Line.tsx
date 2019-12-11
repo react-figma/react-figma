@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultShapeProps, BorderProps, CornerProps, StyleOf } from '../../types';
+import { DefaultShapeProps, BorderProps, CornerProps, StyleOf, InstanceItemProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -13,7 +13,7 @@ import { transformBlendProperties, BlendStyleProperties } from '../../styleTrans
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 
-export interface LineProps extends DefaultShapeProps, CornerProps, BorderProps {
+export interface LineProps extends DefaultShapeProps, CornerProps, BorderProps, InstanceItemProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
 }
 

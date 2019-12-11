@@ -38,16 +38,19 @@ export const App = () => {
                         }
                     }}
                 />
-                <Txt.Component name="text-component" style={{ width: '100%' }}>
-                    <Text name="text" style={{ marginTop: 20, fontSize: 24, width: '100%' }}>
+                <Txt.Component name="text-component" style={{ marginTop: 20 }}>
+                    <Text name="text" style={{ fontSize: 24, width: 200 }}>
                         Some text
                     </Text>
                 </Txt.Component>
-                {/*<Txt.Instance style={{ marginTop: 20 }} overrides={{
-                    "text": {
-                        characters: "Overrided text"
-                    }
-                }} />*/}
+                <Txt.Instance
+                    style={{ marginTop: 20 }}
+                    overrides={{
+                        text: {
+                            characters: 'Overrided text'
+                        }
+                    }}
+                />
             </Frame>
         </Page>
     );

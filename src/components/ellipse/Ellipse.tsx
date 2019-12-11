@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultShapeProps, CornerProps, StyleOf } from '../../types';
+import { DefaultShapeProps, CornerProps, StyleOf, InstanceItemProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -14,7 +14,7 @@ import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 
-export interface EllipseProps extends DefaultShapeProps, CornerProps {
+export interface EllipseProps extends DefaultShapeProps, CornerProps, InstanceItemProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
     children?: undefined;
     arcData?: ArcData;

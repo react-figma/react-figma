@@ -10,7 +10,7 @@ import { BorderProps } from '../types';
 import { frameMixin } from '../mixins/frameMixin';
 
 export const frame = (node: FrameNode) => (props: FrameNodeProps) => {
-    const frameNode = node || figma.createFrame();
+    const frameNode = node || props.node || figma.createFrame();
 
     refMixin(frameNode)(props);
 

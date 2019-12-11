@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultShapeProps, CornerProps, StarNodeProps, StyleOf } from '../../types';
+import { DefaultShapeProps, CornerProps, StarNodeProps, StyleOf, InstanceItemProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -14,7 +14,7 @@ import { transformBlendProperties, BlendStyleProperties } from '../../styleTrans
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 
-export interface StarProps extends DefaultShapeProps, CornerProps, StarNodeProps {
+export interface StarProps extends DefaultShapeProps, CornerProps, StarNodeProps, InstanceItemProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
     children?: undefined;
 }

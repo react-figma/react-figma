@@ -8,7 +8,7 @@ import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 
 export const line = (node: RectangleNode) => (props: LineProps) => {
-    const lineNode = node || figma.createLine();
+    const lineNode = node || props.node || figma.createLine();
 
     refMixin(lineNode)(props);
     baseNodeMixin(lineNode)(props);
