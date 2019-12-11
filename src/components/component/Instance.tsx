@@ -20,6 +20,11 @@ const findNodeByName = (children, name) => {
     return children && children.find(child => child.name === name || findNodeByName(child.children, name));
 };
 
+const getComponentByType = type => {
+    const componentName = type.charAt(0) + type.substring(1).toLowerCase();
+    return all[componentName];
+};
+
 export const Instance: React.FC<InstanceProps> = props => {
     const nodeRef = React.useRef();
     const style = StyleSheet.flatten(props.style);
@@ -37,9 +42,7 @@ export const Instance: React.FC<InstanceProps> = props => {
                       // @ts-ignore
                       const instanceItemNode = findNodeByName(nodeRef.current.children, overrideName);
                       if (instanceItemNode) {
-                          const type = instanceItemNode.type;
-                          const componentName = type.charAt(0) + type.substring(1).toLowerCase();
-                          const Component = all[componentName];
+                          const Component = getComponentByType(instanceItemNode.type);
                           return (
                               <Component
                                   key={overrideName}
