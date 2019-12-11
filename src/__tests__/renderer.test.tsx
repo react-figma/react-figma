@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from '../renderer';
-import { Rectangle, Page, Text, Group, Frame, Svg } from '..';
+import { Rectangle, Page, Text, Group, Frame, Svg, createComponent } from '..';
 import { createFigma } from 'figma-api-stub';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -374,5 +374,19 @@ describe('renderer', () => {
                 resolve();
             });
         });
+    });
+
+    it('createComponent basic', () => {
+        const Rect = createComponent();
+        render(
+            <>
+                <Rect.Component>
+                    <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                </Rect.Component>
+                <Rect.Instance />
+            </>,
+            figma.currentPage
+        );
+        expect(figma.root).toMatchSnapshot();
     });
 });
