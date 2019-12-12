@@ -519,6 +519,90 @@ ChildrenMixinStub {
 }
 `;
 
+exports[`renderer createComponent overriding 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ChildrenMixinStub {
+      "children": Array [
+        ChildrenMixinStub {
+          "children": Array [
+            LayoutMixinStub {
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 1,
+                    "g": 0,
+                    "r": 0,
+                  },
+                  "type": "SOLID",
+                },
+              ],
+              "height": 100,
+              "name": "rect",
+              "parent": [Circular],
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{\\"backgroundColor\\":\\"#0000ff\\"}",
+              },
+              "type": "RECTANGLE",
+              "width": 200,
+            },
+          ],
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "type": "COMPONENT",
+        },
+        BaseNodeMixinStub {
+          "children": Array [
+            LayoutMixinStub {
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 1,
+                    "g": 0,
+                    "r": 0,
+                  },
+                  "type": "SOLID",
+                },
+              ],
+              "height": 100,
+              "name": "rect",
+              "parent": ChildrenMixinStub {
+                "children": [Circular],
+                "parent": [Circular],
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{}",
+                },
+                "type": "COMPONENT",
+              },
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{\\"backgroundColor\\":\\"#0000ff\\"}",
+              },
+              "type": "RECTANGLE",
+              "width": 200,
+            },
+          ],
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "type": "INSTANCE",
+        },
+      ],
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+  ],
+  "type": "DOCUMENT",
+}
+`;
+
 exports[`renderer creates nested groups 1`] = `
 ChildrenMixinStub {
   "children": Array [

@@ -26,6 +26,7 @@ const getComponentByType = type => {
 };
 
 export const Instance: React.FC<InstanceProps> = props => {
+    const [isHaveNode, setHaveNode] = React.useState(false);
     const nodeRef = React.useRef();
     const style = StyleSheet.flatten(props.style);
     const componentProps = {
@@ -36,8 +37,8 @@ export const Instance: React.FC<InstanceProps> = props => {
     const yogaProps = useYogaLayout({ nodeRef, ...componentProps });
 
     return (
-        <instance {...componentProps} {...yogaProps} innerRef={nodeRef}>
-            {nodeRef.current && props.overrides
+        <instance {...componentProps} {...yogaProps} innerRef={nodeRef} innerRefCallback={() => setHaveNode(true)}>
+            {isHaveNode && props.overrides
                 ? Object.keys(props.overrides).map(overrideName => {
                       // @ts-ignore
                       const instanceItemNode = findNodeByName(nodeRef.current.children, overrideName);

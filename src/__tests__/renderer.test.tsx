@@ -412,4 +412,27 @@ describe('renderer', () => {
         );
         expect(figma.root).toMatchSnapshot();
     });
+
+    it('createComponent overriding', async () => {
+        const Rect = createComponent();
+        render(
+            <>
+                <Rect.Component>
+                    <Rectangle name="rect" style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                </Rect.Component>
+                <Rect.Instance
+                    overrides={{
+                        rect: {
+                            style: {
+                                backgroundColor: '#0000ff'
+                            }
+                        }
+                    }}
+                />
+            </>,
+            figma.currentPage
+        );
+        await wait();
+        expect(figma.root).toMatchSnapshot();
+    });
 });
