@@ -61,8 +61,8 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
-          name: Run tests
-          command: npm prettier:check
+          name: Run Prettier formatting check
+          command: npm run prettier:check
 
   deploy:
     <<: *defaults
