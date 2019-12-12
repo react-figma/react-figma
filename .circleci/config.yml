@@ -54,11 +54,24 @@ jobs:
           name: Run tests
           command: npm test
 
+  prettier:
+    <<: *defaults
+
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Run Prettier formatting check
+          command: npm run prettier:check
+
   deploy:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/repo
+      - run:
+          - name: Build package
+          - command: npm run build
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
@@ -81,6 +94,12 @@ workflows:
             tags:
               only: /^v.*/
       - test:
+          requires:
+            - install
+          filters:
+            tags:
+              only: /^v.*/
+      - prettier:
           requires:
             - install
           filters:

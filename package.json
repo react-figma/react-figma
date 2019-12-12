@@ -1,15 +1,15 @@
 {
   "name": "react-figma",
   "version": "0.0.31",
-  "description": "This plugin template uses Typescript. If you are familiar with Javascript, Typescript will look very familiar. In fact, valid Javascript code is already valid Typescript code.",
+  "description": "Render React components to Figma",
   "scripts": {
     "tsc": "tsc -p tsconfig.json --noEmit",
     "test": "jest",
     "prettify": "prettier \"src/**/*.{js,jsx,ts,tsx}\" \"examples/**/*.{js,jsx,ts,tsx}\" --ignore-path ./.prettierignore --write && git add . && git status",
+    "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\" \"examples/**/*.{js,jsx,ts,tsx}\"",
     "build": "npm run build:clean && npm run build:lib",
     "build:clean": "rimraf dist",
     "build:lib": "cross-env BABEL_ENV=production tsc -p tsconfig.json",
-    "prepublish": "npm run build",
     "gitbook:clean": "rm -rf _book/",
     "gitbook:start": "gitbook serve",
     "gitbook:build": "gitbook build",
