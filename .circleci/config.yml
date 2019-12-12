@@ -70,8 +70,8 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
-          - name: Build package
-          - command: npm run build
+          name: Build package
+          command: npm run build
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
