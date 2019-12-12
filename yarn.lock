@@ -2431,10 +2431,12 @@ figgy-pudding@^3.5.1:
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"
   integrity sha512-vNKxJHTEKNThjfrdJwHc7brvM6eVevuO5nTj6ez8ZQ1qbXTvGthucRF7S4vf2cr71QVnT70V34v0S1DyQsti0w==
 
-figma-api-stub@0.0.21:
-  version "0.0.21"
-  resolved "https://registry.yarnpkg.com/figma-api-stub/-/figma-api-stub-0.0.21.tgz#735e97291ae793635aa5fd6642c74e5350d46ec6"
-  integrity sha512-vaWFwHYP760xnBvd7O5Gh1gQf/n+rSYPkjnc2dL3OPL4nQIdwUzArH7QrTK2sDByxNuZEM/gfMEHuy7/+E+kRg==
+figma-api-stub@0.0.24:
+  version "0.0.24"
+  resolved "https://registry.yarnpkg.com/figma-api-stub/-/figma-api-stub-0.0.24.tgz#8fb7696d5558f3bf36685141a6dd945b3a88abed"
+  integrity sha512-8vz8oV3/yJaH/7VITYPoaP15EaZS+HzQx19OdJld1VFJKp3pEXoJgqjxZtIJsrX50HFaZy9ObyLH/3WETNT/Qw==
+  dependencies:
+    lodash "^4.17.15"
 
 fill-range@^4.0.0:
   version "4.0.0"

@@ -406,7 +406,23 @@ ChildrenMixinStub {
               "height": 100,
               "parent": ChildrenMixinStub {
                 "children": [Circular],
-                "parent": [Circular],
+                "parent": ChildrenMixinStub {
+                  "children": Array [
+                    [Circular],
+                  ],
+                  "parent": ChildrenMixinStub {
+                    "children": Array [
+                      ChildrenMixinStub {
+                        "children": Array [],
+                        "parent": [Circular],
+                        "type": "PAGE",
+                      },
+                      [Circular],
+                    ],
+                    "type": "DOCUMENT",
+                  },
+                  "type": "PAGE",
+                },
                 "pluginData": Object {
                   "isReactFigmaNode": "true",
                   "reactStyle": "{}",
@@ -478,9 +494,9 @@ ChildrenMixinStub {
               "fills": Array [
                 Object {
                   "color": Object {
-                    "b": 1,
-                    "g": 0.3176470588235294,
-                    "r": 0,
+                    "b": 0,
+                    "g": 1,
+                    "r": 0.07058823529411765,
                   },
                   "type": "SOLID",
                 },
@@ -488,7 +504,23 @@ ChildrenMixinStub {
               "height": 100,
               "parent": ChildrenMixinStub {
                 "children": [Circular],
-                "parent": [Circular],
+                "parent": ChildrenMixinStub {
+                  "children": Array [
+                    [Circular],
+                  ],
+                  "parent": ChildrenMixinStub {
+                    "children": Array [
+                      ChildrenMixinStub {
+                        "children": Array [],
+                        "parent": [Circular],
+                        "type": "PAGE",
+                      },
+                      [Circular],
+                    ],
+                    "type": "DOCUMENT",
+                  },
+                  "type": "PAGE",
+                },
                 "pluginData": Object {
                   "isReactFigmaNode": "true",
                   "reactStyle": "{}",
@@ -497,7 +529,7 @@ ChildrenMixinStub {
               },
               "pluginData": Object {
                 "isReactFigmaNode": "true",
-                "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#0051ff\\"}",
+                "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
               },
               "type": "RECTANGLE",
               "width": 200,
@@ -530,9 +562,9 @@ ChildrenMixinStub {
               "fills": Array [
                 Object {
                   "color": Object {
-                    "b": 1,
-                    "g": 0,
-                    "r": 0,
+                    "b": 0,
+                    "g": 1,
+                    "r": 0.07058823529411765,
                   },
                   "type": "SOLID",
                 },
@@ -542,7 +574,7 @@ ChildrenMixinStub {
               "parent": [Circular],
               "pluginData": Object {
                 "isReactFigmaNode": "true",
-                "reactStyle": "{\\"backgroundColor\\":\\"#0000ff\\"}",
+                "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
               },
               "type": "RECTANGLE",
               "width": 200,
@@ -572,7 +604,23 @@ ChildrenMixinStub {
               "name": "rect",
               "parent": ChildrenMixinStub {
                 "children": [Circular],
-                "parent": [Circular],
+                "parent": ChildrenMixinStub {
+                  "children": Array [
+                    [Circular],
+                  ],
+                  "parent": ChildrenMixinStub {
+                    "children": Array [
+                      ChildrenMixinStub {
+                        "children": Array [],
+                        "parent": [Circular],
+                        "type": "PAGE",
+                      },
+                      [Circular],
+                    ],
+                    "type": "DOCUMENT",
+                  },
+                  "type": "PAGE",
+                },
                 "pluginData": Object {
                   "isReactFigmaNode": "true",
                   "reactStyle": "{}",

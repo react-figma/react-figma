@@ -46,7 +46,7 @@
     "copyfiles": "^2.1.1",
     "cross-env": "^5.2.0",
     "css-loader": "^3.2.0",
-    "figma-api-stub": "0.0.21",
+    "figma-api-stub": "0.0.24",
     "gitbook-cli": "^2.3.2",
     "gitbook-plugin-anchorjs": "^2.1.0",
     "gitbook-plugin-edit-link": "^2.0.2",
