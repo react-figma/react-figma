@@ -389,4 +389,27 @@ describe('renderer', () => {
         );
         expect(figma.root).toMatchSnapshot();
     });
+
+    it('createComponent hydration', () => {
+        const Rect = createComponent();
+        render(
+            <>
+                <Rect.Component>
+                    <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                </Rect.Component>
+                <Rect.Instance />
+            </>,
+            figma.currentPage
+        );
+        render(
+            <>
+                <Rect.Component>
+                    <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0051ff' }} />
+                </Rect.Component>
+                <Rect.Instance />
+            </>,
+            figma.currentPage
+        );
+        expect(figma.root).toMatchSnapshot();
+    });
 });

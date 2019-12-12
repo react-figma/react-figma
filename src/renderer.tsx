@@ -155,10 +155,17 @@ export const render = async (jsx: any, rootNode) => {
             }
         },
         removeChild: (parentNode, childNode) => {
+            if (parentNode && parentNode.type === 'INSTANCE') {
+                return;
+            }
             remove(childNode);
         },
         canHydrateInstance: (instance, type, props) => {
-            if (!isReactFigmaNode(instance) || !checkInstanceMatchType(instance, type)) {
+            if (
+                !isReactFigmaNode(instance) ||
+                !checkInstanceMatchType(instance, type) ||
+                (instance.parent && instance.parent.type === 'INSTANCE')
+            ) {
                 return null;
             }
             return instance;
