@@ -105,6 +105,11 @@ export interface StarNodeProps {
     innerRadius?: number;
 }
 
+export interface InstanceItemProps {
+    node?: any;
+    preventResizing?: boolean;
+}
+
 export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps, BlendProps {}
 
 export interface DefaultContainerProps

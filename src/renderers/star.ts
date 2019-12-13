@@ -11,7 +11,7 @@ import { blendMixin } from '../mixins/blendMixin';
 const starNodePropsAssign = propsAssign<StarProps>(['pointCount', 'innerRadius']);
 
 export const star = (node: StarNode) => (props: StarProps) => {
-    const starNode = node || figma.createStar();
+    const starNode = node || props.node || figma.createStar();
 
     refMixin(starNode)(props);
     baseNodeMixin(starNode)(props);

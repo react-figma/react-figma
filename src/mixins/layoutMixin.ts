@@ -1,7 +1,10 @@
 import { LayoutProps } from '../types';
 import { isValidSize } from '../helpers/isValidSize';
 
-export const layoutMixin = (node: LayoutMixin & BaseNode) => (props: LayoutProps) => {
+export const layoutMixin = (node: LayoutMixin & BaseNode) => (props: LayoutProps & { preventResizing?: boolean }) => {
+    if (props.preventResizing) {
+        return;
+    }
     if (props.relativeTransform) {
         node.relativeTransform = props.relativeTransform;
     }

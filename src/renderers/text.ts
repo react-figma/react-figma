@@ -27,7 +27,7 @@ const textNodePropsAssign = propsAssign<TextProps>([
 const defaultFont = { family: 'Roboto', style: 'Regular' };
 
 export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontName }) => {
-    const textNode = node || figma.createText();
+    const textNode = node || props.node || figma.createText();
 
     refMixin(textNode)(props);
     baseNodeMixin(textNode)(props);
@@ -37,7 +37,7 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
     exportMixin(textNode)(props);
     blendMixin(textNode)(props);
 
-    const { loadedFont = defaultFont, fontName = defaultFont } = props;
+    const { loadedFont, fontName = defaultFont } = props;
     // @ts-ignore
     if (loadedFont && fontName && loadedFont.family === fontName.family && loadedFont.style === fontName.style) {
         if (props.fontName) {

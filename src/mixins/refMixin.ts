@@ -4,5 +4,6 @@ export const refMixin = node => props => {
     }
     if (props.innerRef) {
         props.innerRef.current = node;
+        props.innerRefCallback && props.innerRefCallback();
     }
 };

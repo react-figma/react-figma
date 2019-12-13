@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultContainerProps, StyleOf } from '../../types';
+import { CornerProps, DefaultContainerProps, InstanceItemProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -13,7 +13,7 @@ import {
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../../helpers/StyleSheet';
 
-export interface SvgNodeProps extends DefaultContainerProps {
+export interface SvgNodeProps extends DefaultContainerProps, InstanceItemProps {
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     source?: string;
 }

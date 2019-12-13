@@ -17,7 +17,7 @@
   + [Image](./src/components/Image/Image.md)
   + [StyleSheet](./src/helpers/StyleSheet.md)
   + [Platform](./src/helpers/Platform.md)
-  + [Component](./src/components/component/Component.md)
+  + [Component, Instance](./src/components/component/Component.md)
   + [Svg](./src/components/svg/Svg.md)
   + Others
     - [Ellipse](./src/components/ellipse/Ellipse.md)

@@ -39,6 +39,9 @@ $yogaRoot
                     subscriber.next({ instance, props: yogaPropsWithoutChildren });
                     if (instance.children) {
                         instance.children.forEach((child, index) => {
+                            if (!isReactFigmaNode(child)) {
+                                return;
+                            }
                             if (!yogaChildren || yogaChildren.length < index + 1) {
                                 updateYogaNode(child);
                                 return;

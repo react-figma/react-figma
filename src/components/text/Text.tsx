@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultShapeProps, StyleOf, TextNodeProps } from '../../types';
+import { CornerProps, DefaultShapeProps, InstanceItemProps, StyleOf, TextNodeProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -15,9 +15,11 @@ import { StyleSheet } from '../..';
 import { useFontName } from '../../hooks/useFontName';
 import { useTextChildren } from '../../hooks/useTextChildren';
 
-export interface TextProps extends TextNodeProps, DefaultShapeProps {
+export interface TextProps extends TextNodeProps, DefaultShapeProps, InstanceItemProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & TextStyleProperties & BlendStyleProperties>;
     children?: string;
+    node?: any;
+    preventResizing?: boolean;
 }
 
 export const Text: React.FC<TextProps> = props => {

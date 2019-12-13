@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { BorderProps, CornerProps, DefaultContainerProps, DefaultShapeProps, StyleOf } from '../../types';
+import {
+    BorderProps,
+    CornerProps,
+    DefaultContainerProps,
+    DefaultShapeProps,
+    InstanceItemProps,
+    StyleOf
+} from '../../types';
 import { LayoutStyleProperties } from '../../styleTransformers/transformLayoutStyleProperties';
 import { GeometryStyleProperties } from '../../styleTransformers/transformGeometryStyleProperties';
 import { BorderStyleProperties } from '../../styleTransformers/transformBorderProperties';
@@ -7,7 +14,12 @@ import { BlendStyleProperties } from '../../styleTransformers/transformBlendProp
 import { Group, Rectangle } from '../..';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 
-export interface ViewProps extends DefaultContainerProps, DefaultShapeProps, CornerProps, BorderProps {
+export interface ViewProps
+    extends DefaultContainerProps,
+        DefaultShapeProps,
+        CornerProps,
+        BorderProps,
+        InstanceItemProps {
     style?: StyleOf<
         YogaStyleProperties &
             LayoutStyleProperties &

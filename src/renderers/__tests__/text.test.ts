@@ -14,13 +14,13 @@ describe('text renderer', () => {
     // --------------
     it('textAutoResize: WIDTH_AND_HEIGHT by default', async () => {
         await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
-        const textNode = text(null)({});
+        const textNode = text(null)({ loadedFont: { family: 'Roboto', style: 'Regular' } });
         expect(textNode.textAutoResize).toEqual('WIDTH_AND_HEIGHT');
     });
 
     it('textAutoResize prop supported overrides default', async () => {
         await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
-        const textNode = text(null)({ textAutoResize: 'HEIGHT' });
+        const textNode = text(null)({ textAutoResize: 'HEIGHT', loadedFont: { family: 'Roboto', style: 'Regular' } });
         expect(textNode.textAutoResize).toEqual('HEIGHT');
     });
 
@@ -32,7 +32,7 @@ describe('text renderer', () => {
         const node = figma.createText();
         // @ts-ignore
         node.height = 20;
-        const textNode = text(node)({ width: 200 });
+        const textNode = text(node)({ width: 200, loadedFont: { family: 'Roboto', style: 'Regular' } });
         expect(textNode.textAutoResize).toEqual('HEIGHT');
     });
 });

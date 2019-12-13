@@ -11,10 +11,11 @@ import { StyleSheet } from '../..';
 
 export interface ComponentProps extends DefaultContainerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
+    nodeRef?: any;
 }
 
 export const Component: React.FC<ComponentProps> = props => {
-    const nodeRef = React.useRef();
+    const nodeRef = props.nodeRef || React.useRef();
     const style = StyleSheet.flatten(props.style);
     const componentProps = {
         ...transformLayoutStyleProperties(style),

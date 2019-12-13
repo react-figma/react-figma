@@ -8,13 +8,14 @@ const transformNodesToTree = node => {
     }
     const nodeBatchId = nanoid();
     node.setPluginData('nodeBatchId', nodeBatchId);
+    const children = node.children && node.children.map(transformNodesToTree).filter(item => !!item);
     return {
         width: node.width,
         height: node.height,
         style:
             (node.getPluginData && node.getPluginData('reactStyle') && JSON.parse(node.getPluginData('reactStyle'))) ||
             undefined,
-        children: node.children && node.children.map(transformNodesToTree).filter(item => !!item),
+        children: children && children.length > 0 ? children : undefined,
         nodeBatchId
     };
 };
