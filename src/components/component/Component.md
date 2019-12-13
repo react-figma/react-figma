@@ -24,17 +24,17 @@ Wrapper for the `component.createInstance` method.
 | ---------- | -------- | ------- | ------------------------------------------------- |
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
 | `component`| Figma Component Node | | |
-| `overrides` | Object  |         | Overriding nested elements props by `name`        |
+| `overrides` | Object  |         | Overrides nested elements' props by `name`        |
 | `style`    | [`Style`](/docs/styling.md)   |         | Not all props        
 
 ## createComponent
 
-Factory method for creating linked Component and Instances. Returns
+Factory method for creating linked Component and Instance. Returns
 
 ```javascript
 {
     Component: React.Component,
-    Instance: React.Component // with already defined `component` prop
+    Instance: React.Component // with `component` prop defined
 }
 ```
 
