@@ -31,6 +31,5 @@ export const Line: React.FC<LineProps> = props => {
 
     const yogaProps = useYogaLayout({ nodeRef, ...lineProps });
 
-    // @ts-ignore
     return <line {...lineProps} {...yogaProps} innerRef={nodeRef} />;
 };

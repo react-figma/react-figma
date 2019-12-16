@@ -5,6 +5,8 @@ import { GroupProps } from './src/components/group/Group';
 import { EllipseProps } from './src/components/ellipse/Ellipse';
 import {InstanceProps} from "./src/components/component/Instance";
 import {ComponentProps} from "./src/components/component/Component"
+import {StarProps} from "./src/components/star/Star";
+import {VectorProps} from "./src/components/vector/Vector";
 
 declare global {
     namespace JSX {
@@ -13,10 +15,11 @@ declare global {
             rectangle: RectangleProps;
             frame: FrameNodeProps;
             group: GroupProps;
-            // @ts-ignore
             text: TextProps;
             component: ComponentProps;
             ellipse: EllipseProps;
+            star: StarProps;
+            vector: VectorProps,
             instance: InstanceProps
         }
     }

@@ -36,9 +36,8 @@ export const Text: React.FC<TextProps> = props => {
         ...props,
         characters: charactersByChildren || props.characters
     };
-    // @ts-ignore
     const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });
     const yogaProps = useYogaLayout({ nodeRef, ...textProps });
-    // @ts-ignore
+
     return <text {...textProps} {...yogaProps} loadedFont={loadedFont} innerRef={nodeRef} />;
 };
