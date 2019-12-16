@@ -9,7 +9,6 @@ import {ComponentProps} from "./src/components/component/Component"
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            currentPage: any;
             page: any;
             rectangle: RectangleProps;
             frame: FrameNodeProps;
