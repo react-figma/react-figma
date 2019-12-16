@@ -87,7 +87,7 @@ export interface TextNodeProps {
     autoRename?: boolean;
 
     fontSize?: number | symbol;
-    fontName?: FontName | symbol;
+    fontName?: FontName;
     textCase?: TextCase | symbol;
     textDecoration?: TextDecoration | symbol;
     letterSpacing?: LetterSpacing | symbol;

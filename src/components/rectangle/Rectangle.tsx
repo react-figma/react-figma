@@ -44,6 +44,5 @@ export const Rectangle: React.FC<RectangleProps> = props => {
     const fills = useFillsPreprocessor(rectangleProps);
     const yogaProps = useYogaLayout({ nodeRef, ...rectangleProps });
 
-    // @ts-ignore
     return <rectangle {...rectangleProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };

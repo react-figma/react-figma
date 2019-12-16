@@ -38,7 +38,6 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
     blendMixin(textNode)(props);
 
     const { loadedFont, fontName = defaultFont } = props;
-    // @ts-ignore
     if (loadedFont && fontName && loadedFont.family === fontName.family && loadedFont.style === fontName.style) {
         if (props.fontName) {
             textNode.fontName = props.fontName;
