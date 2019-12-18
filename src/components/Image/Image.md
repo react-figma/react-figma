@@ -12,6 +12,8 @@ Renders Figma rectangle node with background.
 | `source`   | `String` |         | Path for loading image                            |
 | `resizeMode`| `ResizeMode` |         |                                              |
 | `style`    | [`Style`](/docs/styling.md)   |         |                              |
+| `onSelectionEnter` | `Function` |  | Selection enter event callback  |
+| `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 
 ```typescript
 type ResizeMode = 'contain' | 'cover' | 'stretch' | 'center' | 'repeat' | 'none';

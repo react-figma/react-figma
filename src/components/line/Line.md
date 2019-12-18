@@ -10,6 +10,8 @@ Wrapper for the Figma [Line](https://www.figma.com/plugin-docs/api/LineNode/).
 | `strokeWeight` | `Number` |         |  |
 | `strokes` | Array of [Paint](https://www.figma.com/plugin-docs/api/Paint/) |         |  |
 | `style`    | [`Style`](/docs/styling.md)   |         | Not all props                                                 |
+| `onSelectionEnter` | `Function` |  | Selection enter event callback  |
+| `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 
 Also, most of the [LineNode](https://www.figma.com/plugin-docs/api/LineNode/) fields are supported as props.
 

@@ -9,6 +9,8 @@ Wrapper for the Figma [Ellipse](https://www.figma.com/plugin-docs/api/EllipseNod
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
 | `arcData`  | [ArcData](https://www.figma.com/plugin-docs/api/ArcData/) |         |  |
 | `style`    | [`Style`](/docs/styling.md)   |         | Not all props                                                 |
+| `onSelectionEnter` | `Function` |  | Selection enter event callback  |
+| `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 
 Also, most of the [EllipseNode](https://www.figma.com/plugin-docs/api/EllipseNode/) fields are supported as props.
 
