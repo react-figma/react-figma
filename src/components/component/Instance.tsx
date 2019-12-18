@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultContainerProps, StyleOf } from '../../types';
+import { DefaultContainerProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -9,8 +9,9 @@ import { transformBlendProperties, BlendStyleProperties } from '../../styleTrans
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import * as all from '../../index';
+import { useSelectionChange } from '../../hooks/useSelectionChange';
 
-export interface InstanceProps extends DefaultContainerProps {
+export interface InstanceProps extends DefaultContainerProps, SelectionEventProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     overrides?: { [key: string]: Object };
     component: ComponentNode;
@@ -27,7 +28,8 @@ const getComponentByType = type => {
 
 export const Instance: React.FC<InstanceProps> = props => {
     const [isHaveNode, setHaveNode] = React.useState(false);
-    const nodeRef = React.useRef<ChildrenMixin>();
+    const nodeRef = React.useRef<InstanceNode>();
+    useSelectionChange(nodeRef, props);
     const style = StyleSheet.flatten(props.style);
     const componentProps = {
         ...transformLayoutStyleProperties(style),

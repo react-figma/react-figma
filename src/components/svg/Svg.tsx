@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CornerProps, DefaultContainerProps, InstanceItemProps, StyleOf } from '../../types';
+import { CornerProps, DefaultContainerProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -12,14 +12,17 @@ import {
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../../helpers/StyleSheet';
+import { useSelectionChange } from '../../hooks/useSelectionChange';
 
-export interface SvgNodeProps extends DefaultContainerProps, InstanceItemProps {
+export interface SvgNodeProps extends DefaultContainerProps, InstanceItemProps, SelectionEventProps {
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     source?: string;
 }
 
 export const Svg: React.FC<SvgNodeProps> = props => {
     const nodeRef = React.useRef();
+
+    useSelectionChange(nodeRef, props);
 
     const style = StyleSheet.flatten(props.style);
 

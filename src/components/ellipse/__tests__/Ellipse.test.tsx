@@ -1,8 +1,16 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import { Ellipse } from '../Ellipse';
+import { createFigma } from 'figma-api-stub';
 
 describe('<Ellipse />', () => {
+    beforeEach(() => {
+        // @ts-ignore
+        global.figma = createFigma({
+            simulateErrors: true
+        });
+    });
+
     it('Ellipse without props', () => {
         const tree = renderer.create(<Ellipse />).toJSON();
         expect(tree).toMatchSnapshot();

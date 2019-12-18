@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultShapeProps, CornerProps, StyleOf, InstanceItemProps } from '../../types';
+import { DefaultShapeProps, CornerProps, StyleOf, InstanceItemProps, SelectionEventProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -13,8 +13,9 @@ import {
 import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
+import { useSelectionChange } from '../../hooks/useSelectionChange';
 
-export interface EllipseProps extends DefaultShapeProps, CornerProps, InstanceItemProps {
+export interface EllipseProps extends DefaultShapeProps, CornerProps, InstanceItemProps, SelectionEventProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
     children?: undefined;
     arcData?: ArcData;
@@ -22,6 +23,7 @@ export interface EllipseProps extends DefaultShapeProps, CornerProps, InstanceIt
 
 export const Ellipse: React.FC<EllipseProps> = props => {
     const nodeRef = React.useRef();
+    useSelectionChange(nodeRef, props);
     const style = StyleSheet.flatten(props.style);
 
     const ellipseProps = {

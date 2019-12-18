@@ -1,8 +1,16 @@
 import * as React from 'react';
 import { act, create } from 'react-test-renderer';
 import { Frame } from '../Frame';
+import { createFigma } from 'figma-api-stub';
 
 describe('<Frame />', () => {
+    beforeEach(() => {
+        // @ts-ignore
+        global.figma = createFigma({
+            simulateErrors: true
+        });
+    });
+
     it('Frame without props', () => {
         let tree;
         act(() => {
