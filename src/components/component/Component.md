@@ -11,6 +11,8 @@ Wrapper for the Figma [Component](https://www.figma.com/plugin-docs/api/Componen
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
 | `children` | `Node`   |         |                                                   |
 | `style`    | [`Style`](/docs/styling.md)   |         | Not all props                                                 |
+| `onSelectionEnter` | `Function` |  | Selection enter event callback  |
+| `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 
 Also, most of the [ComponentNode](https://www.figma.com/plugin-docs/api/ComponentNode/) fields are supported as props.
 
@@ -25,7 +27,9 @@ Wrapper for the `component.createInstance` method.
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
 | `component`| Figma Component Node | | |
 | `overrides` | Object  |         | Overrides nested elements' props by `name`        |
-| `style`    | [`Style`](/docs/styling.md)   |         | Not all props        
+| `style`    | [`Style`](/docs/styling.md)   |         | Not all props |
+| `onSelectionEnter` | `Function` |  | Selection enter event callback  |
+| `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 
 ## createComponent
 

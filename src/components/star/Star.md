@@ -9,7 +9,9 @@ Wrapper for the Figma [Star](https://www.figma.com/plugin-docs/api/StarNode/).
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
 | `pointCount` | `Number` |  |  |
 | `innerRadius` | `Number` |  |  |
-| `style`    | [`Style`](/docs/styling.md)   |  | Not all props 
+| `style`    | [`Style`](/docs/styling.md)   |  | Not all props |
+| `onSelectionEnter` | `Function` |  | Selection enter event callback  |
+| `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 
 Also, most of the [StarNode](https://www.figma.com/plugin-docs/api/StarNode/) fields are supported as props.
 

@@ -12,6 +12,8 @@ Wrapper for Figma [Text](https://www.figma.com/plugin-docs/api/TextNode/).
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
 | `children` | `String` |         | Text content                                      |
 | `style`    | [`Style`](/docs/styling.md#type-styles)   |         |                  |
+| `onSelectionEnter` | `Function` |  | Selection enter event callback  |
+| `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 
 Also, most of the [TextNode](https://www.figma.com/plugin-docs/api/TextNode/) fields supported as props.
 

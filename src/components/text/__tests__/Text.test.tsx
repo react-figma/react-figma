@@ -1,8 +1,16 @@
 import * as React from 'react';
 const renderer = require('react-test-renderer');
 import { Text } from '../Text';
+import { createFigma } from 'figma-api-stub';
 
 describe('<Text />', () => {
+    beforeEach(() => {
+        // @ts-ignore
+        global.figma = createFigma({
+            simulateErrors: true
+        });
+    });
+
     it('Text without props', () => {
         const tree = renderer.create(<Text />).toJSON();
         expect(tree).toMatchSnapshot();

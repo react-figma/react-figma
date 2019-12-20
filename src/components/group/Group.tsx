@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CornerProps, DefaultShapeProps, InstanceItemProps, StyleOf } from '../../types';
+import { CornerProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -12,13 +12,16 @@ import {
     GeometryStyleProperties,
     transformGeometryStyleProperties
 } from '../../styleTransformers/transformGeometryStyleProperties';
+import { useSelectionChange } from '../../hooks/useSelectionChange';
 
-export interface GroupNodeProps extends DefaultShapeProps, InstanceItemProps {
+export interface GroupNodeProps extends DefaultShapeProps, InstanceItemProps, SelectionEventProps {
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
 }
 
 export const Group: React.FC<GroupNodeProps> = props => {
     const nodeRef = React.useRef();
+
+    useSelectionChange(nodeRef, props);
 
     const style = StyleSheet.flatten(props.style);
 

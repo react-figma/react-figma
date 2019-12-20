@@ -126,3 +126,12 @@ export type CommonStyle = LayoutStyleProperties &
     BlendStyleProperties &
     GeometryStyleProperties &
     BorderStyleProperties;
+
+export interface SelectionEventProps {
+    onSelectionEnter?: () => void;
+    onSelectionLeave?: () => void;
+}
+
+export interface ChangePageEventProps {
+    onCurrentChange?: (isCurrent: boolean) => void;
+}

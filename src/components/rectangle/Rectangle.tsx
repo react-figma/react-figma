@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { DefaultShapeProps, BorderProps, CornerProps, StyleOf, InstanceItemProps } from '../../types';
+import {
+    DefaultShapeProps,
+    BorderProps,
+    CornerProps,
+    StyleOf,
+    InstanceItemProps,
+    SelectionEventProps
+} from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -17,8 +24,14 @@ import {
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import { StyleSheet } from '../..';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
+import { useSelectionChange } from '../../hooks/useSelectionChange';
 
-export interface RectangleProps extends DefaultShapeProps, CornerProps, BorderProps, InstanceItemProps {
+export interface RectangleProps
+    extends DefaultShapeProps,
+        CornerProps,
+        BorderProps,
+        InstanceItemProps,
+        SelectionEventProps {
     style?: StyleOf<
         LayoutStyleProperties &
             YogaStyleProperties &
@@ -31,6 +44,8 @@ export interface RectangleProps extends DefaultShapeProps, CornerProps, BorderPr
 
 export const Rectangle: React.FC<RectangleProps> = props => {
     const nodeRef = React.useRef();
+
+    useSelectionChange(nodeRef, props);
 
     const style = StyleSheet.flatten(props.style);
 

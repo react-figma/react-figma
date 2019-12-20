@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CornerProps, DefaultContainerProps, InstanceItemProps, StyleOf } from '../../types';
+import { CornerProps, DefaultContainerProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -12,6 +12,7 @@ import {
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../../helpers/StyleSheet';
+import { useSelectionChange } from '../../hooks/useSelectionChange';
 
 interface Preset {
     name: string;
@@ -187,13 +188,15 @@ export const FRAME_PRESETS = {
     }
 };
 
-export interface FrameNodeProps extends DefaultContainerProps, InstanceItemProps {
+export interface FrameNodeProps extends DefaultContainerProps, InstanceItemProps, SelectionEventProps {
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     preset?: Preset;
 }
 
 export const Frame: React.FC<FrameNodeProps> = props => {
     const nodeRef = React.useRef();
+
+    useSelectionChange(nodeRef, props);
 
     const style = StyleSheet.flatten(props.style);
 

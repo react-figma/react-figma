@@ -123,6 +123,7 @@ export const App = () => {
 
 * [basic](examples/basic)
 * [design-system](examples/design-system)
+* [interactive](examples/interactive)
 * [groups](examples/groups)
 
 ## [Roadmap](docs/roadmap.md)

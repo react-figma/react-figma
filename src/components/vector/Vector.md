@@ -11,6 +11,8 @@ Wrapper for the Figma [Vector](https://www.figma.com/plugin-docs/api/VectorNode/
 | `vectorNetwork` | [VectorNetwork](https://www.figma.com/plugin-docs/api/VectorNetwork/) |         |  |
 | `handleMirroring` | [HandleMirroring](https://www.figma.com/plugin-docs/api/HandleMirroring/) |         |  |
 | `style`    | [`Style`](/docs/styling.md)   |         | Not all props                                                 |
+| `onSelectionEnter` | `Function` |  | Selection enter event callback  |
+| `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 
 Also, most of the [VectorNode](https://www.figma.com/plugin-docs/api/VectorNode/) fields are supported as props.
 

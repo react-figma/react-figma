@@ -12,6 +12,7 @@ Figma document (`figma.root`) should be a parent.
 | `children` | `Node`   |         |                                                   |
 | `style`    | [`Style`](/docs/styling.md)   |         | Only layout props                                                 |
 | `isCurrent`| `Boolean`|         | Make page current                                 |
+| `onCurrentChange` | `Function` | | Changing current page callback |
 
 #### Example
 
