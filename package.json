@@ -16,7 +16,10 @@
     "now-build": "npm run gitbook:build"
   },
   "jest": {
-    "preset": "ts-jest/presets/js-with-babel"
+    "preset": "ts-jest/presets/js-with-babel",
+    "setupFiles": [
+      "<rootDir>/setup.jest.js"
+    ]
   },
   "author": "Ilya Lesik <ilialesik@gmail.com>",
   "license": "MIT",
