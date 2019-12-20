@@ -9,7 +9,7 @@ export interface PageProps extends BaseNodeProps, ChildrenProps, ExportProps {
     onCurrentChange?: (isCurrent: boolean) => void;
 }
 
-const useCurrentPageChange = (nodeRef: { current?: PageNode }, callback?: (isCurrent: boolean) => void) => {
+export const useCurrentPageChange = (nodeRef: { current?: PageNode }, callback?: (isCurrent: boolean) => void) => {
     const didMountRef = React.useRef(false);
     const [isCurrent, setIsCurrent] = React.useState(false);
 
