@@ -126,8 +126,6 @@ export const App = () => {
 * [interactive](examples/interactive)
 * [groups](examples/groups)
 
-## [Roadmap](docs/roadmap.md)
-
 ## Become a Contributor 🎖
 
 Whether you're helping us implement features, fix bugs or improve the docs, we'd love to have you as part of the community! 
