@@ -1,4 +1,4 @@
-import { colorToRGB, colorToRGBA } from '../transformColors';
+import { colorToPaint, colorToRGB, colorToRGBA } from '../transformColors';
 
 describe('transformColors', () => {
     it('colorToRGB #9b9fff', () => {
@@ -43,6 +43,46 @@ describe('transformColors', () => {
 
     it('colorToRGB transparent', () => {
         const result = colorToRGB('transparent');
+        expect(result).toMatchSnapshot();
+    });
+
+    it('colorToPaint #9b9fff', () => {
+        const result = colorToPaint('#9b9fff');
+        expect(result).toMatchSnapshot();
+    });
+
+    it('colorToPaint linear-gradient(#e66465, #9198e5)', () => {
+        const result = colorToPaint('linear-gradient(#e66465, #9198e5)');
+        expect(result).toMatchSnapshot();
+    });
+
+    it('colorToPaint linear-gradient(to left, #e66465, #9198e5)', () => {
+        const result = colorToPaint('linear-gradient(to left, #e66465, #9198e5)');
+        expect(result).toMatchSnapshot();
+    });
+
+    it('colorToPaint linear-gradient(to right, #e66465, #9198e5)', () => {
+        const result = colorToPaint('linear-gradient(to right, #e66465, #9198e5)');
+        expect(result).toMatchSnapshot();
+    });
+
+    it('colorToPaint linear-gradient(to top, #e66465, #9198e5)', () => {
+        const result = colorToPaint('linear-gradient(to top, #e66465, #9198e5)');
+        expect(result).toMatchSnapshot();
+    });
+
+    it('colorToPaint linear-gradient(to bottom, #e66465, #9198e5)', () => {
+        const result = colorToPaint('linear-gradient(to bottom, #e66465, #9198e5)');
+        expect(result).toMatchSnapshot();
+    });
+
+    it('colorToPaint linear-gradient(30deg, #e66465, #9198e5)', () => {
+        const result = colorToPaint('linear-gradient(30deg, #e66465, #9198e5)');
+        expect(result).toMatchSnapshot();
+    });
+
+    it('colorToPaint with percentage: linear-gradient(#e66465, #9198e5 80%)', () => {
+        const result = colorToPaint('linear-gradient(#e66465, #9198e5 80%)');
         expect(result).toMatchSnapshot();
     });
 });

@@ -1,5 +1,5 @@
 import { GeometryProps } from '../types';
-import { colorToRGB } from './transformColors';
+import { colorToPaint, colorToRGB } from './transformColors';
 import { LayoutStyleProperties } from './transformLayoutStyleProperties';
 import { transformSize } from '../helpers/size';
 
@@ -31,7 +31,7 @@ export const transformGeometryStyleProperties = (
     const fills = [];
 
     if (style.backgroundColor) {
-        fills.push({ type: 'SOLID', color: colorToRGB(style.backgroundColor) });
+        fills.push(colorToPaint(style.backgroundColor));
     }
 
     if (style.backgroundImage) {
