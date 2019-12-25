@@ -25,6 +25,22 @@ export const colorToRGBA = (color: Color, opacity?: number): RGBA => {
     }
 };
 
+const transformAngleToFigmaTransformation = (value): Transform => {
+    const angle = value - Math.PI / 2;
+
+    // **
+    // There is rotation relative to center through affine transformation
+    // (xc, yc) is a center of the imaginary 1x1 quad
+    // (dxc, dyc) is a delta between the old center and the new center (after transformation)
+    // Transformation matrix has transform to the delta value, because center position should not change.
+    // **
+    const xc = 0.5;
+    const yc = 0.5;
+    const dxc = xc - (Math.cos(angle) * xc + Math.sin(angle) * yc);
+    const dyc = yc - (-Math.sin(angle) * xc + Math.cos(angle) * yc);
+    return [[Math.cos(angle), Math.sin(angle), dxc], [-Math.sin(angle), Math.cos(angle), dyc]];
+};
+
 export const colorToPaint = (color: Color): Paint => {
     let parsedGradients;
     try {
@@ -33,33 +49,20 @@ export const colorToPaint = (color: Color): Paint => {
 
     const parsedGradient = parsedGradients && parsedGradients[0];
     if (parsedGradient && parsedGradient.type === 'linear-gradient') {
-        let gradientTransform: Transform = [
-            [Math.cos(Math.PI / 2), Math.sin(Math.PI / 2), 0],
-            [-Math.sin(Math.PI / 2), Math.cos(Math.PI / 2), 1]
-        ];
+        let gradientTransform = transformAngleToFigmaTransformation(Math.PI);
         if (parsedGradient.orientation) {
             const orientation = parsedGradient.orientation;
             if (orientation.type === 'directional') {
                 if (orientation.value === 'right') {
-                    gradientTransform = [[Math.cos(0), Math.sin(0), 0], [-Math.sin(0), Math.cos(0), 0]];
+                    gradientTransform = transformAngleToFigmaTransformation(Math.PI / 2);
                 } else if (orientation.value === 'left') {
-                    gradientTransform = [
-                        [Math.cos(-Math.PI), Math.sin(-Math.PI), 1],
-                        [-Math.sin(-Math.PI), Math.cos(-Math.PI), 1]
-                    ];
+                    gradientTransform = transformAngleToFigmaTransformation(-Math.PI / 2);
                 } else if (orientation.value === 'top') {
-                    gradientTransform = [
-                        [Math.cos(-Math.PI / 2), Math.sin(-Math.PI / 2), 1],
-                        [-Math.sin(-Math.PI / 2), Math.cos(-Math.PI / 2), 0]
-                    ];
+                    gradientTransform = transformAngleToFigmaTransformation(0);
                 }
             } else if (orientation.type == 'angular') {
-                const angle = (parseFloat(orientation.value) / 180) * Math.PI - Math.PI / 2;
-                const xc = 0.5;
-                const yc = 0.5;
-                const dxc = xc - (Math.cos(angle) * xc + Math.sin(angle) * yc);
-                const dyc = yc - (-Math.sin(angle) * xc + Math.cos(angle) * yc);
-                gradientTransform = [[Math.cos(angle), Math.sin(angle), dxc], [-Math.sin(angle), Math.cos(angle), dyc]];
+                const angle = (parseFloat(orientation.value) / 180) * Math.PI;
+                gradientTransform = transformAngleToFigmaTransformation(angle);
             }
         }
 
