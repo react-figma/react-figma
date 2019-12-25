@@ -1,5 +1,5 @@
 import { Color, GeometryProps, TextNodeProps } from '../types';
-import { colorToRGB } from './transformColors';
+import { colorToPaint, colorToRGB } from './transformColors';
 import { convertFontStyle } from './converFontStyle';
 import { transformDimensionMapper } from './transformDimension';
 import { transformShadowToEffect } from './transformShadowToEffect';
@@ -40,7 +40,7 @@ export const transformTextStyleProperties = (style?: Partial<TextStyleProperties
     }
 
     return {
-        ...((style && style.color && { fills: [{ type: 'SOLID', color: colorToRGB(style.color) }] }) || {}),
+        ...((style && style.color && { fills: [colorToPaint(style.color)] }) || {}),
         ...(style &&
             style.fontFamily && {
                 fontName: { family: style.fontFamily, style: convertFontStyle(style.fontWeight, style.fontStyle) }
