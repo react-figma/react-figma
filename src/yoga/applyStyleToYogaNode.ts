@@ -27,6 +27,17 @@ const transformAlignItems = yoga => (value: YogaStyleProperties['alignItems']) =
     }
 };
 
+const transformFlexWrap = yoga => (value: YogaStyleProperties['flexWrap']) => {
+    switch (value) {
+        case 'wrap':
+            return yoga.WRAP_WRAP;
+        case 'nowrap':
+            return yoga.WRAP_NO_WRAP;
+        default:
+            return yoga.WRAP_NO_WRAP;
+    }
+};
+
 const transformAlignSelf = yoga => (value: YogaStyleProperties['alignSelf']) => {
     switch (value) {
         case 'auto':
@@ -209,6 +220,9 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: Partial<YogaStyleP
         transformDimensionMapper(style.flexBasis)
             .px(yogaNode.setFlexBasis.bind(yogaNode))
             .percentage(yogaNode.setFlexBasisPercent.bind(yogaNode));
+    }
+    if (style.flexWrap) {
+        yogaNode.setFlexWrap(transformFlexWrap(yoga)(style.flexWrap));
     }
     if (style.aspectRatio) {
         yogaNode.setAspectRatio(style.aspectRatio);

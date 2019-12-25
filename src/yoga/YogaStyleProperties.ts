@@ -13,6 +13,7 @@ export interface YogaStyleProperties {
     minHeight: Dimension;
     maxHeight: Dimension;
     flexDirection: 'row' | 'column' | 'row-reverse' | 'column-reverse';
+    flexWrap: 'wrap' | 'nowrap';
     alignItems: 'flex-start' | 'center' | 'stretch' | 'flex-end';
     justifyContent: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around';
     padding: Dimension;
