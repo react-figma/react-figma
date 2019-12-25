@@ -1,6 +1,6 @@
 import { BorderProps, GeometryProps } from '../types';
 import { transformSize, TSize } from '../helpers/size';
-import { colorToRGB } from './transformColors';
+import { colorToPaint, colorToRGB } from './transformColors';
 
 export interface BorderStyleProperties {
     borderColor: string;
@@ -42,12 +42,7 @@ export const transformBorderStyleProperties = (
     }
 
     if (styles.borderColor) {
-        props.strokes = [
-            {
-                type: 'SOLID',
-                color: colorToRGB(styles.borderColor)
-            }
-        ];
+        props.strokes = [colorToPaint(styles.borderColor)];
     }
 
     if (styles.borderWidth) {
