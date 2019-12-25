@@ -11,9 +11,9 @@ export const useSelectionChange = (nodeRef: { current?: SceneNode }, props: Sele
             return;
         }
         if (isSelected) {
-            props.onSelectionEnter();
+            props.onSelectionEnter && props.onSelectionEnter();
         } else {
-            props.onSelectionLeave();
+            props.onSelectionLeave && props.onSelectionLeave();
         }
     }, [isSelected]);
 

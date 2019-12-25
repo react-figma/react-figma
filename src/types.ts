@@ -128,8 +128,8 @@ export type CommonStyle = LayoutStyleProperties &
     BorderStyleProperties;
 
 export interface SelectionEventProps {
-    onSelectionEnter?: () => void;
-    onSelectionLeave?: () => void;
+    onSelectionEnter?: (() => void) | void;
+    onSelectionLeave?: (() => void) | void;
 }
 
 export interface ChangePageEventProps {
