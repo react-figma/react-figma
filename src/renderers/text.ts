@@ -42,7 +42,17 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
         if (props.fontName) {
             textNode.fontName = props.fontName;
         }
-        textNode.textAutoResize = props.textAutoResize || (props.hasDefinedWidth ? 'HEIGHT' : 'WIDTH_AND_HEIGHT');
+        if (
+            props.hasDefinedWidth &&
+            isValidSize(props.width) &&
+            isValidSize(textNode.height) &&
+            !props.textAutoResize
+        ) {
+            textNode.resize(props.width, textNode.height);
+            textNode.textAutoResize = 'HEIGHT';
+        } else {
+            textNode.textAutoResize = props.textAutoResize || 'WIDTH_AND_HEIGHT';
+        }
         textNodePropsAssign(textNode)(props);
     }
 

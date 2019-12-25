@@ -27,6 +27,8 @@ describe('text renderer', () => {
     it('textAutoResize: HEIGHT when hasDefinedWidth is true', async () => {
         await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
         const node = figma.createText();
+        // @ts-ignore
+        node.height = 20;
         const textNode = text(node)({
             width: 200,
             loadedFont: { family: 'Roboto', style: 'Regular' },
