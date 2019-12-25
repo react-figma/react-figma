@@ -69,6 +69,41 @@ exports[`<Text /> Text with fontFamily, fontWeight, fontStyle 1`] = `
 />
 `;
 
+exports[`<Text /> Text with maxWidth 1`] = `
+<text
+  hasDefinedWidth="100%"
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  loadedFont={null}
+  style={
+    Object {
+      "maxWidth": "100%",
+    }
+  }
+/>
+`;
+
+exports[`<Text /> Text with width 1`] = `
+<text
+  hasDefinedWidth={200}
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  loadedFont={null}
+  style={
+    Object {
+      "width": 200,
+    }
+  }
+  width={200}
+/>
+`;
+
 exports[`<Text /> Text without props 1`] = `
 <text
   innerRef={

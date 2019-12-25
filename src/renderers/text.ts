@@ -26,7 +26,7 @@ const textNodePropsAssign = propsAssign<TextProps>([
 
 const defaultFont = { family: 'Roboto', style: 'Regular' };
 
-export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontName }) => {
+export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontName; hasDefinedWidth?: boolean }) => {
     const textNode = node || props.node || figma.createText();
 
     refMixin(textNode)(props);
@@ -42,12 +42,7 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
         if (props.fontName) {
             textNode.fontName = props.fontName;
         }
-        if (isValidSize(props.width) && isValidSize(textNode.height) && !props.textAutoResize) {
-            textNode.resize(props.width, textNode.height);
-            textNode.textAutoResize = 'HEIGHT';
-        } else {
-            textNode.textAutoResize = props.textAutoResize || 'WIDTH_AND_HEIGHT';
-        }
+        textNode.textAutoResize = props.textAutoResize || (props.hasDefinedWidth ? 'HEIGHT' : 'WIDTH_AND_HEIGHT');
         textNodePropsAssign(textNode)(props);
     }
 

@@ -24,15 +24,14 @@ describe('text renderer', () => {
         expect(textNode.textAutoResize).toEqual('HEIGHT');
     });
 
-    // * Motivation *
-    // When there is width prop we should resize the only height.
-    // --------------
-    it('textAutoResize: HEIGHT when has width prop', async () => {
+    it('textAutoResize: HEIGHT when hasDefinedWidth is true', async () => {
         await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
         const node = figma.createText();
-        // @ts-ignore
-        node.height = 20;
-        const textNode = text(node)({ width: 200, loadedFont: { family: 'Roboto', style: 'Regular' } });
+        const textNode = text(node)({
+            width: 200,
+            loadedFont: { family: 'Roboto', style: 'Regular' },
+            hasDefinedWidth: true
+        });
         expect(textNode.textAutoResize).toEqual('HEIGHT');
     });
 });

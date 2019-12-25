@@ -5,11 +5,11 @@ export class StyleSheet {
         return styles;
     }
 
-    static flatten<C extends Partial<CommonStyle>>(styles: C | C[]): C {
+    static flatten<C extends Partial<CommonStyle>>(styles: C | C[] | void): C {
         if (Array.isArray(styles)) {
             return styles.reduce((acc, item) => ({ ...acc, ...item }), {} as any);
         } else {
-            return styles;
+            return styles || ({} as C);
         }
     }
 

@@ -32,4 +32,14 @@ describe('<Text />', () => {
             .toJSON();
         expect(tree).toMatchSnapshot();
     });
+
+    it('Text with maxWidth', () => {
+        const tree = renderer.create(<Text style={{ maxWidth: '100%' }} />).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+
+    it('Text with width', () => {
+        const tree = renderer.create(<Text style={{ width: 200 }} />).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });
