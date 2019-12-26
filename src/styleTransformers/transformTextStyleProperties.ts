@@ -7,7 +7,7 @@ import { transformShadowToEffect } from './transformShadowToEffect';
 export interface TextStyleProperties {
     color: string;
     fontFamily: string;
-    fontWeight: string | number;
+    fontWeight: 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
     fontStyle: 'normal' | 'italic';
     fontSize: number;
     textAlign: 'auto' | 'left' | 'right' | 'center' | 'justify';
