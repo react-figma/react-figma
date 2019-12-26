@@ -42,7 +42,7 @@ describe('text renderer', () => {
         const node = figma.createText();
         const textNode = text(node)({
             fontName: { family: 'Inter', style: 'SemiBold' },
-            loadedFont: { family: 'Inter', style: 'Semi Bold' },
+            loadedFont: { family: 'Inter', style: 'Semi Bold' }
         });
         expect(textNode.fontName.style).toEqual('Semi Bold');
     });

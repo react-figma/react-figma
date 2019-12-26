@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createFigma } from 'figma-api-stub';
 import { render } from '../../renderer';
 import { wait } from '../../helpers/wait';
-import {useFontName} from "../useFontName";
+import { useFontName } from '../useFontName';
 
 describe('useFontName', () => {
     beforeEach(() => {
@@ -19,28 +19,28 @@ describe('useFontName', () => {
             return Promise.resolve([
                 {
                     fontName: {
-                        family: "Inter",
-                        style: "Regular"
+                        family: 'Inter',
+                        style: 'Regular'
                     }
                 },
                 {
                     fontName: {
-                        family: "Inter",
-                        style: "Semi Bold"
+                        family: 'Inter',
+                        style: 'Semi Bold'
                     }
                 },
                 {
                     fontName: {
-                        family: "Inter",
-                        style: "Bold"
+                        family: 'Inter',
+                        style: 'Bold'
                     }
                 }
             ]);
         });
         const Component = () => {
-            const loadedFont = useFontName({family: "Inter", style: "SemiBold"});
+            const loadedFont = useFontName({ family: 'Inter', style: 'SemiBold' });
             if (!loadedFont) {
-                return null
+                return null;
             }
             callback(loadedFont);
             return null;
@@ -48,6 +48,6 @@ describe('useFontName', () => {
         render(<Component />, figma.currentPage);
         await wait();
         await wait();
-        expect(callback).toHaveBeenCalledWith({family: "Inter", style: "Semi Bold"});
+        expect(callback).toHaveBeenCalledWith({ family: 'Inter', style: 'Semi Bold' });
     });
 });
