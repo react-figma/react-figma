@@ -36,4 +36,14 @@ describe('text renderer', () => {
         });
         expect(textNode.textAutoResize).toEqual('HEIGHT');
     });
+
+    it('text render prefer to use loaded font', async () => {
+        await figma.loadFontAsync({ family: 'Inter', style: 'Semi Bold' });
+        const node = figma.createText();
+        const textNode = text(node)({
+            fontName: { family: 'Inter', style: 'SemiBold' },
+            loadedFont: { family: 'Inter', style: 'Semi Bold' }
+        });
+        expect(textNode.fontName.style).toEqual('Semi Bold');
+    });
 });

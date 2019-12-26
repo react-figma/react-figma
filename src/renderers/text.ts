@@ -8,6 +8,7 @@ import { exportMixin } from '../mixins/exportMixin';
 import { TextProps } from '../components/text/Text';
 import { blendMixin } from '../mixins/blendMixin';
 import { isValidSize } from '../helpers/isValidSize';
+import { isEqualFontStyle } from '../helpers/isEqualFontStyle';
 
 const textNodePropsAssign = propsAssign<TextProps>([
     'characters',
@@ -38,9 +39,14 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
     blendMixin(textNode)(props);
 
     const { loadedFont, fontName = defaultFont } = props;
-    if (loadedFont && fontName && loadedFont.family === fontName.family && loadedFont.style === fontName.style) {
+    if (
+        loadedFont &&
+        fontName &&
+        loadedFont.family === fontName.family &&
+        isEqualFontStyle(loadedFont.style, fontName.style)
+    ) {
         if (props.fontName) {
-            textNode.fontName = props.fontName;
+            textNode.fontName = loadedFont;
         }
         if (
             props.hasDefinedWidth &&
