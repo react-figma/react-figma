@@ -235,8 +235,8 @@ describe('renderer', () => {
     it('Text instance hydration', async () => {
         figma.createText = jest.fn().mockImplementation(figma.createText);
         render(<Text>Some text</Text>, figma.currentPage);
+        await wait();
         render(<Text>Some text 2</Text>, figma.currentPage);
-
         await wait();
 
         expect(figma.createText).toHaveBeenCalledTimes(1);
