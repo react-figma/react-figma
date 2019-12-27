@@ -51,6 +51,11 @@ describe('transformColors', () => {
         expect(result).toMatchSnapshot();
     });
 
+    it('colorToPaint rgba(27,31,35,0.2)', () => {
+        const result = colorToPaint('rgba(27,31,35,0.2)');
+        expect(result).toMatchSnapshot();
+    });
+
     it('colorToPaint linear-gradient(#e66465, #9198e5)', () => {
         const result = colorToPaint('linear-gradient(#e66465, #9198e5)');
         expect(result).toMatchSnapshot();

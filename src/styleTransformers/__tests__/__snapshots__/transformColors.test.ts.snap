@@ -7,6 +7,7 @@ Object {
     "g": 0.6235294117647059,
     "r": 0.6078431372549019,
   },
+  "opacity": 1,
   "type": "SOLID",
 }
 `;
@@ -236,6 +237,18 @@ Object {
     ],
   ],
   "type": "GRADIENT_LINEAR",
+}
+`;
+
+exports[`transformColors colorToPaint rgba(27,31,35,0.2) 1`] = `
+Object {
+  "color": Object {
+    "b": 0.13725490196078433,
+    "g": 0.12156862745098039,
+    "r": 0.10588235294117647,
+  },
+  "opacity": 0.2,
+  "type": "SOLID",
 }
 `;
 
