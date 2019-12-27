@@ -10,6 +10,7 @@ exports[`<Frame /> Frame with color background 1`] = `
           "g": 1,
           "r": 0.10588235294117647,
         },
+        "opacity": 1,
         "type": "SOLID",
       },
     ]
@@ -37,6 +38,7 @@ exports[`<Frame /> Frame with image background 1`] = `
           "g": 0.5450980392156862,
           "r": 1,
         },
+        "opacity": 1,
         "type": "SOLID",
       },
       Object {

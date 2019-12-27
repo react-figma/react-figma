@@ -75,5 +75,6 @@ export const colorToPaint = (color: Color): Paint => {
             }))
         };
     }
-    return { type: 'SOLID', color: colorToRGB(color) };
+    const { a: alpha, ...rbg } = colorToRGBA(color);
+    return { type: 'SOLID', color: rbg, opacity: alpha };
 };
