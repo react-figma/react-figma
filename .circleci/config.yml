@@ -42,7 +42,7 @@ jobs:
           at: ~/repo
       - run:
           name: Run TypeScript
-          command: npm run tsc
+          command: yarn tsc
 
   test:
     <<: *defaults
@@ -52,7 +52,7 @@ jobs:
           at: ~/repo
       - run:
           name: Run tests
-          command: npm test
+          command: yarn test --maxWorkers=2 --ci
 
   prettier:
     <<: *defaults
@@ -62,7 +62,7 @@ jobs:
           at: ~/repo
       - run:
           name: Run Prettier formatting check
-          command: npm run prettier:check
+          command: yarn prettier:check
 
   deploy:
     <<: *defaults
