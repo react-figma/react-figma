@@ -22,6 +22,10 @@ Resolve one style.
 
 Combines two styles such that `style2` will override any styles in `style1`.
 
+`hairlineWidth`
+
+This is defined as the width of a thin line on the platform. Returns 1.
+
 ## Example
 
 ```typescript

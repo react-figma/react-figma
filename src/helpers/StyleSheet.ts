@@ -26,4 +26,6 @@ export class StyleSheet {
     ): Assign<C1, C2> {
         return { ...(style1 || ({} as C1)), ...(style2 || ({} as C2)) };
     }
+
+    static hairlineWidth = 1;
 }
