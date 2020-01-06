@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyleSheet compose 1`] = `
+Object {
+  "container": Object {
+    "height": "100%",
+    "width": "100%",
+  },
+  "icon": Object {
+    "height": 20,
+    "width": 20,
+  },
+  "inner": Object {
+    "backgroundColor": "red",
+    "margin": 20,
+  },
+  "text": Object {
+    "fontFamily": "Helvetica",
+    "fontSize": 24,
+  },
+}
+`;
+
+exports[`StyleSheet flatten 1`] = `
+Object {
+  "color": "green",
+  "flex": 1,
+  "fontSize": 16,
+}
+`;
