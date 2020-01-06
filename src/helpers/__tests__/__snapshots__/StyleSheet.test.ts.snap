@@ -20,3 +20,11 @@ Object {
   },
 }
 `;
+
+exports[`StyleSheet flatten 1`] = `
+Object {
+  "color": "green",
+  "flex": 1,
+  "fontSize": 16,
+}
+`;
