@@ -26,6 +26,21 @@ Combines two styles such that `style2` will override any styles in `style1`.
 
 This is defined as the width of a thin line on the platform. Returns 1.
 
+`absoluteFill`, `absoluteFillObject`
+
+A very common pattern is to create overlays with position absolute and 
+zero positioning `(position: "absolute", left: 0, top: 0, width: "100%", height: "100%")`,
+so absoluteFill can be used for convenience and to reduce duplication of these repeated styles.
+If you want, absoluteFill can be used to create a customized entry in a StyleSheet, e.g.:
+
+```javascript
+const styles = StyleSheet.create({
+  wrapper: {
+    ...StyleSheet.absoluteFill,
+  },
+});
+```
+
 ## Example
 
 ```typescript

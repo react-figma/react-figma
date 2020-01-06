@@ -3,6 +3,14 @@ import { Assign } from 'utility-types';
 
 type StyleProp<P, T> = { [P in keyof T]: Partial<CommonStyle> };
 
+const absoluteFill: Partial<CommonStyle> = {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    width: '100%',
+    height: '100%'
+};
+
 export class StyleSheet {
     static create<T extends StyleProp<any, T>>(styles: T): T {
         return styles;
@@ -28,4 +36,8 @@ export class StyleSheet {
     }
 
     static hairlineWidth = 1;
+
+    static absoluteFill = absoluteFill;
+
+    static absoluteFillObject = absoluteFill;
 }
