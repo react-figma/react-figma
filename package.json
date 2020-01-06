@@ -4,7 +4,7 @@
   "description": "Render React components to Figma",
   "scripts": {
     "tsc": "tsc -p tsconfig.json --noEmit",
-    "test": "jest",
+    "test": "jest --maxWorkers=2",
     "prettify": "prettier \"src/**/*.{js,jsx,ts,tsx}\" \"examples/**/*.{js,jsx,ts,tsx}\" --ignore-path ./.prettierignore --write && git add . && git status",
     "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\" \"examples/**/*.{js,jsx,ts,tsx}\"",
     "build": "npm run build:clean && npm run build:lib",
