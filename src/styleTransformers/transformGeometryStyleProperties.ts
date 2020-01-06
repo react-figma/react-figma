@@ -35,7 +35,13 @@ export const transformGeometryStyleProperties = (
     }
 
     if (style.backgroundImage) {
-        if (style.backgroundSize === 'stretch') {
+        let color;
+        try {
+            color = colorToPaint(style.backgroundImage);
+        } catch (e) {}
+        if (color) {
+            fills.push(color);
+        } else if (style.backgroundSize === 'stretch') {
             fills.push({
                 type: 'IMAGE',
                 image: style.backgroundImage,
