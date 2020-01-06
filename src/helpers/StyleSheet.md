@@ -18,6 +18,10 @@ Flatten an array of style objects into one aggregated object, or look up the def
 
 Resolve one style.
 
+`compose(style1, style2)`
+
+Combines two styles such that `style2` will override any styles in `style1`.
+
 ## Example
 
 ```typescript
