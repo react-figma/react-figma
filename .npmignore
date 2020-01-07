@@ -17,6 +17,7 @@ src
 test
 examples
 docs
+website
 _book
 .circleci
 .travis.yml
