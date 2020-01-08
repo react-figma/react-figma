@@ -15,7 +15,7 @@
   "routes": [
     {
       "src": "^/(.*)",
-      "dest": "/$1"
+      "dest": "/website/react/$1"
     }
   ]
 }
