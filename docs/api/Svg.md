@@ -22,7 +22,7 @@ Also, most of the [Frame](Frame) props are supported.
 
 [`svg-inline-loader`](https://github.com/webpack-contrib/svg-inline-loader) is supported:
 
-```javascript
+```jsx
 import * as icon from './icon.svg';
 
 ...
@@ -30,7 +30,7 @@ import * as icon from './icon.svg';
 ```
 
 Also dynamic source supported:
-```javascript
+```jsx
 
 const source = `<svg><path fill=`${flag ? "#ff0000" : "#00ff00"}`></path></svg>`
 

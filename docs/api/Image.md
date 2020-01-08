@@ -26,7 +26,7 @@ type ResizeMode = 'contain' | 'cover' | 'stretch' | 'center' | 'repeat' | 'none'
 
 Absolute path supported:
 
-```javascript
+```jsx
 <Image
   source="http://placekitten.com/400"
   resizeMode="contain"
@@ -39,7 +39,7 @@ Absolute path supported:
 
 Webpack image loader supported:
 
-```javascript
+```jsx
 import * as img from "./icon.png";
 ...
 <Image

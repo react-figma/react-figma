@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 
 ## Example
 
-```typescript
+```jsx
 const styles = StyleSheet.create({
   foo: {
     fontSize: 24,

@@ -20,7 +20,7 @@ Also, most of the [StarNode](https://www.figma.com/plugin-docs/api/StarNode/) fi
 
 #### Example
 
-```javascript
+```jsx
 <Star 
     innerRadius={0.5} 
     pointCount={5} 

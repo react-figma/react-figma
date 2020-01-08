@@ -12,7 +12,7 @@ Top-level React component that defines your Figma app.
 
 Example:
 
-```js
+```jsx
   <Page name="Mobile">
     <Frame name="iPhone">
       <View>
@@ -30,7 +30,7 @@ The element to render into. It's recommended to use `figma.root` or `figma.curre
 
 Render multiple pages:
 
-```javascript
+```jsx
 import { Page, View, Text, render } from 'react-figma';
 
 const App = () => (
@@ -55,7 +55,7 @@ export default () => {
 
 Render to `figma.currentPage`:
 
-```javascript
+```jsx
 import { View, Text, render } from 'react-figma';
 
 const App = () => (

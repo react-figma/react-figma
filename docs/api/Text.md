@@ -22,7 +22,7 @@ Also, most of the [TextNode](https://www.figma.com/plugin-docs/api/TextNode/) fi
 
 #### Example
 
-```javascript
+```jsx
 <Text
   style={{
     fontSize: 24,

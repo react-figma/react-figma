@@ -22,16 +22,16 @@ supports fields of [RectangleNode](https://www.figma.com/plugin-docs/api/Rectang
 
 #### Examples
 
-```javascript
+```jsx
 <View style={{width: 200, height: 100, backgroundColor: "red"}} />
 ```
 
-was displayed as rectangle. 
+will be displayed as rectangle. 
 
-```javascript
+```jsx
 <View>
     <Text>Hello world!</Text>
 </View>
 ```
 
-was displayed as group with nested text node. 
+will be displayed as group with nested text node. 

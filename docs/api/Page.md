@@ -19,7 +19,7 @@ Figma document (`figma.root`) should be a parent.
 
 #### Example
 
-```javascript
+```jsx
 <Page isCurrent name="My Page" style={{flexDirection: "row"}}>
   <Text>Hello world!</Text>
 </Page>

@@ -80,6 +80,8 @@ const siteConfig = {
         theme: 'default',
     },
 
+    usePrism: ['jsx', 'javascript', 'typescript'],
+
     // Add custom scripts here that would be placed in <script> tags.
     scripts: ['https://buttons.github.io/buttons.js'],
 

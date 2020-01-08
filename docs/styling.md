@@ -93,7 +93,7 @@ Components use CSS styles + flexbox layout.
 
 Styles can be passed to components as plain objects.
 
-```js
+```jsx
 import { View, StyleSheet } from 'react-figma';
 
 // inline props
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
 
 You can use variables in your styles just like a standard React application:
 
-```javascript
+```jsx
 const colors = {
   Haus: '#F3F4F4',
   Night: '#333',

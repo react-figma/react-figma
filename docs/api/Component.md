@@ -47,7 +47,7 @@ Factory method for creating linked Component and Instance. Returns
 
 #### Simple component
 
-```javascript
+```jsx
 <Component name="Comp">
   <Text>Hello world!</Text>
 </Component>
@@ -56,7 +56,7 @@ Factory method for creating linked Component and Instance. Returns
 
 #### Creating component instance
 
-```javascript
+```jsx
 const Rect = createComponent();
 
 ...
@@ -77,7 +77,7 @@ const Rect = createComponent();
 
 ### Overriding elements inside instance
 
-```javascript
+```jsx
 const Rect = createComponent();
 
 ...
@@ -105,7 +105,7 @@ const Rect = createComponent();
 
 Text content overriding:
 
-```javascript
+```jsx
 const Txt = createComponent();
 ...
 <Txt.Component name="text-component" style={{ marginTop: 20 }}>

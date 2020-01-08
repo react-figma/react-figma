@@ -21,7 +21,7 @@ Also, most of the [VectorNode](https://www.figma.com/plugin-docs/api/VectorNode/
 
 #### Example
 
-```javascript
+```jsx
 <Vector
     vectorNetwork={{
         // The vertices of the triangle

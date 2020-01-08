@@ -22,7 +22,7 @@ Also, most of the [RectangleNode](https://www.figma.com/plugin-docs/api/Rectangl
 
 #### Example
 
-```javascript
+```jsx
 <Rectangle
     height={100}
     width={200}

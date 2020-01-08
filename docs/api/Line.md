@@ -20,7 +20,7 @@ Also, most of the [LineNode](https://www.figma.com/plugin-docs/api/LineNode/) fi
 
 #### Example
 
-```javascript
+```jsx
 <Line
     name="line"
     strokeWeight={4}

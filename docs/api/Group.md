@@ -19,7 +19,7 @@ Also, most of the [FrameNode](https://www.figma.com/plugin-docs/api/FrameNode/) 
 
 #### Example
 
-```javascript
+```jsx
 <Group name="Comp">
   <Text>Hello world!</Text>
 </Component>
