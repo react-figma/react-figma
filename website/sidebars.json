@@ -1,9 +1,38 @@
 {
   "docs": {
-    "Docs": ["architecture"],
+    "Docs": ["API","architecture", "roadmap"]
+  },
+  "api": {
     "API": [
+      "api/render",
       "styling",
-      "api/view"
+      {
+        "type": "subcategory",
+        "label": "UI Primitives",
+        "ids": [
+          "api/view",
+          "api/text",
+          "api/image",
+          "api/StyleSheet",
+          "api/Platform"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "Figma components",
+        "ids": [
+          "api/page",
+          "api/frame",
+          "api/component",
+          "api/svg",
+          "api/ellipse",
+          "api/group",
+          "api/line",
+          "api/rectangle",
+          "api/star",
+          "api/vector"
+        ]
+      }
     ]
   }
 }
