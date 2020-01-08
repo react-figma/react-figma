@@ -21,17 +21,17 @@ const users = [
 ];
 
 const siteConfig = {
-    title: 'Test Site', // Title for your website.
-    tagline: 'A website for testing',
-    url: 'https://your-docusaurus-test-site.com', // Your website URL
+    title: 'React Figma', // Title for your website.
+    tagline: 'Render React components to Figma',
+    url: 'https://react-figma.now.sh/', // Your website URL
     baseUrl: '/', // Base URL for your project */
     // For github.io type URLs, you would set the url and baseUrl like:
     //   url: 'https://facebook.github.io',
     //   baseUrl: '/test-site/',
 
     // Used for publishing and more
-    projectName: 'test-site',
-    organizationName: 'facebook',
+    projectName: 'react-figma',
+    organizationName: 'react-figma',
     // For top-level user or org sites, the organization is still the same.
     // e.g., for the https://JoelMarcey.github.io site, it would be set like...
     //   organizationName: 'JoelMarcey'
@@ -40,22 +40,21 @@ const siteConfig = {
     headerLinks: [
         {doc: 'API', label: 'Docs'},
         {doc: 'api/render', label: 'API'},
-        {page: 'help', label: 'Help'},
-        {blog: true, label: 'Blog'},
+        {href: "https://github.com/react-figma/react-figma", label: "GitHub"},
     ],
 
     // If you have users set above, you add it here:
     users,
 
     /* path to images for header/footer */
-    headerIcon: 'img/favicon.ico',
-    footerIcon: 'img/favicon.ico',
+    headerIcon: 'img/react-figma-logo-white.svg',
+    footerIcon: 'img/react-figma-logo-white.svg',
     favicon: 'img/favicon.ico',
 
     /* Colors for website */
     colors: {
-        primaryColor: '#6dae55',
-        secondaryColor: '#4c793b',
+        primaryColor: '#20232a',
+        secondaryColor: '#a259ff',
     },
 
     /* Custom fonts for website */
@@ -73,7 +72,7 @@ const siteConfig = {
     */
 
     // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-    copyright: `Copyright © ${new Date().getFullYear()} Your Name or Your Company Name`,
+    copyright: `Copyright © ${new Date().getFullYear()} React Figma Team`,
 
     highlight: {
         // Highlight.js theme to use for syntax highlighting in code blocks.
