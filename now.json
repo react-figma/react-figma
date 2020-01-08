@@ -4,11 +4,9 @@
   "public": true,
   "builds": [
     {
-      "src": "package.json",
+      "src": "website/package.json",
       "use": "@now/static-build",
-      "config": {
-        "distDir": "_book"
-      }
+      "config": {"distDir": "build"}
     }
   ],
   "env": {
