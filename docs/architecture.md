@@ -1,4 +1,7 @@
-# Architecture
+---
+id: architecture
+title: Architecture
+---
 
 ## How rendering works
 

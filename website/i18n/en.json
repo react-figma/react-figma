@@ -6,10 +6,58 @@
     "tagline": "A website for testing",
     "docs": {
       "API": {
-        "title": "API"
+        "title": "API Overview"
+      },
+      "api/component": {
+        "title": "Component, Instance, createComponent"
+      },
+      "api/ellipse": {
+        "title": "Ellipse"
+      },
+      "api/frame": {
+        "title": "Frame"
+      },
+      "api/group": {
+        "title": "Group"
+      },
+      "api/image": {
+        "title": "Image"
+      },
+      "api/line": {
+        "title": "Line"
+      },
+      "api/page": {
+        "title": "Page"
+      },
+      "api/Platform": {
+        "title": "Platform"
+      },
+      "api/rectangle": {
+        "title": "Rectangle"
+      },
+      "api/render": {
+        "title": "render(element, container)"
+      },
+      "api/star": {
+        "title": "Star"
+      },
+      "api/StyleSheet": {
+        "title": "StyleSheet"
+      },
+      "api/svg": {
+        "title": "Svg"
+      },
+      "api/text": {
+        "title": "Text"
+      },
+      "api/vector": {
+        "title": "Vector"
+      },
+      "api/view": {
+        "title": "View"
       },
       "architecture": {
-        "title": "architecture"
+        "title": "Architecture"
       },
       "doc1": {
         "title": "Latin-ish",
@@ -31,7 +79,7 @@
         "title": "roadmap"
       },
       "styling": {
-        "title": "styling"
+        "title": "Styling"
       }
     },
     "links": {
@@ -41,9 +89,8 @@
       "Blog": "Blog"
     },
     "categories": {
-      "Docusaurus": "Docusaurus",
-      "First Category": "First Category",
-      "Second Category": "Second Category"
+      "Docs": "Docs",
+      "API": "API"
     }
   },
   "pages-strings": {

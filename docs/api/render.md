@@ -1,4 +1,7 @@
-# render(element, container)
+---
+id: render
+title: render(element, container)
+---
 
 Render `element` at Figma `container`.
 

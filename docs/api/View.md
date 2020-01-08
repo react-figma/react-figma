@@ -1,4 +1,7 @@
-# View
+---
+id: view
+title: View
+---
 
 Analog of `View` component at [React Native](https://facebook.github.io/react-native/docs/view), [React Sketchapp](http://airbnb.io/react-sketchapp/docs/API.html#view).
 The most fundamental component for building a UI. 
@@ -10,7 +13,7 @@ Component renders Figma group node if it has children, rectangle node otherwise.
 | ---------- | -------- | ------- | ------------------------------------------------- |
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
 | `children` | `Node`   |         |                                                   |
-| `style`    | [`Style`](/docs/styling.md)   |         | Supports can be different depends on `children`     |
+| `style`    | [`Style`](/docs/styling)   |         | Supports can be different depends on `children`     |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 

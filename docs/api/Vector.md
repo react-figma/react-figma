@@ -1,4 +1,7 @@
-## Vector
+---
+id: vector
+title: Vector
+---
 
 Wrapper for the Figma [Vector](https://www.figma.com/plugin-docs/api/VectorNode/).
 
@@ -10,7 +13,7 @@ Wrapper for the Figma [Vector](https://www.figma.com/plugin-docs/api/VectorNode/
 | `vectorPaths` | [VectorPath](https://www.figma.com/plugin-docs/api/VectorPath/) |         |  |
 | `vectorNetwork` | [VectorNetwork](https://www.figma.com/plugin-docs/api/VectorNetwork/) |         |  |
 | `handleMirroring` | [HandleMirroring](https://www.figma.com/plugin-docs/api/HandleMirroring/) |         |  |
-| `style`    | [`Style`](/docs/styling.md)   |         | Not all props                                                 |
+| `style`    | [`Style`](/docs/styling)   |         | Not all props                                                 |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 

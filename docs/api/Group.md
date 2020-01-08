@@ -1,4 +1,7 @@
-## Group
+---
+id: group
+title: Group
+---
 
 Wrapper for the Figma [group](https://www.figma.com/plugin-docs/api/figma/#group).
 
@@ -8,7 +11,7 @@ Wrapper for the Figma [group](https://www.figma.com/plugin-docs/api/figma/#group
 | ---------- | -------- | ------- | ------------------------------------------------- |
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
 | `children` | `Node`   |         |                                                   |
-| `style`    | [`Style`](/docs/styling.md)   |         | Not all props                                                 |
+| `style`    | [`Style`](/docs/styling)   |         | Not all props                                                 |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 

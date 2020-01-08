@@ -1,4 +1,7 @@
-## Svg
+---
+id: svg
+title: Svg
+---
 
 Creates frame with figma nodes inside from svg source code. 
 Wrapper for the Figma [createNodeFromSvg](https://www.figma.com/plugin-docs/api/createNodeFromSvg/).
@@ -9,11 +12,11 @@ Wrapper for the Figma [createNodeFromSvg](https://www.figma.com/plugin-docs/api/
 | ---------- | -------- | ------- | ------------------------------------------------- |
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
 | `source`   | `String` |         | Code of svg                            |
-| `style`    | [`Style`](/docs/styling.md)   |  | Not all props |
+| `style`    | [`Style`](/docs/styling)   |  | Not all props |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 
-Also, most of the [Frame](../frame/Frame.md) props are supported.
+Also, most of the [Frame](Frame) props are supported.
 
 #### Examples
 

@@ -1,4 +1,7 @@
-# Styling
+---
+id: styling
+title: Styling
+---
 
 Components use CSS styles + flexbox layout.
 

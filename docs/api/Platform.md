@@ -1,4 +1,7 @@
-# Platform
+---
+id: Platform
+title: Platform
+---
 
 Analog of the `Platform` module at [React Native](https://facebook.github.io/react-native/docs/platform-specific-code), 
 [React Sketchapp](http://airbnb.io/react-sketchapp/docs/API.html#platform).
