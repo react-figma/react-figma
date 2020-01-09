@@ -1,15 +1,13 @@
 {
   "docs": {
-    "Docs": ["API","architecture", "roadmap"]
-  },
-  "api": {
+    "Docs": ["API","architecture", "roadmap"],
     "API": [
       "api/render",
       "styling",
       {
-        "type": "subcategory",
+        "type": "category",
         "label": "UI Primitives",
-        "ids": [
+        "items": [
           "api/view",
           "api/text",
           "api/image",
@@ -18,9 +16,9 @@
         ]
       },
       {
-        "type": "subcategory",
+        "type": "category",
         "label": "Figma components",
-        "ids": [
+        "items": [
           "api/page",
           "api/frame",
           "api/component",

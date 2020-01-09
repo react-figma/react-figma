@@ -15,7 +15,7 @@
   "routes": [
     {
       "src": "^/(.*)",
-      "dest": "/website/react-figma/$1"
+      "dest": "/$1"
     }
   ]
 }

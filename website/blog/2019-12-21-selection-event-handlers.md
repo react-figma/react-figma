@@ -8,7 +8,7 @@ Selection event handlers has supported at react-figma.
 
 Demo:
 
-<p align="center"><img src="https://media.giphy.com/media/j2Rh9Ww5nKvwowB5gi/giphy.gif" width="480"></p>
+<p align="center"><img src="https://media.giphy.com/media/j2Rh9Ww5nKvwowB5gi/giphy.gif" width="480" /></p>
 
 Code example:
 
