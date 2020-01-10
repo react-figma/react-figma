@@ -25,7 +25,7 @@ const docusaurusConfig = {
             links: [
                 {to: 'docs/API', label: 'Docs', position: 'right'},
                 {href: "https://github.com/react-figma/react-figma", label: "GitHub", position: 'right'},
-                { blog: true, label: "Blog", position: 'right' },
+                {to: 'blog', label: "Blog", position: 'right'},
             ],
         },
         footer: {
