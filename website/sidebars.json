@@ -1,0 +1,37 @@
+{
+  "docs": {
+    "Getting Started": ["installation", "configure", "running"],
+    "Docs": ["API","architecture", "roadmap"],
+    "API": [
+      "api/render",
+      "styling",
+      {
+        "type": "category",
+        "label": "UI Primitives",
+        "items": [
+          "api/view",
+          "api/text",
+          "api/image",
+          "api/StyleSheet",
+          "api/Platform"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Figma components",
+        "items": [
+          "api/page",
+          "api/frame",
+          "api/component",
+          "api/svg",
+          "api/ellipse",
+          "api/group",
+          "api/line",
+          "api/rectangle",
+          "api/star",
+          "api/vector"
+        ]
+      }
+    ]
+  }
+}

@@ -1,4 +1,7 @@
-# StyleSheet
+---
+id: StyleSheet
+title: StyleSheet
+---
 
 A StyleSheet is an abstraction similar to CSS StyleSheets.
 Analog of the `StyleSheet` module at [React Native](https://facebook.github.io/react-native/docs/stylesheet), 
@@ -43,7 +46,7 @@ const styles = StyleSheet.create({
 
 ## Example
 
-```typescript
+```jsx
 const styles = StyleSheet.create({
   foo: {
     fontSize: 24,

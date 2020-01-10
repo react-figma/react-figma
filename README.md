@@ -45,20 +45,20 @@ ___
 
 #### Using boilerplate
 
-You can use [react-figma-boilerplate](https://github.com/LosYear/react-figma-boilerplate) for creating own projects.
+You can use [react-figma-boilerplate](https://github.com/react-figma/react-figma-boilerplate) for creating own projects.
 
 #### From scratch
 
 Install it with yarn:
 
 ```
-yarn add react react-figma yoga-layout
+yarn add react react-figma yoga-layout-prebuilt
 ```
 
 Or with npm:
 
 ```
-npm i react react-figma yoga-layout --save
+npm i react react-figma yoga-layout-prebuilt --save
 ```
 
 ### Usage
@@ -76,13 +76,13 @@ figma.ui.onmessage = message => {
     subscribeOnMessages(message);
 };
 
-render(<App />);
+render(<App />, figma.root);
 ```
 
 #### Configure ui thread
 
 ```javascript
-import * as yoga from 'yoga-layout';
+import * as yoga from 'yoga-layout-prebuilt';
 import { uiWorker } from 'react-figma';
 
 onmessage = event => {
@@ -106,18 +106,18 @@ export const App = () => {
 };
 ```
 
-## [Docs](https://react-figma.now.sh/)
+## [Docs](https://react-figma.now.sh/docs/API)
 
-* [API Overview](https://react-figma.now.sh/docs/API.html)
-  + [render](https://react-figma.now.sh/src/render.html)
-  + [Page](https://react-figma.now.sh/src/components/page/Page.html)
-  + [Frame](https://react-figma.now.sh/src/components/frame/Frame.html)
-  + [View](https://react-figma.now.sh/src/components/view/View.html)
-  + [Text](https://react-figma.now.sh/src/components/text/Text.html)
-  + [Image](https://react-figma.now.sh/src/components/Image/Image.html)
+* [API Overview](https://react-figma.now.sh/docs/API)
+  + [render](https://react-figma.now.sh/docs/api/render)
+  + [Page](https://react-figma.now.sh/docs/api/page)
+  + [Frame](https://react-figma.now.sh/docs/api/frame)
+  + [View](https://react-figma.now.sh/docs/api/view)
+  + [Text](https://react-figma.now.sh/docs/api/text)
+  + [Image](https://react-figma.now.sh/docs/api/image)
   + ...
-* [Styling](https://react-figma.now.sh/docs/styling.html)
-* [Architecture](https://react-figma.now.sh/docs/architecture.html)
+* [Styling](https://react-figma.now.sh/docs/styling)
+* [Architecture](https://react-figma.now.sh/docs/architecture)
 
 ## Examples
 
@@ -129,15 +129,6 @@ export const App = () => {
 ## Become a Contributor 🎖
 
 Whether you're helping us implement features, fix bugs or improve the docs, we'd love to have you as part of the community! 
-
-#### Reasons to be a contributor
-
-* You pump your knowledge about:
-  - **React**. Best way to figure out how React works - implementing custom renderer. In the project we operate with most advanced concepts: [Reconciliation](https://reactjs.org/docs/reconciliation.html), [Hooks](https://reactjs.org/docs/hooks-intro.html) etc.
-  - **Figma Plugins** creation.
-  - [Yoga Layout](https://yogalayout.com/)
-  - [RxJS](https://rxjs-dev.firebaseapp.com/)
-* Take a place at the contributors list. 😉
 
 #### How to Contribute
 

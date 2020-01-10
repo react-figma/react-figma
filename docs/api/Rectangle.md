@@ -1,4 +1,7 @@
-## Rectangle
+---
+id: rectangle
+title: Rectangle
+---
 
 Wrapper for the Figma [Rectangle](https://www.figma.com/plugin-docs/api/RectangleNode/).
 
@@ -11,7 +14,7 @@ Wrapper for the Figma [Rectangle](https://www.figma.com/plugin-docs/api/Rectangl
 | `left` | `Number` |  |  |
 | `width` | `Number` |  |  |
 | `height` | `Number` |  |  |
-| `style`    | [`Style`](/docs/styling.md)   |  | Not all props |
+| `style`    | [`Style`](/docs/styling)   |  | Not all props |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 
@@ -19,7 +22,7 @@ Also, most of the [RectangleNode](https://www.figma.com/plugin-docs/api/Rectangl
 
 #### Example
 
-```javascript
+```jsx
 <Rectangle
     height={100}
     width={200}

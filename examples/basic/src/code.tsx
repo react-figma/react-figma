@@ -8,4 +8,4 @@ figma.ui.onmessage = message => {
     subscribeOnMessages(message);
 };
 
-render(<App />, figma.currentPage);
+render(<App />, figma.root);

@@ -1,4 +1,7 @@
-# Text
+---
+id: text
+title: Text
+---
 
 Analog of `Text` component at [React Native](https://facebook.github.io/react-native/docs/text), 
 [React Sketchapp](http://airbnb.io/react-sketchapp/docs/API.html#text). 
@@ -11,7 +14,7 @@ Wrapper for Figma [Text](https://www.figma.com/plugin-docs/api/TextNode/).
 | ---------- | -------- | ------- | ------------------------------------------------- |
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
 | `children` | `String` |         | Text content                                      |
-| `style`    | [`Style`](/docs/styling.md#type-styles)   |         |                  |
+| `style`    | [`Style`](/docs/styling#type-styles)   |         |                  |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 
@@ -19,7 +22,7 @@ Also, most of the [TextNode](https://www.figma.com/plugin-docs/api/TextNode/) fi
 
 #### Example
 
-```javascript
+```jsx
 <Text
   style={{
     fontSize: 24,

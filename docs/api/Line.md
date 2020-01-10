@@ -1,4 +1,7 @@
-## Line
+---
+id: line
+title: Line
+---
 
 Wrapper for the Figma [Line](https://www.figma.com/plugin-docs/api/LineNode/).
 
@@ -9,7 +12,7 @@ Wrapper for the Figma [Line](https://www.figma.com/plugin-docs/api/LineNode/).
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
 | `strokeWeight` | `Number` |         |  |
 | `strokes` | Array of [Paint](https://www.figma.com/plugin-docs/api/Paint/) |         |  |
-| `style`    | [`Style`](/docs/styling.md)   |         | Not all props                                                 |
+| `style`    | [`Style`](/docs/styling)   |         | Not all props                                                 |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 
@@ -17,7 +20,7 @@ Also, most of the [LineNode](https://www.figma.com/plugin-docs/api/LineNode/) fi
 
 #### Example
 
-```javascript
+```jsx
 <Line
     name="line"
     strokeWeight={4}

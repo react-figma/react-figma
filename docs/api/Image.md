@@ -1,4 +1,7 @@
-## Image
+---
+id: image
+title: Image
+---
 
 Analog of the `Image` component at [React Native](https://facebook.github.io/react-native/docs/image), 
 [React Sketchapp](http://airbnb.io/react-sketchapp/docs/API.html#image). 
@@ -11,7 +14,7 @@ Renders Figma rectangle node with background.
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
 | `source`   | `String` |         | Path for loading image                            |
 | `resizeMode`| `ResizeMode` |         |                                              |
-| `style`    | [`Style`](/docs/styling.md)   |         |                              |
+| `style`    | [`Style`](/docs/styling)   |         |                              |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 
@@ -23,7 +26,7 @@ type ResizeMode = 'contain' | 'cover' | 'stretch' | 'center' | 'repeat' | 'none'
 
 Absolute path supported:
 
-```javascript
+```jsx
 <Image
   source="http://placekitten.com/400"
   resizeMode="contain"
@@ -36,7 +39,7 @@ Absolute path supported:
 
 Webpack image loader supported:
 
-```javascript
+```jsx
 import * as img from "./icon.png";
 ...
 <Image
