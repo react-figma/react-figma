@@ -7,7 +7,7 @@ title: Architecture
 
 Renderer architecture displayed on the scheme:
 
-![](assets/architecture.png)
+![](/img/architecture.png)
 
 [Source](https://www.figma.com/file/URczwfB64Pn6SlFICHKh6y/React-Figma?node-id=0%3A1)
 
