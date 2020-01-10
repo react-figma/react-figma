@@ -45,7 +45,7 @@ ___
 
 #### Using boilerplate
 
-You can use [react-figma-boilerplate](https://github.com/LosYear/react-figma-boilerplate) for creating own projects.
+You can use [react-figma-boilerplate](https://github.com/react-figma/react-figma-boilerplate) for creating own projects.
 
 #### From scratch
 

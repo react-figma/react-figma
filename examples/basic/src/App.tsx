@@ -1,22 +1,13 @@
 import * as React from 'react';
-import { Rectangle } from '../../../src';
+import { Page, View, Text } from '../../../src';
 
 export const App = () => {
     return (
-        <Rectangle
-            style={{
-                width: 200,
-                height: 100,
-                borderWidth: 10,
-                borderColor: '#ff8b29',
-                shadowColor: '#000000',
-                shadowOpacity: 0.5,
-                shadowRadius: 10,
-                shadowOffset: {
-                    width: 10,
-                    height: 10
-                }
-            }}
-        />
+        <Page name="New page" isCurrent>
+            <View>
+                <View style={{ width: 200, height: 100, backgroundColor: '#dd55aa' }} />
+                <Text style={{ color: '#ffffff' }}>text</Text>
+            </View>
+        </Page>
     );
 };

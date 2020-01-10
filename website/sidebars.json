@@ -1,5 +1,6 @@
 {
   "docs": {
+    "Getting Started": ["installation", "configure", "running"],
     "Docs": ["API","architecture", "roadmap"],
     "API": [
       "api/render",

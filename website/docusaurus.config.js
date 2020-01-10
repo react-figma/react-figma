@@ -35,6 +35,10 @@ const docusaurusConfig = {
                     title: 'Docs',
                     items: [
                         {
+                            label: "Getting Started",
+                            to: '/docs/configure'
+                        },
+                        {
                             label: 'API',
                             to: '/docs/API',
                         },

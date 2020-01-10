@@ -8,3 +8,7 @@
     --ifm-color-primary-lighter: #44c8fe;
     --ifm-color-primary-lightest: #6ed4fe;
 }
+
+.docusaurus-highlight-code-line {
+    background: #1abcfe20;
+}

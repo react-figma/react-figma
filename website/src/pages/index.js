@@ -64,9 +64,9 @@ function Home() {
                                 'button button--secondary button--lg',
                                 styles.getStarted,
                             )}
-                            to={'https://github.com/react-figma/react-figma'}
+                            to={'/docs/configure'}
                         >
-                            GitHub
+                            Getting Started
                         </Link>
                         <Link
                             className={classnames(
@@ -75,7 +75,7 @@ function Home() {
                             )}
                             to={'/docs/API'}
                         >
-                            Docs
+                            API
                         </Link>
                     </div>
                 </div>
