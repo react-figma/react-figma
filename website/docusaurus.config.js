@@ -30,6 +30,34 @@ const docusaurusConfig = {
         },
         footer: {
             style: 'dark',
+            links: [
+                {
+                    title: 'Docs',
+                    items: [
+                        {
+                            label: 'API',
+                            to: '/docs/API',
+                        },
+                        {
+                            label: 'Styling',
+                            to: '/docs/styling',
+                        },
+                    ],
+                },
+                {
+                    title: 'Social',
+                    items: [
+                        {
+                            label: 'Spectrum Chat',
+                            to: 'https://spectrum.chat/react-figma',
+                        },
+                        {
+                            label: 'Twitter',
+                            to: 'https://twitter.com/ilialesik',
+                        },
+                    ],
+                },
+            ],
             logo: {
                 alt: 'React Figma Logo',
                 src: '/img/react-figma-logo-white.svg',
