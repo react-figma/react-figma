@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { CornerProps, DefaultContainerProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
+import {
+    AutoLayoutProps,
+    CornerProps,
+    DefaultContainerProps,
+    InstanceItemProps,
+    SelectionEventProps,
+    StyleOf
+} from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -188,7 +195,7 @@ export const FRAME_PRESETS = {
     }
 };
 
-export interface FrameNodeProps extends DefaultContainerProps, InstanceItemProps, SelectionEventProps {
+export interface FrameNodeProps extends DefaultContainerProps, InstanceItemProps, SelectionEventProps, AutoLayoutProps {
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     preset?: Preset;
 }

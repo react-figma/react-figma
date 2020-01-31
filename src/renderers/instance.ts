@@ -5,6 +5,7 @@ import { refMixin } from '../mixins/refMixin';
 import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { InstanceProps } from '../components/component/Instance';
+import { autoLayoutMixin } from '../mixins/autoLayoutMixin';
 
 export const instance = (node: InstanceNode) => (props: InstanceProps) => {
     const instanceNode = node || props.component.createInstance();
@@ -16,6 +17,7 @@ export const instance = (node: InstanceNode) => (props: InstanceProps) => {
     layoutMixin(instanceNode)(props);
     exportMixin(instanceNode)(props);
     blendMixin(instanceNode)(props);
+    autoLayoutMixin(instanceNode)(props);
 
     return instanceNode;
 };
