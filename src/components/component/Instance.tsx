@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultContainerProps, SelectionEventProps, StyleOf } from '../../types';
+import { AutoLayoutProps, DefaultContainerProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -11,7 +11,7 @@ import { StyleSheet } from '../..';
 import * as all from '../../index';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 
-export interface InstanceProps extends DefaultContainerProps, SelectionEventProps {
+export interface InstanceProps extends DefaultContainerProps, SelectionEventProps, AutoLayoutProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     overrides?: { [key: string]: Object };
     component: ComponentNode;

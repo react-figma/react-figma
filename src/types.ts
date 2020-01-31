@@ -135,3 +135,12 @@ export interface SelectionEventProps {
 export interface ChangePageEventProps {
     onCurrentChange?: (isCurrent: boolean) => void;
 }
+
+export interface AutoLayoutProps {
+    layoutMode?: 'NONE' | 'HORIZONTAL' | 'VERTICAL';
+    counterAxisSizingMode?: 'FIXED' | 'AUTO';
+    horizontalPadding?: number;
+    verticalPadding?: number;
+    itemSpacing?: number;
+    constraints?: Constraints;
+}
