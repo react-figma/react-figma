@@ -6,6 +6,9 @@ export const useSelectionChange = (nodeRef: { current?: SceneNode }, props: Sele
     const [isSelected, setSelected] = React.useState(false);
 
     React.useEffect(() => {
+        if (!props.onSelectionEnter && !props.onSelectionLeave) {
+            return;
+        }
         if (!didMountRef.current) {
             didMountRef.current = true;
             return;
@@ -18,6 +21,9 @@ export const useSelectionChange = (nodeRef: { current?: SceneNode }, props: Sele
     }, [isSelected]);
 
     React.useEffect(() => {
+        if (!props.onSelectionEnter && !props.onSelectionLeave) {
+            return;
+        }
         const handler = () => {
             if (figma.currentPage.selection.indexOf(nodeRef.current) >= 0) {
                 setSelected(true);
