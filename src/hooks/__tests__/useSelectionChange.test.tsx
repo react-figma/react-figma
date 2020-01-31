@@ -43,4 +43,31 @@ describe('useSelectionChange', () => {
         expect(onSelectionEnter).toHaveBeenCalledTimes(1);
         expect(onSelectionLeave).toHaveBeenCalledTimes(1);
     });
+
+    it("handlers doesn't applied when haven't onSelectionEnter, onSelectionLeave", async () => {
+        const node = figma.createRectangle();
+        figma.on = jest.fn().mockImplementation(figma.on);
+        const Component = () => {
+            useSelectionChange({ current: node }, {});
+            return null;
+        };
+        render(<Component />, figma.currentPage);
+        await wait();
+        expect(figma.on).toHaveBeenCalledTimes(0);
+    });
+
+    it('handlers applied when have onSelectionEnter or onSelectionLeave', async () => {
+        const node = figma.createRectangle();
+        figma.on = jest.fn().mockImplementation(figma.on);
+        const onSelectionEnter = jest.fn();
+        const onSelectionLeave = jest.fn();
+
+        const Component = () => {
+            useSelectionChange({ current: node }, { onSelectionEnter, onSelectionLeave });
+            return null;
+        };
+        render(<Component />, figma.currentPage);
+        await wait();
+        expect(figma.on).toHaveBeenCalledTimes(1);
+    });
 });
