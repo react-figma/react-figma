@@ -9,7 +9,7 @@ Components use CSS styles + flexbox layout.
 
 | property                  | type                                                                                        | supported? |
 | ------------------------- | ------------------------------------------------------------------------------------------- | ---------- |
-| `shadowColor`             | `Color`                                                                                     | ✅          |
+| `shadowColor`             | [`Color`](colors.md)                                                                        | ✅          |
 | `shadowOffset`            | `{ width: number, height: number }`                                                         | ✅          |
 | `shadowOpacity`           | `number`                                                                                    | ✅          |
 | `shadowSpread`            | `number`                                                                                    | ⛔          |
@@ -52,12 +52,12 @@ Components use CSS styles + flexbox layout.
 | `aspectRatio`             | `number`                                                                                    | ✅          |
 | `zIndex`                  | `number`                                                                                    | ⛔          |
 | `backfaceVisibility`      | `visible` &#124; `hidden`                                                                   | ⛔️         |
-| `backgroundColor`         | `Color`                                                                                     | ✅          |
-| `borderColor`             | `Color`                                                                                     | ✅          |
-| `borderTopColor`          | `Color`                                                                                     | ⛔          |
-| `borderRightColor`        | `Color`                                                                                     | ⛔          |
-| `borderBottomColor`       | `Color`                                                                                     | ⛔          |
-| `borderLeftColor`         | `Color`                                                                                     | ⛔          |
+| `backgroundColor`         | [`Color`](colors.md)                                                                        | ✅          |
+| `borderColor`             | [`Color`](colors.md)                                                                        | ✅          |
+| `borderTopColor`          | [`Color`](colors.md)                                                                        | ⛔          |
+| `borderRightColor`        | [`Color`](colors.md)                                                                        | ⛔          |
+| `borderBottomColor`       | [`Color`](colors.md)                                                                        | ⛔          |
+| `borderLeftColor`         | [`Color`](colors.md)                                                                        | ⛔          |
 | `borderRadius`            | `number` &#124; `percentage`                                                                | ✅          |
 | `borderTopLeftRadius`     | `number` &#124; `percentage`                                                                | ✅          |
 | `borderTopRightRadius`    | `number` &#124; `percentage`                                                                | ✅          |
@@ -75,7 +75,7 @@ Components use CSS styles + flexbox layout.
 
 | property             | type                                                                 | supported? |
 | -------------------- | -------------------------------------------------------------------- | ---------- |
-| `color`              | `Color`                                                              | ✅          |
+| [`Color`](colors.md) | [`Color`](colors.md)                                                 | ✅          |
 | `fontFamily`         | `string`                                                             | ✅          |
 | `fontSize`           | `number`                                                             | ✅          |
 | `fontStyle`          | `normal` &#124; `italic`                                             | ✅          |
@@ -83,7 +83,7 @@ Components use CSS styles + flexbox layout.
 | `textDecorationLine` | `none` &#124; `underline` &#124; `line-through`                      | ✅          |
 | `textShadowOffset`   | `{ width: number, height: number }`                                  | ✅          |
 | `textShadowRadius`   | `number`                                                             | ✅          |
-| `textShadowColor`    | `Color`                                                              | ✅          |
+| `textShadowColor`    | [`Color`](colors.md)                                                 | ✅          |
 | `letterSpacing`      | `number` &#124; `percentage`                                         | ✅          |
 | `lineHeight`         | `auto` &#124; `number` &#124; `percentage`                           | ✅          |
 | `textAlign`          | `auto` &#124; `left` &#124; `right` &#124; `center` &#124; `justify` | ✅          |
