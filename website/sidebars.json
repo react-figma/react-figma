@@ -5,6 +5,7 @@
     "API": [
       "api/render",
       "styling",
+      "colors",
       {
         "type": "category",
         "label": "UI Primitives",
