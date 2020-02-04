@@ -1,7 +1,12 @@
 import { messagePromise } from '../helpers/messagePromise';
+import { HookOptions, HookOptionsWithFormatter, FetchResult } from 'react-fetch-hook';
 const usePromise = require('react-fetch-hook/usePromise');
 
-export const useFetch = (path, options?: any, specialOptions?: any) => {
+export const useFetch = <T>(
+    path: RequestInfo,
+    options?: HookOptions | HookOptionsWithFormatter<T>,
+    specialOptions?: HookOptions
+): FetchResult<T> => {
     const blocked = ((specialOptions && specialOptions.depends) || (options && options.depends) || []).reduce(function(
         acc,
         dep
