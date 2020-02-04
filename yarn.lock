@@ -4282,6 +4282,11 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-fetch-hook@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/react-fetch-hook/-/react-fetch-hook-1.7.1.tgz#d15d67ccab4087d461c6aaaf31f4cbcab7bb0f6e"
+  integrity sha512-VbDQKp1vVJoonH9wfgot3ayJdTZ6rAB5TQmqG40DE1SlJJ+UqhjlT+cynn/ofP5j1qYr5QLls87vqI2yuUoqYw==
+
 react-figma-webpack-config@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/react-figma-webpack-config/-/react-figma-webpack-config-0.0.2.tgz#41c577f7ef4291182b1504d45a41bf51c8b4b8e5"

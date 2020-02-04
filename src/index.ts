@@ -20,3 +20,5 @@ export { Image } from './components/Image/Image';
 
 export { StyleSheet } from './helpers/StyleSheet';
 export { Platform } from './helpers/Platform';
+
+export { useFetch } from './hooks/useFetch';
