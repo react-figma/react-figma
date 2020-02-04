@@ -5,6 +5,7 @@
     "API": [
       "api/render",
       "styling",
+      "data-fetching",
       {
         "type": "category",
         "label": "UI Primitives",
