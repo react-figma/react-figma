@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Page, Frame, StyleSheet, Text, useFetch } from '../../../src';
+import { Page, Frame, StyleSheet, Text, useFetch } from 'react-figma';
 
 const styles = StyleSheet.create({
     frame: {
