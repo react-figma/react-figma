@@ -1,4 +1,4 @@
-export const fetchWorker = message => {
+export const fetchWorker = fetch => message => {
     if (!message.value || message.value.type !== 'fetch') {
         return;
     }
