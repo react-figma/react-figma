@@ -121,10 +121,11 @@ export const App = () => {
 
 ## Examples
 
-* [basic](examples/basic)
-* [design-system](examples/design-system)
-* [interactive](examples/interactive)
-* [groups](examples/groups)
+* [Basic](examples/basic)
+* [Design system](examples/design-system)
+* [Interactive](examples/interactive)
+* [Groups](examples/groups)
+* [Data fetching](examples/fetching)
 * [Primer Demo](https://github.com/react-figma/primer-demo) - Example of multifplatform UI-kit
 
 ## Become a Contributor 🎖

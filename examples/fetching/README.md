@@ -1,26 +1,28 @@
-# Interaction example
+# Data fetching example
 
-The app that rendered checkbox and handles the `onSelectionEnter`, `onSelectionLeave` events.
+The app that displayed user name through [swapi](https://swapi.co/) API.
 
 Demo:
 
-<p align="center"><img src="https://media.giphy.com/media/j2Rh9Ww5nKvwowB5gi/giphy.gif" width="480"></p>
+<p align="center"><img src="https://media.giphy.com/media/U8NLxe145P2soFwK8p/giphy.gif" width="480"></p>
 
 Code example:
 
 ```javascript
-const [checked, setChecked] = React.useState(false);
-...
-<Frame style={styles.frame}>                                                                   
-    <Checkbox                                                                                  
-        checked={checked}                                                                      
-        label="select me"                                                                      
-        onSelectionEnter={() => setChecked(true)}                                              
-        onSelectionLeave={() => setChecked(false)}                                             
-    />                                                                                         
-    <Text style={styles.text}>{checked ? 'Checkbox selected' : 'Checkbox not selected'}</Text> 
-    <Text style={styles.text}>{`Counter: ${counter}`}</Text>                                   
-</Frame>                                                                                         
+import * as React from 'react';
+import { Page, Frame, StyleSheet, Text, useFetch } from 'react-figma';
+
+
+export const App = () => {
+    const { isLoading, data } = useFetch(`https://swapi.co/api/people/1`);
+
+    return (
+        <Frame>
+            <Text>{`isLoading: ${(isLoading && 'true') || 'false'}`}</Text>
+            <Text>{`Name: ${data && data.name}`}</Text>
+        </Frame>
+    );
+};                                                                                      
 ```
 
 [How to run](../../contributing.md#running-examples)
