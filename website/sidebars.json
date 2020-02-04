@@ -6,6 +6,7 @@
       "api/render",
       "styling",
       "colors",
+      "data-fetching",
       {
         "type": "category",
         "label": "UI Primitives",
