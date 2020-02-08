@@ -37,4 +37,5 @@ export interface YogaStyleProperties {
     flexBasis: Dimension;
     aspectRatio: number;
     alignSelf: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'stretch';
+    overflow: 'visible' | 'hidden' | 'scroll';
 }
