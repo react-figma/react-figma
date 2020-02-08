@@ -77,6 +77,17 @@ const transformPosition = yoga => (value: string) => {
     }
 };
 
+const transformOverflow = yoga => (value: string) => {
+    switch (value) {
+        case 'hidden':
+            return yoga.OVERFLOW_HIDDEN;
+        case 'scroll':
+            return yoga.OVERFLOW_SCROLL;
+        default:
+            return yoga.OVERFLOW_VISIBLE;
+    }
+};
+
 export const applyStyleToYogaNode = yoga => (yogaNode, style: Partial<YogaStyleProperties>) => {
     if (style.position) {
         yogaNode.setPositionType(transformPosition(yoga)(style.position));
@@ -232,4 +243,6 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: Partial<YogaStyleP
     }
     yogaNode.setAlignItems(transformAlignItems(yoga)(style.alignItems));
     yogaNode.setJustifyContent(transformJustifyContent(yoga)(style.justifyContent));
+
+    yogaNode.setOverflow(transformOverflow(yoga)(style.overflow));
 };
