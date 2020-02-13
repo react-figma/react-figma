@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<View /> View with children 1`] = `
+<group
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+>
+  <text
+    innerRef={
+      Object {
+        "current": undefined,
+      }
+    }
+    loadedFont={null}
+  >
+    text
+  </text>
+</group>
+`;
+
+exports[`<View /> View with children and rectangle styles 1`] = `
+<group
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+>
+  <rectangle
+    fills={
+      Array [
+        Object {
+          "color": Object {
+            "b": 0,
+            "g": 0,
+            "r": 1,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+        },
+      ]
+    }
+    height={100}
+    innerRef={
+      Object {
+        "current": undefined,
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#ff0000",
+        "height": "100%",
+        "left": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": "100%",
+      }
+    }
+    width={100}
+  />
+  <text
+    innerRef={
+      Object {
+        "current": undefined,
+      }
+    }
+    loadedFont={null}
+  >
+    text
+  </text>
+</group>
+`;
+
+exports[`<View /> View without children 1`] = `
+<rectangle
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 1,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Object {
+      "backgroundColor": "#ff0000",
+    }
+  }
+/>
+`;
