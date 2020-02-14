@@ -1,27 +1,17 @@
 import * as React from 'react';
-import { Group, Rectangle, StyleSheet } from '../..';
-import { GroupNodeProps } from '../group/Group';
+import { Frame, Rectangle, StyleSheet } from '../..';
 import { RectangleProps } from '../rectangle/Rectangle';
-import { getRectangleStyleProperties } from '../../styleTransformers/getRectangleStyleProperties';
+import { FrameNodeProps } from '../frame/Frame';
 
-export type ViewProps = GroupNodeProps | RectangleProps;
+export type ViewProps = FrameNodeProps | RectangleProps;
 
 export const View: React.FC<ViewProps> = props => {
     if (props.children) {
-        const { children, style, ...otherProps } = props;
-        const rectangleStyle = style && getRectangleStyleProperties(StyleSheet.flatten(style));
         return (
-            <Group {...otherProps}>
-                {rectangleStyle && Object.keys(rectangleStyle).length > 0 && (
-                    <Rectangle
-                        style={{
-                            ...StyleSheet.absoluteFill,
-                            ...rectangleStyle
-                        }}
-                    />
-                )}
-                {children}
-            </Group>
+            <Frame
+                {...props}
+                style={[{ backgroundColor: 'transparent' }, props.style && StyleSheet.flatten(props.style)]}
+            />
         );
     } else {
         return <Rectangle {...(props as RectangleProps)} />;

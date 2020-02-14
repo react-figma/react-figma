@@ -9,6 +9,8 @@ import { propsAssign } from '../helpers/propsAssign';
 import { BorderProps } from '../types';
 import { frameMixin } from '../mixins/frameMixin';
 import { autoLayoutMixin } from '../mixins/autoLayoutMixin';
+import { cornerMixin } from '../mixins/cornerMixin';
+import { rectangleCornerMixin } from '../mixins/rectangleCornerMixin';
 
 export const frame = (node: FrameNode) => (props: FrameNodeProps) => {
     const frameNode = node || props.node || figma.createFrame();
@@ -20,6 +22,8 @@ export const frame = (node: FrameNode) => (props: FrameNodeProps) => {
     layoutMixin(frameNode)(props);
     exportMixin(frameNode)(props);
     blendMixin(frameNode)(props);
+    cornerMixin(frameNode)(props);
+    rectangleCornerMixin(frameNode)(props);
     autoLayoutMixin(frameNode)(props);
 
     frameMixin(frameNode)(props);

@@ -17,11 +17,14 @@ export const layoutMixin = (node: LayoutMixin & BaseNode) => (props: LayoutProps
     if (typeof props.rotation === 'number') {
         node.rotation = props.rotation;
     }
-    if (isValidSize(props.width) && isValidSize(props.height) && node.type !== 'LINE') {
+    if ((isValidSize(props.width) || isValidSize(props.height)) && node.type !== 'LINE') {
         if (props.isWithoutConstraints) {
             node.resizeWithoutConstraints(props.width, props.height);
         } else {
-            node.resize(props.width, props.height);
+            node.resize(
+                isValidSize(props.width) ? props.width : node.width,
+                isValidSize(props.height) ? props.height : node.height
+            );
         }
     }
 

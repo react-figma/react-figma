@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {
     AutoLayoutProps,
+    BorderProps,
     CornerProps,
     DefaultContainerProps,
     InstanceItemProps,
@@ -20,6 +21,7 @@ import {
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../../helpers/StyleSheet';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformBorderStyleProperties } from '../../styleTransformers/transformBorderProperties';
 
 interface Preset {
     name: string;
@@ -195,7 +197,13 @@ export const FRAME_PRESETS = {
     }
 };
 
-export interface FrameNodeProps extends DefaultContainerProps, InstanceItemProps, SelectionEventProps, AutoLayoutProps {
+export interface FrameNodeProps
+    extends DefaultContainerProps,
+        InstanceItemProps,
+        SelectionEventProps,
+        AutoLayoutProps,
+        BorderProps,
+        CornerProps {
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     preset?: Preset;
 }
@@ -213,6 +221,7 @@ export const Frame: React.FC<FrameNodeProps> = props => {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
         ...transformGeometryStyleProperties('backgrounds', style),
+        ...transformBorderStyleProperties(style),
         ...propWithoutPreset
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
