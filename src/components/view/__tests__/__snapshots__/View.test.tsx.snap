@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<View /> View with children 1`] = `
+<frame
+  backgrounds={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 0,
+        "type": "SOLID",
+      },
+    ]
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      Object {
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <text
+    innerRef={
+      Object {
+        "current": undefined,
+      }
+    }
+    loadedFont={null}
+  >
+    text
+  </text>
+</frame>
+`;
+
+exports[`<View /> View with children and rectangle styles 1`] = `
+<frame
+  backgrounds={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 1,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      Object {
+        "backgroundColor": "#ff0000",
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <text
+    innerRef={
+      Object {
+        "current": undefined,
+      }
+    }
+    loadedFont={null}
+  >
+    text
+  </text>
+</frame>
+`;
+
+exports[`<View /> View without children 1`] = `
+<rectangle
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 1,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Object {
+      "backgroundColor": "#ff0000",
+    }
+  }
+/>
+`;

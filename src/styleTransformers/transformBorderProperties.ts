@@ -1,4 +1,4 @@
-import { BorderProps, GeometryProps } from '../types';
+import { BorderProps, CornerProps, GeometryProps } from '../types';
 import { transformSize, TSize } from '../helpers/size';
 import { colorToPaint, colorToRGB } from './transformColors';
 
@@ -20,13 +20,10 @@ export const transformBorderStyleProperties = (
         return {};
     }
 
-    const props: BorderProps & GeometryProps = {};
+    const props: BorderProps & GeometryProps & CornerProps = {};
 
     if (styles.borderRadius) {
-        props.topLeftRadius = transformSize(styles.borderRadius);
-        props.topRightRadius = transformSize(styles.borderRadius);
-        props.bottomLeftRadius = transformSize(styles.borderRadius);
-        props.bottomRightRadius = transformSize(styles.borderRadius);
+        props.cornerRadius = transformSize(styles.borderRadius);
     }
     if (styles.borderTopLeftRadius) {
         props.topLeftRadius = transformSize(styles.borderTopLeftRadius);

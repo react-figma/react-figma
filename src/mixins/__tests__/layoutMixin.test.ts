@@ -18,7 +18,7 @@ describe('layoutMixin', () => {
     it('resizing without height', () => {
         const resize = jest.fn((width, height) => ({ width, height }));
         layoutMixin({ type: 'RECTANGLE', resize } as any)({ width: 500 });
-        expect(resize.mock.calls.length).toBe(0);
+        expect(resize.mock.calls.length).toBe(1);
     });
 
     it('resizing Line', () => {
@@ -47,7 +47,7 @@ describe('layoutMixin', () => {
         node.height = 100;
         layoutMixin(node)({ width: 0, height: 10 });
         expect(node.width).toEqual(100);
-        expect(node.height).toEqual(100);
+        expect(node.height).toEqual(10);
     });
 
     it('resizing with negative width', () => {
@@ -58,7 +58,7 @@ describe('layoutMixin', () => {
         node.height = 100;
         layoutMixin(node)({ width: -10, height: 10 });
         expect(node.width).toEqual(100);
-        expect(node.height).toEqual(100);
+        expect(node.height).toEqual(10);
     });
 
     it('resizing with zero height', () => {
@@ -68,7 +68,7 @@ describe('layoutMixin', () => {
         // @ts-ignore
         node.height = 100;
         layoutMixin(node)({ width: 10, height: 0 });
-        expect(node.width).toEqual(100);
+        expect(node.width).toEqual(10);
         expect(node.height).toEqual(100);
     });
 
@@ -79,7 +79,7 @@ describe('layoutMixin', () => {
         // @ts-ignore
         node.height = 100;
         layoutMixin(node)({ width: 10, height: -10 });
-        expect(node.width).toEqual(100);
+        expect(node.width).toEqual(10);
         expect(node.height).toEqual(100);
     });
 });
