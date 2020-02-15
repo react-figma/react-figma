@@ -65,4 +65,20 @@ describe('<Frame />', () => {
         });
         expect(tree.toJSON()).toMatchSnapshot();
     });
+
+    it('Frame with border', () => {
+        let tree;
+        act(() => {
+            tree = create(
+                <Frame
+                    style={{
+                        borderRadius: 10,
+                        borderWidth: 1,
+                        borderColor: '#222020'
+                    }}
+                />
+            );
+        });
+        expect(tree.toJSON()).toMatchSnapshot();
+    });
 });

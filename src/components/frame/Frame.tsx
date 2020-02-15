@@ -4,6 +4,7 @@ import {
     BorderProps,
     CornerProps,
     DefaultContainerProps,
+    DefaultShapeProps,
     InstanceItemProps,
     SelectionEventProps,
     StyleOf
@@ -21,7 +22,10 @@ import {
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../../helpers/StyleSheet';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
-import { transformBorderStyleProperties } from '../../styleTransformers/transformBorderProperties';
+import {
+    BorderStyleProperties,
+    transformBorderStyleProperties
+} from '../../styleTransformers/transformBorderProperties';
 
 interface Preset {
     name: string;
@@ -198,13 +202,20 @@ export const FRAME_PRESETS = {
 };
 
 export interface FrameNodeProps
-    extends DefaultContainerProps,
+    extends DefaultShapeProps,
+        DefaultContainerProps,
         InstanceItemProps,
         SelectionEventProps,
         AutoLayoutProps,
         BorderProps,
         CornerProps {
-    style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
+    style?: StyleOf<
+        GeometryStyleProperties &
+            YogaStyleProperties &
+            LayoutStyleProperties &
+            BlendStyleProperties &
+            BorderStyleProperties
+    >;
     preset?: Preset;
 }
 
