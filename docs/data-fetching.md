@@ -31,8 +31,10 @@ export const App = () => {
 It's required to pass `fetch` function to `uiWorker`:
 
 ```javascript
+const handler = uiWorker({ yoga, fetch });
+
 onmessage = event => {
-    uiWorker({ yoga, fetch })(event);
+    handler(event);
 };
 ```
 
