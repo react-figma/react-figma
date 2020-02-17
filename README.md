@@ -85,8 +85,10 @@ render(<App />, figma.root);
 import * as yoga from 'yoga-layout-prebuilt';
 import { uiWorker } from 'react-figma';
 
+const handler = uiWorker({ yoga, fetch });
+
 onmessage = event => {
-    uiWorker({ yoga, fetch })(event);
+    handler(event);
 };
 ```
 
