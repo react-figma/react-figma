@@ -67,11 +67,21 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "wyvl",
+      "name": "Vivian Lee",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/40932265?v=4",
+      "profile": "https://github.com/wyvl",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "react-figma",
   "projectOwner": "react-figma",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "skipCi": true
 }
