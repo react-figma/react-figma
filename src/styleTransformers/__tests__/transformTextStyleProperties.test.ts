@@ -57,4 +57,35 @@ describe('transformTextStyleProperties', () => {
         });
         expect(result).toMatchSnapshot();
     });
+
+    it('Non standard fontStyle warning', () => {
+        const warn = jest.fn();
+        // @ts-ignore
+        global.console = { warn };
+        transformTextStyleProperties({
+            fontStyle: 'solid'
+        });
+        expect(warn).toHaveBeenCalledTimes(1);
+        expect(warn).toHaveBeenCalledWith(
+            "fontStyle: 'solid': Non-standard font styles may not work at other platforms"
+        );
+    });
+
+    it("fontStyle normal doesn't affected warning", () => {
+        const warn = jest.fn();
+        // @ts-ignore
+        global.console = { warn };
+        transformTextStyleProperties({
+            fontStyle: 'normal'
+        });
+        expect(warn).toHaveBeenCalledTimes(0);
+    });
+
+    it("undefined fontStyle doesn't affected warning", () => {
+        const warn = jest.fn();
+        // @ts-ignore
+        global.console = { warn };
+        transformTextStyleProperties({});
+        expect(warn).toHaveBeenCalledTimes(0);
+    });
 });

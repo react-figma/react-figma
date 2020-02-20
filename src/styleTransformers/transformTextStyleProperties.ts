@@ -8,7 +8,7 @@ export interface TextStyleProperties {
     color: string;
     fontFamily: string;
     fontWeight: 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
-    fontStyle: 'normal' | 'italic';
+    fontStyle: 'normal' | 'italic' | 'solid';
     fontSize: number;
     textAlign: 'auto' | 'left' | 'right' | 'center' | 'justify';
     lineHeight: number | string;
@@ -37,6 +37,11 @@ const textDecorationLineMapping = {
 export const transformTextStyleProperties = (style?: Partial<TextStyleProperties>): TextProperties => {
     if (!style) {
         return {};
+    }
+    if (process.env.NODE_ENV !== 'production') {
+        if (style.fontStyle && style.fontStyle !== 'normal' && style.fontStyle !== 'italic') {
+            console.warn(`fontStyle: '${style.fontStyle}': Non-standard font styles may not work at other platforms`);
+        }
     }
 
     return {
