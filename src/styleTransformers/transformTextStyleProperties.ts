@@ -38,6 +38,11 @@ export const transformTextStyleProperties = (style?: Partial<TextStyleProperties
     if (!style) {
         return {};
     }
+    if (process.env.NODE_ENV !== 'production') {
+        if (style.fontStyle && style.fontStyle !== 'normal' && style.fontStyle !== 'italic') {
+            console.warn(`fontStyle: '${style.fontStyle}': Non-standard font styles may not work at other platforms`);
+        }
+    }
 
     return {
         ...((style && style.color && { fills: [colorToPaint(style.color)] }) || {}),
