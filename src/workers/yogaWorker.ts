@@ -49,11 +49,13 @@ export const yogaWorker = yoga => message => {
 
     yogaRoot.calculateLayout(props.width, props.height, yoga.DIRECTION_LTR);
 
+    const value = transformCache(cache);
+
     parent.postMessage(
         {
             pluginMessage: {
                 id: message.id,
-                value: transformCache(cache)
+                value
             }
         },
         '*'
