@@ -82,4 +82,10 @@ describe('layoutMixin', () => {
         expect(node.width).toEqual(10);
         expect(node.height).toEqual(100);
     });
+
+    it('setup layoutAlign', () => {
+        const node = figma.createRectangle();
+        layoutMixin(node)({ layoutAlign: 'CENTER' });
+        expect(node.layoutAlign).toEqual('CENTER');
+    });
 });
