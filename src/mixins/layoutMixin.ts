@@ -35,4 +35,8 @@ export const layoutMixin = (node: LayoutMixin & BaseNode) => (props: LayoutProps
             node.resize(props.width, 0);
         }
     }
+
+    if (props.layoutAlign) {
+        node.layoutAlign = props.layoutAlign;
+    }
 };
