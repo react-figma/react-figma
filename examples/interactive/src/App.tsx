@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Page, Frame, StyleSheet, Text } from '../../../src';
+import { Page, Frame, StyleSheet, Text } from 'react-figma';
 import { Checkbox } from './components/checkbox/Checkbox';
 
 const styles = StyleSheet.create({

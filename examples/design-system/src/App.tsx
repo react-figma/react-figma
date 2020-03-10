@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Frame, Page, View, Text, Component, StyleSheet } from '../../../src';
+import { Frame, Page, View, Text, Component, StyleSheet } from 'react-figma';
 
 import * as facebookIcon from './icons/001-facebook.png';
 import * as twitterIcon from './icons/002-twitter.png';
