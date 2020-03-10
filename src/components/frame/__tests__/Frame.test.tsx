@@ -2,6 +2,7 @@ import * as React from 'react';
 import { act, create } from 'react-test-renderer';
 import { Frame } from '../Frame';
 import { createFigma } from 'figma-api-stub';
+import { View } from '../../..';
 
 describe('<Frame />', () => {
     beforeEach(() => {
@@ -71,6 +72,25 @@ describe('<Frame />', () => {
         act(() => {
             tree = create(
                 <Frame
+                    style={{
+                        borderRadius: 10,
+                        borderWidth: 1,
+                        borderColor: '#222020'
+                    }}
+                />
+            );
+        });
+        expect(tree.toJSON()).toMatchSnapshot();
+    });
+
+    it('Frame with auto layout', () => {
+        let tree;
+        act(() => {
+            tree = create(
+                <Frame
+                    layoutMode="HORIZONTAL"
+                    horizontalPadding={4}
+                    verticalPadding={1}
                     style={{
                         borderRadius: 10,
                         borderWidth: 1,

@@ -21,14 +21,10 @@ exports[`<View /> View with children 1`] = `
     }
   }
   style={
-    Array [
-      Object {
-        "backgroundColor": "transparent",
-      },
-      Object {
-        "flex": 1,
-      },
-    ]
+    Object {
+      "backgroundColor": "transparent",
+      "flex": 1,
+    }
   }
 >
   <text
@@ -65,15 +61,10 @@ exports[`<View /> View with children and rectangle styles 1`] = `
     }
   }
   style={
-    Array [
-      Object {
-        "backgroundColor": "transparent",
-      },
-      Object {
-        "backgroundColor": "#ff0000",
-        "flex": 1,
-      },
-    ]
+    Object {
+      "backgroundColor": "#ff0000",
+      "flex": 1,
+    }
   }
 >
   <text

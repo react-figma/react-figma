@@ -1,5 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Frame /> Frame with auto layout 1`] = `
+<frame
+  cornerRadius={10}
+  horizontalPadding={4}
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  layoutMode="HORIZONTAL"
+  strokeWeight={1}
+  strokes={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0.12549019607843137,
+          "g": 0.12549019607843137,
+          "r": 0.13333333333333333,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
+  style={
+    Object {
+      "borderColor": "#222020",
+      "borderRadius": 10,
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "paddingBottom": 1,
+      "paddingLeft": 4,
+      "paddingRight": 4,
+      "paddingTop": 1,
+    }
+  }
+  verticalPadding={1}
+/>
+`;
+
 exports[`<Frame /> Frame with border 1`] = `
 <frame
   cornerRadius={10}
@@ -124,5 +164,6 @@ exports[`<Frame /> Frame without props 1`] = `
       "current": undefined,
     }
   }
+  style={Object {}}
 />
 `;

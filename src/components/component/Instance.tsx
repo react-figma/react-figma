@@ -10,6 +10,7 @@ import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import * as all from '../../index';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 
 export interface InstanceProps extends DefaultContainerProps, SelectionEventProps, AutoLayoutProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
@@ -30,11 +31,12 @@ export const Instance: React.FC<InstanceProps> = props => {
     const [isHaveNode, setHaveNode] = React.useState(false);
     const nodeRef = React.useRef<InstanceNode>();
     useSelectionChange(nodeRef, props);
-    const style = StyleSheet.flatten(props.style);
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
     const componentProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
-        ...props
+        ...props,
+        style
     };
     const yogaProps = useYogaLayout({ nodeRef, ...componentProps });
 
