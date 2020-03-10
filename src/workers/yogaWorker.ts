@@ -38,7 +38,7 @@ const transformCache = cache => {
 };
 
 export const yogaWorker = yoga => message => {
-    if (!message.value || message.value.type !== 'calculateLayout') {
+    if (!message.value || message.value.type !== 'calculateLayout' || !yoga) {
         return;
     }
 
