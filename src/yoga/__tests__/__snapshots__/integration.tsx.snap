@@ -69,7 +69,7 @@ ChildrenMixinStub {
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
-            "reactStyle": "[{\\"backgroundColor\\":\\"transparent\\"},null]",
+            "reactStyle": "{\\"backgroundColor\\":\\"transparent\\"}",
           },
           "type": "FRAME",
           "width": 200,

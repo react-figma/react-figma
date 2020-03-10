@@ -26,6 +26,7 @@ import {
     BorderStyleProperties,
     transformBorderStyleProperties
 } from '../../styleTransformers/transformBorderProperties';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 
 interface Preset {
     name: string;
@@ -224,7 +225,7 @@ export const Frame: React.FC<FrameNodeProps> = props => {
 
     useSelectionChange(nodeRef, props);
 
-    const style = StyleSheet.flatten(props.style);
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
     const { preset, ...propWithoutPreset } = props;
     const frameProps = {
@@ -233,7 +234,8 @@ export const Frame: React.FC<FrameNodeProps> = props => {
         ...transformBlendProperties(style),
         ...transformGeometryStyleProperties('backgrounds', style),
         ...transformBorderStyleProperties(style),
-        ...propWithoutPreset
+        ...propWithoutPreset,
+        style
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
 
