@@ -20,6 +20,7 @@ import { transformBlendProperties, BlendStyleProperties } from '../../styleTrans
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 
 export interface LineProps extends DefaultShapeProps, CornerProps, BorderProps, InstanceItemProps, SelectionEventProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
@@ -30,13 +31,14 @@ export const Line: React.FC<LineProps> = props => {
 
     useSelectionChange(nodeRef, props);
 
-    const style = StyleSheet.flatten(props.style);
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
     const lineProps = {
         ...transformLayoutStyleProperties(style),
         ...transformGeometryStyleProperties('fills', style),
         ...transformBlendProperties(style),
-        ...props
+        ...props,
+        style
     };
 
     const yogaProps = useYogaLayout({ nodeRef, ...lineProps });

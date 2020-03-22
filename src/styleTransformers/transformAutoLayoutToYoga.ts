@@ -1,11 +1,20 @@
-import { AutoLayoutProps } from '../types';
+import { AutoLayoutProps, LayoutProps } from '../types';
 
 const layoutModeToFlexDirection = {
     HORIZONTAL: 'row',
     VERTICAL: 'column'
 };
 
-export const transformAutoLayoutToYoga = (props: AutoLayoutProps) => {
+const layoutAlignToAlignSelf = {
+    MIN: 'flex-start',
+    CENTER: 'center',
+    MAX: 'flex-end',
+    STRETCH: 'stretch'
+};
+
+interface AutoLayoutAllProps extends AutoLayoutProps, LayoutProps {}
+
+export const transformAutoLayoutToYoga = (props: AutoLayoutAllProps) => {
     return {
         ...(props.layoutMode && layoutModeToFlexDirection[props.layoutMode]
             ? {
@@ -22,6 +31,11 @@ export const transformAutoLayoutToYoga = (props: AutoLayoutProps) => {
             ? {
                   paddingTop: props.verticalPadding,
                   paddingBottom: props.verticalPadding
+              }
+            : {}),
+        ...(props.layoutAlign && layoutAlignToAlignSelf[props.layoutAlign]
+            ? {
+                  alignSelf: layoutAlignToAlignSelf[props.layoutAlign]
               }
             : {})
     };

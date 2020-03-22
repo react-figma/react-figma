@@ -121,5 +121,6 @@ exports[`<Rectangle /> Rectangle without props 1`] = `
       "current": undefined,
     }
   }
+  style={Object {}}
 />
 `;

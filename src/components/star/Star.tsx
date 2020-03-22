@@ -21,6 +21,7 @@ import { transformBlendProperties, BlendStyleProperties } from '../../styleTrans
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 
 export interface StarProps
     extends DefaultShapeProps,
@@ -37,13 +38,14 @@ export const Star: React.FC<StarProps> = props => {
 
     useSelectionChange(nodeRef, props);
 
-    const style = StyleSheet.flatten(props.style);
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
     const starProps = {
         ...transformLayoutStyleProperties(style),
         ...transformGeometryStyleProperties('fills', style),
         ...transformBlendProperties(style),
-        ...props
+        ...props,
+        style
     };
     const fills = useFillsPreprocessor(starProps);
     const yogaProps = useYogaLayout({ nodeRef, ...starProps });

@@ -25,6 +25,7 @@ import { transformBlendProperties, BlendStyleProperties } from '../../styleTrans
 import { StyleSheet } from '../..';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 
 export interface RectangleProps
     extends DefaultShapeProps,
@@ -47,14 +48,15 @@ export const Rectangle: React.FC<RectangleProps> = props => {
 
     useSelectionChange(nodeRef, props);
 
-    const style = StyleSheet.flatten(props.style);
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
     const rectangleProps = {
         ...transformLayoutStyleProperties(style),
         ...transformGeometryStyleProperties('fills', style),
         ...transformBorderStyleProperties(style),
         ...transformBlendProperties(style),
-        ...props
+        ...props,
+        style
     };
     const fills = useFillsPreprocessor(rectangleProps);
     const yogaProps = useYogaLayout({ nodeRef, ...rectangleProps });

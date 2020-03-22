@@ -12,6 +12,9 @@ export const updateYogaRoot = (root: any) => {
 };
 
 export const updateYogaNode = (node: any) => {
+    if (!node) {
+        return;
+    }
     const parent = node.parent;
     if (!parent || !isReactFigmaNode(parent)) {
         updateYogaRoot(node);

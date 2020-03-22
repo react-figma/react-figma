@@ -38,4 +38,17 @@ describe('<View />', () => {
             .toJSON();
         expect(tree).toMatchSnapshot();
     });
+
+    it('View with layoutAlign', () => {
+        const tree = renderer
+            .create(
+                <View
+                    style={{ width: 80, height: 40, backgroundColor: '#ffaa97' }}
+                    layoutMode="HORIZONTAL"
+                    layoutAlign="MAX"
+                />
+            )
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });

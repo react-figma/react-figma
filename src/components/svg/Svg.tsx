@@ -13,6 +13,7 @@ import {
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../../helpers/StyleSheet';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 
 export interface SvgNodeProps extends DefaultContainerProps, InstanceItemProps, SelectionEventProps {
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
@@ -24,13 +25,14 @@ export const Svg: React.FC<SvgNodeProps> = props => {
 
     useSelectionChange(nodeRef, props);
 
-    const style = StyleSheet.flatten(props.style);
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
     const frameProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
         ...transformGeometryStyleProperties('backgrounds', style),
-        ...props
+        ...props,
+        style
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
 

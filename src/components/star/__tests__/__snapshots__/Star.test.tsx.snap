@@ -7,5 +7,6 @@ exports[`<Star /> Star without props 1`] = `
       "current": undefined,
     }
   }
+  style={Object {}}
 />
 `;

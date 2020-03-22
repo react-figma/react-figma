@@ -14,6 +14,7 @@ exports[`<Ellipse /> Ellipse with arc data 1`] = `
       "current": undefined,
     }
   }
+  style={Object {}}
 />
 `;
 
@@ -100,5 +101,6 @@ exports[`<Ellipse /> Ellipse without props 1`] = `
       "current": undefined,
     }
   }
+  style={Object {}}
 />
 `;

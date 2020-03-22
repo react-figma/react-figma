@@ -22,6 +22,7 @@ import { StyleSheet } from '../..';
 import { useFontName } from '../../hooks/useFontName';
 import { useTextChildren } from '../../hooks/useTextChildren';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 
 export interface TextProps extends TextNodeProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & TextStyleProperties & BlendStyleProperties> | void;
@@ -35,7 +36,7 @@ export const Text: React.FC<TextProps> = props => {
 
     useSelectionChange(nodeRef, props);
 
-    const style = StyleSheet.flatten(props.style);
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
     const charactersByChildren = useTextChildren(nodeRef);
 
@@ -44,7 +45,8 @@ export const Text: React.FC<TextProps> = props => {
         ...transformTextStyleProperties(style),
         ...transformBlendProperties(style),
         ...props,
-        characters: charactersByChildren || props.characters
+        characters: charactersByChildren || props.characters,
+        style
     };
     const hasDefinedWidth = textProps.width || style.maxWidth;
     const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });
