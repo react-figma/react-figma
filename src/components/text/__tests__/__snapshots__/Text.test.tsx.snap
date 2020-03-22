@@ -112,5 +112,6 @@ exports[`<Text /> Text without props 1`] = `
     }
   }
   loadedFont={null}
+  style={Object {}}
 />
 `;

@@ -24,9 +24,9 @@ export const App = () => {
                     layoutAlign="STRETCH"
                 />
                 <View
-                    style={{ height: 40, backgroundColor: '#ffaa97' }}
+                    style={{ width: 80, height: 40, backgroundColor: '#ffaa97' }}
                     layoutMode="HORIZONTAL"
-                    layoutAlign="STRETCH"
+                    layoutAlign="MAX"
                 />
             </View>
         </Page>

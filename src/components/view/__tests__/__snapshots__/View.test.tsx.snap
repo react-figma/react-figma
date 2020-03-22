@@ -34,6 +34,7 @@ exports[`<View /> View with children 1`] = `
       }
     }
     loadedFont={null}
+    style={Object {}}
   >
     text
   </text>
@@ -74,10 +75,47 @@ exports[`<View /> View with children and rectangle styles 1`] = `
       }
     }
     loadedFont={null}
+    style={Object {}}
   >
     text
   </text>
 </frame>
+`;
+
+exports[`<View /> View with layoutAlign 1`] = `
+<rectangle
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0.592156862745098,
+          "g": 0.6666666666666666,
+          "r": 1,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
+  height={40}
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  layoutAlign="MAX"
+  layoutMode="HORIZONTAL"
+  style={
+    Object {
+      "alignSelf": "flex-end",
+      "backgroundColor": "#ffaa97",
+      "flexDirection": "row",
+      "height": 40,
+      "width": 80,
+    }
+  }
+  width={80}
+/>
 `;
 
 exports[`<View /> View without children 1`] = `

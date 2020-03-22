@@ -7,6 +7,7 @@ exports[`<Vector /> Vector that draws a triangle 1`] = `
       "current": undefined,
     }
   }
+  style={Object {}}
   vectorNetwork={
     Object {
       "regions": Array [
@@ -61,5 +62,6 @@ exports[`<Vector /> Vector without props 1`] = `
       "current": undefined,
     }
   }
+  style={Object {}}
 />
 `;

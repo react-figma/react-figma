@@ -13,6 +13,7 @@ import {
     transformGeometryStyleProperties
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 
 export interface GroupNodeProps extends DefaultShapeProps, InstanceItemProps, SelectionEventProps {
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
@@ -23,13 +24,14 @@ export const Group: React.FC<GroupNodeProps> = props => {
 
     useSelectionChange(nodeRef, props);
 
-    const style = StyleSheet.flatten(props.style);
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
     const groupProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
         ...transformGeometryStyleProperties('backgrounds', style),
-        ...props
+        ...props,
+        style
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...groupProps });
 
