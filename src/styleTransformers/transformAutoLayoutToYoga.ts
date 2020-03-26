@@ -12,6 +12,20 @@ const layoutAlignToAlignSelf = {
     STRETCH: 'stretch'
 };
 
+const constraintToJustifyContent = {
+    MIN: 'flex-start',
+    CENTER: 'center',
+    MAX: 'flex-end',
+    STRETCH: 'space-between'
+};
+
+const constraintToAlignItems = {
+    MIN: 'flex-start',
+    CENTER: 'center',
+    MAX: 'flex-end',
+    STRETCH: 'stretch'
+};
+
 interface AutoLayoutAllProps extends AutoLayoutProps, LayoutProps {}
 
 export const transformAutoLayoutToYoga = (props: AutoLayoutAllProps) => {
@@ -36,6 +50,18 @@ export const transformAutoLayoutToYoga = (props: AutoLayoutAllProps) => {
         ...(props.layoutAlign && layoutAlignToAlignSelf[props.layoutAlign]
             ? {
                   alignSelf: layoutAlignToAlignSelf[props.layoutAlign]
+              }
+            : {}),
+        ...(props.constraints &&
+        props.constraints.horizontal &&
+        constraintToJustifyContent[props.constraints.horizontal]
+            ? {
+                  justifyContent: constraintToJustifyContent[props.constraints.horizontal]
+              }
+            : {}),
+        ...(props.constraints && props.constraints.vertical && constraintToAlignItems[props.constraints.vertical]
+            ? {
+                  alignItems: constraintToAlignItems[props.constraints.vertical]
               }
             : {})
     };
