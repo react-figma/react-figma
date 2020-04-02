@@ -5,8 +5,7 @@ import { App } from './App';
 figma.showUI(__html__, { visible: false });
 
 figma.ui.onmessage = message => {
-  subscribeOnMessages(message);
+    subscribeOnMessages(message);
 };
 
 render(<App />, figma.root);
-
