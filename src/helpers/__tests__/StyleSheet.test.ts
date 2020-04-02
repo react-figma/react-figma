@@ -12,7 +12,10 @@ describe('StyleSheet', () => {
             backgroundColor: 'red'
         };
 
-        const result = StyleSheet.compose(style1, style2);
+        const result = StyleSheet.compose(
+            style1,
+            style2
+        );
         expect(result).toMatchSnapshot();
     });
 

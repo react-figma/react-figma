@@ -38,10 +38,7 @@ const transformAngleToFigmaTransformation = (value): Transform => {
     const yc = 0.5;
     const dxc = xc - (Math.cos(angle) * xc + Math.sin(angle) * yc);
     const dyc = yc - (-Math.sin(angle) * xc + Math.cos(angle) * yc);
-    return [
-        [Math.cos(angle), Math.sin(angle), dxc],
-        [-Math.sin(angle), Math.cos(angle), dyc]
-    ];
+    return [[Math.cos(angle), Math.sin(angle), dxc], [-Math.sin(angle), Math.cos(angle), dyc]];
 };
 
 export const colorToPaint = (color: Color): Paint => {
