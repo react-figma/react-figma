@@ -1,5 +1,5 @@
 // Inspired by: https://github.com/airbnb/react-sketchapp/tree/master/examples/styled-components
-import React from 'react';
+import * as React from 'react';
 
 import styled from '../styled';
 import textColor from '../utils/text-color';
