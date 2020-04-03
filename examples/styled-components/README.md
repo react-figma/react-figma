@@ -13,6 +13,12 @@ cd styled-components
 
 [How to run](../../contributing.md#running-examples)
 
+## How It Works
+
+You can use `styled-components/primitives` to build cross-platform UI components that will render to `react-figma`. This is great for building cross-platform UI libraries, that can compile down to a Figma component library for designers to build designs using the same components that are used in production.
+
+![react-figma styled-components example](https://user-images.githubusercontent.com/6757532/78387041-87cc8480-75d6-11ea-8fd0-b202d2e221ee.png)
+
 ## Credit
   - [react-sketchapp](https://github.com/airbnb/react-sketchapp)
     - MIT License
