@@ -23,7 +23,7 @@ export const App = () => {
     };
 
     return (
-        <Page isCurrent name="Page X">
+        <Page isCurrent name="Styled Components">
             <Artboard>
                 {Object.keys(colors).map(color => (
                     <Swatch key={color} name={color} hex={colors[color]} />
