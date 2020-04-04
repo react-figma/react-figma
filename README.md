@@ -128,7 +128,7 @@ export const App = () => {
 * [Interactive](examples/interactive)
 * [Groups](examples/groups)
 * [Data fetching](examples/fetching)
-* [Styled Components](examples/styled-components)
+* [💅 styled-components](examples/styled-components)
 * [Primer Demo](https://github.com/react-figma/primer-demo) - Example of multifplatform UI-kit
 
 ## Become a Contributor 🎖
