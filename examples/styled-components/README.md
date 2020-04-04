@@ -1,4 +1,4 @@
-# styled-components example
+# 💅 styled-components example
 
 Cross-platform component library example with `styled-components/primitives`.
 
