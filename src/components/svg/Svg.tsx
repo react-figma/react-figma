@@ -43,12 +43,32 @@ export interface SvgNodeProps extends DefaultContainerProps, InstanceItemProps, 
     viewBox?: string;
 }
 
-
-type SvgPartTypes = 'Circle' | 'Ellipse' | 'G' | 'Text' | 'TSpan' | 'TextPath' | 'Path' | 'Polygon' | 'Polyline' | 'Line' | 'Rect' | 'Use' | 'Image' | 'Symbol' | 'Defs' | 'LinearGradient' | 'RadialGradient' | 'Stop' | 'ClipPath' | 'Pattern' | 'Mask';
+type SvgPartTypes =
+    | 'Circle'
+    | 'Ellipse'
+    | 'G'
+    | 'Text'
+    | 'TSpan'
+    | 'TextPath'
+    | 'Path'
+    | 'Polygon'
+    | 'Polyline'
+    | 'Line'
+    | 'Rect'
+    | 'Use'
+    | 'Image'
+    | 'Symbol'
+    | 'Defs'
+    | 'LinearGradient'
+    | 'RadialGradient'
+    | 'Stop'
+    | 'ClipPath'
+    | 'Pattern'
+    | 'Mask';
 
 type SvgParts = { [P in SvgPartTypes]?: any };
 
-const Svg: React.FC<SvgNodeProps> & SvgParts = (props) => {
+const Svg: React.FC<SvgNodeProps> & SvgParts = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -66,7 +86,6 @@ const Svg: React.FC<SvgNodeProps> & SvgParts = (props) => {
 
     return <svg {...frameProps} {...yogaChildProps} isBuilding={!!props.children} innerRef={nodeRef} />;
 };
-
 
 Svg.Circle = Circle;
 Svg.Ellipse = Ellipse;

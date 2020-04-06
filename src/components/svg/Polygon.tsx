@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { CornerProps, DefaultContainerProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
 
-
 // export interface SvgPolygonProps extends DefaultContainerProps, InstanceItemProps, SelectionEventProps {
 //   style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
 //   source?: string;
