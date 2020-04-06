@@ -15,7 +15,7 @@ export { Vector } from './components/vector/Vector';
 export { Line } from './components/line/Line';
 export { Ellipse } from './components/ellipse/Ellipse';
 export { View } from './components/view/View';
-export { Svg } from './components/svg/Svg';
+export { default as Svg } from './components/svg/';
 export { Image } from './components/Image/Image';
 
 export { StyleSheet } from './helpers/StyleSheet';
