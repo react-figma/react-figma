@@ -35,8 +35,8 @@ const appendToContainer = (parentNode, childNode) => {
             setTextInstance(parentNode, childNode);
         }
     } else if (childNode.type.includes('SVG_') && childNode.type !== 'SVG_SVG') {
-        if (parentNode.type.includes('SVG_') && Array.isArray(parentNode.children)) {
-            parentNode.children.push(childNode);
+        if (parentNode.type.includes('SVG_') && Array.isArray(parentNode.elements)) {
+            parentNode.elements.push(childNode);
         }
     } else if (childNode.type === 'SVG_SVG') {
         const built = childNode.build(childNode);

@@ -41,6 +41,9 @@ export interface SvgNodeProps extends DefaultContainerProps, InstanceItemProps, 
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     source?: string;
     viewBox?: string;
+    fill?: string;
+    xmlns?: string;
+    elements?: { type: string; props: any; elements: any };
 }
 
 type SvgPartTypes =
@@ -84,7 +87,15 @@ const Svg: React.FC<SvgNodeProps> & SvgParts = props => {
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
 
-    return <svg {...frameProps} {...yogaChildProps} isBuilding={!!props.children} innerRef={nodeRef} />;
+    return (
+        <svg
+            {...frameProps}
+            {...yogaChildProps}
+            isBuilding={!!props.children}
+            elements={frameProps.children}
+            innerRef={nodeRef}
+        />
+    );
 };
 
 Svg.Circle = Circle;

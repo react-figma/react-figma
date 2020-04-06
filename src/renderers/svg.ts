@@ -44,13 +44,13 @@ const caseMappings = {
 };
 
 // Function adapted from https://github.com/airbnb/react-sketchapp/blob/5a66a14a53875324bc39bde87597fe35e3b254ff/src/renderers/SvgRenderer.ts
-function makeSvgString(el: string | { type: string; props: any; children: any }) {
+function makeSvgString(el: string | { type: string; props: any; elements: any }) {
     if (typeof el === 'string') {
         return el;
     }
-    const { type, props: { children: propsChildren, ...props } = {} } = el;
+    const { type, props: { elements: propsChildren, ...props } = {} } = el;
 
-    let children = el.children || propsChildren;
+    let children = el.elements || propsChildren;
     if (children && !Array.isArray(children)) {
         children = [children];
     }
@@ -79,17 +79,15 @@ function makeSvgString(el: string | { type: string; props: any; children: any })
     return string;
 }
 
-export const svg = node => (
-    props: SvgNodeProps & { isBuilding: boolean; children?: { type: string; props: any; children: any } }
-) => {
+export const svg = node => (props: SvgNodeProps & { isBuilding: boolean }) => {
     if (props.isBuilding) {
         return (
             node || {
                 type: 'SVG_SVG',
                 props,
-                children: [],
-                build: children => {
-                    return svg(node)({ ...props, children, isBuilding: false });
+                elements: [],
+                build: elements => {
+                    return svg(node)({ ...props, elements, isBuilding: false });
                 }
             }
         );
@@ -97,9 +95,9 @@ export const svg = node => (
 
     let source = props.source; // Default to SvgXml string behaviour
 
-    if (!source && props.children) {
+    if (!source && props.elements) {
         // Use Svg.* children if found
-        source = makeSvgString(props.children);
+        source = makeSvgString(props.elements);
     }
 
     let frameNode = node || props.node || createNodeFromSvg(source);
