@@ -48,6 +48,7 @@ function makeSvgString(el: string | { type: string; props: any; elements: any })
     if (typeof el === 'string') {
         return el;
     }
+    // @ts-ignore
     const { type, props: { elements: propsChildren, ...props } = {} } = el;
 
     let children = el.elements || propsChildren;
