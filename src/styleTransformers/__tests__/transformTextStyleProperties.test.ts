@@ -22,7 +22,7 @@ describe('transformTextStyleProperties', () => {
     });
 
     it('lineHeight 1.4', () => {
-        const result = transformTextStyleProperties({ lineHeight: 1.4 });
+        const result = transformTextStyleProperties({ lineHeight: 14 });
         expect(result).toMatchSnapshot();
     });
 
