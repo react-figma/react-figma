@@ -55,7 +55,7 @@ export const transformTextStyleProperties = (style?: Partial<TextStyleProperties
             style.textAlign &&
             textAlignMapping[style.textAlign] && { textAlignHorizontal: textAlignMapping[style.textAlign] }),
         ...(style && typeof style.lineHeight === 'number'
-            ? { lineHeight: { value: style.lineHeight * 100, unit: 'PERCENT' } }
+            ? { lineHeight: { value: style.lineHeight, unit: 'PIXELS' } }
             : typeof style.lineHeight === 'string' && {
                   lineHeight: transformDimensionMapper<LineHeight, LineHeight, LineHeight>(style.lineHeight)
                       .px(value => ({ value, unit: 'PIXELS' }))
