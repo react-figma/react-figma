@@ -146,6 +146,10 @@ React Figma team wishes to thank the following invaluable contributions:
 * [Lera Lesik](https://twitter.com/Lera_Lesik), for creating project logo.
 * [Maksim](https://github.com/pret-a-porter), for TypeScript counseling.
 
+## Tested with browserstack
+
+[![Tested with browserstack](https://raw.githubusercontent.com/zerobias/effector/master/website/media/Browserstack-logo.svg?sanitize=true)](https://BrowserStack.com)
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
