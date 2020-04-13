@@ -254,8 +254,8 @@ describe('renderer', () => {
     it('Text instance hydration', async () => {
         figma.createText = jest.fn().mockImplementation(figma.createText);
         render(<Text>Some text</Text>, figma.currentPage);
+        await wait();
         render(<Text>Some text 2</Text>, figma.currentPage);
-
         await wait();
 
         expect(figma.createText).toHaveBeenCalledTimes(1);
@@ -301,5 +301,157 @@ describe('renderer', () => {
                 resolve();
             });
         });
+    });
+
+    it('Svg render', () => {
+        figma.createNodeFromSvg = jest.fn(source => {
+            const rect = figma.createRectangle();
+            rect.fills = [
+                {
+                    color: {
+                        b: 1,
+                        g: 0,
+                        r: 0
+                    },
+                    type: 'SOLID'
+                }
+            ];
+
+            const frame = figma.createFrame();
+            frame.appendChild(rect);
+            return frame;
+        });
+
+        render(<Svg source={'<svg />'} />, figma.currentPage);
+        expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(1);
+        expect(figma.root).toMatchSnapshot();
+    });
+
+    it('Svg hydration', () => {
+        figma.createNodeFromSvg = jest.fn(source => {
+            const rect = figma.createRectangle();
+            rect.fills = [
+                {
+                    color: {
+                        b: source === 'source1' ? 1 : 0,
+                        g: source === 'source2' ? 1 : 0,
+                        r: 0
+                    },
+                    type: 'SOLID'
+                }
+            ];
+
+            const frame = figma.createFrame();
+            frame.appendChild(rect);
+            return frame;
+        });
+
+        render(<Svg source="source1" />, figma.currentPage);
+        render(<Svg source="source2" />, figma.currentPage);
+        expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(2);
+        expect(figma.root).toMatchSnapshot();
+    });
+
+    it('Svg instance updating', async () => {
+        figma.createNodeFromSvg = jest.fn(source => {
+            const rect = figma.createRectangle();
+            rect.fills = [
+                {
+                    color: {
+                        b: source === 'source1' ? 1 : 0,
+                        g: source === 'source2' ? 1 : 0,
+                        r: 0
+                    },
+                    type: 'SOLID'
+                }
+            ];
+
+            const frame = figma.createFrame();
+            frame.appendChild(rect);
+            return frame;
+        });
+
+        const waiting = new Subject();
+        const Component = () => {
+            const [source, setSource] = React.useState('source1');
+            React.useEffect(() => {
+                setTimeout(() => {
+                    setSource('source2');
+                    waiting.next();
+                });
+            }, []);
+
+            return <Svg source={source} />;
+        };
+
+        render(<Component />, figma.currentPage);
+
+        return new Promise(resolve => {
+            waiting.pipe(take(1)).subscribe(() => {
+                expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(2);
+                expect(figma.root).toMatchSnapshot();
+                resolve();
+            });
+        });
+    });
+
+    it('createComponent basic', () => {
+        const Rect = createComponent();
+        render(
+            <>
+                <Rect.Component>
+                    <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                </Rect.Component>
+                <Rect.Instance />
+            </>,
+            figma.currentPage
+        );
+        expect(figma.root).toMatchSnapshot();
+    });
+
+    it('createComponent hydration', () => {
+        const Rect = createComponent();
+        render(
+            <>
+                <Rect.Component>
+                    <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                </Rect.Component>
+                <Rect.Instance />
+            </>,
+            figma.currentPage
+        );
+        render(
+            <>
+                <Rect.Component>
+                    <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0051ff' }} />
+                </Rect.Component>
+                <Rect.Instance />
+            </>,
+            figma.currentPage
+        );
+        expect(figma.root).toMatchSnapshot();
+    });
+
+    it('createComponent overriding', async () => {
+        const Rect = createComponent();
+        render(
+            <>
+                <Rect.Component>
+                    <Rectangle name="rect" style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                </Rect.Component>
+                <Rect.Instance
+                    overrides={{
+                        rect: {
+                            style: {
+                                backgroundColor: '#0000ff'
+                            }
+                        }
+                    }}
+                />
+            </>,
+            figma.currentPage
+        );
+        await wait();
+        expect(figma.root).toMatchSnapshot();
     });
 });

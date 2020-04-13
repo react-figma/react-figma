@@ -9,7 +9,7 @@ export const transformShadowToEffect = (styles: {
 }): ShadowEffect => {
     return {
         type: 'DROP_SHADOW',
-        color: colorToRGBA(styles.shadowColor, styles.shadowOpacity || 1),
+        color: colorToRGBA(styles.shadowColor, styles.shadowOpacity),
         offset: styles.shadowOffset
             ? {
                   x: styles.shadowOffset.width,

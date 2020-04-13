@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformAutoLayoutToYoga constraints MIN/CENTER 1`] = `
+Object {
+  "alignItems": "center",
+  "justifyContent": "flex-start",
+}
+`;

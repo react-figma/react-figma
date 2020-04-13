@@ -1,30 +1,29 @@
-import { BorderProps, GeometryProps } from '../types';
-import { TSize, transformSize } from '../helpers/size';
-import { colorToRGB } from './transformColors';
+import { BorderProps, CornerProps, GeometryProps } from '../types';
+import { transformSize, TSize } from '../helpers/size';
+import { colorToPaint, colorToRGB } from './transformColors';
 
-export type BorderStyleProperties = {
-    borderColor?: string;
-    borderWidth?: TSize;
+export interface BorderStyleProperties {
+    borderColor: string;
+    borderWidth: number;
 
-    borderRadius?: TSize;
-    borderBottomLeftRadius?: TSize;
-    borderBottomRightRadius?: TSize;
-    borderTopLeftRadius?: TSize;
-    borderTopRightRadius?: TSize;
-};
+    borderRadius: TSize;
+    borderBottomLeftRadius: TSize;
+    borderBottomRightRadius: TSize;
+    borderTopLeftRadius: TSize;
+    borderTopRightRadius: TSize;
+}
 
-export const transformBorderStyleProperties = (styles?: BorderStyleProperties): BorderProps & GeometryProps => {
+export const transformBorderStyleProperties = (
+    styles?: Partial<BorderStyleProperties>
+): BorderProps & GeometryProps => {
     if (!styles) {
         return {};
     }
 
-    const props: BorderProps & GeometryProps = {};
+    const props: BorderProps & GeometryProps & CornerProps = {};
 
     if (styles.borderRadius) {
-        props.topLeftRadius = transformSize(styles.borderRadius);
-        props.topRightRadius = transformSize(styles.borderRadius);
-        props.bottomLeftRadius = transformSize(styles.borderRadius);
-        props.bottomRightRadius = transformSize(styles.borderRadius);
+        props.cornerRadius = transformSize(styles.borderRadius);
     }
     if (styles.borderTopLeftRadius) {
         props.topLeftRadius = transformSize(styles.borderTopLeftRadius);
@@ -40,12 +39,7 @@ export const transformBorderStyleProperties = (styles?: BorderStyleProperties): 
     }
 
     if (styles.borderColor) {
-        props.strokes = [
-            {
-                type: 'SOLID',
-                color: colorToRGB(styles.borderColor)
-            }
-        ];
+        props.strokes = [colorToPaint(styles.borderColor)];
     }
 
     if (styles.borderWidth) {

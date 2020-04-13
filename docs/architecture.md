@@ -1,10 +1,13 @@
-# Architecture
+---
+id: architecture
+title: Architecture
+---
 
 ## How rendering works
 
 Renderer architecture displayed on the scheme:
 
-![](./architecture.png)
+![](/img/architecture.png)
 
 [Source](https://www.figma.com/file/URczwfB64Pn6SlFICHKh6y/React-Figma?node-id=0%3A1)
 

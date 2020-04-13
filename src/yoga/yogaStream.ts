@@ -1,5 +1,5 @@
 import { Observable, Subject } from 'rxjs';
-import { concatMap, debounceTime } from 'rxjs/operators';
+import { concatMap, delay } from 'rxjs/operators';
 import { yogaHandler } from './yogaHandler';
 import { APIBridgeComponent } from '../reconciler/APIBridgeComponent';
 
@@ -11,28 +11,25 @@ export const updateYogaRoot = (root: APIBridgeComponent) => {
     $yogaRoot.next(root);
 };
 
-export const updateYogaNode = (node: APIBridgeComponent) => {
-    const { parent } = node;
-
-    if (parent) {
-        updateYogaNode(parent);
-    } else {
+export const updateYogaNode = (node: any) => {
+    if (!node) {
+        return;
+    }
+    const parent = node.parent;
+    if (!parent) {
         updateYogaRoot(node);
+    } else {
+        updateYogaNode(parent);
     }
 };
 
 $yogaRoot
     .pipe(
-        debounceTime(100),
+        delay(0),
         concatMap((instance: any) => {
             return new Observable(subscriber => {
                 const handleYogaProps = (newProps, instance, parentProps) => {
                     const { children: yogaChildren, nodeBatchId, ...yogaPropsWithoutChildren } = newProps;
-
-                    if (instance.parent && instance.parent.type === 'group' && parentProps) {
-                        yogaPropsWithoutChildren.x += parentProps.x;
-                        yogaPropsWithoutChildren.y += parentProps.y;
-                    }
 
                     subscriber.next({ instance, props: yogaPropsWithoutChildren });
                     if (instance.children) {

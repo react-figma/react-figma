@@ -40,7 +40,7 @@ export const patchTextNode = (childNode: RawTextInstance, parentNode: TextNode) 
  * we need to remove it when it's no longer needed
  */
 export const removeGroupStubElements = (parentNode: FrameNode) => {
-    if (parentNode.type === 'GROUP') {
+    if (parentNode.type === 'FRAME') {
         parentNode.children.forEach(child => {
             if (child.getPluginData('reactFigmaGroupStubElement')) {
                 child.remove();
@@ -63,7 +63,7 @@ export const isPageNode = (node: BaseNode): node is PageNode => {
 };
 
 export const isGroupNode = (node: BaseNode): node is FrameNode => {
-    return (<FrameNode>node).type === 'GROUP';
+    return (<FrameNode>node).type === 'FRAME';
 };
 
 export const isImplementsChildrenMixin = (node: any): node is ChildrenMixin => {

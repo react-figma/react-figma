@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Page, Rectangle, Group } from '../../../src';
+import { Page, Rectangle, Group } from 'react-figma';
 
 export const App = () => {
     return (

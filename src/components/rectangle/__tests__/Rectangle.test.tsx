@@ -1,8 +1,16 @@
 import * as React from 'react';
 const renderer = require('react-test-renderer');
 import { Rectangle } from '../Rectangle';
+import { createFigma } from 'figma-api-stub';
 
 describe('<Rectangle />', () => {
+    beforeEach(() => {
+        // @ts-ignore
+        global.figma = createFigma({
+            simulateErrors: true
+        });
+    });
+
     it('Rectangle without props', () => {
         const tree = renderer.create(<Rectangle />).toJSON();
         expect(tree).toMatchSnapshot();

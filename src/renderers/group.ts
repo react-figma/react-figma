@@ -12,7 +12,7 @@ const createNewGroup = () => {
 };
 
 export const group = node => props => {
-    const frameNode = node || createNewGroup();
+    const frameNode = node || props.node || createNewGroup();
 
     saveStyleMixin(frameNode)(props);
     baseNodeMixin(frameNode)(props);

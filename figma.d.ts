@@ -1,8 +1,9 @@
-// Figma Plugin API version 1, update 5
+// Figma Plugin API version 1, update 14
 
+declare global {
 // Global variable with Figma's plugin API.
-declare const figma: PluginAPI
-declare const __html__: string
+const figma: PluginAPI
+const __html__: string
 
 interface PluginAPI {
   readonly apiVersion: "1.0.0"
@@ -23,11 +24,11 @@ interface PluginAPI {
   readonly root: DocumentNode
   currentPage: PageNode
 
-  on(type: "selectionchange" | "currentpagechange" | "close", callback: () => void)
-  once(type: "selectionchange" | "currentpagechange" | "close", callback: () => void)
-  off(type: "selectionchange" | "currentpagechange" | "close", callback: () => void)
+  on(type: "selectionchange" | "currentpagechange" | "close", callback: () => void): void
+  once(type: "selectionchange" | "currentpagechange" | "close", callback: () => void): void
+  off(type: "selectionchange" | "currentpagechange" | "close", callback: () => void): void
 
-  readonly mixed: symbol
+  readonly mixed: unique symbol
 
   createRectangle(): RectangleNode
   createLine(): LineNode
@@ -69,7 +70,7 @@ interface PluginAPI {
   createImage(data: Uint8Array): Image
   getImageByHash(hash: string): Image
 
-  group(nodes: ReadonlyArray<BaseNode>, parent: BaseNode & ChildrenMixin, index?: number): FrameNode
+  group(nodes: ReadonlyArray<BaseNode>, parent: BaseNode & ChildrenMixin, index?: number): GroupNode
   flatten(nodes: ReadonlyArray<BaseNode>, parent?: BaseNode & ChildrenMixin, index?: number): VectorNode
 
   union(nodes: ReadonlyArray<BaseNode>, parent: BaseNode & ChildrenMixin, index?: number): BooleanOperationNode
@@ -84,26 +85,25 @@ interface ClientStorageAPI {
 }
 
 interface NotificationOptions {
-  timeout?: number,
+  timeout?: number
 }
 
 interface NotificationHandler {
-  cancel: () => void,
+  cancel: () => void
 }
 
 interface ShowUIOptions {
-  visible?: boolean,
-  width?: number,
-  height?: number,
-  position?: 'default' | 'last' | 'auto' // PROPOSED API ONLY
+  visible?: boolean
+  width?: number
+  height?: number
 }
 
 interface UIPostMessageOptions {
-  origin?: string,
+  origin?: string
 }
 
 interface OnMessageProperties {
-  origin: string,
+  origin: string
 }
 
 type MessageEventHandler = (pluginMessage: any, props: OnMessageProperties) => void
@@ -116,15 +116,16 @@ interface UIAPI {
 
   postMessage(pluginMessage: any, options?: UIPostMessageOptions): void
   onmessage: MessageEventHandler | undefined
-  on(type: "message", callback: MessageEventHandler)
-  once(type: "message", callback: MessageEventHandler)
-  off(type: "message", callback: MessageEventHandler)
+  on(type: "message", callback: MessageEventHandler): void
+  once(type: "message", callback: MessageEventHandler): void
+  off(type: "message", callback: MessageEventHandler): void
 }
 
 interface ViewportAPI {
-  center: { x: number, y: number }
+  center: Vector
   zoom: number
-  scrollAndZoomIntoView(nodes: ReadonlyArray<BaseNode>)
+  scrollAndZoomIntoView(nodes: ReadonlyArray<BaseNode>): void
+  readonly bounds: Rect
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -138,6 +139,13 @@ type Transform = [
 interface Vector {
   readonly x: number
   readonly y: number
+}
+
+interface Rect {
+  readonly x: number
+  readonly y: number
+  readonly width: number
+  readonly height: number
 }
 
 interface RGB {
@@ -270,30 +278,30 @@ interface GridLayoutGrid {
 type LayoutGrid = RowsColsLayoutGrid | GridLayoutGrid
 
 interface ExportSettingsConstraints {
-  type: "SCALE" | "WIDTH" | "HEIGHT"
-  value: number
+  readonly type: "SCALE" | "WIDTH" | "HEIGHT"
+  readonly value: number
 }
 
 interface ExportSettingsImage {
-  format: "JPG" | "PNG"
-  contentsOnly?: boolean    // defaults to true
-  suffix?: string
-  constraint?: ExportSettingsConstraints
+  readonly format: "JPG" | "PNG"
+  readonly contentsOnly?: boolean    // defaults to true
+  readonly suffix?: string
+  readonly constraint?: ExportSettingsConstraints
 }
 
 interface ExportSettingsSVG {
-  format: "SVG"
-  contentsOnly?: boolean    // defaults to true
-  suffix?: string
-  svgOutlineText?: boolean  // defaults to true
-  svgIdAttribute?: boolean  // defaults to false
-  svgSimplifyStroke?: boolean // defaults to true
+  readonly format: "SVG"
+  readonly contentsOnly?: boolean    // defaults to true
+  readonly suffix?: string
+  readonly svgOutlineText?: boolean  // defaults to true
+  readonly svgIdAttribute?: boolean  // defaults to false
+  readonly svgSimplifyStroke?: boolean // defaults to true
 }
 
 interface ExportSettingsPDF {
-  format: "PDF"
-  contentsOnly?: boolean    // defaults to true
-  suffix?: string
+  readonly format: "PDF"
+  readonly contentsOnly?: boolean    // defaults to true
+  readonly suffix?: string
 }
 
 type ExportSettings = ExportSettingsImage | ExportSettingsSVG | ExportSettingsPDF
@@ -371,13 +379,69 @@ interface Font {
   fontName: FontName
 }
 
+type Reaction = { action: Action, trigger: Trigger }
+
+type Action =
+  { readonly type: "BACK" | "CLOSE" } |
+  { readonly type: "URL", url: string } |
+  { readonly type: "NODE"
+    readonly destinationId: string | null
+    readonly navigation: Navigation
+    readonly transition: Transition | null
+    readonly preserveScrollPosition: boolean
+
+    // Only present if navigation == "OVERLAY" and the destination uses
+    // overlay position type "RELATIVE"
+    readonly overlayRelativePosition?: Vector
+  }
+
+interface SimpleTransition {
+  readonly type: "DISSOLVE" | "SMART_ANIMATE"
+  readonly easing: Easing
+  readonly duration: number
+}
+
+interface DirectionalTransition {
+  readonly type: "MOVE_IN" | "MOVE_OUT" | "PUSH" | "SLIDE_IN" | "SLIDE_OUT"
+  readonly direction: "LEFT" | "RIGHT" | "TOP" | "BOTTOM"
+  readonly matchLayers: boolean
+
+  readonly easing: Easing
+  readonly duration: number
+}
+
+type Transition = SimpleTransition | DirectionalTransition
+
+type Trigger =
+  { readonly type: "ON_CLICK" | "ON_HOVER" | "ON_PRESS" | "ON_DRAG" } |
+  { readonly type: "AFTER_TIMEOUT", readonly timeout: number } |
+  { readonly type: "MOUSE_ENTER" | "MOUSE_LEAVE" | "MOUSE_UP" | "MOUSE_DOWN"
+    readonly delay: number
+  }
+
+type Navigation = "NAVIGATE" | "SWAP" | "OVERLAY"
+
+interface Easing {
+  readonly type: "EASE_IN" | "EASE_OUT" | "EASE_IN_AND_OUT" | "LINEAR"
+}
+
+type OverflowDirection = "NONE" | "HORIZONTAL" | "VERTICAL" | "BOTH"
+
+type OverlayPositionType = "CENTER" | "TOP_LEFT" | "TOP_CENTER" | "TOP_RIGHT" | "BOTTOM_LEFT" | "BOTTOM_CENTER" | "BOTTOM_RIGHT" | "MANUAL"
+
+type OverlayBackground =
+  { readonly type: "NONE" } |
+  { readonly type: "SOLID_COLOR", readonly color: RGBA }
+
+type OverlayBackgroundInteraction = "NONE" | "CLOSE_ON_CLICK_OUTSIDE"
+
 ////////////////////////////////////////////////////////////////////////////////
 // Mixins
 
 interface BaseNodeMixin {
   readonly id: string
   readonly parent: (BaseNode & ChildrenMixin) | null
-  name: string // Note: setting this also sets \`autoRename\` to false on TextNodes
+  name: string // Note: setting this also sets `autoRename` to false on TextNodes
   readonly removed: boolean
   toString(): string
   remove(): void
@@ -389,6 +453,7 @@ interface BaseNodeMixin {
   // be a name related to your plugin. Other plugins will be able to read this data.
   getSharedPluginData(namespace: string, key: string): string
   setSharedPluginData(namespace: string, key: string, value: string): void
+  setRelaunchData(data: { [command: string]: /* description */ string }): void
 }
 
 interface SceneNodeMixin {
@@ -402,7 +467,19 @@ interface ChildrenMixin {
   appendChild(child: SceneNode): void
   insertChild(index: number, child: SceneNode): void
 
+  findChildren(callback?: (node: SceneNode) => boolean): SceneNode[]
+  findChild(callback: (node: SceneNode) => boolean): SceneNode | null
+
+  /**
+   * If you only need to search immediate children, it is much faster
+   * to call node.children.filter(callback) or node.findChildren(callback)
+   */
   findAll(callback?: (node: SceneNode) => boolean): SceneNode[]
+
+  /**
+   * If you only need to search immediate children, it is much faster
+   * to call node.children.find(callback) or node.findChild(callback)
+   */
   findOne(callback: (node: SceneNode) => boolean): SceneNode | null
 }
 
@@ -419,6 +496,9 @@ interface LayoutMixin {
 
   readonly width: number
   readonly height: number
+  constrainProportions: boolean
+
+  layoutAlign: "MIN" | "CENTER" | "MAX" | "STRETCH" // applicable only inside auto-layout frames
 
   resize(width: number, height: number): void
   resizeWithoutConstraints(width: number, height: number): void
@@ -432,13 +512,10 @@ interface BlendMixin {
   effectStyleId: string
 }
 
-interface FrameMixin {
-  backgrounds: ReadonlyArray<Paint>
-  layoutGrids: ReadonlyArray<LayoutGrid>
-  clipsContent: boolean
-  guides: ReadonlyArray<Guide>
-  gridStyleId: string
-  backgroundStyleId: string
+interface ContainerMixin {
+  expanded: boolean
+  backgrounds: ReadonlyArray<Paint> // DEPRECATED: use 'fills' instead
+  backgroundStyleId: string // DEPRECATED: use 'fillStyleId' instead
 }
 
 type StrokeCap = "NONE" | "ROUND" | "SQUARE" | "ARROW_LINES" | "ARROW_EQUILATERAL"
@@ -446,20 +523,29 @@ type StrokeJoin = "MITER" | "BEVEL" | "ROUND"
 type HandleMirroring = "NONE" | "ANGLE" | "ANGLE_AND_LENGTH"
 
 interface GeometryMixin {
-  fills: ReadonlyArray<Paint> | symbol
+  fills: ReadonlyArray<Paint> | PluginAPI['mixed']
   strokes: ReadonlyArray<Paint>
   strokeWeight: number
+  strokeMiterLimit: number
   strokeAlign: "CENTER" | "INSIDE" | "OUTSIDE"
-  strokeCap: StrokeCap | symbol
-  strokeJoin: StrokeJoin | symbol
+  strokeCap: StrokeCap | PluginAPI['mixed']
+  strokeJoin: StrokeJoin | PluginAPI['mixed']
   dashPattern: ReadonlyArray<number>
-  fillStyleId: string | symbol
+  fillStyleId: string | PluginAPI['mixed']
   strokeStyleId: string
+  outlineStroke(): VectorNode | null
 }
 
 interface CornerMixin {
-  cornerRadius: number | symbol
+  cornerRadius: number | PluginAPI['mixed']
   cornerSmoothing: number
+}
+
+interface RectangleCornerMixin {
+  topLeftRadius: number
+  topRightRadius: number
+  bottomLeftRadius: number
+  bottomRightRadius: number
 }
 
 interface ExportMixin {
@@ -467,15 +553,40 @@ interface ExportMixin {
   exportAsync(settings?: ExportSettings): Promise<Uint8Array> // Defaults to PNG format
 }
 
-interface DefaultShapeMixin extends
-  BaseNodeMixin, SceneNodeMixin,
-  BlendMixin, GeometryMixin, LayoutMixin, ExportMixin {
+interface ReactionMixin {
+  readonly reactions: ReadonlyArray<Reaction>
 }
 
-interface DefaultContainerMixin extends
-  BaseNodeMixin, SceneNodeMixin,
-  ChildrenMixin, FrameMixin,
-  BlendMixin, ConstraintMixin, LayoutMixin, ExportMixin {
+interface DefaultShapeMixin extends
+  BaseNodeMixin, SceneNodeMixin, ReactionMixin,
+  BlendMixin, GeometryMixin, LayoutMixin,
+  ExportMixin {
+}
+
+interface DefaultFrameMixin extends
+  BaseNodeMixin, SceneNodeMixin, ReactionMixin,
+  ChildrenMixin, ContainerMixin,
+  GeometryMixin, CornerMixin, RectangleCornerMixin,
+  BlendMixin, ConstraintMixin, LayoutMixin,
+  ExportMixin {
+
+  layoutMode: "NONE" | "HORIZONTAL" | "VERTICAL"
+  counterAxisSizingMode: "FIXED" | "AUTO" // applicable only if layoutMode != "NONE"
+  horizontalPadding: number // applicable only if layoutMode != "NONE"
+  verticalPadding: number // applicable only if layoutMode != "NONE"
+  itemSpacing: number // applicable only if layoutMode != "NONE"
+
+  layoutGrids: ReadonlyArray<LayoutGrid>
+  gridStyleId: string
+  clipsContent: boolean
+  guides: ReadonlyArray<Guide>
+
+  overflowDirection: OverflowDirection
+  numberOfFixedChildren: number
+
+  readonly overlayPositionType: OverlayPositionType
+  readonly overlayBackground: OverlayBackground
+  readonly overlayBackgroundInteraction: OverlayBackgroundInteraction
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -488,38 +599,61 @@ interface DocumentNode extends BaseNodeMixin {
 
   appendChild(child: PageNode): void
   insertChild(index: number, child: PageNode): void
+  findChildren(callback?: (node: PageNode) => boolean): Array<PageNode>
+  findChild(callback: (node: PageNode) => boolean): PageNode | null
 
-  findAll(callback?: (node: (PageNode | SceneNode)) => boolean): Array<PageNode | SceneNode>
-  findOne(callback: (node: (PageNode | SceneNode)) => boolean): PageNode | SceneNode | null
+  /**
+   * If you only need to search immediate children, it is much faster
+   * to call node.children.filter(callback) or node.findChildren(callback)
+   */
+  findAll(callback?: (node: PageNode | SceneNode) => boolean): Array<PageNode | SceneNode>
+
+  /**
+   * If you only need to search immediate children, it is much faster
+   * to call node.children.find(callback) or node.findChild(callback)
+   */
+  findOne(callback: (node: PageNode | SceneNode) => boolean): PageNode | SceneNode | null
 }
 
 interface PageNode extends BaseNodeMixin, ChildrenMixin, ExportMixin {
+
   readonly type: "PAGE"
   clone(): PageNode
 
   guides: ReadonlyArray<Guide>
   selection: ReadonlyArray<SceneNode>
+  selectedTextRange: { node: TextNode, start: number, end: number } | null
 
   backgrounds: ReadonlyArray<Paint>
+
+  readonly prototypeStartNode: FrameNode | GroupNode | ComponentNode | InstanceNode | null
 }
 
-interface FrameNode extends DefaultContainerMixin {
-  readonly type: "FRAME" | "GROUP"
+interface FrameNode extends DefaultFrameMixin {
+  readonly type: "FRAME"
   clone(): FrameNode
 }
 
-interface SliceNode extends BaseNodeMixin, SceneNodeMixin, LayoutMixin, ExportMixin {
+interface GroupNode extends
+  BaseNodeMixin, SceneNodeMixin, ReactionMixin,
+  ChildrenMixin, ContainerMixin, BlendMixin,
+  LayoutMixin, ExportMixin {
+
+  readonly type: "GROUP"
+  clone(): GroupNode
+}
+
+interface SliceNode extends
+  BaseNodeMixin, SceneNodeMixin, LayoutMixin,
+  ExportMixin {
+
   readonly type: "SLICE"
   clone(): SliceNode
 }
 
-interface RectangleNode extends DefaultShapeMixin, ConstraintMixin, CornerMixin {
+interface RectangleNode extends DefaultShapeMixin, ConstraintMixin, CornerMixin, RectangleCornerMixin {
   readonly type: "RECTANGLE"
   clone(): RectangleNode
-  topLeftRadius: number
-  topRightRadius: number
-  bottomLeftRadius: number
-  bottomRightRadius: number
 }
 
 interface LineNode extends DefaultShapeMixin, ConstraintMixin {
@@ -551,13 +685,12 @@ interface VectorNode extends DefaultShapeMixin, ConstraintMixin, CornerMixin {
   clone(): VectorNode
   vectorNetwork: VectorNetwork
   vectorPaths: VectorPaths
-  handleMirroring: HandleMirroring | symbol
+  handleMirroring: HandleMirroring | PluginAPI['mixed']
 }
 
 interface TextNode extends DefaultShapeMixin, ConstraintMixin {
   readonly type: "TEXT"
   clone(): TextNode
-  characters: string
   readonly hasMissingFont: boolean
   textAlignHorizontal: "LEFT" | "CENTER" | "RIGHT" | "JUSTIFIED"
   textAlignVertical: "TOP" | "CENTER" | "BOTTOM"
@@ -566,35 +699,39 @@ interface TextNode extends DefaultShapeMixin, ConstraintMixin {
   paragraphSpacing: number
   autoRename: boolean
 
-  textStyleId: string | symbol
-  fontSize: number | symbol
-  fontName: FontName | symbol
-  textCase: TextCase | symbol
-  textDecoration: TextDecoration | symbol
-  letterSpacing: LetterSpacing | symbol
-  lineHeight: LineHeight | symbol
+  textStyleId: string | PluginAPI['mixed']
+  fontSize: number | PluginAPI['mixed']
+  fontName: FontName | PluginAPI['mixed']
+  textCase: TextCase | PluginAPI['mixed']
+  textDecoration: TextDecoration | PluginAPI['mixed']
+  letterSpacing: LetterSpacing | PluginAPI['mixed']
+  lineHeight: LineHeight | PluginAPI['mixed']
 
-  getRangeFontSize(start: number, end: number): number | symbol
+  characters: string
+  insertCharacters(start: number, characters: string, useStyle?: "BEFORE" | "AFTER"): void
+  deleteCharacters(start: number, end: number): void
+
+  getRangeFontSize(start: number, end: number): number | PluginAPI['mixed']
   setRangeFontSize(start: number, end: number, value: number): void
-  getRangeFontName(start: number, end: number): FontName | symbol
+  getRangeFontName(start: number, end: number): FontName | PluginAPI['mixed']
   setRangeFontName(start: number, end: number, value: FontName): void
-  getRangeTextCase(start: number, end: number): TextCase | symbol
+  getRangeTextCase(start: number, end: number): TextCase | PluginAPI['mixed']
   setRangeTextCase(start: number, end: number, value: TextCase): void
-  getRangeTextDecoration(start: number, end: number): TextDecoration | symbol
+  getRangeTextDecoration(start: number, end: number): TextDecoration | PluginAPI['mixed']
   setRangeTextDecoration(start: number, end: number, value: TextDecoration): void
-  getRangeLetterSpacing(start: number, end: number): LetterSpacing | symbol
+  getRangeLetterSpacing(start: number, end: number): LetterSpacing | PluginAPI['mixed']
   setRangeLetterSpacing(start: number, end: number, value: LetterSpacing): void
-  getRangeLineHeight(start: number, end: number): LineHeight | symbol
+  getRangeLineHeight(start: number, end: number): LineHeight | PluginAPI['mixed']
   setRangeLineHeight(start: number, end: number, value: LineHeight): void
-  getRangeFills(start: number, end: number): Paint[] | symbol
+  getRangeFills(start: number, end: number): Paint[] | PluginAPI['mixed']
   setRangeFills(start: number, end: number, value: Paint[]): void
-  getRangeTextStyleId(start: number, end: number): string | symbol
+  getRangeTextStyleId(start: number, end: number): string | PluginAPI['mixed']
   setRangeTextStyleId(start: number, end: number, value: string): void
-  getRangeFillStyleId(start: number, end: number): string | symbol
+  getRangeFillStyleId(start: number, end: number): string | PluginAPI['mixed']
   setRangeFillStyleId(start: number, end: number, value: string): void
 }
 
-interface ComponentNode extends DefaultContainerMixin {
+interface ComponentNode extends DefaultFrameMixin {
   readonly type: "COMPONENT"
   clone(): ComponentNode
 
@@ -604,16 +741,19 @@ interface ComponentNode extends DefaultContainerMixin {
   readonly key: string // The key to use with "importComponentByKeyAsync"
 }
 
-interface InstanceNode extends DefaultContainerMixin  {
+interface InstanceNode extends DefaultFrameMixin  {
   readonly type: "INSTANCE"
   clone(): InstanceNode
   masterComponent: ComponentNode
+  scaleFactor: number
 }
 
 interface BooleanOperationNode extends DefaultShapeMixin, ChildrenMixin, CornerMixin {
   readonly type: "BOOLEAN_OPERATION"
   clone(): BooleanOperationNode
   booleanOperation: "UNION" | "INTERSECT" | "SUBTRACT" | "EXCLUDE"
+
+  expanded: boolean
 }
 
 type BaseNode =
@@ -624,6 +764,7 @@ type BaseNode =
 type SceneNode =
   SliceNode |
   FrameNode |
+  GroupNode |
   ComponentNode |
   InstanceNode |
   BooleanOperationNode |
@@ -700,3 +841,6 @@ interface Image {
   readonly hash: string
   getBytesAsync(): Promise<Uint8Array>
 }
+} // declare global
+
+export {}

@@ -30,8 +30,8 @@ Object {
 exports[`transformTextStyleProperties lineHeight 1.4 1`] = `
 Object {
   "lineHeight": Object {
-    "unit": "PERCENT",
-    "value": 140,
+    "unit": "PIXELS",
+    "value": 14,
   },
 }
 `;

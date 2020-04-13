@@ -12,7 +12,7 @@ import { VectorProps } from '../components/vector/Vector';
 const vectorNodePropsAssign = propsAssign<VectorProps>(['vectorPaths', 'vectorNetwork', 'handleMirroring']);
 
 export const vector = (node: VectorNode) => (props: VectorProps) => {
-    const vectorNode = node || figma.createVector();
+    const vectorNode = node || props.node || figma.createVector();
 
     baseNodeMixin(vectorNode)(props);
     saveStyleMixin(vectorNode)(props);

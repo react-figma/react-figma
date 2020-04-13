@@ -5,15 +5,23 @@ import { FrameNodeProps } from '../components/frame/Frame';
 import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { frameMixin } from '../mixins/frameMixin';
+import { autoLayoutMixin } from '../mixins/autoLayoutMixin';
+import { cornerMixin } from '../mixins/cornerMixin';
+import { rectangleCornerMixin } from '../mixins/rectangleCornerMixin';
+import { geometryMixin } from '../mixins/geometryMixin';
 
 export const frame = (node: FrameNode) => (props: FrameNodeProps) => {
-    const frameNode = node || figma.createFrame();
+    const frameNode = node || props.node || figma.createFrame();
 
     saveStyleMixin(frameNode)(props);
     baseNodeMixin(frameNode)(props);
     layoutMixin(frameNode)(props);
     exportMixin(frameNode)(props);
     blendMixin(frameNode)(props);
+    geometryMixin(frameNode)(props);
+    cornerMixin(frameNode)(props);
+    rectangleCornerMixin(frameNode)(props);
+    autoLayoutMixin(frameNode)(props);
 
     frameMixin(frameNode)(props);
 

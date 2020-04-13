@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`layoutMixin resizing 1`] = `
+Object {
+  "height": 200,
+  "width": 500,
+}
+`;
+
+exports[`layoutMixin resizing Line 1`] = `
+Object {
+  "height": 0,
+  "width": 500,
+}
+`;

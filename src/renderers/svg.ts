@@ -5,9 +5,28 @@ import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { frameMixin } from '../mixins/frameMixin';
 import { SvgNodeProps } from '../components/svg/Svg';
+import { hashCode } from '../helpers/hashCode';
+
+const createNodeFromSvg = source => {
+    const node = figma.createNodeFromSvg(source);
+    node.setPluginData('svgHash', hashCode(source));
+    return node;
+};
 
 export const svg = node => (props: SvgNodeProps) => {
-    const frameNode = node || figma.createNodeFromSvg(props.source);
+    let frameNode = node || props.node || createNodeFromSvg(props.source);
+
+    const savedHash = frameNode.getPluginData('svgHash');
+    if (savedHash != hashCode(props.source)) {
+        const newSvg = figma.createNodeFromSvg(props.source);
+        layoutMixin(newSvg)(props);
+        frameNode.children.forEach(child => child.remove());
+        newSvg.children.forEach(child => {
+            frameNode.appendChild(child);
+        });
+        newSvg.remove();
+        node.setPluginData('svgHash', hashCode(props.source));
+    }
 
     saveStyleMixin(frameNode)(props);
     baseNodeMixin(frameNode)(props);

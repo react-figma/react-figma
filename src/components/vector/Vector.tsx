@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { DefaultShapeProps, VectorNodeProps, CornerProps, StyleOf } from '../../types';
+import {
+    DefaultShapeProps,
+    VectorNodeProps,
+    CornerProps,
+    StyleOf,
+    InstanceItemProps,
+    SelectionEventProps
+} from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -13,8 +20,15 @@ import {
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
+import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 
-export interface VectorProps extends VectorNodeProps, DefaultShapeProps, CornerProps {
+export interface VectorProps
+    extends VectorNodeProps,
+        DefaultShapeProps,
+        CornerProps,
+        InstanceItemProps,
+        SelectionEventProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties & GeometryStyleProperties>;
     children?: undefined;
 }
@@ -22,16 +36,18 @@ export interface VectorProps extends VectorNodeProps, DefaultShapeProps, CornerP
 export const Vector: React.FC<VectorProps> = props => {
     const nodeRef = React.useRef();
 
-    const style = StyleSheet.flatten(props.style);
+    useSelectionChange(nodeRef, props);
+
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
     const vectorProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
         ...transformGeometryStyleProperties('fills', style),
-        ...props
+        ...props,
+        style
     };
     const fills = useFillsPreprocessor(vectorProps);
     const yogaProps = useYogaLayout({ nodeRef, ...vectorProps });
-    // @ts-ignore
-    return <vector {...vectorProps} {...yogaProps} {...(fills && { fills })} ref={nodeRef} />;
+    return <vector {...vectorProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };

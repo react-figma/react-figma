@@ -7,10 +7,10 @@ version: 2
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:8.15
+    - image: circleci/node:10.15
 
 jobs:
-  test:
+  install:
     <<: *defaults
 
     steps:
@@ -23,14 +23,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm install
-
-      - run:
-          name: Run TypeScript
-          command: npm run tsc
-      - run:
-          name: Run tests
-          command: npm test
+      - run: yarn --frozen-lockfile
 
       - save_cache:
           paths:
@@ -41,11 +34,44 @@ jobs:
           root: ~/repo
           paths: .
 
+  typescript:
+    <<: *defaults
+
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Run TypeScript
+          command: yarn tsc
+
+  test:
+    <<: *defaults
+
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Run tests
+          command: yarn test --maxWorkers=2 --ci
+
+  prettier:
+    <<: *defaults
+
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Run Prettier formatting check
+          command: yarn prettier:check
+
   deploy:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/repo
+      - run:
+          name: Build package
+          command: npm run build
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
@@ -57,12 +83,31 @@ workflows:
   version: 2
   test-deploy:
     jobs:
+      - install:
+          filters:
+            tags:
+              only: /^v.*/
+      - typescript:
+          requires:
+            - install
+          filters:
+            tags:
+              only: /^v.*/
       - test:
+          requires:
+            - install
+          filters:
+            tags:
+              only: /^v.*/
+      - prettier:
+          requires:
+            - install
           filters:
             tags:
               only: /^v.*/
       - deploy:
           requires:
+            - typescript
             - test
           filters:
             tags:

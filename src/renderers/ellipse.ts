@@ -10,7 +10,7 @@ import { propsAssign } from '../helpers/propsAssign';
 const ellipseNodePropsAssign = propsAssign<EllipseProps>(['arcData']);
 
 export const ellipse = (node: EllipseNode) => (props: EllipseProps) => {
-    const ellipseNode = node || figma.createEllipse();
+    const ellipseNode = node || props.node || figma.createEllipse();
 
     baseNodeMixin(ellipseNode)(props);
     layoutMixin(ellipseNode)(props);

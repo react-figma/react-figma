@@ -1,27 +1,19 @@
 import * as React from 'react';
-import { BorderProps, CornerProps, DefaultContainerProps, DefaultShapeProps, StyleOf } from '../../types';
-import { LayoutStyleProperties } from '../../styleTransformers/transformLayoutStyleProperties';
-import { GeometryStyleProperties } from '../../styleTransformers/transformGeometryStyleProperties';
-import { BorderStyleProperties } from '../../styleTransformers/transformBorderProperties';
-import { BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
-import { Group, Rectangle } from '../..';
-import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
+import { Frame, Rectangle, StyleSheet } from '../..';
+import { RectangleProps } from '../rectangle/Rectangle';
+import { FrameNodeProps } from '../frame/Frame';
 
-export interface ViewProps extends DefaultContainerProps, DefaultShapeProps, CornerProps, BorderProps {
-    style?: StyleOf<
-        YogaStyleProperties &
-            LayoutStyleProperties &
-            GeometryStyleProperties &
-            BorderStyleProperties &
-            BlendStyleProperties
-    >;
-}
+export type ViewProps = FrameNodeProps | RectangleProps;
 
 export const View: React.FC<ViewProps> = props => {
     if (props.children) {
-        return <Group {...props} />;
+        return (
+            <Frame
+                {...props}
+                style={[{ backgroundColor: 'transparent' }, props.style && StyleSheet.flatten(props.style)]}
+            />
+        );
     } else {
-        // @ts-ignore
-        return <Rectangle {...props} />;
+        return <Rectangle {...(props as RectangleProps)} />;
     }
 };

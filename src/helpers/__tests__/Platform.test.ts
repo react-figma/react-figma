@@ -18,9 +18,8 @@ describe('Platform', () => {
     });
 
     it('select non figma', () => {
-        const stub = jest.fn(() => 42);
+        const stub: Function = jest.fn(() => 42);
 
-        // @ts-ignore
         const result = Platform.select({ ios: stub });
         expect(result).toBeUndefined();
         expect(stub).toHaveBeenCalledTimes(0);

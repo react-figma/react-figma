@@ -9,10 +9,11 @@ export interface ImageProps extends RectangleProps {
 }
 
 export const Image: React.FC<ImageProps> = props => {
-    const style = (props.style && StyleSheet.flatten(props.style)) || {};
-
-    style.backgroundImage = props.source;
-    style.backgroundSize = props.resizeMode;
-
-    return <Rectangle {...props} style={style} />;
+    const { style, source, resizeMode } = props;
+    return (
+        <Rectangle
+            {...props}
+            style={[StyleSheet.flatten(style), { backgroundImage: source, backgroundSize: resizeMode }]}
+        />
+    );
 };

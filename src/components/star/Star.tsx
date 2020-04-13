@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { DefaultShapeProps, CornerProps, StarNodeProps, StyleOf } from '../../types';
+import {
+    DefaultShapeProps,
+    CornerProps,
+    StarNodeProps,
+    StyleOf,
+    InstanceItemProps,
+    SelectionEventProps
+} from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -13,8 +20,15 @@ import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
+import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 
-export interface StarProps extends DefaultShapeProps, CornerProps, StarNodeProps {
+export interface StarProps
+    extends DefaultShapeProps,
+        CornerProps,
+        StarNodeProps,
+        InstanceItemProps,
+        SelectionEventProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
     children?: undefined;
 }
@@ -22,17 +36,20 @@ export interface StarProps extends DefaultShapeProps, CornerProps, StarNodeProps
 export const Star: React.FC<StarProps> = props => {
     const nodeRef = React.useRef();
 
-    const style = StyleSheet.flatten(props.style);
+    useSelectionChange(nodeRef, props);
+
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
     const starProps = {
         ...transformLayoutStyleProperties(style),
         ...transformGeometryStyleProperties('fills', style),
         ...transformBlendProperties(style),
-        ...props
+        ...props,
+        style
     };
     const fills = useFillsPreprocessor(starProps);
     const yogaProps = useYogaLayout({ nodeRef, ...starProps });
 
     // @ts-ignore
-    return <star {...starProps} {...yogaProps} {...(fills && { fills })} ref={nodeRef} />;
+    return <star {...starProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };

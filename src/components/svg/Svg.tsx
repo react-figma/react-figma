@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultContainerProps, StyleOf } from '../../types';
+import { CornerProps, DefaultContainerProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -12,8 +12,10 @@ import {
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../../helpers/StyleSheet';
+import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 
-export interface SvgNodeProps extends DefaultContainerProps {
+export interface SvgNodeProps extends DefaultContainerProps, InstanceItemProps, SelectionEventProps {
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     source?: string;
 }
@@ -21,13 +23,16 @@ export interface SvgNodeProps extends DefaultContainerProps {
 export const Svg: React.FC<SvgNodeProps> = props => {
     const nodeRef = React.useRef();
 
-    const style = StyleSheet.flatten(props.style);
+    useSelectionChange(nodeRef, props);
+
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
     const frameProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
         ...transformGeometryStyleProperties('backgrounds', style),
-        ...props
+        ...props,
+        style
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
 

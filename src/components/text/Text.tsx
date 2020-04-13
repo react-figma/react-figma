@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { DefaultShapeProps, StyleOf, TextNodeProps } from '../../types';
+import {
+    CornerProps,
+    DefaultShapeProps,
+    InstanceItemProps,
+    SelectionEventProps,
+    StyleOf,
+    TextNodeProps
+} from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -14,16 +21,22 @@ import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import { useFontName } from '../../hooks/useFontName';
 import { useTextChildren } from '../../hooks/useTextChildren';
+import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 
-export interface TextProps extends TextNodeProps, DefaultShapeProps {
-    style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & TextStyleProperties & BlendStyleProperties>;
+export interface TextProps extends TextNodeProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps {
+    style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & TextStyleProperties & BlendStyleProperties> | void;
     children?: string;
+    node?: any;
+    preventResizing?: boolean;
 }
 
 export const Text: React.FC<TextProps> = props => {
     const nodeRef = React.useRef();
 
-    const style = StyleSheet.flatten(props.style);
+    useSelectionChange(nodeRef, props);
+
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
     // const charactersByChildren = useTextChildren(nodeRef);
 
@@ -31,13 +44,22 @@ export const Text: React.FC<TextProps> = props => {
         ...transformLayoutStyleProperties(style),
         ...transformTextStyleProperties(style),
         ...transformBlendProperties(style),
+        ...props,
+        style,
         ...props
         // characters: charactersByChildren || props.characters
     };
-    // @ts-ignore
+    const hasDefinedWidth = textProps.width || style.maxWidth;
     const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });
     const yogaProps = useYogaLayout({ nodeRef, ...textProps });
-    // @ts-ignore
-    // return <text {...textProps} {...yogaProps} loadedFont={loadedFont} innerRef={nodeRef} />;
-    return <text {...textProps} {...yogaProps} ref={nodeRef} />;
+
+    return (
+        <text
+            {...textProps}
+            {...yogaProps}
+            hasDefinedWidth={hasDefinedWidth}
+            loadedFont={loadedFont}
+            innerRef={nodeRef}
+        />
+    );
 };

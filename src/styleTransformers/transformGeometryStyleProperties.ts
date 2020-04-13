@@ -1,14 +1,14 @@
 import { GeometryProps } from '../types';
-import { colorToRGB } from './transformColors';
+import { colorToPaint, colorToRGB } from './transformColors';
 import { LayoutStyleProperties } from './transformLayoutStyleProperties';
 import { transformSize } from '../helpers/size';
 
 export type ResizeMode = 'contain' | 'cover' | 'stretch' | 'center' | 'repeat' | 'none';
 
 export type GeometryStyleProperties = {
-    backgroundColor?: string;
-    backgroundImage?: string;
-    backgroundSize?: ResizeMode;
+    backgroundColor: string;
+    backgroundImage: string;
+    backgroundSize: ResizeMode;
 };
 
 const backgroundSizeToScaleMode = {
@@ -22,7 +22,7 @@ const backgroundSizeToScaleMode = {
 
 export const transformGeometryStyleProperties = (
     property: 'fills' | 'backgrounds',
-    style?: LayoutStyleProperties & GeometryStyleProperties
+    style?: Partial<LayoutStyleProperties & GeometryStyleProperties>
 ): GeometryProps => {
     if (!style) {
         return {};
@@ -31,11 +31,17 @@ export const transformGeometryStyleProperties = (
     const fills = [];
 
     if (style.backgroundColor) {
-        fills.push({ type: 'SOLID', color: colorToRGB(style.backgroundColor) });
+        fills.push(colorToPaint(style.backgroundColor));
     }
 
     if (style.backgroundImage) {
-        if (style.backgroundSize === 'stretch') {
+        let color;
+        try {
+            color = colorToPaint(style.backgroundImage);
+        } catch (e) {}
+        if (color) {
+            fills.push(color);
+        } else if (style.backgroundSize === 'stretch') {
             fills.push({
                 type: 'IMAGE',
                 image: style.backgroundImage,

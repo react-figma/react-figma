@@ -1,17 +1,43 @@
+import { CommonStyle } from '../types';
+import { Assign } from 'utility-types';
+
+type StyleProp<P, T> = { [P in keyof T]: Partial<CommonStyle> };
+
+const absoluteFill: Partial<CommonStyle> = {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    width: '100%',
+    height: '100%'
+};
+
 export class StyleSheet {
-    static create<T extends Object>(value: T): T {
-        return value;
+    static create<T extends StyleProp<any, T>>(styles: T): T {
+        return styles;
     }
 
-    static flatten<C extends Object>(styles: C | C[]): C {
+    static flatten<C extends Partial<CommonStyle>>(styles: C | C[] | void): C {
         if (Array.isArray(styles)) {
             return styles.reduce((acc, item) => ({ ...acc, ...item }), {} as any);
         } else {
-            return styles;
+            return styles || ({} as C);
         }
     }
 
-    static resolve<T extends Object>(value: T): T {
+    static resolve<T extends { [key: string]: Partial<CommonStyle> }>(value: T): T {
         return value;
     }
+
+    static compose<C1 extends Partial<CommonStyle>, C2 extends Partial<CommonStyle>>(
+        style1: C1,
+        style2: C2
+    ): Assign<C1, C2> {
+        return { ...(style1 || ({} as C1)), ...(style2 || ({} as C2)) };
+    }
+
+    static hairlineWidth = 1;
+
+    static absoluteFill = absoluteFill;
+
+    static absoluteFillObject = absoluteFill;
 }

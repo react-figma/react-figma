@@ -14,6 +14,7 @@ exports[`<Ellipse /> Ellipse with arc data 1`] = `
       "current": undefined,
     }
   }
+  style={Object {}}
 />
 `;
 
@@ -27,6 +28,7 @@ exports[`<Ellipse /> Ellipse with color background 1`] = `
           "g": 1,
           "r": 0.10588235294117647,
         },
+        "opacity": 1,
         "type": "SOLID",
       },
     ]
@@ -54,6 +56,7 @@ exports[`<Ellipse /> Ellipse with image background 1`] = `
           "g": 0.5450980392156862,
           "r": 1,
         },
+        "opacity": 1,
         "type": "SOLID",
       },
     ]
@@ -98,5 +101,6 @@ exports[`<Ellipse /> Ellipse without props 1`] = `
       "current": undefined,
     }
   }
+  style={Object {}}
 />
 `;

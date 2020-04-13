@@ -26,7 +26,7 @@ const setTextInstance = (parentNode, childNode) => {
 };
 
 const appendToContainer = (parentNode, childNode) => {
-    if (!childNode || !parentNode) {
+    if (!childNode || !parentNode || parentNode.type === 'INSTANCE') {
         return;
     }
 
@@ -41,7 +41,7 @@ const appendToContainer = (parentNode, childNode) => {
 };
 
 const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
-    if (!parentNode || !newChildNode || !beforeChildNode) {
+    if (!parentNode || !newChildNode || !beforeChildNode || parentNode.type === 'INSTANCE') {
         return;
     }
     if (newChildNode.type === 'TEXT_CONTAINER') {
@@ -86,6 +86,16 @@ const getNextChildren = instance => {
     const parent = instance.parent;
     const instanceIndex = parent.children.indexOf(instance);
     return parent.children.slice(instanceIndex + 1).find(isReactFigmaNode);
+};
+
+const checkInstanceMatchType = (instance, type) => {
+    if (instance.type.toLowerCase() === type) {
+        return true;
+    }
+    if (instance.type === 'FRAME' && type === 'svg') {
+        return true;
+    }
+    return false;
 };
 
 export const render = async (jsx: any, rootNode) => {
@@ -145,16 +155,23 @@ export const render = async (jsx: any, rootNode) => {
             }
         },
         removeChild: (parentNode, childNode) => {
+            if (parentNode && parentNode.type === 'INSTANCE') {
+                return;
+            }
             remove(childNode);
         },
         canHydrateInstance: (instance, type, props) => {
-            if (!isReactFigmaNode(instance) || instance.type.toLowerCase() !== type) {
+            if (
+                !isReactFigmaNode(instance) ||
+                !checkInstanceMatchType(instance, type) ||
+                (instance.parent && instance.parent.type === 'INSTANCE')
+            ) {
                 return null;
             }
             return instance;
         },
         hydrateInstance: (instance, type, props) => {
-            return renderInstance(type, instance.type.toLowerCase() === type ? instance : null, props);
+            return renderInstance(type, checkInstanceMatchType(instance, type) ? instance : null, props);
         },
         getFirstHydratableChild: parentInstance => {
             return getFirstChild(parentInstance);

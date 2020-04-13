@@ -1,0 +1,14 @@
+
+:root {
+    --ifm-color-primary: #1abcfe;
+    --ifm-color-primary-dark: #01b3fb;
+    --ifm-color-primary-darker: #01a9ed;
+    --ifm-color-primary-darkest: #018bc3;
+    --ifm-color-primary-light: #36c4fe;
+    --ifm-color-primary-lighter: #44c8fe;
+    --ifm-color-primary-lightest: #6ed4fe;
+}
+
+.docusaurus-highlight-code-line {
+    background: #1abcfe20;
+}

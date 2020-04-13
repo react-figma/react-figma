@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Page, Rectangle, Group, Frame } from '../../../src';
+import { Page, Rectangle, Group, Frame } from 'react-figma';
 import { YogaStyleProperties } from '../../../src/yoga/YogaStyleProperties';
 import { GeometryStyleProperties } from '../../../src/styleTransformers/transformGeometryStyleProperties';
 

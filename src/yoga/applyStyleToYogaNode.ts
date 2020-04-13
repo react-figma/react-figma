@@ -28,6 +28,17 @@ const transformAlignItems = (value: YogaStyleProperties['alignItems']) => {
     }
 };
 
+const transformFlexWrap = (value: YogaStyleProperties['flexWrap']) => {
+    switch (value) {
+        case 'wrap':
+            return yoga.WRAP_WRAP;
+        case 'nowrap':
+            return yoga.WRAP_NO_WRAP;
+        default:
+            return yoga.WRAP_NO_WRAP;
+    }
+};
+
 const transformAlignSelf = (value: YogaStyleProperties['alignSelf']) => {
     switch (value) {
         case 'auto':
@@ -67,7 +78,18 @@ const transformPosition = (value: string) => {
     }
 };
 
-export const applyStyleToYogaNode = (yogaNode, style: YogaStyleProperties) => {
+const transformOverflow = (value: string) => {
+    switch (value) {
+        case 'hidden':
+            return yoga.OVERFLOW_HIDDEN;
+        case 'scroll':
+            return yoga.OVERFLOW_SCROLL;
+        default:
+            return yoga.OVERFLOW_VISIBLE;
+    }
+};
+
+export const applyStyleToYogaNode = (yogaNode, style: Partial<YogaStyleProperties>) => {
     if (style.position) {
         yogaNode.setPositionType(transformPosition(style.position));
     }
@@ -211,6 +233,9 @@ export const applyStyleToYogaNode = (yogaNode, style: YogaStyleProperties) => {
             .px(yogaNode.setFlexBasis.bind(yogaNode))
             .percentage(yogaNode.setFlexBasisPercent.bind(yogaNode));
     }
+    if (style.flexWrap) {
+        yogaNode.setFlexWrap(transformFlexWrap(style.flexWrap));
+    }
     if (style.aspectRatio) {
         yogaNode.setAspectRatio(style.aspectRatio);
     }
@@ -219,4 +244,6 @@ export const applyStyleToYogaNode = (yogaNode, style: YogaStyleProperties) => {
     }
     yogaNode.setAlignItems(transformAlignItems(style.alignItems));
     yogaNode.setJustifyContent(transformJustifyContent(style.justifyContent));
+
+    yogaNode.setOverflow(transformOverflow(style.overflow));
 };

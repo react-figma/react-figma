@@ -8,26 +8,19 @@ import { RectangleProps } from '../components/rectangle/Rectangle';
 import { cornerMixin } from '../mixins/cornerMixin';
 import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
-
-const rectangleNodePropsAssign = propsAssign<BorderProps>([
-    'topLeftRadius',
-    'topRightRadius',
-    'bottomLeftRadius',
-    'bottomRightRadius'
-]);
+import { rectangleCornerMixin } from '../mixins/rectangleCornerMixin';
 
 export const rectangle = (node: RectangleNode) => (props: RectangleProps) => {
-    const rect = node || figma.createRectangle();
+    const rect = node || props.node || figma.createRectangle();
 
     baseNodeMixin(rect)(props);
     saveStyleMixin(rect)(props);
     layoutMixin(rect)(props);
     geometryMixin(rect)(props);
     cornerMixin(rect)(props);
+    rectangleCornerMixin(rect)(props);
     exportMixin(rect)(props);
     blendMixin(rect)(props);
-
-    rectangleNodePropsAssign(rect)(props);
 
     return rect;
 };

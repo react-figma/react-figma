@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyleSheet compose 1`] = `
+Object {
+  "backgroundColor": "red",
+  "height": "100%",
+  "width": "100%",
+}
+`;
+
+exports[`StyleSheet flatten 1`] = `
+Object {
+  "color": "green",
+  "flex": 1,
+  "fontSize": 16,
+}
+`;

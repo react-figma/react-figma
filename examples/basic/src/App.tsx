@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Rectangle, Page } from '../../../src';
+import { Page, Rectangle } from '../../../src';
 
 const App = () => {
     return (

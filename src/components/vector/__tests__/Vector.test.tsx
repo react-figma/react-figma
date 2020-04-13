@@ -1,8 +1,16 @@
 import * as React from 'react';
 const renderer = require('react-test-renderer');
 import { Vector } from '../Vector';
+import { createFigma } from 'figma-api-stub';
 
 describe('<Vector />', () => {
+    beforeEach(() => {
+        // @ts-ignore
+        global.figma = createFigma({
+            simulateErrors: true
+        });
+    });
+
     it('Vector without props', () => {
         const tree = renderer.create(<Vector />).toJSON();
         expect(tree).toMatchSnapshot();
