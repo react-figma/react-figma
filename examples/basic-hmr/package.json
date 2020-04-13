@@ -1,0 +1,12 @@
+{
+  "name": "basic",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:main": "webpack --watch",
+    "start:ui": "webpack-dev-server --config webpack.ui.config.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
