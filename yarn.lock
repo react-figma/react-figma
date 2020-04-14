@@ -1954,6 +1954,11 @@ figma-api-stub@0.0.32:
     clone-deep "^4.0.1"
     rxjs "^6.5.3"
 
+figma-jsonrpc@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/figma-jsonrpc/-/figma-jsonrpc-0.4.0.tgz#6934b812a78343404d98c7c4b5ea035b3a342d25"
+  integrity sha512-nEwQP+h1w1fnDgfZh0VnFeN3nWjMBJa1sgL/5vtm770ExUqBkn8MY7QiY+6rUSEipoMKXq/hZbsTqx3xk9w+qg==
+
 fill-range@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/fill-range/-/fill-range-4.0.0.tgz#d544811d428f98eb06a63dc402d2403c328c38f7"
