@@ -41,13 +41,7 @@ const appendToContainer = (parentNode, childNode) => {
         return;
     }
 
-    if (childNode.type === 'TEXT_CONTAINER') {
-        if (parentNode.type === 'TEXT') {
-            setTextInstance(parentNode, childNode);
-        }
-    } else {
-        parentNode.appendChild(childNode);
-    }
+    parentNode.appendChild(childNode);
     cleanGroupStubElement(parentNode);
 };
 

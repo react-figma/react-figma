@@ -87,12 +87,31 @@ const reparent = node => {
     };
 };
 
+const appendToContainer = (parentNode, childNode) => {
+    if (!childNode || !parentNode || parentNode.type === 'INSTANCE') {
+        return;
+    }
+
+    if (childNode.type === 'TEXT_CONTAINER') {
+        console.log('parentNode', parentNode);
+        if (parentNode.type === 'TEXT') {
+            setTextInstance(parentNode, childNode);
+        }
+    } else {
+        api.appendToContainer(parentNode, childNode);
+    }
+};
+
 const renderInstance = (type, node, props) => {
-    const result = { tempId: nanoid() };
+    const result = { tempId: nanoid(), type: type.toUpperCase() };
     const { children, ...otherProps } = props;
+    if (props.innerRef) {
+        props.innerRef.current = result;
+    }
     api.renderInstance(type, node, otherProps, result);
     return result;
 };
+
 export const render = async (jsx: any) => {
     const rootNode = await api.getInitialTree();
     const rootNodeWithParents = reparent(rootNode);
@@ -118,10 +137,10 @@ export const render = async (jsx: any) => {
         },
         resetTextContent: () => {},
         appendInitialChild: (parentNode, childNode) => {
-            api.appendToContainer(parentNode, childNode);
+            appendToContainer(parentNode, childNode);
         },
         appendChild: (parentNode, childNode) => {
-            api.appendToContainer(parentNode, childNode);
+            appendToContainer(parentNode, childNode);
         },
         insertBefore: (parentNode, newChildNode, beforeChildNode) => {
             insertToContainer(parentNode, newChildNode, beforeChildNode);
@@ -132,8 +151,8 @@ export const render = async (jsx: any) => {
         supportsMutation: true,
         supportsHydration: true,
         appendChildToContainer: (parentNode, childNode) => {
-            api.appendToContainer(parentNode, childNode);
-            updateYogaRoot(childNode);
+            appendToContainer(parentNode, childNode);
+            /*updateYogaRoot(childNode);*/
         },
         insertInContainerBefore: () => {},
         removeChildFromContainer: () => {},
