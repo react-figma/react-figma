@@ -35,7 +35,7 @@ export const useCurrentPageChange = (
 
 export const Page: React.FC<PageProps> = props => {
     const nodeRef = React.useRef();
-    useCurrentPageChange(nodeRef, props.onCurrentChange);
+    /*useCurrentPageChange(nodeRef, props.onCurrentChange);*/
 
     const yogaChildProps = useYogaLayout({ nodeRef, ...props });
     return <page {...props} {...yogaChildProps} innerRef={nodeRef} />;

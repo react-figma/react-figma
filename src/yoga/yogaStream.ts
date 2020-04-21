@@ -53,10 +53,10 @@ $yogaRoot
                         });
                     }
                 };
-                yogaHandler(instance).then(newProps => {
+                /*yogaHandler(instance).then(newProps => {
                     handleYogaProps(newProps, instance);
                     subscriber.complete();
-                });
+                });*/
             });
         })
     )

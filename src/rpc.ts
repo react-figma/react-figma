@@ -1,22 +1,17 @@
-import { createPluginAPI, createUIAPI } from "figma-jsonrpc";
-import {isReactFigmaNode} from "./isReactFigmaNode";
-import * as renderers from "./renderers";
-import {setTextChildren} from "./hooks/useTextChildren";
+import { createPluginAPI, createUIAPI } from 'figma-jsonrpc';
+import { isReactFigmaNode } from './isReactFigmaNode';
+import * as renderers from './renderers';
+import { setTextChildren } from './hooks/useTextChildren';
+import * as nanoid from 'nanoid/non-secure';
 
-const getInitialTree = (node) => {
-    const children = node.children && node.children
-        .filter((item) => isReactFigmaNode(item))
-        .map((item) => getInitialTree(item));
-    const result =  {
+const getInitialTree = node => {
+    return {
         id: node.id,
         type: node.type,
-        children: undefined
-    }
-    if (children && children.length > 0) {
-        result.children = children.map((item) => ({...item, parent: result}));
-    }
-    return result;
-}
+        children:
+            node.children && node.children.filter(item => isReactFigmaNode(item)).map(item => getInitialTree(item))
+    };
+};
 
 const renderInstance = (type, node, props) => {
     const instance = renderers[type](node)(props);
@@ -24,7 +19,7 @@ const renderInstance = (type, node, props) => {
         instance.setPluginData('isReactFigmaNode', 'true');
     }
     return instance;
-}
+};
 
 const cleanGroupStubElement = parentNode => {
     if (parentNode.type === 'GROUP') {
@@ -105,7 +100,7 @@ const checkInstanceMatchType = (instance, type) => {
 
 const cache = {};
 
-const transformToNode = (smth) => {
+const transformToNode = smth => {
     if (!smth) {
         return;
     }
@@ -116,13 +111,31 @@ const transformToNode = (smth) => {
     } else {
         return smth;
     }
-}
+};
+
+const transformNodesToTree = node => {
+    if (!isReactFigmaNode(node)) {
+        return;
+    }
+    const nodeBatchId = nanoid();
+    node.setPluginData('nodeBatchId', nodeBatchId);
+    const children = node.children && node.children.map(transformNodesToTree).filter(item => !!item);
+    return {
+        width: node.width,
+        height: node.height,
+        style:
+            (node.getPluginData && node.getPluginData('reactStyle') && JSON.parse(node.getPluginData('reactStyle'))) ||
+            undefined,
+        children: children && children.length > 0 ? children : undefined,
+        nodeBatchId
+    };
+};
 
 // those methods will be executed in the Figma plugin,
 // regardless of where they are called from
 export const api = createPluginAPI({
     getInitialTree() {
-        return getInitialTree(figma.root)
+        return getInitialTree(figma.root);
     },
 
     renderInstance(type, _node, props, tempNode) {
@@ -135,12 +148,29 @@ export const api = createPluginAPI({
         const parentNode = transformToNode(_parentNode);
         const childNode = transformToNode(_childNode);
         appendToContainer(parentNode, childNode);
-    }
+    },
 
+    async listAvailableFontsAsync() {
+        return figma.listAvailableFontsAsync();
+    },
+
+    async loadFontAsync(fontName) {
+        return figma.loadFontAsync(fontName);
+    },
+
+    transformNodesToTree() {
+        return transformNodesToTree(figma.root);
+    },
+
+    remove(_childNode) {
+        const childNode = transformToNode(_childNode);
+        if (!childNode || childNode.removed) {
+            return;
+        }
+        childNode.remove();
+    }
 });
 
 // those methods will be executed in the Figma UI,
 // regardless of where they are called from
-export const uiApi = createUIAPI({
-
-});
+export const uiApi = createUIAPI({});

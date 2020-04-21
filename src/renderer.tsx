@@ -6,9 +6,8 @@ import * as nanoid from 'nanoid/non-secure';
 import * as createReconciler from 'react-reconciler/cjs/react-reconciler.production.min';
 
 import { updateYogaRoot } from './yoga/yogaStream';
-import { isReactFigmaNode } from './isReactFigmaNode';
 import { setTextChildren } from './hooks/useTextChildren';
-import {api} from "./rpc";
+import { api } from './rpc';
 
 let lastPage;
 
@@ -43,15 +42,12 @@ const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
 };
 
 const remove = childNode => {
-    if (!childNode || childNode.removed) {
-        return;
-    }
-    childNode.remove();
+    api.remove(childNode);
 };
 
 const getFirstChild = parentInstance => {
     if (parentInstance.children && parentInstance.children.length > 0) {
-        return parentInstance.children.find(isReactFigmaNode);
+        return parentInstance.children[0];
     }
 };
 
@@ -61,10 +57,11 @@ const getNextChildren = instance => {
     }
     const parent = instance.parent;
     const instanceIndex = parent.children.indexOf(instance);
-    return parent.children.slice(instanceIndex + 1).find(isReactFigmaNode);
+    return parent.children.slice(instanceIndex + 1)[0];
 };
 
 const checkInstanceMatchType = (instance, type) => {
+    console.log('checkInstanceMatchType', instance, type);
     if (instance.type.toLowerCase() === type) {
         return true;
     }
@@ -74,13 +71,31 @@ const checkInstanceMatchType = (instance, type) => {
     return false;
 };
 
+const reparent = node => {
+    if (!node || !node.children) {
+        return node;
+    }
+    const children = node.children.map(item =>
+        reparent({
+            ...item,
+            parent: node
+        })
+    );
+    return {
+        ...node,
+        children
+    };
+};
+
 const renderInstance = (type, node, props) => {
-    const result = {tempId: nanoid()};
-    api.renderInstance(type, node, props, result);
+    const result = { tempId: nanoid() };
+    const { children, ...otherProps } = props;
+    api.renderInstance(type, node, otherProps, result);
     return result;
-}
+};
 export const render = async (jsx: any) => {
     const rootNode = await api.getInitialTree();
+    const rootNodeWithParents = reparent(rootNode);
     const HostConfig = {
         now: Date.now,
         getRootHostContext: () => {
@@ -140,24 +155,26 @@ export const render = async (jsx: any) => {
             if (parentNode && parentNode.type === 'INSTANCE') {
                 return;
             }
+            console.log('removeChild', childNode);
             remove(childNode);
         },
         canHydrateInstance: (instance, type, props) => {
-            if (
-                !checkInstanceMatchType(instance, type) ||
-                (instance.parent && instance.parent.type === 'INSTANCE')
-            ) {
+            console.log('canHydrateInstance', type, props);
+            if (!checkInstanceMatchType(instance, type) || (instance.parent && instance.parent.type === 'INSTANCE')) {
                 return null;
             }
             return instance;
         },
         hydrateInstance: (instance, type, props) => {
+            console.log('hydrateInstance', type, props);
             return renderInstance(type, checkInstanceMatchType(instance, type) ? instance : null, props);
         },
         getFirstHydratableChild: parentInstance => {
+            console.log('getFirstHydratableChild', parentInstance);
             return getFirstChild(parentInstance);
         },
         getNextHydratableSibling: instance => {
+            console.log('getNextHydratableSibling', instance);
             return getNextChildren(instance);
         },
         didNotHydrateContainerInstance: () => {},
@@ -175,8 +192,9 @@ export const render = async (jsx: any) => {
         }
     };
 
+    console.log('run', rootNode, rootNodeWithParents);
     const reconciler = createReconciler(HostConfig);
 
-    const container = reconciler.createContainer(rootNode, true, true);
+    const container = reconciler.createContainer(rootNodeWithParents, true, true);
     reconciler.updateContainer(jsx, container);
 };
