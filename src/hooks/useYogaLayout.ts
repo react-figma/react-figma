@@ -9,7 +9,7 @@ export const useYogaLayout = props => {
     React.useEffect(() => {
         const instance = nodeRef.current;
         const subject = $updatedYogaCoords.pipe(
-            filter((message: any) => message.instance === instance),
+            filter((message: any) => message.tempId === instance.tempId),
             map((message: any) => message.props)
         );
 

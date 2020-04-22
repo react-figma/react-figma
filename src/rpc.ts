@@ -13,10 +13,42 @@ const getInitialTree = node => {
     };
 };
 
-const renderInstance = (type, node, props) => {
+const findRoot = (node: any) => {
+    if (!node) {
+        return;
+    }
+    const parent = node.parent;
+    if (!parent || !isReactFigmaNode(parent)) {
+        return node;
+    } else {
+        return findRoot(parent);
+    }
+};
+
+const transformNodesToTree = node => {
+    if (!isReactFigmaNode(node)) {
+        return;
+    }
+    const nodeBatchId = nanoid();
+    node.setPluginData('nodeBatchId', nodeBatchId);
+    const children = node.children && node.children.map(transformNodesToTree).filter(item => !!item);
+    return {
+        width: node.width,
+        height: node.height,
+        style:
+            (node.getPluginData && node.getPluginData('reactStyle') && JSON.parse(node.getPluginData('reactStyle'))) ||
+            undefined,
+        children: children && children.length > 0 ? children : undefined,
+        tempId: node.getPluginData("tempId"),
+        nodeBatchId
+    };
+};
+
+const renderInstance = (type, node, props, tempId) => {
     const instance = renderers[type](node)(props);
     if (!node) {
         instance.setPluginData('isReactFigmaNode', 'true');
+        instance.setPluginData('tempId', tempId)
     }
     return instance;
 };
@@ -107,24 +139,6 @@ const transformToNode = smth => {
     }
 };
 
-const transformNodesToTree = node => {
-    if (!isReactFigmaNode(node)) {
-        return;
-    }
-    const nodeBatchId = nanoid();
-    node.setPluginData('nodeBatchId', nodeBatchId);
-    const children = node.children && node.children.map(transformNodesToTree).filter(item => !!item);
-    return {
-        width: node.width,
-        height: node.height,
-        style:
-            (node.getPluginData && node.getPluginData('reactStyle') && JSON.parse(node.getPluginData('reactStyle'))) ||
-            undefined,
-        children: children && children.length > 0 ? children : undefined,
-        nodeBatchId
-    };
-};
-
 // those methods will be executed in the Figma plugin,
 // regardless of where they are called from
 export const api = createPluginAPI({
@@ -134,7 +148,7 @@ export const api = createPluginAPI({
 
     renderInstance(type, _node, props, tempNode) {
         const node = transformToNode(_node);
-        const instance = renderInstance(type, node, props);
+        const instance = renderInstance(type, node, props, tempNode.tempId);
         cache[tempNode.tempId] = instance;
     },
 
@@ -152,16 +166,18 @@ export const api = createPluginAPI({
         return figma.loadFontAsync(fontName);
     },
 
-    transformNodesToTree() {
-        return transformNodesToTree(figma.root);
-    },
-
     remove(_childNode) {
         const childNode = transformToNode(_childNode);
         if (!childNode || childNode.removed) {
             return;
         }
         childNode.remove();
+    },
+
+    getTreeForYoga(_instance) {
+        const node = transformToNode(_instance);
+        const root = findRoot(node);
+        return transformNodesToTree(root);
     }
 });
 
