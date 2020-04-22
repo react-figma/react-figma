@@ -4,4 +4,4 @@ export const cleanNode = node => {
     }
     const { children, parent, ref, innerRef, ...other } = node;
     return other;
-}
+};

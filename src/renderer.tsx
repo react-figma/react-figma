@@ -109,7 +109,7 @@ const renderInstance = (type, node, props) => {
         props.ref.current = result;
     }
     if (props.innerRef) {
-        props.innerRef.current = result
+        props.innerRef.current = result;
     }
     api.renderInstance(type, node, otherProps, result);
     return result;
@@ -123,8 +123,8 @@ export const render = async (jsx: any) => {
         getRootHostContext: () => {
             return true;
         },
-        prepareForCommit: () => { },
-        resetAfterCommit: () => { },
+        prepareForCommit: () => {},
+        resetAfterCommit: () => {},
         getChildHostContext: () => {
             return true;
         },
@@ -138,7 +138,7 @@ export const render = async (jsx: any) => {
         createTextInstance: (text, rootContainerInstance, hostContext, internalInstanceHandle) => {
             return { type: 'TEXT_CONTAINER', value: text };
         },
-        resetTextContent: () => { },
+        resetTextContent: () => {},
         appendInitialChild: (parentNode, childNode) => {
             appendToContainer(parentNode, childNode);
         },
@@ -157,8 +157,8 @@ export const render = async (jsx: any) => {
             appendToContainer(parentNode, childNode);
             updateYogaRoot(childNode);
         },
-        insertInContainerBefore: () => { },
-        removeChildFromContainer: () => { },
+        insertInContainerBefore: () => {},
+        removeChildFromContainer: () => {},
         prepareUpdate: () => {
             return true;
         },
@@ -199,12 +199,12 @@ export const render = async (jsx: any) => {
             console.log('getNextHydratableSibling', instance);
             return getNextChildren(instance);
         },
-        didNotHydrateContainerInstance: () => { },
-        didNotFindHydratableContainerInstance: () => { },
-        didNotFindHydratableInstance: () => { },
-        didNotFindHydratableTextInstance: () => { },
-        didNotHydrateInstance: () => { },
-        commitMount: (instance, type) => { },
+        didNotHydrateContainerInstance: () => {},
+        didNotFindHydratableContainerInstance: () => {},
+        didNotFindHydratableInstance: () => {},
+        didNotFindHydratableTextInstance: () => {},
+        didNotHydrateInstance: () => {},
+        commitMount: (instance, type) => {},
         commitHydratedContainer: container => {
             /*container.children.forEach(child => {
                 updateYogaRoot(child);

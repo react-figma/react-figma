@@ -39,7 +39,7 @@ const transformNodesToTree = node => {
             (node.getPluginData && node.getPluginData('reactStyle') && JSON.parse(node.getPluginData('reactStyle'))) ||
             undefined,
         children: children && children.length > 0 ? children : undefined,
-        tempId: node.getPluginData("tempId"),
+        tempId: node.getPluginData('tempId'),
         nodeBatchId
     };
 };
@@ -48,7 +48,7 @@ const renderInstance = (type, node, props, tempId) => {
     const instance = renderers[type](node)(props);
     if (!node) {
         instance.setPluginData('isReactFigmaNode', 'true');
-        instance.setPluginData('tempId', tempId)
+        instance.setPluginData('tempId', tempId);
     }
     return instance;
 };
