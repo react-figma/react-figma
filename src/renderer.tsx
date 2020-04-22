@@ -1,5 +1,3 @@
-import * as React from 'react';
-import * as renderers from './renderers';
 import * as nanoid from 'nanoid/non-secure';
 
 // * Development version of react-reconciler can't be used inside Figma realm.
@@ -8,18 +6,6 @@ import * as createReconciler from 'react-reconciler/cjs/react-reconciler.product
 import { updateYogaRoot } from './yoga/yogaStream';
 import { setTextChildren } from './hooks/useTextChildren';
 import { api } from './rpc';
-
-let lastPage;
-
-const cleanGroupStubElement = parentNode => {
-    if (parentNode.type === 'GROUP') {
-        parentNode.children.forEach(child => {
-            if (child.getPluginData('isGroupStubElement')) {
-                child.remove();
-            }
-        });
-    }
-};
 
 const setTextInstance = (parentNode, childNode) => {
     childNode.parent = parentNode;
@@ -54,7 +40,10 @@ const getNextChildren = instance => {
         return;
     }
     const parent = instance.parent;
-    const instanceIndex = parent.children.indexOf(instance);
+    const instanceIndex = parent.children.findIndex(child => child.id === instance.id);
+    if (instanceIndex < 0 || instanceIndex >= parent.children.length - 1) {
+        return;
+    }
     return parent.children.slice(instanceIndex + 1)[0];
 };
 
@@ -116,6 +105,8 @@ const renderInstance = (type, node, props) => {
 export const render = async (jsx: any) => {
     const rootNode = await api.getInitialTree();
     const rootNodeWithParents = reparent(rootNode);
+    console.log('rootNodeWithParents', rootNodeWithParents);
+
     const HostConfig = {
         now: Date.now,
         getRootHostContext: () => {
@@ -131,6 +122,7 @@ export const render = async (jsx: any) => {
             return instance;
         },
         createInstance: (type, props) => {
+            console.log('createInstance', type, props);
             return renderInstance(type, null, props);
         },
         createTextInstance: (text, rootContainerInstance, hostContext, internalInstanceHandle) => {
@@ -179,14 +171,14 @@ export const render = async (jsx: any) => {
             remove(childNode);
         },
         canHydrateInstance: (instance, type, props) => {
-            console.log('canHydrateInstance', type, props);
+            console.log('canHydrateInstance', instance, type, props);
             if (!checkInstanceMatchType(instance, type) || (instance.parent && instance.parent.type === 'INSTANCE')) {
                 return null;
             }
             return instance;
         },
         hydrateInstance: (instance, type, props) => {
-            console.log('hydrateInstance', type, props);
+            console.log('hydrateInstance', instance, type, props);
             return renderInstance(type, checkInstanceMatchType(instance, type) ? instance : null, props);
         },
         getFirstHydratableChild: parentInstance => {
@@ -194,7 +186,7 @@ export const render = async (jsx: any) => {
             return getFirstChild(parentInstance);
         },
         getNextHydratableSibling: instance => {
-            console.log('getNextHydratableSibling', instance);
+            console.log('getNextHydratableSibling', instance, getNextChildren(instance));
             return getNextChildren(instance);
         },
         didNotHydrateContainerInstance: () => {},
