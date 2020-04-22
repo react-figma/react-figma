@@ -35,10 +35,8 @@ const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
             setTextInstance(parentNode, newChildNode);
         }
     } else {
-        const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
-        parentNode.insertChild(beforeChildIndex, newChildNode);
+        api.insertToContainer(parentNode, newChildNode, beforeChildNode);
     }
-    cleanGroupStubElement(parentNode);
 };
 
 const remove = childNode => {

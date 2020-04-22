@@ -1,7 +1,6 @@
 import { createPluginAPI, createUIAPI } from 'figma-jsonrpc';
 import { isReactFigmaNode } from './isReactFigmaNode';
 import * as renderers from './renderers';
-import { setTextChildren } from './hooks/useTextChildren';
 import * as nanoid from 'nanoid/non-secure';
 
 const getInitialTree = node => {
@@ -63,11 +62,6 @@ const cleanGroupStubElement = parentNode => {
     }
 };
 
-const setTextInstance = (parentNode, childNode) => {
-    childNode.parent = parentNode;
-    setTextChildren(parentNode, childNode.value);
-};
-
 const appendToContainer = (parentNode, childNode) => {
     if (!childNode || !parentNode || parentNode.type === 'INSTANCE') {
         return;
@@ -81,47 +75,9 @@ const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
     if (!parentNode || !newChildNode || !beforeChildNode || parentNode.type === 'INSTANCE') {
         return;
     }
-    if (newChildNode.type === 'TEXT_CONTAINER') {
-        if (parentNode.type === 'TEXT') {
-            setTextInstance(parentNode, newChildNode);
-        }
-    } else {
-        const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
-        parentNode.insertChild(beforeChildIndex, newChildNode);
-    }
+    const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
+    parentNode.insertChild(beforeChildIndex, newChildNode);
     cleanGroupStubElement(parentNode);
-};
-
-const remove = childNode => {
-    if (!childNode || childNode.removed) {
-        return;
-    }
-    childNode.remove();
-};
-
-const getFirstChild = parentInstance => {
-    if (parentInstance.children && parentInstance.children.length > 0) {
-        return parentInstance.children.find(isReactFigmaNode);
-    }
-};
-
-const getNextChildren = instance => {
-    if (!instance || !instance.parent) {
-        return;
-    }
-    const parent = instance.parent;
-    const instanceIndex = parent.children.indexOf(instance);
-    return parent.children.slice(instanceIndex + 1).find(isReactFigmaNode);
-};
-
-const checkInstanceMatchType = (instance, type) => {
-    if (instance.type.toLowerCase() === type) {
-        return true;
-    }
-    if (instance.type === 'FRAME' && type === 'svg') {
-        return true;
-    }
-    return false;
 };
 
 const cache = {};
@@ -139,8 +95,6 @@ const transformToNode = smth => {
     }
 };
 
-// those methods will be executed in the Figma plugin,
-// regardless of where they are called from
 export const api = createPluginAPI({
     getInitialTree() {
         return getInitialTree(figma.root);
@@ -156,6 +110,13 @@ export const api = createPluginAPI({
         const parentNode = transformToNode(_parentNode);
         const childNode = transformToNode(_childNode);
         appendToContainer(parentNode, childNode);
+    },
+
+    insertToContainer(_parentNode, _newChildNode, _beforeChildNode) {
+        const parentNode = transformToNode(_parentNode);
+        const newChildNode = transformToNode(_newChildNode);
+        const beforeChildNode = transformToNode(_beforeChildNode);
+        insertToContainer(parentNode, newChildNode, beforeChildNode);
     },
 
     async listAvailableFontsAsync() {
