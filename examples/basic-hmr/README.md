@@ -1,5 +1,7 @@
 # Basic + HMR
 
+⚠️ `Use Developer VM` flag should be disabled.
+
 Run it simultaneously:
 
 ```bash
