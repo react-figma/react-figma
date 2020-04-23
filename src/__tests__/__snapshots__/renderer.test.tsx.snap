@@ -1054,6 +1054,11 @@ exports[`renderer render single component 1`] = `
 ChildrenMixinStub {
   "children": Array [
     ChildrenMixinStub {
+      "children": Array [],
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ChildrenMixinStub {
       "children": Array [
         LayoutMixinStub {
           "fills": Array [
@@ -1078,9 +1083,14 @@ ChildrenMixinStub {
         },
       ],
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;

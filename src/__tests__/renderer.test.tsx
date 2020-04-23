@@ -5,6 +5,13 @@ import { createFigma } from 'figma-api-stub';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { wait } from '../helpers/wait';
+import '../rpc';
+import {removeTempId} from "../helpers/removeTempId";
+import {removeNodeBatchId} from "../helpers/removeNodeBatchId";
+
+const removeMeta = (node) => {
+    return removeNodeBatchId(removeTempId(node))
+}
 
 describe('renderer', () => {
     beforeEach(() => {
@@ -12,41 +19,45 @@ describe('renderer', () => {
         global.figma = createFigma({
             simulateErrors: true
         });
+        // @ts-ignore
+        global.figma.root.id = "0:0";
     });
 
-    it('render single component', () => {
+    it('render single component', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
-        render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />, figma.currentPage);
+        render(<Page>
+            <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+        </Page>);
+        await wait();
         expect(figma.createRectangle).toHaveBeenCalledTimes(1);
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
     it('rerender single component', () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
-        render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />, figma.currentPage);
-        render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />, figma.currentPage);
+        render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />);
+        render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />);
         expect(figma.createRectangle).toHaveBeenCalledTimes(1);
         expect(figma.root).toMatchSnapshot();
     });
 
-    it('insert new component between', () => {
+    it('insert new component between', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         figma.createPage = jest.fn().mockImplementation(figma.createPage);
         render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
-            </Page>,
-            figma.root
+            </Page>
         );
         render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#005aff' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
-            </Page>,
-            figma.root
+            </Page>
         );
+        await wait();
         expect(figma.createRectangle).toHaveBeenCalledTimes(3);
         expect(figma.createPage).toHaveBeenCalledTimes(3);
         expect(figma.root).toMatchSnapshot();
@@ -61,15 +72,13 @@ describe('renderer', () => {
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0050ff' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
-            </Page>,
-            figma.root
+            </Page>
         );
         render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
-            </Page>,
-            figma.root
+            </Page>
         );
         expect(figma.createRectangle).toHaveBeenCalledTimes(3);
         expect(figma.createPage).toHaveBeenCalledTimes(3);
@@ -84,15 +93,13 @@ describe('renderer', () => {
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0048ff' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#00ff00' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
-            </Page>,
-            figma.root
+            </Page>
         );
         render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0048ff' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
-            </Page>,
-            figma.root
+            </Page>
         );
         expect(figma.createRectangle).toHaveBeenCalledTimes(3);
         expect(figma.createPage).toHaveBeenCalledTimes(3);
@@ -106,8 +113,7 @@ describe('renderer', () => {
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} /> fff
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
-            </Page>,
-            figma.root
+            </Page>
         );
         expect(figma.createRectangle).toHaveBeenCalledTimes(2);
         expect(figma.createText).toHaveBeenCalledTimes(0);
@@ -117,13 +123,12 @@ describe('renderer', () => {
     it('text instance without Text component (with hydration page)', () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         figma.createText = jest.fn().mockImplementation(figma.createText);
-        render(<Page></Page>, figma.root);
+        render(<Page></Page>);
         render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} /> fff
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
-            </Page>,
-            figma.root
+            </Page>
         );
         expect(figma.createRectangle).toHaveBeenCalledTimes(2);
         expect(figma.createText).toHaveBeenCalledTimes(0);
@@ -141,8 +146,7 @@ describe('renderer', () => {
                 <Group>
                     <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 </Group>
-            </Page>,
-            figma.root
+            </Page>
         );
 
         expect(figma.group).toHaveBeenCalledTimes(1);
@@ -166,8 +170,7 @@ describe('renderer', () => {
                         <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                     </Group>
                 </Group>
-            </Page>,
-            figma.root
+            </Page>
         );
 
         expect(figma.group).toHaveBeenCalledTimes(3);
@@ -203,7 +206,7 @@ describe('renderer', () => {
             );
         };
 
-        render(<Component />, figma.currentPage);
+        render(<Component />);
 
         return new Promise(resolve => {
             waiting.pipe(take(1)).subscribe(() => {
@@ -214,18 +217,18 @@ describe('renderer', () => {
     });
 
     it('mark page isCurrent=true', () => {
-        render(<Page isCurrent name={'New page'} />, figma.root);
+        render(<Page isCurrent name={'New page'} />);
         expect(figma.currentPage).toMatchSnapshot();
     });
 
     it('mark page isCurrent=false', () => {
-        render(<Page name={'New page'} />, figma.root);
+        render(<Page name={'New page'} />);
         expect(figma.currentPage).toMatchSnapshot();
     });
 
     it('Text component supported text instance children', async () => {
         figma.createText = jest.fn().mockImplementation(figma.createText);
-        render(<Text>Some text</Text>, figma.currentPage);
+        render(<Text>Some text</Text>);
         await wait();
         await wait();
         expect(figma.createText).toHaveBeenCalledTimes(1);
@@ -234,9 +237,9 @@ describe('renderer', () => {
 
     it('Text instance hydration', async () => {
         figma.createText = jest.fn().mockImplementation(figma.createText);
-        render(<Text>Some text</Text>, figma.currentPage);
+        render(<Text>Some text</Text>);
         await wait();
-        render(<Text>Some text 2</Text>, figma.currentPage);
+        render(<Text>Some text 2</Text>);
         await wait();
 
         expect(figma.createText).toHaveBeenCalledTimes(1);
@@ -244,14 +247,14 @@ describe('renderer', () => {
     });
 
     it('Text characters applied', async () => {
-        render(<Text characters="some text" />, figma.currentPage);
+        render(<Text characters="some text" />);
         await wait();
         await wait();
         expect(figma.root).toMatchSnapshot();
     });
 
     it('Text with custom font applied', async () => {
-        render(<Text style={{ fontFamily: 'Helvetica', fontWeight: 'bold' }}>some text</Text>, figma.currentPage);
+        render(<Text style={{ fontFamily: 'Helvetica', fontWeight: 'bold' }}>some text</Text>);
 
         await wait();
         await wait();
@@ -274,7 +277,7 @@ describe('renderer', () => {
             return <Text>{text}</Text>;
         };
 
-        render(<Component />, figma.currentPage);
+        render(<Component />);
 
         return new Promise(resolve => {
             waiting.pipe(take(1)).subscribe(() => {
@@ -303,7 +306,7 @@ describe('renderer', () => {
             return frame;
         });
 
-        render(<Svg source={'<svg />'} />, figma.currentPage);
+        render(<Svg source={'<svg />'} />);
         expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(1);
         expect(figma.root).toMatchSnapshot();
     });
@@ -327,8 +330,8 @@ describe('renderer', () => {
             return frame;
         });
 
-        render(<Svg source="source1" />, figma.currentPage);
-        render(<Svg source="source2" />, figma.currentPage);
+        render(<Svg source="source1" />);
+        render(<Svg source="source2" />);
         expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(2);
         expect(figma.root).toMatchSnapshot();
     });
@@ -365,7 +368,7 @@ describe('renderer', () => {
             return <Svg source={source} />;
         };
 
-        render(<Component />, figma.currentPage);
+        render(<Component />);
 
         return new Promise(resolve => {
             waiting.pipe(take(1)).subscribe(() => {
@@ -384,8 +387,7 @@ describe('renderer', () => {
                     <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 </Rect.Component>
                 <Rect.Instance />
-            </>,
-            figma.currentPage
+            </>
         );
         expect(figma.root).toMatchSnapshot();
     });
@@ -398,8 +400,7 @@ describe('renderer', () => {
                     <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 </Rect.Component>
                 <Rect.Instance />
-            </>,
-            figma.currentPage
+            </>
         );
         render(
             <>
@@ -407,8 +408,7 @@ describe('renderer', () => {
                     <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0051ff' }} />
                 </Rect.Component>
                 <Rect.Instance />
-            </>,
-            figma.currentPage
+            </>
         );
         expect(figma.root).toMatchSnapshot();
     });
@@ -429,8 +429,7 @@ describe('renderer', () => {
                         }
                     }}
                 />
-            </>,
-            figma.currentPage
+            </>
         );
         await wait();
         expect(figma.root).toMatchSnapshot();
