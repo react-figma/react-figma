@@ -6,12 +6,12 @@ import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { wait } from '../helpers/wait';
 import '../rpc';
-import {removeTempId} from "../helpers/removeTempId";
-import {removeNodeBatchId} from "../helpers/removeNodeBatchId";
+import { removeTempId } from '../helpers/removeTempId';
+import { removeNodeBatchId } from '../helpers/removeNodeBatchId';
 
-const removeMeta = (node) => {
-    return removeNodeBatchId(removeTempId(node))
-}
+const removeMeta = node => {
+    return removeNodeBatchId(removeTempId(node));
+};
 
 describe('renderer', () => {
     beforeEach(() => {
@@ -19,26 +19,37 @@ describe('renderer', () => {
         global.figma = createFigma({
             simulateErrors: true
         });
-        // @ts-ignore
-        global.figma.root.id = "0:0";
     });
 
     it('render single component', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
-        render(<Page>
-            <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
-        </Page>);
+        render(
+            <Page>
+                <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+            </Page>
+        );
         await wait();
         expect(figma.createRectangle).toHaveBeenCalledTimes(1);
         expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
-    it('rerender single component', () => {
+    it('rerender single component', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
-        render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />);
-        render(<Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />);
+        render(
+            <Page>
+                <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+            </Page>
+        );
+        await wait();
+        await wait();
+        render(
+            <Page>
+                <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
+            </Page>
+        );
+        await wait();
         expect(figma.createRectangle).toHaveBeenCalledTimes(1);
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
     it('insert new component between', async () => {
@@ -50,6 +61,8 @@ describe('renderer', () => {
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
+        await wait();
+        await wait();
         render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
@@ -59,11 +72,11 @@ describe('renderer', () => {
         );
         await wait();
         expect(figma.createRectangle).toHaveBeenCalledTimes(3);
-        expect(figma.createPage).toHaveBeenCalledTimes(3);
-        expect(figma.root).toMatchSnapshot();
+        expect(figma.createPage).toHaveBeenCalledTimes(1);
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
-    it('remove component between', () => {
+    it('remove component between', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         figma.createText = jest.fn().mockImplementation(figma.createText);
         figma.createPage = jest.fn().mockImplementation(figma.createPage);
@@ -74,6 +87,8 @@ describe('renderer', () => {
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
+        await wait();
+        await wait();
         render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
@@ -81,8 +96,8 @@ describe('renderer', () => {
             </Page>
         );
         expect(figma.createRectangle).toHaveBeenCalledTimes(3);
-        expect(figma.createPage).toHaveBeenCalledTimes(3);
-        expect(figma.root).toMatchSnapshot();
+        expect(figma.createPage).toHaveBeenCalledTimes(1);
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
     it('remove component between (equal components)', () => {
