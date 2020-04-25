@@ -23,31 +23,27 @@ describe('renderer', () => {
 
     it('render single component', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
-        render(
+        await render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
             </Page>
         );
-        await wait();
         expect(figma.createRectangle).toHaveBeenCalledTimes(1);
         expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
     it('rerender single component', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
-        render(
+        await render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
             </Page>
         );
-        await wait();
-        await wait();
-        render(
+        await render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
-        await wait();
         expect(figma.createRectangle).toHaveBeenCalledTimes(1);
         expect(removeMeta(figma.root)).toMatchSnapshot();
     });
@@ -55,22 +51,19 @@ describe('renderer', () => {
     it('insert new component between', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         figma.createPage = jest.fn().mockImplementation(figma.createPage);
-        render(
+        await render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
-        await wait();
-        await wait();
-        render(
+        await render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#005aff' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
-        await wait();
         expect(figma.createRectangle).toHaveBeenCalledTimes(3);
         expect(figma.createPage).toHaveBeenCalledTimes(1);
         expect(removeMeta(figma.root)).toMatchSnapshot();
@@ -80,22 +73,19 @@ describe('renderer', () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         figma.createText = jest.fn().mockImplementation(figma.createText);
         figma.createPage = jest.fn().mockImplementation(figma.createPage);
-        render(
+        await render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 <Text style={{ width: 200, height: 100 }} characters="test" />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
-        await wait();
-        await wait();
-        render(
+        await render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
-        await wait();
         expect(figma.createRectangle).toHaveBeenCalledTimes(2);
         expect(figma.createText).toHaveBeenCalledTimes(1);
         expect(figma.createPage).toHaveBeenCalledTimes(1);
@@ -105,22 +95,19 @@ describe('renderer', () => {
     it('remove component between (equal components)', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         figma.createPage = jest.fn().mockImplementation(figma.createPage);
-        render(
+        await render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0048ff' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#00ff00' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
-        await wait();
-        await wait();
-        render(
+        await render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0048ff' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
-        await wait();
         expect(figma.createRectangle).toHaveBeenCalledTimes(3);
         expect(figma.createPage).toHaveBeenCalledTimes(1);
         expect(removeMeta(figma.root)).toMatchSnapshot();
