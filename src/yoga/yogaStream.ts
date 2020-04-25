@@ -7,10 +7,6 @@ const $yogaRoot = new Subject();
 
 export const $updatedYogaCoords = new Subject();
 
-$updatedYogaCoords.subscribe(data => {
-    console.log('updatedYogaCoords', data);
-});
-
 export const updateYogaRoot = (root: any) => {
     $yogaRoot.next(root);
 };
@@ -38,9 +34,7 @@ $yogaRoot
                     }
                 };
                 api.getTreeForYoga(instance).then(treeForYoga => {
-                    console.log('treeForYoga', treeForYoga);
                     const newProps = yogaHandler(treeForYoga);
-                    console.log('newProps', newProps);
                     handleYogaProps(newProps);
                     subscriber.complete();
                 });

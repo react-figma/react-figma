@@ -48,7 +48,6 @@ const getNextChildren = instance => {
 };
 
 const checkInstanceMatchType = (instance, type) => {
-    console.log('checkInstanceMatchType', instance, type);
     if (instance.type.toLowerCase() === type) {
         return true;
     }
@@ -80,7 +79,6 @@ const appendToContainer = (parentNode, childNode) => {
     }
 
     if (childNode.type === 'TEXT_CONTAINER') {
-        console.log('parentNode', parentNode);
         if (parentNode.type === 'TEXT') {
             setTextInstance(parentNode, childNode);
         }
@@ -105,7 +103,6 @@ const renderInstance = (type, node, props) => {
 export const render = async (jsx: any) => {
     const rootNode = await api.getInitialTree();
     const rootNodeWithParents = reparent(rootNode);
-    console.log('rootNodeWithParents', rootNodeWithParents);
 
     const HostConfig = {
         now: Date.now,
@@ -122,7 +119,6 @@ export const render = async (jsx: any) => {
             return instance;
         },
         createInstance: (type, props) => {
-            console.log('createInstance', type, props);
             return renderInstance(type, null, props);
         },
         createTextInstance: (text, rootContainerInstance, hostContext, internalInstanceHandle) => {
@@ -167,26 +163,21 @@ export const render = async (jsx: any) => {
             if (parentNode && parentNode.type === 'INSTANCE') {
                 return;
             }
-            console.log('removeChild', childNode);
             remove(childNode);
         },
         canHydrateInstance: (instance, type, props) => {
-            console.log('canHydrateInstance', instance, type, props);
             if (!checkInstanceMatchType(instance, type) || (instance.parent && instance.parent.type === 'INSTANCE')) {
                 return null;
             }
             return instance;
         },
         hydrateInstance: (instance, type, props) => {
-            console.log('hydrateInstance', instance, type, props);
             return renderInstance(type, checkInstanceMatchType(instance, type) ? instance : null, props);
         },
         getFirstHydratableChild: parentInstance => {
-            console.log('getFirstHydratableChild', parentInstance);
             return getFirstChild(parentInstance);
         },
         getNextHydratableSibling: instance => {
-            console.log('getNextHydratableSibling', instance, getNextChildren(instance));
             return getNextChildren(instance);
         },
         didNotHydrateContainerInstance: () => {},
