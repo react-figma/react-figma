@@ -83,7 +83,7 @@ describe('renderer', () => {
         render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
-                <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0050ff' }} />
+                <Text style={{ width: 200, height: 100 }} characters="test" />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
@@ -95,7 +95,9 @@ describe('renderer', () => {
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
-        expect(figma.createRectangle).toHaveBeenCalledTimes(3);
+        await wait();
+        expect(figma.createRectangle).toHaveBeenCalledTimes(2);
+        expect(figma.createText).toHaveBeenCalledTimes(1);
         expect(figma.createPage).toHaveBeenCalledTimes(1);
         expect(removeMeta(figma.root)).toMatchSnapshot();
     });

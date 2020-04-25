@@ -29,24 +29,6 @@ const remove = childNode => {
     api.remove(childNode);
 };
 
-const getFirstChild = parentInstance => {
-    if (parentInstance.children && parentInstance.children.length > 0) {
-        return parentInstance.children[0];
-    }
-};
-
-const getNextChildren = instance => {
-    if (!instance || !instance.parent) {
-        return;
-    }
-    const parent = instance.parent;
-    const instanceIndex = parent.children.findIndex(child => child.id === instance.id);
-    if (instanceIndex < 0 || instanceIndex >= parent.children.length - 1) {
-        return;
-    }
-    return parent.children.slice(instanceIndex + 1)[0];
-};
-
 const checkInstanceMatchType = (instance, type) => {
     if (instance.type.toLowerCase() === type) {
         return true;
@@ -57,20 +39,15 @@ const checkInstanceMatchType = (instance, type) => {
     return false;
 };
 
-const reparent = node => {
-    if (!node || !node.children) {
-        return node;
+const prepareToHydration = (node, parent) => {
+    if (node.children && node.children.length >= 0) {
+        node.firstHydratableChild = node.children[0];
+        node.children.forEach(child => prepareToHydration(child, node));
     }
-    const children = node.children.map(item =>
-        reparent({
-            ...item,
-            parent: node
-        })
-    );
-    return {
-        ...node,
-        children
-    };
+    if (parent) {
+        const instanceIndex = parent.children.findIndex(child => child.id === node.id);
+        node.nextHydratableSibling = parent.children.slice(instanceIndex + 1)[0];
+    }
 };
 
 const appendToContainer = (parentNode, childNode) => {
@@ -102,7 +79,7 @@ const renderInstance = (type, node, props) => {
 
 export const render = async (jsx: any) => {
     const rootNode = await api.getInitialTree();
-    const rootNodeWithParents = reparent(rootNode);
+    prepareToHydration(rootNode, undefined);
 
     const HostConfig = {
         now: Date.now,
@@ -175,10 +152,10 @@ export const render = async (jsx: any) => {
             return renderInstance(type, checkInstanceMatchType(instance, type) ? instance : null, props);
         },
         getFirstHydratableChild: parentInstance => {
-            return getFirstChild(parentInstance);
+            return parentInstance.firstHydratableChild;
         },
         getNextHydratableSibling: instance => {
-            return getNextChildren(instance);
+            return instance.nextHydratableSibling;
         },
         didNotHydrateContainerInstance: () => {},
         didNotFindHydratableContainerInstance: () => {},
@@ -195,6 +172,6 @@ export const render = async (jsx: any) => {
 
     const reconciler = createReconciler(HostConfig);
 
-    const container = reconciler.createContainer(rootNodeWithParents, true, true);
+    const container = reconciler.createContainer(rootNode, true, true);
     reconciler.updateContainer(jsx, container);
 };
