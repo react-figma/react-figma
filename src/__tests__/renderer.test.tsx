@@ -128,11 +128,11 @@ describe('renderer', () => {
         expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
-    it('text instance without Text component (with hydration page)', () => {
+    it('text instance without Text component (with hydration page)', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         figma.createText = jest.fn().mockImplementation(figma.createText);
-        render(<Page></Page>);
-        render(
+        await render(<Page></Page>);
+        await render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} /> fff
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
@@ -140,16 +140,16 @@ describe('renderer', () => {
         );
         expect(figma.createRectangle).toHaveBeenCalledTimes(2);
         expect(figma.createText).toHaveBeenCalledTimes(0);
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
-    it('creates single group', () => {
+    it('creates single group', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         figma.createText = jest.fn().mockImplementation(figma.createText);
         figma.createPage = jest.fn().mockImplementation(figma.createPage);
         figma.group = jest.fn().mockImplementation(figma.group);
 
-        render(
+        await render(
             <Page>
                 <Group>
                     <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
@@ -158,16 +158,16 @@ describe('renderer', () => {
         );
 
         expect(figma.group).toHaveBeenCalledTimes(1);
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
-    it('creates nested groups', () => {
+    it('creates nested groups', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         figma.createText = jest.fn().mockImplementation(figma.createText);
         figma.createPage = jest.fn().mockImplementation(figma.createPage);
         figma.group = jest.fn().mockImplementation(figma.group);
 
-        render(
+        await render(
             <Page>
                 <Group>
                     <Group>
@@ -182,7 +182,7 @@ describe('renderer', () => {
         );
 
         expect(figma.group).toHaveBeenCalledTimes(3);
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
     it('Groups inserting', async () => {
@@ -198,27 +198,29 @@ describe('renderer', () => {
             }, []);
 
             return (
-                <Frame>
-                    <Group>
-                        <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0054ff' }} />
-                    </Group>
-                    {flag && (
+                <Page>
+                    <Frame>
                         <Group>
-                            <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff0017' }} />
+                            <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0054ff' }} />
                         </Group>
-                    )}
-                    <Group>
-                        <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
-                    </Group>
-                </Frame>
+                        {flag && (
+                            <Group>
+                                <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff0017' }} />
+                            </Group>
+                        )}
+                        <Group>
+                            <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                        </Group>
+                    </Frame>
+                </Page>
             );
         };
 
-        render(<Component />);
+        await render(<Component />);
 
         return new Promise(resolve => {
             waiting.pipe(take(1)).subscribe(() => {
-                expect(figma.root).toMatchSnapshot();
+                expect(removeMeta(figma.root)).toMatchSnapshot();
                 resolve();
             });
         });
@@ -236,11 +238,12 @@ describe('renderer', () => {
 
     it('Text component supported text instance children', async () => {
         figma.createText = jest.fn().mockImplementation(figma.createText);
-        render(<Text>Some text</Text>);
-        await wait();
+        await render(<Page>
+            <Text>Some text</Text>
+        </Page>);
         await wait();
         expect(figma.createText).toHaveBeenCalledTimes(1);
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
     it('Text instance hydration', async () => {
