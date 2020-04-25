@@ -100,7 +100,7 @@ describe('renderer', () => {
         expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
-    it('remove component between (equal components)', () => {
+    it('remove component between (equal components)', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         figma.createPage = jest.fn().mockImplementation(figma.createPage);
         render(
@@ -110,18 +110,21 @@ describe('renderer', () => {
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
+        await wait();
+        await wait();
         render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0048ff' }} />
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
+        await wait();
         expect(figma.createRectangle).toHaveBeenCalledTimes(3);
-        expect(figma.createPage).toHaveBeenCalledTimes(3);
-        expect(figma.root).toMatchSnapshot();
+        expect(figma.createPage).toHaveBeenCalledTimes(1);
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
-    it('text instance without Text component', () => {
+    it('text instance without Text component', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         figma.createText = jest.fn().mockImplementation(figma.createText);
         render(
@@ -130,9 +133,10 @@ describe('renderer', () => {
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
+        await wait();
         expect(figma.createRectangle).toHaveBeenCalledTimes(2);
         expect(figma.createText).toHaveBeenCalledTimes(0);
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
     it('text instance without Text component (with hydration page)', () => {
