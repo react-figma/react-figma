@@ -238,9 +238,11 @@ describe('renderer', () => {
 
     it('Text component supported text instance children', async () => {
         figma.createText = jest.fn().mockImplementation(figma.createText);
-        await render(<Page>
-            <Text>Some text</Text>
-        </Page>);
+        await render(
+            <Page>
+                <Text>Some text</Text>
+            </Page>
+        );
         await wait();
         expect(figma.createText).toHaveBeenCalledTimes(1);
         expect(removeMeta(figma.root)).toMatchSnapshot();

@@ -3,7 +3,6 @@ import { geometryMixin } from '../mixins/geometryMixin';
 import { layoutMixin } from '../mixins/layoutMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
 import { propsAssign } from '../helpers/propsAssign';
-import { refMixin } from '../mixins/refMixin';
 import { exportMixin } from '../mixins/exportMixin';
 import { TextProps } from '../components/text/Text';
 import { blendMixin } from '../mixins/blendMixin';
@@ -30,7 +29,6 @@ const defaultFont = { family: 'Roboto', style: 'Regular' };
 export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontName; hasDefinedWidth?: boolean }) => {
     const textNode = node || props.node || figma.createText();
 
-    refMixin(textNode)(props);
     baseNodeMixin(textNode)(props);
     saveStyleMixin(textNode)(props);
     layoutMixin(textNode)(props);

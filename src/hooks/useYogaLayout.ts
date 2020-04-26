@@ -9,11 +9,15 @@ export const useYogaLayout = props => {
     React.useEffect(() => {
         const instance = nodeRef.current;
         const subject = $updatedYogaCoords.pipe(
-            filter((message: any) => message.tempId === instance.tempId),
+            filter((message: any) => {
+                return message.tempId === instance.tempId;
+            }),
             map((message: any) => message.props)
         );
 
-        const subscription = subject.subscribe(setYogaProps);
+        const subscription = subject.subscribe(props => {
+            setYogaProps(props);
+        });
 
         return () => subscription.unsubscribe();
     }, []);
