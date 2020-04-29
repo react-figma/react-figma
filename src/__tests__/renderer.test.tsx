@@ -116,13 +116,12 @@ describe('renderer', () => {
     it('text instance without Text component', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         figma.createText = jest.fn().mockImplementation(figma.createText);
-        render(
+        await render(
             <Page>
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} /> fff
                 <Rectangle style={{ width: 200, height: 100, backgroundColor: '#ff3500' }} />
             </Page>
         );
-        await wait();
         expect(figma.createRectangle).toHaveBeenCalledTimes(2);
         expect(figma.createText).toHaveBeenCalledTimes(0);
         expect(removeMeta(figma.root)).toMatchSnapshot();
