@@ -3,7 +3,7 @@ import { render } from '../renderer';
 import { Rectangle, Page, Text, Group, Frame, Svg, createComponent } from '..';
 import { createFigma } from 'figma-api-stub';
 import { Subject } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { delay, take } from 'rxjs/operators';
 import { wait } from '../helpers/wait';
 import '../rpc';
 import { removeTempId } from '../helpers/removeTempId';
@@ -218,10 +218,15 @@ describe('renderer', () => {
         await render(<Component />);
 
         return new Promise(resolve => {
-            waiting.pipe(take(1)).subscribe(() => {
-                expect(removeMeta(figma.root)).toMatchSnapshot();
-                resolve();
-            });
+            waiting
+                .pipe(
+                    take(1),
+                    delay(0)
+                )
+                .subscribe(() => {
+                    expect(removeMeta(figma.root)).toMatchSnapshot();
+                    resolve();
+                });
         });
     });
 
@@ -249,13 +254,21 @@ describe('renderer', () => {
 
     it('Text instance hydration', async () => {
         figma.createText = jest.fn().mockImplementation(figma.createText);
-        render(<Text>Some text</Text>);
+        await render(
+            <Page>
+                <Text>Some text</Text>
+            </Page>
+        );
         await wait();
-        render(<Text>Some text 2</Text>);
+        await render(
+            <Page>
+                <Text>Some text 2</Text>
+            </Page>
+        );
         await wait();
 
         expect(figma.createText).toHaveBeenCalledTimes(1);
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
     it('Text characters applied', async () => {

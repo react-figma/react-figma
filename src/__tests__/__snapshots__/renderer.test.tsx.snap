@@ -3,13 +3,19 @@
 exports[`renderer Groups inserting 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "children": Array [
-            ChildrenMixinStub {
+            LayoutMixinStub {
               "children": Array [
-                LayoutMixinStub {
+                ExportMixinStub {
                   "fills": Array [
                     Object {
                       "color": Object {
@@ -22,6 +28,7 @@ ChildrenMixinStub {
                     },
                   ],
                   "height": 100,
+                  "id": "1:2",
                   "parent": [Circular],
                   "pluginData": Object {
                     "isReactFigmaNode": "true",
@@ -29,18 +36,25 @@ ChildrenMixinStub {
                   },
                   "type": "RECTANGLE",
                   "width": 200,
+                  "x": 0,
+                  "y": 0,
                 },
               ],
+              "height": 100,
+              "id": "1:4",
               "parent": [Circular],
               "pluginData": Object {
                 "isReactFigmaNode": "true",
                 "reactStyle": "{}",
               },
               "type": "GROUP",
+              "width": 200,
+              "x": 0,
+              "y": 0,
             },
-            ChildrenMixinStub {
+            LayoutMixinStub {
               "children": Array [
-                LayoutMixinStub {
+                ExportMixinStub {
                   "fills": Array [
                     Object {
                       "color": Object {
@@ -53,6 +67,7 @@ ChildrenMixinStub {
                     },
                   ],
                   "height": 100,
+                  "id": "2:10",
                   "parent": [Circular],
                   "pluginData": Object {
                     "isReactFigmaNode": "true",
@@ -60,18 +75,25 @@ ChildrenMixinStub {
                   },
                   "type": "RECTANGLE",
                   "width": 200,
+                  "x": 0,
+                  "y": 0,
                 },
               ],
+              "height": 100,
+              "id": "2:12",
               "parent": [Circular],
               "pluginData": Object {
                 "isReactFigmaNode": "true",
                 "reactStyle": "{}",
               },
               "type": "GROUP",
+              "width": 200,
+              "x": 0,
+              "y": 100,
             },
-            ChildrenMixinStub {
+            LayoutMixinStub {
               "children": Array [
-                LayoutMixinStub {
+                ExportMixinStub {
                   "fills": Array [
                     Object {
                       "color": Object {
@@ -84,6 +106,7 @@ ChildrenMixinStub {
                     },
                   ],
                   "height": 100,
+                  "id": "1:5",
                   "parent": [Circular],
                   "pluginData": Object {
                     "isReactFigmaNode": "true",
@@ -91,28 +114,46 @@ ChildrenMixinStub {
                   },
                   "type": "RECTANGLE",
                   "width": 200,
+                  "x": 0,
+                  "y": 0,
                 },
               ],
+              "height": 100,
+              "id": "1:7",
               "parent": [Circular],
               "pluginData": Object {
                 "isReactFigmaNode": "true",
                 "reactStyle": "{}",
               },
               "type": "GROUP",
+              "width": 200,
+              "x": 0,
+              "y": 200,
             },
           ],
+          "height": 300,
+          "id": "1:8",
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
           "type": "FRAME",
+          "width": 200,
+          "x": 0,
+          "y": 0,
         },
       ],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -261,23 +302,38 @@ ChildrenMixinStub {
 exports[`renderer Text component supported text instance children 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "_characters": "Some text",
           "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "id": "1:2",
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
           "type": "TEXT",
+          "x": 0,
+          "y": 0,
         },
       ],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -285,15 +341,15 @@ ChildrenMixinStub {
 exports[`renderer Text component supported text instance children 2`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [],
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
     },
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "_characters": "Some text",
           "_textAutoResize": "WIDTH_AND_HEIGHT",
           "id": "1:2",
@@ -932,22 +988,14 @@ ChildrenMixinStub {
 `;
 
 exports[`renderer mark page isCurrent=false 1`] = `
-ChildrenMixinStub {
+ExportMixinStub {
   "children": Array [],
+  "id": "0:1",
   "parent": ChildrenMixinStub {
     "children": Array [
       [Circular],
-      ChildrenMixinStub {
-        "children": Array [],
-        "name": "New page",
-        "parent": [Circular],
-        "pluginData": Object {
-          "isReactFigmaNode": "true",
-          "reactStyle": "{}",
-        },
-        "type": "PAGE",
-      },
     ],
+    "id": "0:0",
     "type": "DOCUMENT",
   },
   "type": "PAGE",
@@ -955,23 +1003,15 @@ ChildrenMixinStub {
 `;
 
 exports[`renderer mark page isCurrent=true 1`] = `
-ChildrenMixinStub {
+ExportMixinStub {
   "children": Array [],
-  "name": "New page",
+  "id": "0:1",
   "parent": ChildrenMixinStub {
     "children": Array [
-      ChildrenMixinStub {
-        "children": Array [],
-        "parent": [Circular],
-        "type": "PAGE",
-      },
       [Circular],
     ],
+    "id": "0:0",
     "type": "DOCUMENT",
-  },
-  "pluginData": Object {
-    "isReactFigmaNode": "true",
-    "reactStyle": "{}",
   },
   "type": "PAGE",
 }
