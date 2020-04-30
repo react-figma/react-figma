@@ -272,18 +272,24 @@ describe('renderer', () => {
     });
 
     it('Text characters applied', async () => {
-        render(<Text characters="some text" />);
+        await render(
+            <Page>
+                <Text characters="some text" />
+            </Page>
+        );
         await wait();
-        await wait();
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
     it('Text with custom font applied', async () => {
-        render(<Text style={{ fontFamily: 'Helvetica', fontWeight: 'bold' }}>some text</Text>);
+        await render(
+            <Page>
+                <Text style={{ fontFamily: 'Helvetica', fontWeight: 'bold' }}>some text</Text>
+            </Page>
+        );
 
         await wait();
-        await wait();
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
     it('Text instance updating', async () => {

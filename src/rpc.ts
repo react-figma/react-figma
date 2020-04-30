@@ -7,6 +7,7 @@ const getInitialTree = node => {
     return {
         id: node.id,
         type: node.type,
+        tempId: node.getPluginData('tempId'),
         children:
             node.children && node.children.filter(item => isReactFigmaNode(item)).map(item => getInitialTree(item))
     };

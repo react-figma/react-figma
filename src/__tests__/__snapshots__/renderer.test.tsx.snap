@@ -278,23 +278,38 @@ ChildrenMixinStub {
 exports[`renderer Text characters applied 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "_characters": "some text",
           "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "id": "1:2",
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
           "type": "TEXT",
+          "x": 0,
+          "y": 0,
         },
       ],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -378,11 +393,57 @@ ChildrenMixinStub {
 exports[`renderer Text instance hydration 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "_characters": "Some text 2",
           "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "id": "1:2",
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "type": "TEXT",
+          "x": 0,
+          "y": 0,
+        },
+      ],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer Text instance hydration 2`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [
+        ExportMixinStub {
+          "_characters": "Some text",
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "id": "1:2",
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -391,10 +452,16 @@ ChildrenMixinStub {
           "type": "TEXT",
         },
       ],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -426,27 +493,42 @@ ChildrenMixinStub {
 exports[`renderer Text with custom font applied 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "_characters": "some text",
           "_fontName": Object {
             "family": "Helvetica",
             "style": "Bold",
           },
           "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "id": "1:2",
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"fontFamily\\":\\"Helvetica\\",\\"fontWeight\\":\\"bold\\"}",
           },
           "type": "TEXT",
+          "x": 0,
+          "y": 0,
         },
       ],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;

@@ -65,7 +65,7 @@ const appendToContainer = (parentNode, childNode) => {
 };
 
 const renderInstance = (type, node, props) => {
-    const result = { tempId: nanoid(), type: type.toUpperCase() };
+    const result = { tempId: (node && node.tempId) || nanoid(), type: type.toUpperCase() };
     const { children, ...otherProps } = props;
     if (props.ref) {
         props.ref.current = result;
