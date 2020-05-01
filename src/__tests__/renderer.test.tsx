@@ -308,17 +308,26 @@ describe('renderer', () => {
             return <Text>{text}</Text>;
         };
 
-        render(<Component />);
+        await render(
+            <Page>
+                <Component />
+            </Page>
+        );
 
         return new Promise(resolve => {
-            waiting.pipe(take(1)).subscribe(() => {
-                expect(figma.root).toMatchSnapshot();
-                resolve();
-            });
+            waiting
+                .pipe(
+                    take(1),
+                    delay(0)
+                )
+                .subscribe(() => {
+                    expect(removeMeta(figma.root)).toMatchSnapshot();
+                    resolve();
+                });
         });
     });
 
-    it('Svg render', () => {
+    it('Svg render', async () => {
         figma.createNodeFromSvg = jest.fn(source => {
             const rect = figma.createRectangle();
             rect.fills = [
@@ -337,12 +346,16 @@ describe('renderer', () => {
             return frame;
         });
 
-        render(<Svg source={'<svg />'} />);
+        await render(
+            <Page>
+                <Svg source={'<svg />'} />
+            </Page>
+        );
         expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(1);
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
-    it('Svg hydration', () => {
+    it('Svg hydration', async () => {
         figma.createNodeFromSvg = jest.fn(source => {
             const rect = figma.createRectangle();
             rect.fills = [
@@ -361,10 +374,18 @@ describe('renderer', () => {
             return frame;
         });
 
-        render(<Svg source="source1" />);
-        render(<Svg source="source2" />);
+        await render(
+            <Page>
+                <Svg source="source1" />
+            </Page>
+        );
+        await render(
+            <Page>
+                <Svg source="source2" />
+            </Page>
+        );
         expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(2);
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
     it('Svg instance updating', async () => {
@@ -399,28 +420,37 @@ describe('renderer', () => {
             return <Svg source={source} />;
         };
 
-        render(<Component />);
+        await render(
+            <Page>
+                <Component />
+            </Page>
+        );
 
         return new Promise(resolve => {
-            waiting.pipe(take(1)).subscribe(() => {
-                expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(2);
-                expect(figma.root).toMatchSnapshot();
-                resolve();
-            });
+            waiting
+                .pipe(
+                    take(1),
+                    delay(0)
+                )
+                .subscribe(() => {
+                    expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(2);
+                    expect(removeMeta(figma.root)).toMatchSnapshot();
+                    resolve();
+                });
         });
     });
 
-    it('createComponent basic', () => {
+    it('createComponent basic', async () => {
         const Rect = createComponent();
-        render(
-            <>
+        await render(
+            <Page>
                 <Rect.Component>
                     <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 </Rect.Component>
                 <Rect.Instance />
-            </>
+            </Page>
         );
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
     it('createComponent hydration', () => {

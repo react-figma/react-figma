@@ -200,11 +200,17 @@ ChildrenMixinStub {
 exports[`renderer Svg instance updating 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "children": Array [
-            LayoutMixinStub {
+            ExportMixinStub {
               "fills": Array [
                 Object {
                   "color": Object {
@@ -215,10 +221,12 @@ ChildrenMixinStub {
                   "type": "SOLID",
                 },
               ],
+              "id": "2:5",
               "parent": [Circular],
               "type": "RECTANGLE",
             },
           ],
+          "id": "1:3",
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -226,12 +234,20 @@ ChildrenMixinStub {
             "svgHash": "-2021876873",
           },
           "type": "FRAME",
+          "x": 0,
+          "y": 0,
         },
       ],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -239,11 +255,17 @@ ChildrenMixinStub {
 exports[`renderer Svg render 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "children": Array [
-            LayoutMixinStub {
+            ExportMixinStub {
               "fills": Array [
                 Object {
                   "color": Object {
@@ -254,10 +276,12 @@ ChildrenMixinStub {
                   "type": "SOLID",
                 },
               ],
+              "id": "1:2",
               "parent": [Circular],
               "type": "RECTANGLE",
             },
           ],
+          "id": "1:3",
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -267,10 +291,16 @@ ChildrenMixinStub {
           "type": "FRAME",
         },
       ],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -469,23 +499,38 @@ ChildrenMixinStub {
 exports[`renderer Text instance updating 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "_characters": "text 2",
           "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "id": "1:2",
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
           "type": "TEXT",
+          "x": 0,
+          "y": 0,
         },
       ],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
