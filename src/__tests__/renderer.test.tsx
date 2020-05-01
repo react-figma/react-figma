@@ -453,31 +453,31 @@ describe('renderer', () => {
         expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
-    it('createComponent hydration', () => {
+    it('createComponent hydration', async () => {
         const Rect = createComponent();
-        render(
-            <>
+        await render(
+            <Page>
                 <Rect.Component>
                     <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 </Rect.Component>
                 <Rect.Instance />
-            </>
+            </Page>
         );
-        render(
-            <>
+        await render(
+            <Page>
                 <Rect.Component>
                     <Rectangle style={{ width: 200, height: 100, backgroundColor: '#0051ff' }} />
                 </Rect.Component>
                 <Rect.Instance />
-            </>
+            </Page>
         );
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
     it('createComponent overriding', async () => {
         const Rect = createComponent();
-        render(
-            <>
+        await render(
+            <Page>
                 <Rect.Component>
                     <Rectangle name="rect" style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
                 </Rect.Component>
@@ -490,9 +490,9 @@ describe('renderer', () => {
                         }
                     }}
                 />
-            </>
+            </Page>
         );
         await wait();
-        expect(figma.root).toMatchSnapshot();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 });

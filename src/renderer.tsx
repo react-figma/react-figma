@@ -72,6 +72,9 @@ const renderInstance = (type, node, props) => {
     }
     if (props.innerRef) {
         props.innerRef.current = result;
+        if (props.innerRefCallback) {
+            props.innerRefCallback();
+        }
     }
     api.renderInstance(type, node, otherProps, result);
     return result;

@@ -103,7 +103,14 @@ export const api = createPluginAPI({
 
     renderInstance(type, _node, props, tempNode) {
         const node = transformToNode(_node);
-        const instance = renderInstance(type, node, props, tempNode.tempId);
+        const instance = renderInstance(
+            type,
+            node,
+            type === 'instance' && props && props.component
+                ? { ...props, component: transformToNode(props.component) }
+                : props,
+            tempNode.tempId
+        );
         cache[tempNode.tempId] = instance;
     },
 
