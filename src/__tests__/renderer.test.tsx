@@ -5,7 +5,6 @@ import { createFigma } from 'figma-api-stub';
 import { Subject } from 'rxjs';
 import { delay, take } from 'rxjs/operators';
 import { wait } from '../helpers/wait';
-import '../rpc';
 import { removeTempId } from '../helpers/removeTempId';
 import { removeNodeBatchId } from '../helpers/removeNodeBatchId';
 
