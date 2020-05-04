@@ -11,7 +11,7 @@ import { StyleSheet } from '../..';
 import * as all from '../../index';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
-import {api} from "../../rpc";
+import { api } from '../../rpc';
 
 export interface InstanceProps extends DefaultContainerProps, SelectionEventProps, AutoLayoutProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
@@ -24,8 +24,8 @@ const getComponentByType = type => {
     return all[componentName];
 };
 
-const Override = (props) => {
-    const {overrideName, parentRef, overrides = {}} = props;
+const Override = props => {
+    const { overrideName, parentRef, overrides = {} } = props;
     const [hasInstanceItemNode, setHasInstanceItemNode] = React.useState(false);
     const instanceItemNodeRef = React.useRef<any>();
     React.useEffect(() => {
@@ -33,25 +33,18 @@ const Override = (props) => {
             const instanceItemNode = await api.findNodeByName(parentRef.current, overrideName);
             instanceItemNodeRef.current = instanceItemNode;
             setHasInstanceItemNode(true);
-        }
+        };
         getNode();
     }, []);
 
     if (hasInstanceItemNode && instanceItemNodeRef.current) {
         const instanceItemNode = instanceItemNodeRef.current;
         const Component = getComponentByType(instanceItemNode.type);
-        return (
-            <Component
-                key={overrideName}
-                preventResizing
-                node={instanceItemNode}
-                {...overrides}
-            />
-        );
+        return <Component key={overrideName} preventResizing node={instanceItemNode} {...overrides} />;
     } else {
         return null;
     }
-}
+};
 
 export const Instance: React.FC<InstanceProps> = props => {
     const [isHaveNode, setHaveNode] = React.useState(false);
@@ -70,9 +63,13 @@ export const Instance: React.FC<InstanceProps> = props => {
         <instance {...componentProps} {...yogaProps} innerRef={nodeRef} innerRefCallback={() => setHaveNode(true)}>
             {isHaveNode && props.overrides
                 ? Object.keys(props.overrides).map(overrideName => {
-                      return <Override overrideName={overrideName}
-                                       parentRef={nodeRef}
-                                       overrides={props.overrides[overrideName]}  />
+                      return (
+                          <Override
+                              overrideName={overrideName}
+                              parentRef={nodeRef}
+                              overrides={props.overrides[overrideName]}
+                          />
+                      );
                   })
                 : null}
         </instance>

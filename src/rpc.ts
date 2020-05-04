@@ -112,8 +112,8 @@ export const api = createPluginAPI({
             node,
             props && {
                 ...props,
-                ...(type === 'instance' &&  props.component ? {component: transformToNode(props.component)} : {}),
-                ...(props.node ? {node: transformToNode(props.node)} : {})
+                ...(type === 'instance' && props.component ? { component: transformToNode(props.component) } : {}),
+                ...(props.node ? { node: transformToNode(props.node) } : {})
             },
             tempNode.tempId
         );
