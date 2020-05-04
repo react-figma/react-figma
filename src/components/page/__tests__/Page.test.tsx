@@ -19,7 +19,7 @@ describe('Page', () => {
             useCurrentPageChange({ current: page }, onCurrentPageChange);
             return null;
         };
-        render(<Component />, figma.root);
+        await render(<Component />);
         await wait();
         figma.currentPage = page;
         await wait();
