@@ -96,6 +96,10 @@ const transformToNode = smth => {
     }
 };
 
+const findNodeByName = (children, name) => {
+    return children && children.find(child => child.name === name || findNodeByName(child.children, name));
+};
+
 export const api = createPluginAPI({
     getInitialTree() {
         return getInitialTree(figma.root);
@@ -106,9 +110,11 @@ export const api = createPluginAPI({
         const instance = renderInstance(
             type,
             node,
-            type === 'instance' && props && props.component
-                ? { ...props, component: transformToNode(props.component) }
-                : props,
+            props && {
+                ...props,
+                ...(type === 'instance' &&  props.component ? {component: transformToNode(props.component)} : {}),
+                ...(props.node ? {node: transformToNode(props.node)} : {})
+            },
             tempNode.tempId
         );
         cache[tempNode.tempId] = instance;
@@ -147,6 +153,12 @@ export const api = createPluginAPI({
         const node = transformToNode(_instance);
         const root = findRoot(node);
         return transformNodesToTree(root);
+    },
+
+    findNodeByName(_node, name) {
+        const node = transformToNode(_node);
+        const instanceItemNode = findNodeByName(node.children, name);
+        return instanceItemNode && getInitialTree(instanceItemNode);
     }
 });
 
