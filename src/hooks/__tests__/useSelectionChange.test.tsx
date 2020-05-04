@@ -19,7 +19,7 @@ describe('useSelectionChange', () => {
             useSelectionChange({ current: node }, { onSelectionEnter });
             return null;
         };
-        render(<Component />, figma.currentPage);
+        await render(<Component />);
         await wait();
         figma.currentPage.selection = [node];
         await wait();
@@ -34,7 +34,7 @@ describe('useSelectionChange', () => {
             useSelectionChange({ current: node }, { onSelectionEnter, onSelectionLeave });
             return null;
         };
-        render(<Component />, figma.currentPage);
+        await render(<Component />);
         await wait();
         figma.currentPage.selection = [node];
         await wait();
@@ -51,7 +51,7 @@ describe('useSelectionChange', () => {
             useSelectionChange({ current: node }, {});
             return null;
         };
-        render(<Component />, figma.currentPage);
+        await render(<Component />);
         await wait();
         expect(figma.on).toHaveBeenCalledTimes(0);
     });
@@ -66,7 +66,7 @@ describe('useSelectionChange', () => {
             useSelectionChange({ current: node }, { onSelectionEnter, onSelectionLeave });
             return null;
         };
-        render(<Component />, figma.currentPage);
+        await render(<Component />);
         await wait();
         expect(figma.on).toHaveBeenCalledTimes(1);
     });

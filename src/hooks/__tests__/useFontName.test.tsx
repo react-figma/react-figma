@@ -45,8 +45,7 @@ describe('useFontName', () => {
             callback(loadedFont);
             return null;
         };
-        render(<Component />, figma.currentPage);
-        await wait();
+        await render(<Component />);
         await wait();
         expect(callback).toHaveBeenCalledWith({ family: 'Inter', style: 'Semi Bold' });
     });

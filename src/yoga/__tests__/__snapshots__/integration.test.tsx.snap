@@ -3,15 +3,15 @@
 exports[`Yoga layout integration render single component 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [],
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
     },
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "backgrounds": Array [
             Object {
               "color": Object {
@@ -24,7 +24,7 @@ ChildrenMixinStub {
             },
           ],
           "children": Array [
-            LayoutMixinStub {
+            ExportMixinStub {
               "fills": Array [
                 Object {
                   "color": Object {
@@ -48,7 +48,7 @@ ChildrenMixinStub {
               "x": 0,
               "y": 0,
             },
-            LayoutMixinStub {
+            ExportMixinStub {
               "fills": Array [
                 Object {
                   "color": Object {
@@ -86,7 +86,7 @@ ChildrenMixinStub {
           "y": 0,
         },
       ],
-      "id": "1:5",
+      "id": "1:1",
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
