@@ -11,6 +11,7 @@ import { autoLayoutMixin } from '../mixins/autoLayoutMixin';
 import { cornerMixin } from '../mixins/cornerMixin';
 import { rectangleCornerMixin } from '../mixins/rectangleCornerMixin';
 import { geometryMixin } from '../mixins/geometryMixin';
+import { frameSpecificProps } from '../mixins/frameSpecificMixin';
 
 export const frame = (node: FrameNode) => (props: FrameNodeProps) => {
     const frameNode = node || props.node || figma.createFrame();
@@ -26,6 +27,7 @@ export const frame = (node: FrameNode) => (props: FrameNodeProps) => {
     autoLayoutMixin(frameNode)(props);
 
     frameMixin(frameNode)(props);
+    frameSpecificProps(frameNode)(props);
 
     return frameNode;
 };

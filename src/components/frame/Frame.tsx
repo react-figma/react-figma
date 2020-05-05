@@ -5,6 +5,7 @@ import {
     CornerProps,
     DefaultContainerProps,
     DefaultShapeProps,
+    FrameSpecificProps,
     InstanceItemProps,
     SelectionEventProps,
     StyleOf
@@ -209,7 +210,8 @@ export interface FrameNodeProps
         SelectionEventProps,
         AutoLayoutProps,
         BorderProps,
-        CornerProps {
+        CornerProps,
+        FrameSpecificProps {
     style?: StyleOf<
         GeometryStyleProperties &
             YogaStyleProperties &
