@@ -3,7 +3,6 @@ import * as nanoid from 'nanoid/non-secure';
 // * Development version of react-reconciler can't be used inside Figma realm.
 import * as createReconciler from 'react-reconciler/cjs/react-reconciler.production.min';
 
-import { updateYogaRoot } from './yoga/yogaStream';
 import { setTextChildren } from './hooks/useTextChildren';
 import { api } from './rpc';
 
@@ -121,7 +120,6 @@ export const render = async (jsx: any) => {
         supportsHydration: true,
         appendChildToContainer: (parentNode, childNode) => {
             appendToContainer(parentNode, childNode);
-            updateYogaRoot(childNode);
         },
         insertInContainerBefore: () => {},
         removeChildFromContainer: () => {},
