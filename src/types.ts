@@ -145,3 +145,10 @@ export interface AutoLayoutProps {
     itemSpacing?: number;
     constraints?: Constraints;
 }
+
+export interface FrameSpecificProps {
+    clipsContent?: boolean;
+    guides?: ReadonlyArray<Guide>;
+    layoutGrids?: ReadonlyArray<LayoutGrid>;
+    gridStyleId?: string;
+}
