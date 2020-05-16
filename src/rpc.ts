@@ -159,6 +159,11 @@ export const api = createPluginAPI({
         const node = transformToNode(_node);
         const instanceItemNode = findNodeByName(node.children, name);
         return instanceItemNode && getInitialTree(instanceItemNode);
+    },
+
+    createImage(datq) {
+        const image = figma.createImage(datq);
+        return image.hash;
     }
 });
 

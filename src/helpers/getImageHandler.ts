@@ -1,6 +1,20 @@
-import { messagePromise } from './messagePromise';
+import { api } from '../rpc';
 
-export const getImageHandler = async (data: string): Promise<Image> => {
-    const response = await messagePromise({ type: 'base64ToBlobWorker', value: data });
-    return figma.createImage(response);
+const base64ToBlob = async data => {
+    const result = await fetch(data);
+    const blob = await result.blob();
+    const reader = new FileReader();
+    const promise = new Promise(resolve => {
+        reader.onload = () => {
+            // @ts-ignore
+            resolve(new Uint8Array(reader.result));
+        };
+    });
+    reader.readAsArrayBuffer(blob);
+    return await promise;
+};
+
+export const getImageHash = async (data: string): Promise<String> => {
+    const response: any = await base64ToBlob(data);
+    return await api.createImage(response);
 };
