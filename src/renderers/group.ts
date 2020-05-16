@@ -5,7 +5,7 @@ import { baseNodeMixin } from '../mixins/baseNodeMixin';
 import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { frameMixin } from '../mixins/frameMixin';
-import {sceneNodeMixin} from "../mixins/sceneNodeMixin";
+import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
 const createNewGroup = () => {
     const rect = figma.createRectangle();

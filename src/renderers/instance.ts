@@ -6,7 +6,7 @@ import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { InstanceProps } from '../components/component/Instance';
 import { autoLayoutMixin } from '../mixins/autoLayoutMixin';
-import {sceneNodeMixin} from "../mixins/sceneNodeMixin";
+import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
 export const instance = (node: InstanceNode) => (props: InstanceProps) => {
     const instanceNode = node || props.component.createInstance();

@@ -7,7 +7,7 @@ import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { EllipseProps } from '../components/ellipse/Ellipse';
 import { propsAssign } from '../helpers/propsAssign';
-import {sceneNodeMixin} from "../mixins/sceneNodeMixin";
+import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
 const ellipseNodePropsAssign = propsAssign<EllipseProps>(['arcData']);
 

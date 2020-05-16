@@ -112,11 +112,17 @@ export interface InstanceItemProps {
 }
 
 export interface SceneNodeProps {
-    visible?: boolean
-    locked?: boolean
+    visible?: boolean;
+    locked?: boolean;
 }
 
-export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps, BlendProps, SceneNodeProps {}
+export interface DefaultShapeProps
+    extends BaseNodeProps,
+        LayoutProps,
+        GeometryProps,
+        ExportProps,
+        BlendProps,
+        SceneNodeProps {}
 
 export interface DefaultContainerProps
     extends BaseNodeProps,
@@ -158,5 +164,3 @@ export interface FrameSpecificProps {
     layoutGrids?: ReadonlyArray<LayoutGrid>;
     gridStyleId?: string;
 }
-
-

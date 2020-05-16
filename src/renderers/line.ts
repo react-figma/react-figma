@@ -6,7 +6,7 @@ import { refMixin } from '../mixins/refMixin';
 import { LineProps } from '../components/line/Line';
 import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
-import {sceneNodeMixin} from "../mixins/sceneNodeMixin";
+import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
 export const line = (node: RectangleNode) => (props: LineProps) => {
     const lineNode = node || props.node || figma.createLine();

@@ -9,7 +9,7 @@ import { blendMixin } from '../mixins/blendMixin';
 
 import { propsAssign } from '../helpers/propsAssign';
 import { VectorProps } from '../components/vector/Vector';
-import {sceneNodeMixin} from "../mixins/sceneNodeMixin";
+import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
 const vectorNodePropsAssign = propsAssign<VectorProps>(['vectorPaths', 'vectorNetwork', 'handleMirroring']);
 
