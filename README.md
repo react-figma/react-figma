@@ -148,7 +148,10 @@ React Figma team wishes to thank the following invaluable contributions:
 
 ## Tested with browserstack
 
-[![Tested with browserstack](https://raw.githubusercontent.com/zerobias/effector/master/website/media/Browserstack-logo.svg?sanitize=true)](https://BrowserStack.com)
+<a href="https://www.browserstack.com/">
+     <img alt="Tested with browserstack" src="https://raw.githubusercontent.com/zerobias/effector/master/website/media/Browserstack-logo.svg?sanitize=true" height="64">
+</a>     
+
 
 ## Contributors ✨
 
