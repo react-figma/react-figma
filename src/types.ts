@@ -111,7 +111,12 @@ export interface InstanceItemProps {
     preventResizing?: boolean;
 }
 
-export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps, BlendProps {}
+export interface SceneNodeProps {
+    visible?: boolean
+    locked?: boolean
+}
+
+export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps, BlendProps, SceneNodeProps {}
 
 export interface DefaultContainerProps
     extends BaseNodeProps,
@@ -119,7 +124,8 @@ export interface DefaultContainerProps
         LayoutProps,
         ExportProps,
         BlendProps,
-        FrameProps {}
+        FrameProps,
+        SceneNodeProps {}
 
 export type CommonStyle = LayoutStyleProperties &
     YogaStyleProperties &
@@ -152,3 +158,5 @@ export interface FrameSpecificProps {
     layoutGrids?: ReadonlyArray<LayoutGrid>;
     gridStyleId?: string;
 }
+
+
