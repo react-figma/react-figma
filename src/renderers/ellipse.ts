@@ -6,6 +6,7 @@ import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { EllipseProps } from '../components/ellipse/Ellipse';
 import { propsAssign } from '../helpers/propsAssign';
+import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
 const ellipseNodePropsAssign = propsAssign<EllipseProps>(['arcData']);
 
@@ -18,6 +19,7 @@ export const ellipse = (node: EllipseNode) => (props: EllipseProps) => {
     exportMixin(ellipseNode)(props);
     cornerMixin(ellipseNode)(props);
     blendMixin(ellipseNode)(props);
+    sceneNodeMixin(ellipseNode)(props);
 
     ellipseNodePropsAssign(ellipseNode)(props);
 
