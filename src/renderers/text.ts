@@ -9,6 +9,7 @@ import { TextProps } from '../components/text/Text';
 import { blendMixin } from '../mixins/blendMixin';
 import { isValidSize } from '../helpers/isValidSize';
 import { isEqualFontStyle } from '../helpers/isEqualFontStyle';
+import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
 const textNodePropsAssign = propsAssign<TextProps>([
     'characters',
@@ -37,6 +38,7 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
     geometryMixin(textNode)(props);
     exportMixin(textNode)(props);
     blendMixin(textNode)(props);
+    sceneNodeMixin(textNode)(props);
 
     const { loadedFont, fontName = defaultFont } = props;
     if (
