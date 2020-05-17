@@ -2,6 +2,7 @@ import { createPluginAPI, createUIAPI } from 'figma-jsonrpc';
 import { isReactFigmaNode } from './isReactFigmaNode';
 import * as renderers from './renderers';
 import * as nanoid from 'nanoid/non-secure';
+import { Subject } from 'rxjs';
 
 const getInitialTree = node => {
     return {
@@ -161,12 +162,23 @@ export const api = createPluginAPI({
         return instanceItemNode && getInitialTree(instanceItemNode);
     },
 
-    createImage(datq) {
-        const image = figma.createImage(datq);
+    createImage(data) {
+        const image = figma.createImage(data);
         return image.hash;
+    },
+
+    setCurrentPage(_node) {
+        const node = transformToNode(_node);
+        figma.currentPage = node;
     }
 });
 
+export const $currentPageTempId = new Subject();
+
 // those methods will be executed in the Figma UI,
 // regardless of where they are called from
-export const uiApi = createUIAPI({});
+export const uiApi = createUIAPI({
+    currentPageChange: tempId => {
+        $currentPageTempId.next(tempId);
+    }
+});
