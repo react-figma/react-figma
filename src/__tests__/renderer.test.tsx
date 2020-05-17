@@ -20,6 +20,10 @@ describe('renderer', () => {
         });
     });
 
+    afterEach(async () => {
+        await wait();
+    });
+
     it('render single component', async () => {
         figma.createRectangle = jest.fn().mockImplementation(figma.createRectangle);
         await render(
