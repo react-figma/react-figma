@@ -1,5 +1,4 @@
 export { render } from './renderer';
-export { uiWorker } from './uiWorker';
 export { subscribeOnMessages } from './helpers/messagePromise';
 
 export { Text } from './components/text/Text';
@@ -20,5 +19,3 @@ export { Image } from './components/Image/Image';
 
 export { StyleSheet } from './helpers/StyleSheet';
 export { Platform } from './helpers/Platform';
-
-export { useFetch } from './hooks/useFetch';
