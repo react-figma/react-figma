@@ -5,6 +5,7 @@ import * as createReconciler from 'react-reconciler/cjs/react-reconciler.product
 
 import { setTextChildren } from './hooks/useTextChildren';
 import { api } from './rpc';
+import { serializeProps } from './serializers';
 
 const setTextInstance = (parentNode, childNode) => {
     childNode.parent = parentNode;
@@ -75,7 +76,7 @@ const renderInstance = (type, node, props) => {
             props.innerRefCallback();
         }
     }
-    api.renderInstance(type, node, otherProps, result);
+    api.renderInstance(type, node, serializeProps(otherProps), result);
     return result;
 };
 

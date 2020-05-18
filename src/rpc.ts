@@ -175,10 +175,15 @@ export const api = createPluginAPI({
 
 export const $currentPageTempId = new Subject();
 
+export const $selectionReactIds = new Subject();
+
 // those methods will be executed in the Figma UI,
 // regardless of where they are called from
 export const uiApi = createUIAPI({
     currentPageChange: reactId => {
         $currentPageTempId.next(reactId);
+    },
+    selectionChange: reactIds => {
+        $selectionReactIds.next(reactIds);
     }
 });

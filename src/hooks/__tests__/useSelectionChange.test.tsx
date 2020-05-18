@@ -3,6 +3,7 @@ import { createFigma } from 'figma-api-stub';
 import { useSelectionChange } from '../useSelectionChange';
 import { render } from '../../renderer';
 import { wait } from '../../helpers/wait';
+import { uiApi } from '../../rpc';
 
 describe('useSelectionChange', () => {
     beforeEach(() => {
@@ -10,28 +11,36 @@ describe('useSelectionChange', () => {
         global.figma = createFigma({
             simulateErrors: true
         });
+
+        figma.on('selectionchange', () => {
+            const reactIds = figma.currentPage.selection.map(node => node.getPluginData('reactId'));
+            uiApi.selectionChange(reactIds);
+        });
     });
 
     it('onSelectionEnter triggered', async () => {
         const node = figma.createRectangle();
+        node.setPluginData('reactId', '222');
         const onSelectionEnter = jest.fn();
         const Component = () => {
-            useSelectionChange({ current: node }, { onSelectionEnter });
+            useSelectionChange({ current: { reactId: '222' } }, { onSelectionEnter });
             return null;
         };
         await render(<Component />);
         await wait();
         figma.currentPage.selection = [node];
         await wait();
+        await wait();
         expect(onSelectionEnter).toHaveBeenCalledTimes(1);
     });
 
     it('onSelectionLeave triggered', async () => {
         const node = figma.createRectangle();
+        node.setPluginData('reactId', '111');
         const onSelectionEnter = jest.fn();
         const onSelectionLeave = jest.fn();
         const Component = () => {
-            useSelectionChange({ current: node }, { onSelectionEnter, onSelectionLeave });
+            useSelectionChange({ current: { reactId: '111' } }, { onSelectionEnter, onSelectionLeave });
             return null;
         };
         await render(<Component />);
@@ -42,32 +51,5 @@ describe('useSelectionChange', () => {
         await wait();
         expect(onSelectionEnter).toHaveBeenCalledTimes(1);
         expect(onSelectionLeave).toHaveBeenCalledTimes(1);
-    });
-
-    it("handlers doesn't applied when haven't onSelectionEnter, onSelectionLeave", async () => {
-        const node = figma.createRectangle();
-        figma.on = jest.fn().mockImplementation(figma.on);
-        const Component = () => {
-            useSelectionChange({ current: node }, {});
-            return null;
-        };
-        await render(<Component />);
-        await wait();
-        expect(figma.on).toHaveBeenCalledTimes(0);
-    });
-
-    it('handlers applied when have onSelectionEnter or onSelectionLeave', async () => {
-        const node = figma.createRectangle();
-        figma.on = jest.fn().mockImplementation(figma.on);
-        const onSelectionEnter = jest.fn();
-        const onSelectionLeave = jest.fn();
-
-        const Component = () => {
-            useSelectionChange({ current: node }, { onSelectionEnter, onSelectionLeave });
-            return null;
-        };
-        await render(<Component />);
-        await wait();
-        expect(figma.on).toHaveBeenCalledTimes(1);
     });
 });
