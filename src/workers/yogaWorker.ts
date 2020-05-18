@@ -5,7 +5,7 @@ const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
     const yogaNode = yoga.Node.create();
     cache.node = yogaNode;
     cache.nodeBatchId = node.nodeBatchId;
-    cache.tempId = node.tempId;
+    cache.reactId = node.reactId;
     if (node.width && node.height && !node.children) {
         yogaNode.setWidth(node.width);
         yogaNode.setHeight(node.height);
@@ -34,7 +34,7 @@ const transformCache = cache => {
     return {
         ...result,
         nodeBatchId: cache.nodeBatchId,
-        tempId: cache.tempId,
+        reactId: cache.reactId,
         ...(cache.children ? { children: cache.children.map(transformCache) } : {})
     };
 };

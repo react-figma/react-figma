@@ -13,17 +13,17 @@ describe('Page', () => {
         });
 
         figma.on('currentpagechange', () => {
-            const tempId = figma.currentPage.getPluginData('tempId');
-            uiApi.currentPageChange(tempId);
+            const reactId = figma.currentPage.getPluginData('reactId');
+            uiApi.currentPageChange(reactId);
         });
     });
 
     it('useCurrentPageChange', async () => {
         const onCurrentPageChange = jest.fn();
         const page = figma.createPage();
-        page.setPluginData('tempId', '111');
+        page.setPluginData('reactId', '111');
         const Component = () => {
-            useCurrentPageChange({ current: { tempId: '111' } }, onCurrentPageChange);
+            useCurrentPageChange({ current: { reactId: '111' } }, onCurrentPageChange);
             return null;
         };
         await render(<Component />);

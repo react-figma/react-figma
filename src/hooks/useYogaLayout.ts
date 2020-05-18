@@ -53,7 +53,7 @@ export const useYogaLayout = props => {
         const instance = nodeRef.current;
         const subject = $updatedYogaCoords.pipe(
             filter((message: any) => {
-                return message.tempId === instance.tempId;
+                return message.reactId === instance.reactId;
             }),
             map((message: any) => message.props)
         );

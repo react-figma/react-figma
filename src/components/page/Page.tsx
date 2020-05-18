@@ -18,7 +18,7 @@ export const useCurrentPageChange = (
 ) => {
     React.useEffect(() => {
         const instance = nodeRef.current;
-        const subject = $currentPageTempId.pipe(map((message: any) => message === instance.tempId));
+        const subject = $currentPageTempId.pipe(map((message: any) => message === instance.reactId));
 
         const subscription = subject.subscribe(value => callback && callback(value));
 

@@ -24,9 +24,9 @@ $yogaRoot
         concatMap((instance: any) => {
             return new Observable(subscriber => {
                 const handleYogaProps = newProps => {
-                    const { children: yogaChildren, nodeBatchId, tempId, ...yogaPropsWithoutChildren } = newProps;
+                    const { children: yogaChildren, nodeBatchId, reactId, ...yogaPropsWithoutChildren } = newProps;
 
-                    subscriber.next({ tempId, props: yogaPropsWithoutChildren });
+                    subscriber.next({ reactId, props: yogaPropsWithoutChildren });
                     if (yogaChildren) {
                         yogaChildren.forEach(child => {
                             handleYogaProps(child);

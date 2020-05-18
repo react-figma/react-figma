@@ -9,7 +9,7 @@ const transformYogaToCoords = result => {
         height: result.height,
         children: result.children && result.children.map(transformYogaToCoords),
         nodeBatchId: result.nodeBatchId,
-        tempId: result.tempId
+        reactId: result.reactId
     };
 };
 

@@ -8,7 +8,7 @@ const getInitialTree = node => {
     return {
         id: node.id,
         type: node.type,
-        tempId: node.getPluginData('tempId'),
+        reactId: node.getPluginData('reactId'),
         children:
             node.children && node.children.filter(item => isReactFigmaNode(item)).map(item => getInitialTree(item))
     };
@@ -40,16 +40,16 @@ const transformNodesToTree = node => {
             (node.getPluginData && node.getPluginData('reactStyle') && JSON.parse(node.getPluginData('reactStyle'))) ||
             undefined,
         children: children && children.length > 0 ? children : undefined,
-        tempId: node.getPluginData('tempId'),
+        reactId: node.getPluginData('reactId'),
         nodeBatchId
     };
 };
 
-const renderInstance = (type, node, props, tempId) => {
+const renderInstance = (type, node, props, reactId) => {
     const instance = renderers[type](node)(props);
     if (!node) {
         instance.setPluginData('isReactFigmaNode', 'true');
-        instance.setPluginData('tempId', tempId);
+        instance.setPluginData('reactId', reactId);
     }
     return instance;
 };
@@ -90,8 +90,8 @@ const transformToNode = smth => {
     }
     if (smth.id) {
         return figma.getNodeById(smth.id);
-    } else if (smth.tempId) {
-        return cache[smth.tempId];
+    } else if (smth.reactId) {
+        return cache[smth.reactId];
     } else {
         return smth;
     }
@@ -116,9 +116,9 @@ export const api = createPluginAPI({
                 ...(type === 'instance' && props.component ? { component: transformToNode(props.component) } : {}),
                 ...(props.node ? { node: transformToNode(props.node) } : {})
             },
-            tempNode.tempId
+            tempNode.reactId
         );
-        cache[tempNode.tempId] = instance;
+        cache[tempNode.reactId] = instance;
     },
 
     appendToContainer(_parentNode, _childNode) {
@@ -178,7 +178,7 @@ export const $currentPageTempId = new Subject();
 // those methods will be executed in the Figma UI,
 // regardless of where they are called from
 export const uiApi = createUIAPI({
-    currentPageChange: tempId => {
-        $currentPageTempId.next(tempId);
+    currentPageChange: reactId => {
+        $currentPageTempId.next(reactId);
     }
 });
