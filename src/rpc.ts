@@ -173,6 +173,18 @@ export const api = createPluginAPI({
     }
 });
 
+export const setupMainThread = () => {
+    figma.on('currentpagechange', () => {
+        const reactId = figma.currentPage.getPluginData('reactId');
+        uiApi.currentPageChange(reactId);
+    });
+
+    figma.on('selectionchange', () => {
+        const reactIds = figma.currentPage.selection.map(node => node.getPluginData('reactId'));
+        uiApi.selectionChange(reactIds);
+    });
+};
+
 export const $currentPageTempId = new Subject();
 
 export const $selectionReactIds = new Subject();

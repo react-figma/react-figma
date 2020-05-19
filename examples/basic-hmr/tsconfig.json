@@ -11,7 +11,11 @@
     "rootDirs": ["src"],
     "baseUrl": "src",
     "skipLibCheck": true,
-    "declaration": true
+    "declaration": true,
+    "paths": {
+      "react-figma": ["../../../src/index.ts"],
+      "react-figma/rpc": ["../../../src/rpc.ts"]
+    }
   },
   "include": ["src/**/*", "../../figma.d.ts", "../../jsx-interfaces.d.ts", "../../images.d.ts"],
   "exclude": ["node_modules", "dist", "**/__tests__/**"]

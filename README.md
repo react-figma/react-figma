@@ -126,7 +126,6 @@ export const App = () => {
 * [Basic](examples/basic)
 * [Design system](examples/design-system)
 * [Interactive](examples/interactive)
-* [Groups](examples/groups)
 * [Data fetching](examples/fetching)
 * [💅 styled-components](examples/styled-components)
 * [Primer Demo](https://github.com/react-figma/primer-demo) - Example of multifplatform UI-kit

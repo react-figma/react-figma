@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { Rectangle, Page } from '../../../src';
+import { Rectangle, Page } from 'react-figma';
 
 const App = () => {
     return (
-        // TODO: Currently we do not support components that are not nested within <Page>
         <Page>
             <Rectangle
                 style={{
