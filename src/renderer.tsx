@@ -34,6 +34,13 @@ const appendToContainer = (parentNode, childNode) => {
         if (parentNode.type === 'TEXT') {
             setTextInstance(parentNode, childNode);
         }
+    } else if (childNode.type.includes('SVG_') && childNode.type !== 'SVG_SVG') {
+        if (parentNode.type.includes('SVG_') && Array.isArray(parentNode.elements)) {
+            parentNode.elements.push(childNode);
+        }
+    } else if (childNode.type === 'SVG_SVG') {
+        const built = childNode.build(childNode);
+        parentNode.appendChild(built);
     } else {
         parentNode.appendChild(childNode);
     }
@@ -64,7 +71,7 @@ const remove = childNode => {
 
 const renderInstance = (type, node, props) => {
     const instance = renderers[type](node)(props);
-    if (!node) {
+    if (!node && instance.setPluginData) {
         instance.setPluginData('isReactFigmaNode', 'true');
     }
     if (type === 'page' && props.isCurrent) {
