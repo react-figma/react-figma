@@ -1,43 +1,15 @@
-import * as React from 'react';
-import * as renderers from './renderers';
+import * as nanoid from 'nanoid/non-secure';
 
 // * Development version of react-reconciler can't be used inside Figma realm.
 import * as createReconciler from 'react-reconciler/cjs/react-reconciler.production.min';
 
-import { updateYogaRoot } from './yoga/yogaStream';
-import { isReactFigmaNode } from './isReactFigmaNode';
 import { setTextChildren } from './hooks/useTextChildren';
-
-let lastPage;
-
-const cleanGroupStubElement = parentNode => {
-    if (parentNode.type === 'GROUP') {
-        parentNode.children.forEach(child => {
-            if (child.getPluginData('isGroupStubElement')) {
-                child.remove();
-            }
-        });
-    }
-};
+import { api } from './rpc';
+import { serializeProps } from './serializers';
 
 const setTextInstance = (parentNode, childNode) => {
     childNode.parent = parentNode;
     setTextChildren(parentNode, childNode.value);
-};
-
-const appendToContainer = (parentNode, childNode) => {
-    if (!childNode || !parentNode || parentNode.type === 'INSTANCE') {
-        return;
-    }
-
-    if (childNode.type === 'TEXT_CONTAINER') {
-        if (parentNode.type === 'TEXT') {
-            setTextInstance(parentNode, childNode);
-        }
-    } else {
-        parentNode.appendChild(childNode);
-    }
-    cleanGroupStubElement(parentNode);
 };
 
 const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
@@ -49,43 +21,12 @@ const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
             setTextInstance(parentNode, newChildNode);
         }
     } else {
-        const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
-        parentNode.insertChild(beforeChildIndex, newChildNode);
+        api.insertToContainer(parentNode, newChildNode, beforeChildNode);
     }
-    cleanGroupStubElement(parentNode);
 };
 
 const remove = childNode => {
-    if (!childNode || childNode.removed) {
-        return;
-    }
-    childNode.remove();
-};
-
-const renderInstance = (type, node, props) => {
-    const instance = renderers[type](node)(props);
-    if (!node) {
-        instance.setPluginData('isReactFigmaNode', 'true');
-    }
-    if (type === 'page' && props.isCurrent) {
-        lastPage = instance;
-    }
-    return instance;
-};
-
-const getFirstChild = parentInstance => {
-    if (parentInstance.children && parentInstance.children.length > 0) {
-        return parentInstance.children.find(isReactFigmaNode);
-    }
-};
-
-const getNextChildren = instance => {
-    if (!instance || !instance.parent) {
-        return;
-    }
-    const parent = instance.parent;
-    const instanceIndex = parent.children.indexOf(instance);
-    return parent.children.slice(instanceIndex + 1).find(isReactFigmaNode);
+    api.remove(childNode);
 };
 
 const checkInstanceMatchType = (instance, type) => {
@@ -98,7 +39,51 @@ const checkInstanceMatchType = (instance, type) => {
     return false;
 };
 
-export const render = async (jsx: any, rootNode) => {
+const prepareToHydration = (node, parent) => {
+    if (node.children && node.children.length >= 0) {
+        node.firstHydratableChild = node.children[0];
+        node.children.forEach(child => prepareToHydration(child, node));
+    }
+    if (parent) {
+        const instanceIndex = parent.children.findIndex(child => child.id === node.id);
+        node.nextHydratableSibling = parent.children.slice(instanceIndex + 1)[0];
+    }
+};
+
+const appendToContainer = (parentNode, childNode) => {
+    if (!childNode || !parentNode || parentNode.type === 'INSTANCE') {
+        return;
+    }
+
+    if (childNode.type === 'TEXT_CONTAINER') {
+        if (parentNode.type === 'TEXT') {
+            setTextInstance(parentNode, childNode);
+        }
+    } else {
+        api.appendToContainer(parentNode, childNode);
+    }
+};
+
+const renderInstance = (type, node, props) => {
+    const result = { reactId: (node && node.reactId) || nanoid(), type: type.toUpperCase() };
+    const { children, ...otherProps } = props;
+    if (props.ref) {
+        props.ref.current = result;
+    }
+    if (props.innerRef) {
+        props.innerRef.current = result;
+        if (props.innerRefCallback) {
+            props.innerRefCallback();
+        }
+    }
+    api.renderInstance(type, node, serializeProps(otherProps), result);
+    return result;
+};
+
+export const render = async (jsx: any) => {
+    const rootNode = await api.getInitialTree();
+    prepareToHydration(rootNode, undefined);
+
     const HostConfig = {
         now: Date.now,
         getRootHostContext: () => {
@@ -136,7 +121,6 @@ export const render = async (jsx: any, rootNode) => {
         supportsHydration: true,
         appendChildToContainer: (parentNode, childNode) => {
             appendToContainer(parentNode, childNode);
-            updateYogaRoot(childNode);
         },
         insertInContainerBefore: () => {},
         removeChildFromContainer: () => {},
@@ -144,7 +128,7 @@ export const render = async (jsx: any, rootNode) => {
             return true;
         },
         commitUpdate: (node, updatePayload, type, oldProps, newProps) => {
-            renderInstance(type, node, newProps);
+            return renderInstance(type, node, newProps);
         },
         commitTextUpdate: (textInstance, oldText, newText) => {
             if (textInstance.type === 'TEXT_CONTAINER') {
@@ -161,11 +145,7 @@ export const render = async (jsx: any, rootNode) => {
             remove(childNode);
         },
         canHydrateInstance: (instance, type, props) => {
-            if (
-                !isReactFigmaNode(instance) ||
-                !checkInstanceMatchType(instance, type) ||
-                (instance.parent && instance.parent.type === 'INSTANCE')
-            ) {
+            if (!checkInstanceMatchType(instance, type) || (instance.parent && instance.parent.type === 'INSTANCE')) {
                 return null;
             }
             return instance;
@@ -174,10 +154,10 @@ export const render = async (jsx: any, rootNode) => {
             return renderInstance(type, checkInstanceMatchType(instance, type) ? instance : null, props);
         },
         getFirstHydratableChild: parentInstance => {
-            return getFirstChild(parentInstance);
+            return parentInstance.firstHydratableChild;
         },
         getNextHydratableSibling: instance => {
-            return getNextChildren(instance);
+            return instance.nextHydratableSibling;
         },
         didNotHydrateContainerInstance: () => {},
         didNotFindHydratableContainerInstance: () => {},
@@ -186,21 +166,14 @@ export const render = async (jsx: any, rootNode) => {
         didNotHydrateInstance: () => {},
         commitMount: (instance, type) => {},
         commitHydratedContainer: container => {
-            container.children.forEach(child => {
-                if (isReactFigmaNode(child)) {
-                    updateYogaRoot(child);
-                }
-            });
+            /*container.children.forEach(child => {
+                updateYogaRoot(child);
+            });*/
         }
     };
 
     const reconciler = createReconciler(HostConfig);
 
     const container = reconciler.createContainer(rootNode, true, true);
-    lastPage = figma.currentPage;
-    const tempPage = figma.createPage();
-    figma.currentPage = tempPage;
     reconciler.updateContainer(jsx, container);
-    figma.currentPage = lastPage;
-    tempPage.remove();
 };

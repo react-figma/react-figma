@@ -1,7 +1,6 @@
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
 import { layoutMixin } from '../mixins/layoutMixin';
 import { geometryMixin } from '../mixins/geometryMixin';
-import { refMixin } from '../mixins/refMixin';
 import { propsAssign } from '../helpers/propsAssign';
 import { StarProps } from '../components/star/Star';
 import { cornerMixin } from '../mixins/cornerMixin';
@@ -14,7 +13,6 @@ const starNodePropsAssign = propsAssign<StarProps>(['pointCount', 'innerRadius']
 export const star = (node: StarNode) => (props: StarProps) => {
     const starNode = node || props.node || figma.createStar();
 
-    refMixin(starNode)(props);
     baseNodeMixin(starNode)(props);
     layoutMixin(starNode)(props);
     geometryMixin(starNode)(props);

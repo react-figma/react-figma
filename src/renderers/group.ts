@@ -1,5 +1,4 @@
 import { layoutMixin } from '../mixins/layoutMixin';
-import { refMixin } from '../mixins/refMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
 import { exportMixin } from '../mixins/exportMixin';
@@ -15,8 +14,6 @@ const createNewGroup = () => {
 
 export const group = node => props => {
     const frameNode = node || props.node || createNewGroup();
-
-    refMixin(frameNode)(props);
 
     saveStyleMixin(frameNode)(props);
     baseNodeMixin(frameNode)(props);

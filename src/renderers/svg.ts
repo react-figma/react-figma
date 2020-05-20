@@ -1,7 +1,6 @@
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
 import { layoutMixin } from '../mixins/layoutMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
-import { refMixin } from '../mixins/refMixin';
 import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { frameMixin } from '../mixins/frameMixin';
@@ -29,8 +28,6 @@ export const svg = node => (props: SvgNodeProps) => {
         newSvg.remove();
         node.setPluginData('svgHash', hashCode(props.source));
     }
-
-    refMixin(frameNode)(props);
 
     saveStyleMixin(frameNode)(props);
     baseNodeMixin(frameNode)(props);

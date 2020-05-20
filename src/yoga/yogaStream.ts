@@ -1,7 +1,7 @@
 import { Observable, Subject } from 'rxjs';
 import { concatMap, delay } from 'rxjs/operators';
 import { yogaHandler } from './yogaHandler';
-import { isReactFigmaNode } from '../isReactFigmaNode';
+import { api } from '../rpc';
 
 const $yogaRoot = new Subject();
 
@@ -15,12 +15,7 @@ export const updateYogaNode = (node: any) => {
     if (!node) {
         return;
     }
-    const parent = node.parent;
-    if (!parent || !isReactFigmaNode(parent)) {
-        updateYogaRoot(node);
-    } else {
-        updateYogaNode(parent);
-    }
+    updateYogaRoot(node);
 };
 
 $yogaRoot
@@ -28,33 +23,19 @@ $yogaRoot
         delay(0),
         concatMap((instance: any) => {
             return new Observable(subscriber => {
-                const handleYogaProps = (newProps, instance) => {
-                    const { children: yogaChildren, nodeBatchId, ...yogaPropsWithoutChildren } = newProps;
-                    if (instance.parent && instance.parent.type === 'GROUP') {
-                        yogaPropsWithoutChildren.x += instance.parent.x;
-                        yogaPropsWithoutChildren.y += instance.parent.y;
-                    }
+                const handleYogaProps = newProps => {
+                    const { children: yogaChildren, nodeBatchId, reactId, ...yogaPropsWithoutChildren } = newProps;
 
-                    if (nodeBatchId != instance.getPluginData('nodeBatchId')) {
-                        updateYogaNode(instance);
-                    }
-
-                    subscriber.next({ instance, props: yogaPropsWithoutChildren });
-                    if (instance.children) {
-                        instance.children.forEach((child, index) => {
-                            if (!isReactFigmaNode(child)) {
-                                return;
-                            }
-                            if (!yogaChildren || yogaChildren.length < index + 1) {
-                                updateYogaNode(child);
-                                return;
-                            }
-                            handleYogaProps(yogaChildren[index], child);
+                    subscriber.next({ reactId, props: yogaPropsWithoutChildren });
+                    if (yogaChildren) {
+                        yogaChildren.forEach(child => {
+                            handleYogaProps(child);
                         });
                     }
                 };
-                yogaHandler(instance).then(newProps => {
-                    handleYogaProps(newProps, instance);
+                api.getTreeForYoga(instance).then(treeForYoga => {
+                    const newProps = yogaHandler(treeForYoga);
+                    handleYogaProps(newProps);
                     subscriber.complete();
                 });
             });

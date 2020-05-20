@@ -2,7 +2,6 @@ import { baseNodeMixin } from '../mixins/baseNodeMixin';
 import { layoutMixin } from '../mixins/layoutMixin';
 import { geometryMixin } from '../mixins/geometryMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
-import { refMixin } from '../mixins/refMixin';
 import { cornerMixin } from '../mixins/cornerMixin';
 import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
@@ -16,7 +15,6 @@ const vectorNodePropsAssign = propsAssign<VectorProps>(['vectorPaths', 'vectorNe
 export const vector = (node: VectorNode) => (props: VectorProps) => {
     const vectorNode = node || props.node || figma.createVector();
 
-    refMixin(vectorNode)(props);
     baseNodeMixin(vectorNode)(props);
     saveStyleMixin(vectorNode)(props);
     layoutMixin(vectorNode)(props);

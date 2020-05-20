@@ -3,38 +3,25 @@ id: data-fetching
 title: Data Fetching
 ---
 
-React Figma has APIs that make data fetching more simpler.
-
-## useFetch
-
-Analog of `useFetch` React Hook from [react-fetch-hook](https://github.com/ilyalesik/react-fetch-hook).
+It's possible to use `react-figma` with any fetching solution (e.g. [react-fetch-hook](https://github.com/ilyalesik/react-fetch-hook)):
 
 ```jsx
 import * as React from 'react';
-import { Page, Frame, StyleSheet, Text, useFetch } from 'react-figma';
+import { Page, Frame, Text } from 'react-figma';
+import useFetch from "react-fetch-hook";
 
 
 export const App = () => {
-    const { isLoading, data } = useFetch(`https://swapi.co/api/people/1`);
+    const { isLoading, data } = useFetch(`https://reqres.in/api/users/2`);
 
     return (
-        <Frame>
-            <Text>{`isLoading: ${(isLoading && 'true') || 'false'}`}</Text>
-            <Text>{`Name: ${data && data.name}`}</Text>
-        </Frame>
+        <Page>
+            <Frame>
+                <Text>{`isLoading: ${(isLoading && 'true') || 'false'}`}</Text>
+                <Text>{`Name: ${data && data.name}`}</Text>
+            </Frame>
+        </Page>
     );
-};
-```
-
-#### Note:
-
-It's required to pass `fetch` function to `uiWorker`:
-
-```javascript
-const handler = uiWorker({ yoga, fetch });
-
-onmessage = event => {
-    handler(event);
 };
 ```
 

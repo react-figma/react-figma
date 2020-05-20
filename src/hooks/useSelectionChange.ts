@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { SelectionEventProps } from '../types';
+import { $selectionReactIds } from '../rpc';
 
-export const useSelectionChange = (nodeRef: { current?: SceneNode }, props: SelectionEventProps) => {
+export const useSelectionChange = (nodeRef: { current?: any }, props: SelectionEventProps) => {
     const didMountRef = React.useRef(false);
     const [isSelected, setSelected] = React.useState(false);
 
@@ -21,17 +22,20 @@ export const useSelectionChange = (nodeRef: { current?: SceneNode }, props: Sele
     }, [isSelected]);
 
     React.useEffect(() => {
+        const instance = nodeRef.current;
         if (!props.onSelectionEnter && !props.onSelectionLeave) {
             return;
         }
-        const handler = () => {
-            if (figma.currentPage.selection.indexOf(nodeRef.current) >= 0) {
+        const handler = selection => {
+            if (selection.indexOf(instance.reactId) >= 0) {
                 setSelected(true);
             } else {
                 setSelected(false);
             }
         };
-        figma.on('selectionchange', handler);
-        return () => figma.off('selectionchange', handler);
+
+        const subscription = $selectionReactIds.subscribe(value => handler && handler(value));
+
+        return () => subscription.unsubscribe();
     }, [props.onSelectionEnter, props.onSelectionLeave]);
 };

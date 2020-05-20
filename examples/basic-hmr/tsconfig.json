@@ -13,7 +13,8 @@
     "skipLibCheck": true,
     "declaration": true,
     "paths": {
-      "react-figma": ["../../../src/index.ts"]
+      "react-figma": ["../../../src/index.ts"],
+      "react-figma/rpc": ["../../../src/rpc.ts"]
     }
   },
   "include": ["src/**/*", "../../figma.d.ts", "../../jsx-interfaces.d.ts", "../../images.d.ts"],

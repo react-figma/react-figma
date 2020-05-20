@@ -46,7 +46,7 @@
     "copyfiles": "^2.1.1",
     "cross-env": "^5.2.0",
     "css-loader": "^3.2.0",
-    "figma-api-stub": "0.0.32",
+    "figma-api-stub": "0.0.41",
     "html-webpack-inline-source-plugin": "^0.0.10",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
@@ -63,16 +63,17 @@
     "typescript": "^3.5.3",
     "url-loader": "^2.1.0",
     "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6",
-    "yoga-layout-prebuilt": "1.9.3"
+    "webpack-cli": "^3.3.6"
   },
   "dependencies": {
     "color-parse": "^1.3.8",
+    "figma-jsonrpc": "^0.4.0",
     "nanoid": "^2.0.3",
     "react-fetch-hook": "1.7.2",
     "react-reconciler": "^0.23.0",
     "rxjs": "^6.5.2",
-    "utility-types": "^3.10.0"
+    "utility-types": "^3.10.0",
+    "yoga-layout-prebuilt": "1.9.3"
   },
   "peerDependencies": {
     "react": "*"

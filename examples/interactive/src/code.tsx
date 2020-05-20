@@ -1,11 +1,16 @@
 import * as React from 'react';
-import { render, subscribeOnMessages } from 'react-figma';
-import { App } from './App';
+import '../../../src/rpc';
+import { uiApi } from '../../../src/rpc';
 
 figma.showUI(__html__, { visible: false });
 
-figma.ui.onmessage = message => {
-    subscribeOnMessages(message);
-};
+// TODO move to core package
+figma.on('currentpagechange', () => {
+    const reactId = figma.currentPage.getPluginData('reactId');
+    uiApi.currentPageChange(reactId);
+});
 
-render(<App />, figma.root);
+figma.on('selectionchange', () => {
+    const reactIds = figma.currentPage.selection.map(node => node.getPluginData('reactId'));
+    uiApi.selectionChange(reactIds);
+});

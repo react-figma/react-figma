@@ -1,10 +1,11 @@
-import { applyStyleToYogaNode } from '../yoga/applyStyleToYogaNode';
-import { StyleSheet } from '..';
+import { applyStyleToYogaNode } from './applyStyleToYogaNode';
+import { StyleSheet } from '../index';
 
 const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
     const yogaNode = yoga.Node.create();
     cache.node = yogaNode;
     cache.nodeBatchId = node.nodeBatchId;
+    cache.reactId = node.reactId;
     if (node.width && node.height && !node.children) {
         yogaNode.setWidth(node.width);
         yogaNode.setHeight(node.height);
@@ -33,17 +34,12 @@ const transformCache = cache => {
     return {
         ...result,
         nodeBatchId: cache.nodeBatchId,
+        reactId: cache.reactId,
         ...(cache.children ? { children: cache.children.map(transformCache) } : {})
     };
 };
 
-export const yogaWorker = yoga => message => {
-    if (!message.value || message.value.type !== 'calculateLayout' || !yoga) {
-        return;
-    }
-
-    const props = message.value.value;
-
+export const yogaWorker = yoga => props => {
     const cache = {};
     const yogaRoot = transformToYogaNode(yoga, cache, props, null, null);
 
@@ -51,13 +47,5 @@ export const yogaWorker = yoga => message => {
 
     const value = transformCache(cache);
 
-    parent.postMessage(
-        {
-            pluginMessage: {
-                id: message.id,
-                value
-            }
-        },
-        '*'
-    );
+    return value;
 };

@@ -5,3 +5,9 @@ import 'react-figma/rpc';
 import { render } from 'react-figma';
 
 render(<App />);
+
+// @ts-ignore
+if (module.hot) {
+    // @ts-ignore
+    module.hot.accept();
+}

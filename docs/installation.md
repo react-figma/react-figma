@@ -8,13 +8,13 @@ title: Installation
 Install it with yarn:
 
 ```
-yarn add react react-figma yoga-layout-prebuilt
+yarn add react react-figma
 ```
 
 Or with npm:
 
 ```
-npm i react react-figma yoga-prebuilt --save
+npm i react react-figma --save
 ```
 
 ## Using boilerplate

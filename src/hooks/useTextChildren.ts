@@ -14,7 +14,7 @@ export const useTextChildren = nodeRef => {
     React.useEffect(() => {
         const instance = nodeRef.current;
         const subject = $setTextChildren.pipe(
-            filter((message: any) => message.node === instance),
+            filter((message: any) => message.node.reactId === instance.reactId),
             map((message: any) => message.characters)
         );
 

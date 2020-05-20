@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { Page, Rectangle, Group, Frame } from 'react-figma';
-import { YogaStyleProperties } from '../../../src/yoga/YogaStyleProperties';
-import { GeometryStyleProperties } from '../../../src/styleTransformers/transformGeometryStyleProperties';
+import { Page, Rectangle, StyleSheet, Frame } from 'react-figma';
 
-const frameProps: { style: YogaStyleProperties & GeometryStyleProperties } = {
-    style: {
+const styles = StyleSheet.create({
+    frame: {
         paddingTop: 10,
         paddingBottom: 10,
         paddingLeft: 10,
@@ -12,7 +10,7 @@ const frameProps: { style: YogaStyleProperties & GeometryStyleProperties } = {
         flexDirection: 'row',
         backgroundColor: '#ffffff'
     }
-};
+});
 
 export const App = () => {
     const [rectangles, setRectangles] = React.useState([]);
@@ -37,7 +35,7 @@ export const App = () => {
 
     return (
         <Page isCurrent name="New page">
-            <Frame {...frameProps}>
+            <Frame style={styles.frame}>
                 {rectangles.map((rectangle, id) => {
                     return <Rectangle key={id} style={rectangle} />;
                 })}

@@ -10,10 +10,10 @@
 
 Render React components to Figma.
 
-* 🍬 Compatible with [react-native](https://facebook.github.io/react-native/), [react-sketchapp](https://github.com/airbnb/react-sketchapp) API.
+* 🍬 Compatible with [react-native](https://facebook.github.io/react-native/), [react-sketchapp](https://github.com/airbnb/react-sketchapp), [react-primitives](https://github.com/lelandrichardson/react-primitives) API.
+* 🦄 Flexible layouts support with [Yoga Layout](https://yogalayout.com/).
+* ♻️ Hydration and [HMR](https://webpack.js.org/concepts/hot-module-replacement/) support.
 * 🎨 Designed to create manageable design systems.
-* 🦄 Flexible layouts support with [Yoga Layout](https://yogalayout.com/)
-* ♻️ Hydration support.
 * ⚙️ Built on [Figma Plugin API](https://www.figma.com/plugin-docs/intro/).
 
 <p align="center"><img src="./demo.gif" width="800"></p>
@@ -52,13 +52,13 @@ You can use [react-figma-boilerplate](https://github.com/react-figma/react-figma
 Install it with yarn:
 
 ```
-yarn add react react-figma yoga-layout-prebuilt
+yarn add react react-figma
 ```
 
 Or with npm:
 
 ```
-npm i react react-figma yoga-layout-prebuilt --save
+npm i react react-figma --save
 ```
 
 ### Usage
@@ -66,30 +66,23 @@ npm i react react-figma yoga-layout-prebuilt --save
 #### Configure main thread
 
 ```javascript
-import * as React from 'react';
-import { render, subscribeOnMessages } from 'react-figma';
-import { App } from './App';
+import { setupMainThread } from 'react-figma/rpc';
 
 figma.showUI(__html__, { visible: false });
 
-figma.ui.onmessage = message => {
-    subscribeOnMessages(message);
-};
-
-render(<App />, figma.root);
+setupMainThread();
 ```
 
 #### Configure ui thread
 
 ```javascript
-import * as yoga from 'yoga-layout-prebuilt';
-import { uiWorker } from 'react-figma';
+import * as React from 'react';
+import { App } from './App';
 
-const handler = uiWorker({ yoga, fetch });
+import 'react-figma/rpc';
+import { render } from 'react-figma';
 
-onmessage = event => {
-    handler(event);
-};
+render(<App />);
 ```
 
 #### Import components
@@ -124,9 +117,9 @@ export const App = () => {
 ## Examples
 
 * [Basic](examples/basic)
+  + [Basic + HMR](examples/basic-hmr)
 * [Design system](examples/design-system)
 * [Interactive](examples/interactive)
-* [Groups](examples/groups)
 * [Data fetching](examples/fetching)
 * [💅 styled-components](examples/styled-components)
 * [Primer Demo](https://github.com/react-figma/primer-demo) - Example of multifplatform UI-kit

@@ -1,4 +1,4 @@
-import { getImageHandler } from './getImageHandler';
+import { getImageHash } from './getImageHandler';
 
 export const fillsPreprocessor = async (props): Promise<Array<Paint>> => {
     if (props.fills) {
@@ -9,10 +9,10 @@ export const fillsPreprocessor = async (props): Promise<Array<Paint>> => {
 
             const mappedFill = { ...fill };
 
-            const imageHandler = await getImageHandler(mappedFill.image);
+            const imageHash = await getImageHash(mappedFill.image);
             delete mappedFill.image;
 
-            mappedFill.imageHash = imageHandler.hash;
+            mappedFill.imageHash = imageHash;
             mappedFill.scaleMode = mappedFill.scaleMode || 'FILL';
 
             return mappedFill;

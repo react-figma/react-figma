@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webpack:watch": "webpack --watch"
+    "start:main": "webpack --watch",
+    "start:ui": "webpack-dev-server --config webpack.ui.config.js"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-  }
+  "license": "ISC"
 }
