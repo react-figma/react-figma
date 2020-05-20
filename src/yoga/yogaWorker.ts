@@ -1,5 +1,5 @@
-import { applyStyleToYogaNode } from '../yoga/applyStyleToYogaNode';
-import { StyleSheet } from '..';
+import { applyStyleToYogaNode } from './applyStyleToYogaNode';
+import { StyleSheet } from '../index';
 
 const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
     const yogaNode = yoga.Node.create();

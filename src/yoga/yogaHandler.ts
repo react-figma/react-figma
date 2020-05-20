@@ -1,4 +1,4 @@
-import { yogaWorker } from '../workers/yogaWorker';
+import { yogaWorker } from './yogaWorker';
 import * as yoga from 'yoga-layout-prebuilt';
 
 const transformYogaToCoords = result => {

@@ -1,5 +1,4 @@
 export { render } from './renderer';
-export { subscribeOnMessages } from './helpers/messagePromise';
 
 export { Text } from './components/text/Text';
 export { Rectangle } from './components/rectangle/Rectangle';

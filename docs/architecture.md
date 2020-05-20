@@ -20,12 +20,9 @@ Renderer architecture displayed on the scheme:
   - **/mixins** - common functions for renderers that set some attributes to Figma nodes. 
   Part of it is related to mixin interface inside Figma API. 
   As an example `baseNodeMixin` related to `BaseNodeMixin`.
-  - **/realm-adopted** - libraries adopted for working inside Figma plugin realm.
   - **/renderers** - functions that can create/update specific Figma nodes
   - **/styleTransformers** - functions for transforming set of component style
-  - **/workers** - functions that handle message from main thread and send the result back
   - **index** - root of package export
   - **renderer** - core of renderer based on react-reconciler.
   - **types** - common props of components
-  - **uiWorker** - workers entry point
   
