@@ -74,8 +74,7 @@ Command `yarn webpack:watch` will be used for the launching plugin build:
   },
   "dependencies": {
     "react": "^16.9.0",
-    "react-figma": "latest",
-    "yoga-layout-prebuilt": "^1.9.3"
+    "react-figma": "latest"
   },
   "devDependencies": {
     "react-figma-webpack-config": "0.0.2",
@@ -106,17 +105,11 @@ module.exports = configure({
 At the `code.tsx`:
 
 ```javascript
-import * as React from 'react';
-import { render, subscribeOnMessages } from 'react-figma';
-import { App } from './App';
+import { setupMainThread } from 'react-figma/rpc';
 
 figma.showUI(__html__, { visible: false });
 
-figma.ui.onmessage = message => {
-    subscribeOnMessages(message);
-};
-
-render(<App />, figma.root);
+setupMainThread();
 ```
 
 ## Configure ui thread
@@ -124,12 +117,11 @@ render(<App />, figma.root);
 At the `ui.tsx`:
 
 ```javascript
-import * as yoga from 'yoga-layout-prebuilt';
-import { uiWorker } from 'react-figma';
+import * as React from 'react';
+import { App } from './App';
 
-const handler = uiWorker({ yoga, fetch });
+import 'react-figma/rpc';
+import { render } from 'react-figma';
 
-onmessage = event => {
-    handler(event);
-};
+render(<App />);
 ```
