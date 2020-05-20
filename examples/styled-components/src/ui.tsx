@@ -1,7 +1,8 @@
-import * as React from 'react';
-import { App } from './App';
+declare type fetch = (input: RequestInfo, init?: RequestInit) => Promise<Response>;
 
-import 'react-figma/rpc';
-import { render } from 'react-figma';
+import * as yoga from 'yoga-layout-prebuilt';
+import { uiWorker } from 'react-figma';
 
-render(<App />);
+onmessage = event => {
+    uiWorker({ yoga, fetch })(event);
+};
