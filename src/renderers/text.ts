@@ -10,20 +10,34 @@ import { isValidSize } from '../helpers/isValidSize';
 import { isEqualFontStyle } from '../helpers/isEqualFontStyle';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
-const textNodePropsAssign = propsAssign<TextProps>([
-    'characters',
-    'textAlignHorizontal',
-    'textAlignVertical',
-    'textAlignVertical',
-    'paragraphIndent',
-    'paragraphSpacing',
-    'autoRename',
-    'fontSize',
-    'textCase',
-    'textDecoration',
-    'letterSpacing',
-    'lineHeight'
-]);
+const textNodePropsAssign = propsAssign<TextProps, TextProps>(
+    [
+        'characters',
+        'textAlignHorizontal',
+        'textAlignVertical',
+        'paragraphIndent',
+        'paragraphSpacing',
+        'autoRename',
+        'fontSize',
+        'textCase',
+        'textDecoration',
+        'letterSpacing',
+        'lineHeight'
+    ],
+    {
+        characters: '',
+        textAlignHorizontal: 'LEFT',
+        textAlignVertical: 'TOP',
+        paragraphIndent: 0,
+        paragraphSpacing: 0,
+        autoRename: false,
+        fontSize: 12,
+        textCase: 'ORIGINAL',
+        textDecoration: 'NONE',
+        letterSpacing: { value: 0, unit: 'PIXELS' },
+        lineHeight: { unit: 'AUTO' }
+    }
+);
 
 const defaultFont = { family: 'Roboto', style: 'Regular' };
 

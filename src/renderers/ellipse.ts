@@ -8,7 +8,7 @@ import { EllipseProps } from '../components/ellipse/Ellipse';
 import { propsAssign } from '../helpers/propsAssign';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
-const ellipseNodePropsAssign = propsAssign<EllipseProps>(['arcData']);
+const ellipseNodePropsAssign = propsAssign<EllipseProps, EllipseProps>(['arcData']);
 
 export const ellipse = (node: EllipseNode) => (props: EllipseProps) => {
     const ellipseNode = node || props.node || figma.createEllipse();
