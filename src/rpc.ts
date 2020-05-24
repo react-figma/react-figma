@@ -101,77 +101,82 @@ const findNodeByName = (children, name) => {
     return children && children.find(child => child.name === name || findNodeByName(child.children, name));
 };
 
-export const api = createPluginAPI({
-    getInitialTree() {
-        return getInitialTree(figma.root);
-    },
+export const api = createPluginAPI(
+    {
+        getInitialTree() {
+            return getInitialTree(figma.root);
+        },
 
-    renderInstance(type, _node, props, tempNode) {
-        const node = transformToNode(_node);
-        const instance = renderInstance(
-            type,
-            node,
-            props && {
-                ...props,
-                ...(type === 'instance' && props.component ? { component: transformToNode(props.component) } : {}),
-                ...(props.node ? { node: transformToNode(props.node) } : {})
-            },
-            tempNode.reactId
-        );
-        cache[tempNode.reactId] = instance;
-    },
+        renderInstance(type, _node, props, tempNode) {
+            const node = transformToNode(_node);
+            const instance = renderInstance(
+                type,
+                node,
+                props && {
+                    ...props,
+                    ...(type === 'instance' && props.component ? { component: transformToNode(props.component) } : {}),
+                    ...(props.node ? { node: transformToNode(props.node) } : {})
+                },
+                tempNode.reactId
+            );
+            cache[tempNode.reactId] = instance;
+        },
 
-    appendToContainer(_parentNode, _childNode) {
-        const parentNode = transformToNode(_parentNode);
-        const childNode = transformToNode(_childNode);
-        appendToContainer(parentNode, childNode);
-    },
+        appendToContainer(_parentNode, _childNode) {
+            const parentNode = transformToNode(_parentNode);
+            const childNode = transformToNode(_childNode);
+            appendToContainer(parentNode, childNode);
+        },
 
-    insertToContainer(_parentNode, _newChildNode, _beforeChildNode) {
-        const parentNode = transformToNode(_parentNode);
-        const newChildNode = transformToNode(_newChildNode);
-        const beforeChildNode = transformToNode(_beforeChildNode);
-        insertToContainer(parentNode, newChildNode, beforeChildNode);
-    },
+        insertToContainer(_parentNode, _newChildNode, _beforeChildNode) {
+            const parentNode = transformToNode(_parentNode);
+            const newChildNode = transformToNode(_newChildNode);
+            const beforeChildNode = transformToNode(_beforeChildNode);
+            insertToContainer(parentNode, newChildNode, beforeChildNode);
+        },
 
-    async listAvailableFontsAsync() {
-        return figma.listAvailableFontsAsync();
-    },
+        async listAvailableFontsAsync() {
+            return figma.listAvailableFontsAsync();
+        },
 
-    async loadFontAsync(fontName) {
-        return figma.loadFontAsync(fontName);
-    },
+        async loadFontAsync(fontName) {
+            return figma.loadFontAsync(fontName);
+        },
 
-    remove(_childNode) {
-        const childNode = transformToNode(_childNode);
-        if (!childNode || childNode.removed) {
-            return;
+        remove(_childNode) {
+            const childNode = transformToNode(_childNode);
+            if (!childNode || childNode.removed) {
+                return;
+            }
+            childNode.remove();
+        },
+
+        getTreeForYoga(_instance) {
+            const node = transformToNode(_instance);
+            const root = findRoot(node);
+            return transformNodesToTree(root);
+        },
+
+        findNodeByName(_node, name) {
+            const node = transformToNode(_node);
+            const instanceItemNode = findNodeByName(node.children, name);
+            return instanceItemNode && getInitialTree(instanceItemNode);
+        },
+
+        createImage(data) {
+            const image = figma.createImage(data);
+            return image.hash;
+        },
+
+        setCurrentPage(_node) {
+            const node = transformToNode(_node);
+            figma.currentPage = node;
         }
-        childNode.remove();
     },
-
-    getTreeForYoga(_instance) {
-        const node = transformToNode(_instance);
-        const root = findRoot(node);
-        return transformNodesToTree(root);
-    },
-
-    findNodeByName(_node, name) {
-        const node = transformToNode(_node);
-        const instanceItemNode = findNodeByName(node.children, name);
-        return instanceItemNode && getInitialTree(instanceItemNode);
-    },
-
-    createImage(data) {
-        const image = figma.createImage(data);
-        return image.hash;
-    },
-
-    setCurrentPage(_node) {
-        const node = transformToNode(_node);
-        figma.currentPage = node;
+    {
+        timeout: 60 * 1000
     }
-});
+);
 
 export const setupMainThread = () => {
     figma.on('currentpagechange', () => {
@@ -191,11 +196,16 @@ export const $selectionReactIds = new Subject();
 
 // those methods will be executed in the Figma UI,
 // regardless of where they are called from
-export const uiApi = createUIAPI({
-    currentPageChange: reactId => {
-        $currentPageTempId.next(reactId);
+export const uiApi = createUIAPI(
+    {
+        currentPageChange: reactId => {
+            $currentPageTempId.next(reactId);
+        },
+        selectionChange: reactIds => {
+            $selectionReactIds.next(reactIds);
+        }
     },
-    selectionChange: reactIds => {
-        $selectionReactIds.next(reactIds);
+    {
+        timeout: 60 * 1000
     }
-});
+);
