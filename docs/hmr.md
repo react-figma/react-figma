@@ -26,8 +26,8 @@ module.exports = configure();
 3. Change starting script at `package.json`:
 
 ```json
-    -"webpack:watch": "webpack --watch"
-    +"webpack:watch": "webpack && webpack-dev-server --config webpack.ui.config.js"
+-"webpack:watch": "webpack --watch"
++"webpack:watch": "webpack && webpack-dev-server --config webpack.ui.config.js"
 ```
 
 4. Add the following code to React entry point file (it's `src/ui.tsx` usually):
