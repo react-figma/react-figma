@@ -8,7 +8,7 @@ import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
-const starNodePropsAssign = propsAssign<StarProps>(['pointCount', 'innerRadius']);
+const starNodePropsAssign = propsAssign<StarProps, StarProps>(['pointCount', 'innerRadius']);
 
 export const star = (node: StarNode) => (props: StarProps) => {
     const starNode = node || props.node || figma.createStar();

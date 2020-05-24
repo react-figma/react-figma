@@ -10,7 +10,11 @@ import { propsAssign } from '../helpers/propsAssign';
 import { VectorProps } from '../components/vector/Vector';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
-const vectorNodePropsAssign = propsAssign<VectorProps>(['vectorPaths', 'vectorNetwork', 'handleMirroring']);
+const vectorNodePropsAssign = propsAssign<VectorProps, VectorProps>([
+    'vectorPaths',
+    'vectorNetwork',
+    'handleMirroring'
+]);
 
 export const vector = (node: VectorNode) => (props: VectorProps) => {
     const vectorNode = node || props.node || figma.createVector();

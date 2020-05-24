@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { Rectangle, Page } from 'react-figma';
+import { View, Page, Text } from 'react-figma';
 
 const App = () => {
     return (
         <Page>
-            <Rectangle
+            <View
                 style={{
                     width: 200,
                     height: 100,
@@ -19,6 +19,7 @@ const App = () => {
                     }
                 }}
             />
+            <Text style={{ color: '#ffffff' }}>text</Text>
         </Page>
     );
 };
