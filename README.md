@@ -37,7 +37,9 @@ export const App = () => {
 
 ___
 
-⚠️ Warning!️ Project is not production ready and currently at alpha version. API can be changed.
+⚠️ Warning!️ Project is not production ready and currently at beta version. API can be changed.
+
+___
 
 
 ## Installation
