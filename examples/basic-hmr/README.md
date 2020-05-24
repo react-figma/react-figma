@@ -1,10 +1,5 @@
-# Basic + HMR
+# HMR example
 
-⚠️ `Use Developer VM` flag should be disabled.
+Example of HMR (Hot Module Replacement) configuration.
 
-Run it simultaneously:
-
-```bash
-yarn start:main
-yarn start:ui
-```
+[How to run](../../contributing.md#running-examples)
