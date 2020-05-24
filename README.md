@@ -123,7 +123,7 @@ export const App = () => {
 * [Interactive](examples/interactive)
 * [Data fetching](examples/fetching)
 * [💅 styled-components](examples/styled-components)
-* [Primer Demo](https://github.com/react-figma/primer-demo) - Example of multifplatform UI-kit
+* [PrimerDemo](https://github.com/react-figma/PrimerDemo) - Example of multifplatform UI-kit
 
 ## Become a Contributor 🎖
 
