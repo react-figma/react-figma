@@ -10,11 +10,11 @@ Analog of the `Platform` module at [React Native](https://facebook.github.io/rea
 
 **OS**
 
-`Platfrom.OS` returns `"figma""`
+`Platform.OS` returns `"figma""`
 
 **Version**
 
-`Platfrom.Version` returns `1`
+`Platform.Version` returns `1`
 
 **Platform.select** 
 
