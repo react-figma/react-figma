@@ -4302,10 +4302,10 @@ react-fetch-hook@1.7.2:
   resolved "https://registry.yarnpkg.com/react-fetch-hook/-/react-fetch-hook-1.7.2.tgz#5aaddea774746f8e19fc3157248575d140d92108"
   integrity sha512-hgEBSzqIm3ZhTnmP0QrfDdVQJ4Gzc+EXGTxd1yHEC40QE3r1mHF7HKzJBiS4VNNdmFdOZ/bAZ5XmK4apW4JCFA==
 
-react-figma-webpack-config@0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/react-figma-webpack-config/-/react-figma-webpack-config-0.0.6.tgz#c5217bdd8dd09489c63f61166d4e02c655bf115f"
-  integrity sha512-uC9g/HQM57oQB9S7t/LtODu+BxfKb97lnd9N+Aug+Ww3sr2q8F7ituQmHzEzbah16DXiLeUbEPCNBL3SbIdvrQ==
+react-figma-webpack-config@0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/react-figma-webpack-config/-/react-figma-webpack-config-0.0.7.tgz#72f17d6978cedab1fdc0a63a8e4a4b68560896f3"
+  integrity sha512-Onx/5srpym9gVdfXqW55m6TRfCh5hVVRJD/h+iUZzoPkQidAZI7AEXgUDdiZnNI5GVlR7CXRS2guo7nGVlfGuw==
   dependencies:
     html-webpack-inline-source-plugin "^0.0.10"
     html-webpack-plugin "^3.2.0"
