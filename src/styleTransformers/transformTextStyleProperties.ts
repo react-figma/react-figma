@@ -45,7 +45,7 @@ export const transformTextStyleProperties = (style?: Partial<TextStyleProperties
     }
 
     return {
-        ...((style && style.color && { fills: [colorToPaint(style.color)] }) || {}),
+        ...((style && style.color && { fills: [colorToPaint(style.color)] }) || { fills: [colorToPaint('#000000')] }),
         ...(style &&
             style.fontFamily && {
                 fontName: { family: style.fontFamily, style: convertFontStyle(style.fontWeight, style.fontStyle) }

@@ -449,7 +449,17 @@ ChildrenMixinStub {
           "blendMode": "NORMAL",
           "effects": Array [],
           "exportSettings": Array [],
-          "fills": Array [],
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0,
+                "r": 0,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
           "fontSize": 12,
           "id": "1:2",
           "isMask": false,
@@ -514,7 +524,17 @@ ChildrenMixinStub {
           "blendMode": "NORMAL",
           "effects": Array [],
           "exportSettings": Array [],
-          "fills": Array [],
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0,
+                "r": 0,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
           "fontSize": 12,
           "id": "1:2",
           "isMask": false,
@@ -579,7 +599,17 @@ ChildrenMixinStub {
           "blendMode": "NORMAL",
           "effects": Array [],
           "exportSettings": Array [],
-          "fills": Array [],
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0,
+                "r": 0,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
           "fontSize": 12,
           "id": "1:2",
           "isMask": false,
@@ -646,7 +676,17 @@ ChildrenMixinStub {
           "blendMode": "NORMAL",
           "effects": Array [],
           "exportSettings": Array [],
-          "fills": Array [],
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0,
+                "r": 0,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
           "fontSize": 12,
           "id": "1:2",
           "isMask": false,
@@ -717,7 +757,17 @@ ChildrenMixinStub {
           "blendMode": "NORMAL",
           "effects": Array [],
           "exportSettings": Array [],
-          "fills": Array [],
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0,
+                "r": 0,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
           "fontSize": 12,
           "id": "1:2",
           "isMask": false,
