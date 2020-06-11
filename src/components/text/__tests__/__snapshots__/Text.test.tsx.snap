@@ -2,6 +2,19 @@
 
 exports[`<Text /> Text with fontFamily 1`] = `
 <text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
   fontName={
     Object {
       "family": "Helvetica",
@@ -24,6 +37,19 @@ exports[`<Text /> Text with fontFamily 1`] = `
 
 exports[`<Text /> Text with fontFamily, fontWeight 1`] = `
 <text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
   fontName={
     Object {
       "family": "Helvetica",
@@ -47,6 +73,19 @@ exports[`<Text /> Text with fontFamily, fontWeight 1`] = `
 
 exports[`<Text /> Text with fontFamily, fontWeight, fontStyle 1`] = `
 <text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
   fontName={
     Object {
       "family": "Helvetica",
@@ -71,6 +110,19 @@ exports[`<Text /> Text with fontFamily, fontWeight, fontStyle 1`] = `
 
 exports[`<Text /> Text with maxWidth 1`] = `
 <text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
   hasDefinedWidth="100%"
   innerRef={
     Object {
@@ -88,6 +140,19 @@ exports[`<Text /> Text with maxWidth 1`] = `
 
 exports[`<Text /> Text with width 1`] = `
 <text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
   hasDefinedWidth={200}
   innerRef={
     Object {
@@ -106,6 +171,19 @@ exports[`<Text /> Text with width 1`] = `
 
 exports[`<Text /> Text without props 1`] = `
 <text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
   innerRef={
     Object {
       "current": undefined,

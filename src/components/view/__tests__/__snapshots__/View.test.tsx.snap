@@ -28,6 +28,19 @@ exports[`<View /> View with children 1`] = `
   }
 >
   <text
+    fills={
+      Array [
+        Object {
+          "color": Object {
+            "b": 0,
+            "g": 0,
+            "r": 0,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+        },
+      ]
+    }
     innerRef={
       Object {
         "current": undefined,
@@ -69,6 +82,19 @@ exports[`<View /> View with children and rectangle styles 1`] = `
   }
 >
   <text
+    fills={
+      Array [
+        Object {
+          "color": Object {
+            "b": 0,
+            "g": 0,
+            "r": 0,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+        },
+      ]
+    }
     innerRef={
       Object {
         "current": undefined,
