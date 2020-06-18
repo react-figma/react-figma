@@ -94,6 +94,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "leggomuhgreggo",
+      "name": "Greg Westneat",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2213636?v=4",
+      "profile": "http://gwst.io",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
