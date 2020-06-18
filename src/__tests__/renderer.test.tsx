@@ -295,6 +295,22 @@ describe('renderer', () => {
         expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 
+    it('Text with expression', async () => {
+        const a = 1;
+        const b = 2;
+        await render(
+            <Page>
+                <Text>
+                    {a}/{b}
+                </Text>
+            </Page>
+        );
+
+        await wait();
+        expect(removeMeta(figma.root.children[1].children[0]['_characters'])).toBe('1/2');
+        expect(removeMeta(figma.root)).toMatchSnapshot();
+    });
+
     it('Text instance updating', async () => {
         const waiting = new Subject();
         figma.createText = jest.fn().mockImplementation(figma.createText);

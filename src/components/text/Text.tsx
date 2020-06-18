@@ -26,10 +26,14 @@ import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAuto
 
 export interface TextProps extends TextNodeProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & TextStyleProperties & BlendStyleProperties> | void;
-    children?: string;
+    children?: React.ReactText | React.ReactText[];
     node?: any;
     preventResizing?: boolean;
 }
+
+const normalizeTextNodeChidren = children => {
+    return Array.isArray(children) ? children.join('') : children;
+};
 
 export const Text: React.FC<TextProps> = props => {
     const nodeRef = React.useRef();
@@ -37,6 +41,7 @@ export const Text: React.FC<TextProps> = props => {
     useSelectionChange(nodeRef, props);
 
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
+    const children = normalizeTextNodeChidren(props.children);
 
     const charactersByChildren = useTextChildren(nodeRef);
 
@@ -46,7 +51,8 @@ export const Text: React.FC<TextProps> = props => {
         ...transformBlendProperties(style),
         ...props,
         characters: charactersByChildren || props.characters,
-        style
+        style,
+        children
     };
     const hasDefinedWidth = textProps.width || style.maxWidth;
     const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });
