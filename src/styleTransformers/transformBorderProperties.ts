@@ -1,6 +1,6 @@
 import { BorderProps, CornerProps, GeometryProps } from '../types';
 import { transformSize, TSize } from '../helpers/size';
-import { colorToPaint, colorToRGB } from './transformColors';
+import { colorToPaint } from './transformColors';
 
 export interface BorderStyleProperties {
     borderColor: string;
