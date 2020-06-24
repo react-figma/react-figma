@@ -3,10 +3,11 @@ import { FrameNodeProps } from './src/components/frame/Frame';
 import { TextProps } from './src/components/text/Text';
 import { GroupProps } from './src/components/group/Group';
 import { EllipseProps } from './src/components/ellipse/Ellipse';
-import {InstanceProps} from "./src/components/component/Instance";
-import {ComponentProps} from "./src/components/component/Component"
-import {StarProps} from "./src/components/star/Star";
-import {VectorProps} from "./src/components/vector/Vector";
+import { InstanceProps } from './src/components/component/Instance';
+import { ComponentProps } from './src/components/component/Component';
+import { StarProps } from './src/components/star/Star';
+import { VectorProps } from './src/components/vector/Vector';
+import { SliceProps } from './src/components/slice/Slice';
 
 declare global {
     namespace JSX {
@@ -19,8 +20,9 @@ declare global {
             component: ComponentProps;
             ellipse: EllipseProps;
             star: StarProps;
-            vector: VectorProps,
-            instance: InstanceProps
+            vector: VectorProps;
+            instance: InstanceProps;
+            slice: SliceProps;
         }
     }
 }
