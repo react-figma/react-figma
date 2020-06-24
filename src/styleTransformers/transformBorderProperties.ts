@@ -25,17 +25,21 @@ export const transformBorderStyleProperties = (
     if (styles.borderRadius) {
         props.cornerRadius = transformSize(styles.borderRadius);
     }
+
     if (styles.borderTopLeftRadius) {
         props.topLeftRadius = transformSize(styles.borderTopLeftRadius);
     }
+
     if (styles.borderTopRightRadius) {
-        props.topLeftRadius = transformSize(styles.borderTopRightRadius);
+        props.topRightRadius = transformSize(styles.borderTopRightRadius);
     }
+
     if (styles.borderBottomLeftRadius) {
-        props.topLeftRadius = transformSize(styles.borderBottomLeftRadius);
+        props.bottomLeftRadius = transformSize(styles.borderBottomLeftRadius);
     }
+
     if (styles.borderBottomRightRadius) {
-        props.topLeftRadius = transformSize(styles.borderBottomRightRadius);
+        props.bottomRightRadius = transformSize(styles.borderBottomRightRadius);
     }
 
     if (styles.borderColor) {
