@@ -174,6 +174,12 @@ export const render = async (jsx: any) => {
 
     const reconciler = createReconciler(HostConfig);
 
+    reconciler.injectIntoDevTools({
+        bundleType: 1, // 0 for PROD, 1 for DEV
+        version: '0.1.4',
+        rendererPackageName: 'react-figma'
+    });
+
     const container = reconciler.createContainer(rootNode, true, true);
     reconciler.updateContainer(jsx, container);
 };

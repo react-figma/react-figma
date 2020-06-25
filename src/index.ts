@@ -1,4 +1,5 @@
 export { render } from './renderer';
+export { connectToDevTools } from './helpers/connectToDevTools';
 
 export { Text } from './components/text/Text';
 export { Rectangle } from './components/rectangle/Rectangle';
