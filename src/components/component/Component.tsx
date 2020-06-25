@@ -16,7 +16,7 @@ export interface ComponentProps extends DefaultContainerProps, SelectionEventPro
     nodeRef?: any;
 }
 
-export const Component: React.FC<ComponentProps> = props => {
+const Component: React.FC<ComponentProps> = props => {
     const nodeRef = props.nodeRef || React.useRef();
     useSelectionChange(nodeRef, props);
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
@@ -30,3 +30,5 @@ export const Component: React.FC<ComponentProps> = props => {
 
     return <component {...componentProps} {...yogaChildProps} innerRef={nodeRef} />;
 };
+
+export { Component };

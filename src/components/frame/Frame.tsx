@@ -222,7 +222,7 @@ export interface FrameNodeProps
     preset?: Preset;
 }
 
-export const Frame: React.FC<FrameNodeProps> = props => {
+const Frame: React.FC<FrameNodeProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -243,3 +243,5 @@ export const Frame: React.FC<FrameNodeProps> = props => {
 
     return <frame {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
 };
+
+export { Frame };

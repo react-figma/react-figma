@@ -35,7 +35,7 @@ const normalizeTextNodeChidren = children => {
     return Array.isArray(children) ? children.join('') : children;
 };
 
-export const Text: React.FC<TextProps> = props => {
+const Text: React.FC<TextProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -68,3 +68,5 @@ export const Text: React.FC<TextProps> = props => {
         />
     );
 };
+
+export { Text };

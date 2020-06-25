@@ -20,7 +20,7 @@ export interface SvgNodeProps extends DefaultContainerProps, InstanceItemProps, 
     source?: string;
 }
 
-export const Svg: React.FC<SvgNodeProps> = props => {
+const Svg: React.FC<SvgNodeProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -38,3 +38,5 @@ export const Svg: React.FC<SvgNodeProps> = props => {
 
     return <svg {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
 };
+
+export { Svg };

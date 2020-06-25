@@ -46,7 +46,7 @@ const Override = props => {
     }
 };
 
-export const Instance: React.FC<InstanceProps> = props => {
+const Instance: React.FC<InstanceProps> = props => {
     const [isHaveNode, setHaveNode] = React.useState(false);
     const nodeRef = React.useRef<InstanceNode>();
     useSelectionChange(nodeRef, props);
@@ -75,3 +75,5 @@ export const Instance: React.FC<InstanceProps> = props => {
         </instance>
     );
 };
+
+export { Instance };
