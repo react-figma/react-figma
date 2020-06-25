@@ -10,8 +10,6 @@ Wrapper for the Figma [Slice](https://www.figma.com/plugin-docs/api/SliceNode/).
 | Prop       | Type     | Default | Note                                              |
 | ---------- | -------- | ------- | ------------------------------------------------- |
 | `name`     | `String` |         | The name to be displayed in the Figma Layers List |
-| `x` | `Number` |  |  |
-| `y` | `Number` |  |  |
 | `width` | `Number` |  |  |
 | `height` | `Number` |  |  |
 | `style`    | [`Style`](/docs/styling)   |  | Not all props |
