@@ -5,7 +5,7 @@
   "main": "dist/code.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "pack": "webpack --watch"
+    "webpack:watch": "webpack --watch"
   },
   "author": "Zachary Witt zach.witt95@gmail.com",
   "license": "ISC",
