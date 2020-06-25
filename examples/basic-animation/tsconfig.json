@@ -1,9 +1,9 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "jsx": "react",
-    "typeRoots": ["./node_modules/@types", "./node_modules/@figma"]
-  }
+    "compilerOptions": {
+        "target": "es6",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "jsx": "react",
+        "typeRoots": ["./node_modules/@types", "./node_modules/@figma"]
+    }
 }
