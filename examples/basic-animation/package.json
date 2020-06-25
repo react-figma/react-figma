@@ -19,6 +19,5 @@
     "react": "^16.13.1",
     "react-figma": "^0.1.4",
     "react-spring": "^8.0.27"
-  },
-  "prettier": {}
+  }
 }
