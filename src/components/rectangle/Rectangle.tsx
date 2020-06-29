@@ -26,13 +26,15 @@ import { StyleSheet } from '../..';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
 export interface RectangleProps
     extends DefaultShapeProps,
         CornerProps,
         BorderProps,
         InstanceItemProps,
-        SelectionEventProps {
+        SelectionEventProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<
         LayoutStyleProperties &
             YogaStyleProperties &
@@ -60,6 +62,8 @@ export const Rectangle: React.FC<RectangleProps> = props => {
     };
     const fills = useFillsPreprocessor(rectangleProps);
     const yogaProps = useYogaLayout({ nodeRef, ...rectangleProps });
+
+    useOnLayoutHandler(yogaProps, props);
 
     return <rectangle {...rectangleProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };

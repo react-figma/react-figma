@@ -54,7 +54,7 @@ export interface CalculatedYogaLayoutProps {
 
 export type NullableCalculatedYogaLayoutProps = CalculatedYogaLayoutProps | null;
 
-export const useYogaLayout = (props)=> {
+export const useYogaLayout = props => {
     const { nodeRef } = props;
     // TODO: should be type-annotated to NullableCalculatedYogaLayoutProps
     //  but it leads to TS compiler bug

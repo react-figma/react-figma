@@ -23,8 +23,9 @@ import { useFontName } from '../../hooks/useFontName';
 import { useTextChildren } from '../../hooks/useTextChildren';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
-export interface TextProps extends TextNodeProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps {
+export interface TextProps extends TextNodeProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps, OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & TextStyleProperties & BlendStyleProperties> | void;
     children?: React.ReactText | React.ReactText[];
     node?: any;
@@ -57,6 +58,7 @@ export const Text: React.FC<TextProps> = props => {
     const hasDefinedWidth = textProps.width || style.maxWidth;
     const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });
     const yogaProps = useYogaLayout({ nodeRef, ...textProps });
+    useOnLayoutHandler(yogaProps, props);
 
     return (
         <text
