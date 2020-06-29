@@ -16,7 +16,11 @@ import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
-export interface SvgNodeProps extends DefaultContainerProps, InstanceItemProps, SelectionEventProps, OnLayoutHandlerProps{
+export interface SvgNodeProps
+    extends DefaultContainerProps,
+        InstanceItemProps,
+        SelectionEventProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     source?: string;
 }
@@ -37,7 +41,6 @@ export const Svg: React.FC<SvgNodeProps> = props => {
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
     useOnLayoutHandler(yogaChildProps, props);
-
 
     return <svg {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
 };

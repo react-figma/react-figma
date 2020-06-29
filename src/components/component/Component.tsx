@@ -12,7 +12,11 @@ import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
-export interface ComponentProps extends DefaultContainerProps, SelectionEventProps, AutoLayoutProps, OnLayoutHandlerProps {
+export interface ComponentProps
+    extends DefaultContainerProps,
+        SelectionEventProps,
+        AutoLayoutProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     nodeRef?: any;
 }

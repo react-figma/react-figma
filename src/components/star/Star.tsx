@@ -30,7 +30,7 @@ export interface StarProps
         StarNodeProps,
         InstanceItemProps,
         SelectionEventProps,
-OnLayoutHandlerProps{
+        OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
     children?: undefined;
 }
@@ -52,7 +52,6 @@ export const Star: React.FC<StarProps> = props => {
     const fills = useFillsPreprocessor(starProps);
     const yogaProps = useYogaLayout({ nodeRef, ...starProps });
     useOnLayoutHandler(yogaProps, props);
-
 
     return <star {...starProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };

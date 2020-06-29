@@ -30,7 +30,7 @@ export interface VectorProps
         CornerProps,
         InstanceItemProps,
         SelectionEventProps,
-OnLayoutHandlerProps{
+        OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties & GeometryStyleProperties>;
     children?: undefined;
 }

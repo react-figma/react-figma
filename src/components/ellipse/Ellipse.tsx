@@ -17,7 +17,12 @@ import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
-export interface EllipseProps extends DefaultShapeProps, CornerProps, InstanceItemProps, SelectionEventProps, OnLayoutHandlerProps {
+export interface EllipseProps
+    extends DefaultShapeProps,
+        CornerProps,
+        InstanceItemProps,
+        SelectionEventProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
     children?: undefined;
     arcData?: ArcData;

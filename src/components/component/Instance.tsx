@@ -14,7 +14,11 @@ import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAuto
 import { api } from '../../rpc';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
-export interface InstanceProps extends DefaultContainerProps, SelectionEventProps, AutoLayoutProps, OnLayoutHandlerProps {
+export interface InstanceProps
+    extends DefaultContainerProps,
+        SelectionEventProps,
+        AutoLayoutProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     overrides?: { [key: string]: Object };
     component: ComponentNode;

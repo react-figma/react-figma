@@ -23,7 +23,13 @@ import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
-export interface LineProps extends DefaultShapeProps, CornerProps, BorderProps, InstanceItemProps, SelectionEventProps, OnLayoutHandlerProps {
+export interface LineProps
+    extends DefaultShapeProps,
+        CornerProps,
+        BorderProps,
+        InstanceItemProps,
+        SelectionEventProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
 }
 

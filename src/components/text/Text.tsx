@@ -25,7 +25,12 @@ import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
-export interface TextProps extends TextNodeProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps, OnLayoutHandlerProps {
+export interface TextProps
+    extends TextNodeProps,
+        DefaultShapeProps,
+        InstanceItemProps,
+        SelectionEventProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & TextStyleProperties & BlendStyleProperties> | void;
     children?: React.ReactText | React.ReactText[];
     node?: any;
