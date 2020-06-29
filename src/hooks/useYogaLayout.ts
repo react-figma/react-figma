@@ -45,9 +45,20 @@ const flatYogaStyle = (style: YogaStyleProperties) => {
     ];
 };
 
-export const useYogaLayout = props => {
+export interface CalculatedYogaLayoutProps {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+}
+
+export type NullableCalculatedYogaLayoutProps = CalculatedYogaLayoutProps | null;
+
+export const useYogaLayout = (props)=> {
     const { nodeRef } = props;
-    const [yogaProps, setYogaProps] = React.useState<any>({});
+    // TODO: should be type-annotated to NullableCalculatedYogaLayoutProps
+    //  but it leads to TS compiler bug
+    const [yogaProps, setYogaProps] = React.useState(null);
 
     React.useEffect(() => {
         const instance = nodeRef.current;

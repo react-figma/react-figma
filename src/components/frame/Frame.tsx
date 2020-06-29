@@ -28,6 +28,7 @@ import {
     transformBorderStyleProperties
 } from '../../styleTransformers/transformBorderProperties';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
 interface Preset {
     name: string;
@@ -211,7 +212,8 @@ export interface FrameNodeProps
         AutoLayoutProps,
         BorderProps,
         CornerProps,
-        FrameSpecificProps {
+        FrameSpecificProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<
         GeometryStyleProperties &
             YogaStyleProperties &
@@ -240,6 +242,8 @@ export const Frame: React.FC<FrameNodeProps> = props => {
         style
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
+
+    useOnLayoutHandler(yogaChildProps, props);
 
     return <frame {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
 };
