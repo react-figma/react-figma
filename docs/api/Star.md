@@ -15,6 +15,7 @@ Wrapper for the Figma [Star](https://www.figma.com/plugin-docs/api/StarNode/).
 | `style`    | [`Style`](/docs/styling)   |  | Not all props |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
+| `onLayout` | `Function` |  | Event is fired once the layout has been calculated  |
 
 Also, most of the [StarNode](https://www.figma.com/plugin-docs/api/StarNode/) fields are supported as props.
 
