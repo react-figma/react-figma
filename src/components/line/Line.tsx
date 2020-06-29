@@ -5,15 +5,15 @@ import {
     CornerProps,
     StyleOf,
     InstanceItemProps,
-    SelectionEventProps
+    SelectionEventProps,
 } from '../../types';
 import {
     LayoutStyleProperties,
-    transformLayoutStyleProperties
+    transformLayoutStyleProperties,
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import {
     GeometryStyleProperties,
-    transformGeometryStyleProperties
+    transformGeometryStyleProperties,
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
@@ -26,7 +26,7 @@ export interface LineProps extends DefaultShapeProps, CornerProps, BorderProps, 
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
 }
 
-export const Line: React.FC<LineProps> = props => {
+export const Line: React.FC<LineProps> = (props) => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -38,7 +38,7 @@ export const Line: React.FC<LineProps> = props => {
         ...transformGeometryStyleProperties('fills', style),
         ...transformBlendProperties(style),
         ...props,
-        style
+        style,
     };
 
     const yogaProps = useYogaLayout({ nodeRef, ...lineProps });

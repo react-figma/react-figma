@@ -13,7 +13,7 @@ import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 const vectorNodePropsAssign = propsAssign<VectorProps, VectorProps>([
     'vectorPaths',
     'vectorNetwork',
-    'handleMirroring'
+    'handleMirroring',
 ]);
 
 export const vector = (node: VectorNode) => (props: VectorProps) => {

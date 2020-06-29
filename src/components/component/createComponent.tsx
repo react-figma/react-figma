@@ -16,14 +16,14 @@ export const createComponent = () => {
         },
         get current() {
             return currentNode;
-        }
+        },
     };
 
-    const ComponentWrapper: React.FC<Omit<ComponentProps, 'nodeRef'>> = props => {
+    const ComponentWrapper: React.FC<Omit<ComponentProps, 'nodeRef'>> = (props) => {
         return <Component {...props} nodeRef={nodeRef} />;
     };
 
-    const InstanceWrapper: React.FC<Omit<InstanceProps, 'component'>> = props => {
+    const InstanceWrapper: React.FC<Omit<InstanceProps, 'component'>> = (props) => {
         const [isHasComponent, setHasComponent] = React.useState(nodeRef.current);
         React.useEffect(() => {
             const subscription = subject.subscribe(() => {
@@ -39,6 +39,6 @@ export const createComponent = () => {
 
     return {
         Component: ComponentWrapper,
-        Instance: InstanceWrapper
+        Instance: InstanceWrapper,
     };
 };

@@ -20,7 +20,7 @@ export const useCurrentPageChange = (
         const instance = nodeRef.current;
         const subject = $currentPageTempId.pipe(map((message: any) => message === instance.reactId));
 
-        const subscription = subject.subscribe(value => callback && callback(value));
+        const subscription = subject.subscribe((value) => callback && callback(value));
 
         return () => subscription.unsubscribe();
     }, []);
@@ -32,7 +32,7 @@ export const useCurrentPageChange = (
     }, [_isCurrent]);
 };
 
-export const Page: React.FC<PageProps> = props => {
+export const Page: React.FC<PageProps> = (props) => {
     const nodeRef = React.useRef();
     const { onCurrentChange, ...otherProps } = props;
     useCurrentPageChange(nodeRef, onCurrentChange, props.isCurrent);

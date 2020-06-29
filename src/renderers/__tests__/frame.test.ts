@@ -5,7 +5,7 @@ describe('frame renderer', () => {
     beforeEach(() => {
         // @ts-ignore
         global.figma = createFigma({
-            simulateErrors: true
+            simulateErrors: true,
         });
     });
 

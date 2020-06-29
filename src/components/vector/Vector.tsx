@@ -5,18 +5,18 @@ import {
     CornerProps,
     StyleOf,
     InstanceItemProps,
-    SelectionEventProps
+    SelectionEventProps,
 } from '../../types';
 import {
     LayoutStyleProperties,
-    transformLayoutStyleProperties
+    transformLayoutStyleProperties,
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 import {
     transformGeometryStyleProperties,
-    GeometryStyleProperties
+    GeometryStyleProperties,
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
@@ -33,7 +33,7 @@ export interface VectorProps
     children?: undefined;
 }
 
-export const Vector: React.FC<VectorProps> = props => {
+export const Vector: React.FC<VectorProps> = (props) => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -45,7 +45,7 @@ export const Vector: React.FC<VectorProps> = props => {
         ...transformBlendProperties(style),
         ...transformGeometryStyleProperties('fills', style),
         ...props,
-        style
+        style,
     };
     const fills = useFillsPreprocessor(vectorProps);
     const yogaProps = useYogaLayout({ nodeRef, ...vectorProps });

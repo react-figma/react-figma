@@ -1,7 +1,7 @@
 import { transformDimensionMapper } from '../styleTransformers/transformDimension';
 import { YogaStyleProperties } from './YogaStyleProperties';
 
-const transformFlexDirection = yoga => (value: string) => {
+const transformFlexDirection = (yoga) => (value: string) => {
     switch (value) {
         case 'row':
             return yoga.FLEX_DIRECTION_ROW;
@@ -14,7 +14,7 @@ const transformFlexDirection = yoga => (value: string) => {
     }
 };
 
-const transformAlignItems = yoga => (value: YogaStyleProperties['alignItems']) => {
+const transformAlignItems = (yoga) => (value: YogaStyleProperties['alignItems']) => {
     switch (value) {
         case 'flex-end':
             return yoga.ALIGN_FLEX_END;
@@ -27,7 +27,7 @@ const transformAlignItems = yoga => (value: YogaStyleProperties['alignItems']) =
     }
 };
 
-const transformFlexWrap = yoga => (value: YogaStyleProperties['flexWrap']) => {
+const transformFlexWrap = (yoga) => (value: YogaStyleProperties['flexWrap']) => {
     switch (value) {
         case 'wrap':
             return yoga.WRAP_WRAP;
@@ -38,7 +38,7 @@ const transformFlexWrap = yoga => (value: YogaStyleProperties['flexWrap']) => {
     }
 };
 
-const transformAlignSelf = yoga => (value: YogaStyleProperties['alignSelf']) => {
+const transformAlignSelf = (yoga) => (value: YogaStyleProperties['alignSelf']) => {
     switch (value) {
         case 'auto':
             return yoga.ALIGN_AUTO;
@@ -53,7 +53,7 @@ const transformAlignSelf = yoga => (value: YogaStyleProperties['alignSelf']) => 
     }
 };
 
-const transformJustifyContent = yoga => (value: string) => {
+const transformJustifyContent = (yoga) => (value: string) => {
     switch (value) {
         case 'flex-end':
             return yoga.JUSTIFY_FLEX_END;
@@ -68,7 +68,7 @@ const transformJustifyContent = yoga => (value: string) => {
     }
 };
 
-const transformPosition = yoga => (value: string) => {
+const transformPosition = (yoga) => (value: string) => {
     switch (value) {
         case 'absolute':
             return yoga.POSITION_TYPE_ABSOLUTE;
@@ -77,7 +77,7 @@ const transformPosition = yoga => (value: string) => {
     }
 };
 
-const transformOverflow = yoga => (value: string) => {
+const transformOverflow = (yoga) => (value: string) => {
     switch (value) {
         case 'hidden':
             return yoga.OVERFLOW_HIDDEN;
@@ -88,29 +88,29 @@ const transformOverflow = yoga => (value: string) => {
     }
 };
 
-export const applyStyleToYogaNode = yoga => (yogaNode, style: Partial<YogaStyleProperties>) => {
+export const applyStyleToYogaNode = (yoga) => (yogaNode, style: Partial<YogaStyleProperties>) => {
     if (style.position) {
         yogaNode.setPositionType(transformPosition(yoga)(style.position));
     }
     if (style.top) {
         transformDimensionMapper(style.top)
-            .px(value => yogaNode.setPosition(yoga.EDGE_TOP, value))
-            .percentage(value => yogaNode.setPositionPercent(yoga.EDGE_TOP, value));
+            .px((value) => yogaNode.setPosition(yoga.EDGE_TOP, value))
+            .percentage((value) => yogaNode.setPositionPercent(yoga.EDGE_TOP, value));
     }
     if (style.left) {
         transformDimensionMapper(style.left)
-            .px(value => yogaNode.setPosition(yoga.EDGE_LEFT, value))
-            .percentage(value => yogaNode.setPositionPercent(yoga.EDGE_LEFT, value));
+            .px((value) => yogaNode.setPosition(yoga.EDGE_LEFT, value))
+            .percentage((value) => yogaNode.setPositionPercent(yoga.EDGE_LEFT, value));
     }
     if (style.right) {
         transformDimensionMapper(style.right)
-            .px(value => yogaNode.setPosition(yoga.EDGE_RIGHT, value))
-            .percentage(value => yogaNode.setPositionPercent(yoga.EDGE_RIGHT, value));
+            .px((value) => yogaNode.setPosition(yoga.EDGE_RIGHT, value))
+            .percentage((value) => yogaNode.setPositionPercent(yoga.EDGE_RIGHT, value));
     }
     if (style.bottom) {
         transformDimensionMapper(style.bottom)
-            .px(value => yogaNode.setPosition(yoga.EDGE_BOTTOM, value))
-            .percentage(value => yogaNode.setPositionPercent(yoga.EDGE_BOTTOM, value));
+            .px((value) => yogaNode.setPosition(yoga.EDGE_BOTTOM, value))
+            .percentage((value) => yogaNode.setPositionPercent(yoga.EDGE_BOTTOM, value));
     }
     if (style.width) {
         transformDimensionMapper(style.width)
@@ -147,73 +147,73 @@ export const applyStyleToYogaNode = yoga => (yogaNode, style: Partial<YogaStyleP
     }
     if (style.padding) {
         transformDimensionMapper(style.padding)
-            .px(value => yogaNode.setPadding(yoga.EDGE_ALL, value))
-            .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_ALL, value));
+            .px((value) => yogaNode.setPadding(yoga.EDGE_ALL, value))
+            .percentage((value) => yogaNode.setPaddingPercent(yoga.EDGE_ALL, value));
     }
     if (style.paddingTop) {
         transformDimensionMapper(style.paddingTop)
-            .px(value => yogaNode.setPadding(yoga.EDGE_TOP, value))
-            .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_TOP, value));
+            .px((value) => yogaNode.setPadding(yoga.EDGE_TOP, value))
+            .percentage((value) => yogaNode.setPaddingPercent(yoga.EDGE_TOP, value));
     }
     if (style.paddingBottom) {
         transformDimensionMapper(style.paddingBottom)
-            .px(value => yogaNode.setPadding(yoga.EDGE_BOTTOM, value))
-            .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_BOTTOM, value));
+            .px((value) => yogaNode.setPadding(yoga.EDGE_BOTTOM, value))
+            .percentage((value) => yogaNode.setPaddingPercent(yoga.EDGE_BOTTOM, value));
     }
     if (style.paddingLeft) {
         transformDimensionMapper(style.paddingLeft)
-            .px(value => yogaNode.setPadding(yoga.EDGE_LEFT, value))
-            .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_LEFT, value));
+            .px((value) => yogaNode.setPadding(yoga.EDGE_LEFT, value))
+            .percentage((value) => yogaNode.setPaddingPercent(yoga.EDGE_LEFT, value));
     }
     if (style.paddingRight) {
         transformDimensionMapper(style.paddingRight)
-            .px(value => yogaNode.setPadding(yoga.EDGE_RIGHT, value))
-            .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_RIGHT, value));
+            .px((value) => yogaNode.setPadding(yoga.EDGE_RIGHT, value))
+            .percentage((value) => yogaNode.setPaddingPercent(yoga.EDGE_RIGHT, value));
     }
     if (style.paddingVertical) {
         transformDimensionMapper(style.paddingVertical)
-            .px(value => yogaNode.setPadding(yoga.EDGE_VERTICAL, value))
-            .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_VERTICAL, value));
+            .px((value) => yogaNode.setPadding(yoga.EDGE_VERTICAL, value))
+            .percentage((value) => yogaNode.setPaddingPercent(yoga.EDGE_VERTICAL, value));
     }
     if (style.paddingHorizontal) {
         transformDimensionMapper(style.paddingHorizontal)
-            .px(value => yogaNode.setPadding(yoga.EDGE_HORIZONTAL, value))
-            .percentage(value => yogaNode.setPaddingPercent(yoga.EDGE_HORIZONTAL, value));
+            .px((value) => yogaNode.setPadding(yoga.EDGE_HORIZONTAL, value))
+            .percentage((value) => yogaNode.setPaddingPercent(yoga.EDGE_HORIZONTAL, value));
     }
     if (style.margin) {
         transformDimensionMapper(style.margin)
-            .px(value => yogaNode.setMargin(yoga.EDGE_ALL, value))
-            .percentage(value => yogaNode.setMarginPercent(yoga.EDGE_ALL, value));
+            .px((value) => yogaNode.setMargin(yoga.EDGE_ALL, value))
+            .percentage((value) => yogaNode.setMarginPercent(yoga.EDGE_ALL, value));
     }
     if (style.marginTop) {
         transformDimensionMapper(style.marginTop)
-            .px(value => yogaNode.setMargin(yoga.EDGE_TOP, value))
-            .percentage(value => yogaNode.setMarginPercent(yoga.EDGE_TOP, value));
+            .px((value) => yogaNode.setMargin(yoga.EDGE_TOP, value))
+            .percentage((value) => yogaNode.setMarginPercent(yoga.EDGE_TOP, value));
     }
     if (style.marginBottom) {
         transformDimensionMapper(style.marginBottom)
-            .px(value => yogaNode.setMargin(yoga.EDGE_BOTTOM, value))
-            .percentage(value => yogaNode.setMarginPercent(yoga.EDGE_BOTTOM, value));
+            .px((value) => yogaNode.setMargin(yoga.EDGE_BOTTOM, value))
+            .percentage((value) => yogaNode.setMarginPercent(yoga.EDGE_BOTTOM, value));
     }
     if (style.marginLeft) {
         transformDimensionMapper(style.marginLeft)
-            .px(value => yogaNode.setMargin(yoga.EDGE_LEFT, value))
-            .percentage(value => yogaNode.setMarginPercent(yoga.EDGE_LEFT, value));
+            .px((value) => yogaNode.setMargin(yoga.EDGE_LEFT, value))
+            .percentage((value) => yogaNode.setMarginPercent(yoga.EDGE_LEFT, value));
     }
     if (style.marginRight) {
         transformDimensionMapper(style.marginRight)
-            .px(value => yogaNode.setMargin(yoga.EDGE_RIGHT, value))
-            .percentage(value => yogaNode.setMarginPercent(yoga.EDGE_RIGHT, value));
+            .px((value) => yogaNode.setMargin(yoga.EDGE_RIGHT, value))
+            .percentage((value) => yogaNode.setMarginPercent(yoga.EDGE_RIGHT, value));
     }
     if (style.marginVertical) {
         transformDimensionMapper(style.marginVertical)
-            .px(value => yogaNode.setMargin(yoga.EDGE_VERTICAL, value))
-            .percentage(value => yogaNode.setMarginPercent(yoga.EDGE_VERTICAL, value));
+            .px((value) => yogaNode.setMargin(yoga.EDGE_VERTICAL, value))
+            .percentage((value) => yogaNode.setMarginPercent(yoga.EDGE_VERTICAL, value));
     }
     if (style.marginHorizontal) {
         transformDimensionMapper(style.marginHorizontal)
-            .px(value => yogaNode.setMargin(yoga.EDGE_HORIZONTAL, value))
-            .percentage(value => yogaNode.setMarginPercent(yoga.EDGE_HORIZONTAL, value));
+            .px((value) => yogaNode.setMargin(yoga.EDGE_HORIZONTAL, value))
+            .percentage((value) => yogaNode.setMarginPercent(yoga.EDGE_HORIZONTAL, value));
     }
     if (style.borderWidth) {
         yogaNode.setBorder(yoga.EDGE_ALL, style.borderWidth);

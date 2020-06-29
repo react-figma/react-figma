@@ -13,7 +13,7 @@ export const transformDimension = (value: string | number): ValueWithDimension =
     }
     return {
         value: typeof value == 'number' ? value : parseFloat(value),
-        type: typeof value == 'number' || value.indexOf('%') < 0 ? 'px' : 'percentage'
+        type: typeof value == 'number' || value.indexOf('%') < 0 ? 'px' : 'percentage',
     };
 };
 
@@ -28,19 +28,19 @@ export const transformDimensionMapper = <A, B, C>(value: string | number): Value
     const result = transformDimension(value);
     let returned;
     const holder = {
-        px: f => {
+        px: (f) => {
             if (result.type === 'px') {
                 returned = f(result.value);
             }
             return holder;
         },
-        percentage: f => {
+        percentage: (f) => {
             if (result.type === 'percentage') {
                 returned = f(result.value);
             }
             return holder;
         },
-        auto: f => {
+        auto: (f) => {
             if (result.type === 'auto') {
                 returned = f();
             }
@@ -48,7 +48,7 @@ export const transformDimensionMapper = <A, B, C>(value: string | number): Value
         },
         value: () => {
             return returned;
-        }
+        },
     };
     return holder;
 };

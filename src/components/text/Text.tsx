@@ -5,15 +5,15 @@ import {
     InstanceItemProps,
     SelectionEventProps,
     StyleOf,
-    TextNodeProps
+    TextNodeProps,
 } from '../../types';
 import {
     LayoutStyleProperties,
-    transformLayoutStyleProperties
+    transformLayoutStyleProperties,
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import {
     TextStyleProperties,
-    transformTextStyleProperties
+    transformTextStyleProperties,
 } from '../../styleTransformers/transformTextStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
@@ -31,11 +31,11 @@ export interface TextProps extends TextNodeProps, DefaultShapeProps, InstanceIte
     preventResizing?: boolean;
 }
 
-const normalizeTextNodeChidren = children => {
+const normalizeTextNodeChidren = (children) => {
     return Array.isArray(children) ? children.join('') : children;
 };
 
-export const Text: React.FC<TextProps> = props => {
+export const Text: React.FC<TextProps> = (props) => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -52,7 +52,7 @@ export const Text: React.FC<TextProps> = props => {
         ...props,
         characters: charactersByChildren || props.characters,
         style,
-        children
+        children,
     };
     const hasDefinedWidth = textProps.width || style.maxWidth;
     const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });

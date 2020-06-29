@@ -8,7 +8,7 @@ export const colorToRGB = (color: Color): RGB => {
         return {
             r: parsed.values[0] / 255.0,
             g: parsed.values[1] / 255.0,
-            b: parsed.values[2] / 255.0
+            b: parsed.values[2] / 255.0,
         };
     }
 };
@@ -20,7 +20,7 @@ export const colorToRGBA = (color: Color, opacity?: number): RGBA => {
             r: parsed.values[0] / 255.0,
             g: parsed.values[1] / 255.0,
             b: parsed.values[2] / 255.0,
-            a: typeof opacity === 'number' ? opacity : parsed.alpha
+            a: typeof opacity === 'number' ? opacity : parsed.alpha,
         };
     }
 };
@@ -38,7 +38,10 @@ const transformAngleToFigmaTransformation = (value): Transform => {
     const yc = 0.5;
     const dxc = xc - (Math.cos(angle) * xc + Math.sin(angle) * yc);
     const dyc = yc - (-Math.sin(angle) * xc + Math.cos(angle) * yc);
-    return [[Math.cos(angle), Math.sin(angle), dxc], [-Math.sin(angle), Math.cos(angle), dyc]];
+    return [
+        [Math.cos(angle), Math.sin(angle), dxc],
+        [-Math.sin(angle), Math.cos(angle), dyc],
+    ];
 };
 
 export const colorToPaint = (color: Color): Paint => {
@@ -71,8 +74,8 @@ export const colorToPaint = (color: Color): Paint => {
             gradientTransform,
             gradientStops: parsedGradient.colorStops.map(({ type, value, length }, index) => ({
                 position: length && length.type === '%' ? parseFloat(length.value) / 100 : index === 0 ? 0 : 1,
-                color: colorToRGBA(type === 'hex' ? `#${value}` : value)
-            }))
+                color: colorToRGBA(type === 'hex' ? `#${value}` : value),
+            })),
         };
     }
     const { a: alpha, ...rbg } = colorToRGBA(color);

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { AutoLayoutProps, DefaultContainerProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
-    transformLayoutStyleProperties
+    transformLayoutStyleProperties,
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
@@ -19,12 +19,12 @@ export interface InstanceProps extends DefaultContainerProps, SelectionEventProp
     component: ComponentNode;
 }
 
-const getComponentByType = type => {
+const getComponentByType = (type) => {
     const componentName = type.charAt(0) + type.substring(1).toLowerCase();
     return all[componentName];
 };
 
-const Override = props => {
+const Override = (props) => {
     const { overrideName, parentRef, overrides = {} } = props;
     const [hasInstanceItemNode, setHasInstanceItemNode] = React.useState(false);
     const instanceItemNodeRef = React.useRef<any>();
@@ -46,7 +46,7 @@ const Override = props => {
     }
 };
 
-export const Instance: React.FC<InstanceProps> = props => {
+export const Instance: React.FC<InstanceProps> = (props) => {
     const [isHaveNode, setHaveNode] = React.useState(false);
     const nodeRef = React.useRef<InstanceNode>();
     useSelectionChange(nodeRef, props);
@@ -55,14 +55,14 @@ export const Instance: React.FC<InstanceProps> = props => {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
         ...props,
-        style
+        style,
     };
     const yogaProps = useYogaLayout({ nodeRef, ...componentProps });
 
     return (
         <instance {...componentProps} {...yogaProps} innerRef={nodeRef} innerRefCallback={() => setHaveNode(true)}>
             {isHaveNode && props.overrides
-                ? Object.keys(props.overrides).map(overrideName => {
+                ? Object.keys(props.overrides).map((overrideName) => {
                       return (
                           <Override
                               overrideName={overrideName}

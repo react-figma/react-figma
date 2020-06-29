@@ -9,11 +9,11 @@ describe('useSelectionChange', () => {
     beforeEach(() => {
         // @ts-ignore
         global.figma = createFigma({
-            simulateErrors: true
+            simulateErrors: true,
         });
 
         figma.on('selectionchange', () => {
-            const reactIds = figma.currentPage.selection.map(node => node.getPluginData('reactId'));
+            const reactIds = figma.currentPage.selection.map((node) => node.getPluginData('reactId'));
             uiApi.selectionChange(reactIds);
         });
     });

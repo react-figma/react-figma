@@ -5,7 +5,7 @@ import { FrameNodeProps } from '../frame/Frame';
 
 export type ViewProps = FrameNodeProps | RectangleProps;
 
-export const View: React.FC<ViewProps> = props => {
+export const View: React.FC<ViewProps> = (props) => {
     if (props.children) {
         return (
             <Frame

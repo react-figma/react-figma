@@ -2,13 +2,13 @@ import * as React from 'react';
 import { CornerProps, DefaultContainerProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
-    transformLayoutStyleProperties
+    transformLayoutStyleProperties,
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import {
     GeometryStyleProperties,
-    transformGeometryStyleProperties
+    transformGeometryStyleProperties,
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../../helpers/StyleSheet';
@@ -20,7 +20,7 @@ export interface SvgNodeProps extends DefaultContainerProps, InstanceItemProps, 
     source?: string;
 }
 
-export const Svg: React.FC<SvgNodeProps> = props => {
+export const Svg: React.FC<SvgNodeProps> = (props) => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -32,7 +32,7 @@ export const Svg: React.FC<SvgNodeProps> = props => {
         ...transformBlendProperties(style),
         ...transformGeometryStyleProperties('backgrounds', style),
         ...props,
-        style
+        style,
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
 

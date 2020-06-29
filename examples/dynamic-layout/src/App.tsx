@@ -8,15 +8,15 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         flexDirection: 'row',
-        backgroundColor: '#ffffff'
-    }
+        backgroundColor: '#ffffff',
+    },
 });
 
 export const App = () => {
     const [rectangles, setRectangles] = React.useState([]);
     React.useEffect(() => {
         const interval = setInterval(() => {
-            setRectangles(rectangles =>
+            setRectangles((rectangles) =>
                 rectangles.length < 10
                     ? [
                           ...rectangles,
@@ -24,8 +24,8 @@ export const App = () => {
                               width: 64,
                               height: 64,
                               backgroundColor: '#C4C4C4',
-                              marginLeft: rectangles.length === 0 ? 0 : 10
-                          }
+                              marginLeft: rectangles.length === 0 ? 0 : 10,
+                          },
                       ]
                     : rectangles
             );

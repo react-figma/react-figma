@@ -4,13 +4,13 @@ import * as renderers from './renderers';
 import * as nanoid from 'nanoid/non-secure';
 import { Subject } from 'rxjs';
 
-const getInitialTree = node => {
+const getInitialTree = (node) => {
     return {
         id: node.id,
         type: node.type,
         reactId: node.getPluginData('reactId'),
         children:
-            node.children && node.children.filter(item => isReactFigmaNode(item)).map(item => getInitialTree(item))
+            node.children && node.children.filter((item) => isReactFigmaNode(item)).map((item) => getInitialTree(item)),
     };
 };
 
@@ -26,13 +26,13 @@ const findRoot = (node: any) => {
     }
 };
 
-const transformNodesToTree = node => {
+const transformNodesToTree = (node) => {
     if (!isReactFigmaNode(node)) {
         return;
     }
     const nodeBatchId = nanoid();
     node.setPluginData('nodeBatchId', nodeBatchId);
-    const children = node.children && node.children.map(transformNodesToTree).filter(item => !!item);
+    const children = node.children && node.children.map(transformNodesToTree).filter((item) => !!item);
     return {
         width: node.width,
         height: node.height,
@@ -41,7 +41,7 @@ const transformNodesToTree = node => {
             undefined,
         children: children && children.length > 0 ? children : undefined,
         reactId: node.getPluginData('reactId'),
-        nodeBatchId
+        nodeBatchId,
     };
 };
 
@@ -54,9 +54,9 @@ const renderInstance = (type, node, props, reactId) => {
     return instance;
 };
 
-const cleanGroupStubElement = parentNode => {
+const cleanGroupStubElement = (parentNode) => {
     if (parentNode.type === 'GROUP') {
-        parentNode.children.forEach(child => {
+        parentNode.children.forEach((child) => {
             if (child.getPluginData('isGroupStubElement')) {
                 child.remove();
             }
@@ -84,7 +84,7 @@ const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
 
 const cache = {};
 
-const transformToNode = smth => {
+const transformToNode = (smth) => {
     if (!smth) {
         return;
     }
@@ -98,7 +98,7 @@ const transformToNode = smth => {
 };
 
 const findNodeByName = (children, name) => {
-    return children && children.find(child => child.name === name || findNodeByName(child.children, name));
+    return children && children.find((child) => child.name === name || findNodeByName(child.children, name));
 };
 
 export const api = createPluginAPI(
@@ -115,7 +115,7 @@ export const api = createPluginAPI(
                 props && {
                     ...props,
                     ...(type === 'instance' && props.component ? { component: transformToNode(props.component) } : {}),
-                    ...(props.node ? { node: transformToNode(props.node) } : {})
+                    ...(props.node ? { node: transformToNode(props.node) } : {}),
                 },
                 tempNode.reactId
             );
@@ -171,10 +171,10 @@ export const api = createPluginAPI(
         setCurrentPage(_node) {
             const node = transformToNode(_node);
             figma.currentPage = node;
-        }
+        },
     },
     {
-        timeout: 60 * 1000
+        timeout: 60 * 1000,
     }
 );
 
@@ -185,7 +185,7 @@ export const setupMainThread = () => {
     });
 
     figma.on('selectionchange', () => {
-        const reactIds = figma.currentPage.selection.map(node => node.getPluginData('reactId'));
+        const reactIds = figma.currentPage.selection.map((node) => node.getPluginData('reactId'));
         uiApi.selectionChange(reactIds);
     });
 };
@@ -198,14 +198,14 @@ export const $selectionReactIds = new Subject();
 // regardless of where they are called from
 export const uiApi = createUIAPI(
     {
-        currentPageChange: reactId => {
+        currentPageChange: (reactId) => {
             $currentPageTempId.next(reactId);
         },
-        selectionChange: reactIds => {
+        selectionChange: (reactIds) => {
             $selectionReactIds.next(reactIds);
-        }
+        },
     },
     {
-        timeout: 60 * 1000
+        timeout: 60 * 1000,
     }
 );

@@ -52,8 +52,8 @@ describe('transformTextStyleProperties', () => {
             textShadowRadius: 15,
             textShadowOffset: {
                 width: 10,
-                height: 20
-            }
+                height: 20,
+            },
         });
         expect(result).toMatchSnapshot();
     });
@@ -63,7 +63,7 @@ describe('transformTextStyleProperties', () => {
         // @ts-ignore
         global.console = { warn };
         transformTextStyleProperties({
-            fontStyle: 'solid'
+            fontStyle: 'solid',
         });
         expect(warn).toHaveBeenCalledTimes(1);
         expect(warn).toHaveBeenCalledWith(
@@ -76,7 +76,7 @@ describe('transformTextStyleProperties', () => {
         // @ts-ignore
         global.console = { warn };
         transformTextStyleProperties({
-            fontStyle: 'normal'
+            fontStyle: 'normal',
         });
         expect(warn).toHaveBeenCalledTimes(0);
     });

@@ -22,18 +22,18 @@ $yogaRoot
     .pipe(
         delay(0),
         concatMap((instance: any) => {
-            return new Observable(subscriber => {
-                const handleYogaProps = newProps => {
+            return new Observable((subscriber) => {
+                const handleYogaProps = (newProps) => {
                     const { children: yogaChildren, nodeBatchId, reactId, ...yogaPropsWithoutChildren } = newProps;
 
                     subscriber.next({ reactId, props: yogaPropsWithoutChildren });
                     if (yogaChildren) {
-                        yogaChildren.forEach(child => {
+                        yogaChildren.forEach((child) => {
                             handleYogaProps(child);
                         });
                     }
                 };
-                api.getTreeForYoga(instance).then(treeForYoga => {
+                api.getTreeForYoga(instance).then((treeForYoga) => {
                     const newProps = yogaHandler(treeForYoga);
                     handleYogaProps(newProps);
                     subscriber.complete();

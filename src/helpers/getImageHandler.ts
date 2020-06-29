@@ -1,10 +1,10 @@
 import { api } from '../rpc';
 
-const base64ToBlob = async data => {
+const base64ToBlob = async (data) => {
     const result = await fetch(data);
     const blob = await result.blob();
     const reader = new FileReader();
-    const promise = new Promise(resolve => {
+    const promise = new Promise((resolve) => {
         reader.onload = () => {
             // @ts-ignore
             resolve(new Uint8Array(reader.result));

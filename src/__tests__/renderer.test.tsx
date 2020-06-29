@@ -8,7 +8,7 @@ import { wait } from '../helpers/wait';
 import { removeTempId } from '../helpers/removeTempId';
 import { removeNodeBatchId } from '../helpers/removeNodeBatchId';
 
-const removeMeta = node => {
+const removeMeta = (node) => {
     return removeNodeBatchId(removeTempId(node));
 };
 
@@ -16,7 +16,7 @@ describe('renderer', () => {
     beforeEach(() => {
         // @ts-ignore
         global.figma = createFigma({
-            simulateErrors: true
+            simulateErrors: true,
         });
     });
 
@@ -220,16 +220,11 @@ describe('renderer', () => {
 
         await render(<Component />);
 
-        return new Promise(resolve => {
-            waiting
-                .pipe(
-                    take(1),
-                    delay(0)
-                )
-                .subscribe(() => {
-                    expect(removeMeta(figma.root)).toMatchSnapshot();
-                    resolve();
-                });
+        return new Promise((resolve) => {
+            waiting.pipe(take(1), delay(0)).subscribe(() => {
+                expect(removeMeta(figma.root)).toMatchSnapshot();
+                resolve();
+            });
         });
     });
 
@@ -333,31 +328,26 @@ describe('renderer', () => {
             </Page>
         );
 
-        return new Promise(resolve => {
-            waiting
-                .pipe(
-                    take(1),
-                    delay(0)
-                )
-                .subscribe(() => {
-                    expect(removeMeta(figma.root)).toMatchSnapshot();
-                    resolve();
-                });
+        return new Promise((resolve) => {
+            waiting.pipe(take(1), delay(0)).subscribe(() => {
+                expect(removeMeta(figma.root)).toMatchSnapshot();
+                resolve();
+            });
         });
     });
 
     it('Svg render', async () => {
-        figma.createNodeFromSvg = jest.fn(source => {
+        figma.createNodeFromSvg = jest.fn((source) => {
             const rect = figma.createRectangle();
             rect.fills = [
                 {
                     color: {
                         b: 1,
                         g: 0,
-                        r: 0
+                        r: 0,
                     },
-                    type: 'SOLID'
-                }
+                    type: 'SOLID',
+                },
             ];
 
             const frame = figma.createFrame();
@@ -375,17 +365,17 @@ describe('renderer', () => {
     });
 
     it('Svg hydration', async () => {
-        figma.createNodeFromSvg = jest.fn(source => {
+        figma.createNodeFromSvg = jest.fn((source) => {
             const rect = figma.createRectangle();
             rect.fills = [
                 {
                     color: {
                         b: source === 'source1' ? 1 : 0,
                         g: source === 'source2' ? 1 : 0,
-                        r: 0
+                        r: 0,
                     },
-                    type: 'SOLID'
-                }
+                    type: 'SOLID',
+                },
             ];
 
             const frame = figma.createFrame();
@@ -408,17 +398,17 @@ describe('renderer', () => {
     });
 
     it('Svg instance updating', async () => {
-        figma.createNodeFromSvg = jest.fn(source => {
+        figma.createNodeFromSvg = jest.fn((source) => {
             const rect = figma.createRectangle();
             rect.fills = [
                 {
                     color: {
                         b: source === 'source1' ? 1 : 0,
                         g: source === 'source2' ? 1 : 0,
-                        r: 0
+                        r: 0,
                     },
-                    type: 'SOLID'
-                }
+                    type: 'SOLID',
+                },
             ];
 
             const frame = figma.createFrame();
@@ -445,17 +435,12 @@ describe('renderer', () => {
             </Page>
         );
 
-        return new Promise(resolve => {
-            waiting
-                .pipe(
-                    take(1),
-                    delay(0)
-                )
-                .subscribe(() => {
-                    expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(2);
-                    expect(removeMeta(figma.root)).toMatchSnapshot();
-                    resolve();
-                });
+        return new Promise((resolve) => {
+            waiting.pipe(take(1), delay(0)).subscribe(() => {
+                expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(2);
+                expect(removeMeta(figma.root)).toMatchSnapshot();
+                resolve();
+            });
         });
     });
 
@@ -504,9 +489,9 @@ describe('renderer', () => {
                     overrides={{
                         rect: {
                             style: {
-                                backgroundColor: '#0000ff'
-                            }
-                        }
+                                backgroundColor: '#0000ff',
+                            },
+                        },
                     }}
                 />
             </Page>

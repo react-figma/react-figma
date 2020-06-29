@@ -4,14 +4,14 @@ import { Checkbox } from './components/checkbox/Checkbox';
 
 const styles = StyleSheet.create({
     frame: {
-        padding: 50
+        padding: 50,
     },
     text: {
         marginTop: 50,
         fontSize: 48,
         fontFamily: 'Roboto',
-        minWidth: 500
-    }
+        minWidth: 500,
+    },
 });
 
 export const App = () => {
@@ -20,7 +20,7 @@ export const App = () => {
 
     React.useEffect(() => {
         if (checked) {
-            setCounter(counter => counter + 1);
+            setCounter((counter) => counter + 1);
         }
     }, [checked]);
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { CornerProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
-    transformLayoutStyleProperties
+    transformLayoutStyleProperties,
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { BlendStyleProperties, transformBlendProperties } from '../../styleTransformers/transformBlendProperties';
@@ -10,7 +10,7 @@ import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import {
     GeometryStyleProperties,
-    transformGeometryStyleProperties
+    transformGeometryStyleProperties,
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
@@ -19,7 +19,7 @@ export interface GroupNodeProps extends DefaultShapeProps, InstanceItemProps, Se
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
 }
 
-export const Group: React.FC<GroupNodeProps> = props => {
+export const Group: React.FC<GroupNodeProps> = (props) => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -31,7 +31,7 @@ export const Group: React.FC<GroupNodeProps> = props => {
         ...transformBlendProperties(style),
         ...transformGeometryStyleProperties('backgrounds', style),
         ...props,
-        style
+        style,
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...groupProps });
 

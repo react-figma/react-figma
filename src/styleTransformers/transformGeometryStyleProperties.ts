@@ -17,7 +17,7 @@ const backgroundSizeToScaleMode = {
     repeat: 'TILE',
     center: 'CROP',
     stretch: 'CROP',
-    none: 'FILL'
+    none: 'FILL',
 };
 
 export const transformGeometryStyleProperties = (
@@ -46,18 +46,21 @@ export const transformGeometryStyleProperties = (
                 type: 'IMAGE',
                 image: style.backgroundImage,
                 scaleMode: backgroundSizeToScaleMode.stretch,
-                imageTransform: [[transformSize(style.width), 0, 0], [0, transformSize(style.height), 0]]
+                imageTransform: [
+                    [transformSize(style.width), 0, 0],
+                    [0, transformSize(style.height), 0],
+                ],
             });
         } else {
             fills.push({
                 type: 'IMAGE',
                 image: style.backgroundImage,
-                scaleMode: style.backgroundSize ? backgroundSizeToScaleMode[style.backgroundSize] : undefined
+                scaleMode: style.backgroundSize ? backgroundSizeToScaleMode[style.backgroundSize] : undefined,
             });
         }
     }
 
     return {
-        ...((fills.length > 0 && { [property]: fills }) || {})
+        ...((fills.length > 0 && { [property]: fills }) || {}),
     };
 };

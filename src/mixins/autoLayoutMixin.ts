@@ -11,7 +11,7 @@ export const autoLayoutMixin = propsAssign<AutoLayoutProps, AutoLayoutProps>(
         itemSpacing: 0,
         constraints: {
             horizontal: 'MIN',
-            vertical: 'MIN'
-        }
+            vertical: 'MIN',
+        },
     }
 );

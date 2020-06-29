@@ -29,17 +29,17 @@ const transformToYogaNode = (yoga, cache, node, yogaParent, childId) => {
     return yogaNode;
 };
 
-const transformCache = cache => {
+const transformCache = (cache) => {
     const result = cache.node.getComputedLayout();
     return {
         ...result,
         nodeBatchId: cache.nodeBatchId,
         reactId: cache.reactId,
-        ...(cache.children ? { children: cache.children.map(transformCache) } : {})
+        ...(cache.children ? { children: cache.children.map(transformCache) } : {}),
     };
 };
 
-export const yogaWorker = yoga => props => {
+export const yogaWorker = (yoga) => (props) => {
     const cache = {};
     const yogaRoot = transformToYogaNode(yoga, cache, props, null, null);
 

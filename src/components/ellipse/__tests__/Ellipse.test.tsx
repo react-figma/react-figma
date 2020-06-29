@@ -7,7 +7,7 @@ describe('<Ellipse />', () => {
     beforeEach(() => {
         // @ts-ignore
         global.figma = createFigma({
-            simulateErrors: true
+            simulateErrors: true,
         });
     });
 
@@ -22,7 +22,7 @@ describe('<Ellipse />', () => {
                 <Ellipse
                     style={{
                         width: 100,
-                        height: 200
+                        height: 200,
                     }}
                 />
             )
@@ -37,7 +37,7 @@ describe('<Ellipse />', () => {
                     arcData={{
                         startingAngle: 0,
                         endingAngle: Math.PI,
-                        innerRadius: 0.5
+                        innerRadius: 0.5,
                     }}
                 />
             )
@@ -50,7 +50,7 @@ describe('<Ellipse />', () => {
             .create(
                 <Ellipse
                     style={{
-                        backgroundColor: '#1bff00'
+                        backgroundColor: '#1bff00',
                     }}
                 />
             )
@@ -65,7 +65,7 @@ describe('<Ellipse />', () => {
                     style={{
                         backgroundColor: '#ff8b29',
                         backgroundSize: 'cover',
-                        backgroundImage: './image.png'
+                        backgroundImage: './image.png',
                     }}
                 />
             )

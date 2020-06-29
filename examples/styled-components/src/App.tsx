@@ -19,13 +19,13 @@ export const App = () => {
     const colors = {
         Classic: '#12f24E',
         Neue: '#21304E',
-        White: '#ffffff'
+        White: '#ffffff',
     };
 
     return (
         <Page isCurrent name="Styled Components">
             <Artboard>
-                {Object.keys(colors).map(color => (
+                {Object.keys(colors).map((color) => (
                     <Swatch key={color} name={color} hex={colors[color]} />
                 ))}
             </Artboard>

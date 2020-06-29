@@ -8,7 +8,7 @@ const absoluteFill: Partial<CommonStyle> = {
     left: 0,
     top: 0,
     width: '100%',
-    height: '100%'
+    height: '100%',
 };
 
 export class StyleSheet {

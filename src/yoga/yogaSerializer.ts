@@ -9,7 +9,7 @@ const yogaEdge = {
     end: yoga.EDGE_END,
     horizontal: yoga.EDGE_HORIZONTAL,
     vertical: yoga.EDGE_VERTICAL,
-    all: yoga.EDGE_ALL
+    all: yoga.EDGE_ALL,
 };
 
 const config = {
@@ -35,12 +35,12 @@ const config = {
     padding: ['getPadding', yogaEdge],
     position: ['getPosition', yogaEdge],
     positionType: 'getPositionType',
-    width: 'getWidth'
+    width: 'getWidth',
 };
 
-export const serializeYogaNodeStyle = yogaNode => {
+export const serializeYogaNodeStyle = (yogaNode) => {
     const result = {};
-    Object.keys(config).forEach(prop => {
+    Object.keys(config).forEach((prop) => {
         const getter = config[prop];
         if (typeof getter === 'string') {
             result[prop] = yogaNode[getter]();
@@ -48,7 +48,7 @@ export const serializeYogaNodeStyle = yogaNode => {
             const f = getter[0];
             const args = getter[1];
             result[prop] = {};
-            Object.keys(args).forEach(argKey => {
+            Object.keys(args).forEach((argKey) => {
                 result[prop][argKey] = yogaNode[f](args[argKey]);
             });
         }

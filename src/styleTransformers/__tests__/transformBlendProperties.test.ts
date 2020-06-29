@@ -8,8 +8,8 @@ describe('transformBlendProperties', () => {
             shadowRadius: 15,
             shadowOffset: {
                 width: 10,
-                height: 20
-            }
+                height: 20,
+            },
         });
         expect(result).toMatchObject({
             effects: [
@@ -19,17 +19,17 @@ describe('transformBlendProperties', () => {
                         r: 0,
                         g: 0,
                         b: 0,
-                        a: 0.5
+                        a: 0.5,
                     },
                     offset: {
                         x: 10,
-                        y: 20
+                        y: 20,
                     },
                     radius: 15,
                     visible: true,
-                    blendMode: 'NORMAL'
-                }
-            ]
+                    blendMode: 'NORMAL',
+                },
+            ],
         });
     });
 });

@@ -25,13 +25,13 @@ const textAlignMapping = {
     left: 'LEFT',
     right: 'RIGHT',
     center: 'CENTER',
-    justify: 'JUSTIFIED'
+    justify: 'JUSTIFIED',
 };
 
 const textDecorationLineMapping = {
     none: 'NONE',
     underline: 'UNDERLINE',
-    'line-through': 'STRIKETHROUGH'
+    'line-through': 'STRIKETHROUGH',
 };
 
 export const transformTextStyleProperties = (style?: Partial<TextStyleProperties>): TextProperties => {
@@ -48,7 +48,7 @@ export const transformTextStyleProperties = (style?: Partial<TextStyleProperties
         ...((style && style.color && { fills: [colorToPaint(style.color)] }) || { fills: [colorToPaint('#000000')] }),
         ...(style &&
             style.fontFamily && {
-                fontName: { family: style.fontFamily, style: convertFontStyle(style.fontWeight, style.fontStyle) }
+                fontName: { family: style.fontFamily, style: convertFontStyle(style.fontWeight, style.fontStyle) },
             }),
         ...(style && style.fontSize && { fontSize: style.fontSize }),
         ...(style &&
@@ -58,24 +58,24 @@ export const transformTextStyleProperties = (style?: Partial<TextStyleProperties
             ? { lineHeight: { value: style.lineHeight, unit: 'PIXELS' } }
             : typeof style.lineHeight === 'string' && {
                   lineHeight: transformDimensionMapper<LineHeight, LineHeight, LineHeight>(style.lineHeight)
-                      .px(value => ({ value, unit: 'PIXELS' }))
-                      .percentage(value => ({ value, unit: 'PERCENT' }))
+                      .px((value) => ({ value, unit: 'PIXELS' }))
+                      .percentage((value) => ({ value, unit: 'PERCENT' }))
                       .auto(() => ({ unit: 'AUTO' }))
-                      .value()
+                      .value(),
               }),
         ...(style &&
             (typeof style.letterSpacing === 'number' || typeof style.letterSpacing === 'string') && {
                 letterSpacing: transformDimensionMapper<LetterSpacing, LetterSpacing, LetterSpacing>(
                     style.letterSpacing
                 )
-                    .px(value => ({ value, unit: 'PIXELS' }))
-                    .percentage(value => ({ value, unit: 'PERCENT' }))
-                    .value()
+                    .px((value) => ({ value, unit: 'PIXELS' }))
+                    .percentage((value) => ({ value, unit: 'PERCENT' }))
+                    .value(),
             }),
         ...(style &&
             style.textDecorationLine &&
             textDecorationLineMapping[style.textDecorationLine] && {
-                textDecorationLine: textDecorationLineMapping[style.textDecorationLine]
+                textDecorationLine: textDecorationLineMapping[style.textDecorationLine],
             }),
         ...(style &&
             style.textShadowColor && {
@@ -83,9 +83,9 @@ export const transformTextStyleProperties = (style?: Partial<TextStyleProperties
                     transformShadowToEffect({
                         shadowColor: style.textShadowColor,
                         shadowOffset: style.textShadowOffset,
-                        shadowRadius: style.textShadowRadius
-                    })
-                ]
-            })
+                        shadowRadius: style.textShadowRadius,
+                    }),
+                ],
+            }),
     };
 };

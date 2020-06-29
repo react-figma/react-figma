@@ -7,6 +7,6 @@ export const blendMixin = propsAssign<BlendProps, BlendProps>(
         blendMode: 'NORMAL',
         effects: [],
         isMask: false,
-        opacity: 1
+        opacity: 1,
     }
 );

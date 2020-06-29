@@ -3,6 +3,6 @@ declare type fetch = (input: RequestInfo, init?: RequestInit) => Promise<Respons
 import * as yoga from 'yoga-layout-prebuilt';
 import { uiWorker } from 'react-figma';
 
-onmessage = event => {
+onmessage = (event) => {
     uiWorker({ yoga, fetch })(event);
 };

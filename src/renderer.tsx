@@ -25,7 +25,7 @@ const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
     }
 };
 
-const remove = childNode => {
+const remove = (childNode) => {
     api.remove(childNode);
 };
 
@@ -42,10 +42,10 @@ const checkInstanceMatchType = (instance, type) => {
 const prepareToHydration = (node, parent) => {
     if (node.children && node.children.length >= 0) {
         node.firstHydratableChild = node.children[0];
-        node.children.forEach(child => prepareToHydration(child, node));
+        node.children.forEach((child) => prepareToHydration(child, node));
     }
     if (parent) {
-        const instanceIndex = parent.children.findIndex(child => child.id === node.id);
+        const instanceIndex = parent.children.findIndex((child) => child.id === node.id);
         node.nextHydratableSibling = parent.children.slice(instanceIndex + 1)[0];
     }
 };
@@ -95,7 +95,7 @@ export const render = async (jsx: any) => {
             return true;
         },
         shouldSetTextContent: () => false,
-        getPublicInstance: instance => {
+        getPublicInstance: (instance) => {
             return instance;
         },
         createInstance: (type, props) => {
@@ -153,10 +153,10 @@ export const render = async (jsx: any) => {
         hydrateInstance: (instance, type, props) => {
             return renderInstance(type, checkInstanceMatchType(instance, type) ? instance : null, props);
         },
-        getFirstHydratableChild: parentInstance => {
+        getFirstHydratableChild: (parentInstance) => {
             return parentInstance.firstHydratableChild;
         },
-        getNextHydratableSibling: instance => {
+        getNextHydratableSibling: (instance) => {
             return instance.nextHydratableSibling;
         },
         didNotHydrateContainerInstance: () => {},
@@ -165,11 +165,11 @@ export const render = async (jsx: any) => {
         didNotFindHydratableTextInstance: () => {},
         didNotHydrateInstance: () => {},
         commitMount: (instance, type) => {},
-        commitHydratedContainer: container => {
+        commitHydratedContainer: (container) => {
             /*container.children.forEach(child => {
                 updateYogaRoot(child);
             });*/
-        }
+        },
     };
 
     const reconciler = createReconciler(HostConfig);

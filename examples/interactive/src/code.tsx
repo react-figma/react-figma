@@ -11,6 +11,6 @@ figma.on('currentpagechange', () => {
 });
 
 figma.on('selectionchange', () => {
-    const reactIds = figma.currentPage.selection.map(node => node.getPluginData('reactId'));
+    const reactIds = figma.currentPage.selection.map((node) => node.getPluginData('reactId'));
     uiApi.selectionChange(reactIds);
 });
