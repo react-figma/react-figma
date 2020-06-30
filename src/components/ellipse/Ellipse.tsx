@@ -15,8 +15,14 @@ import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
-export interface EllipseProps extends DefaultShapeProps, CornerProps, InstanceItemProps, SelectionEventProps {
+export interface EllipseProps
+    extends DefaultShapeProps,
+        CornerProps,
+        InstanceItemProps,
+        SelectionEventProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
     children?: undefined;
     arcData?: ArcData;
@@ -36,5 +42,7 @@ export const Ellipse: React.FC<EllipseProps> = props => {
     };
     const fills = useFillsPreprocessor(ellipseProps);
     const yogaChildProps = useYogaLayout({ nodeRef, ...ellipseProps });
+    useOnLayoutHandler(yogaChildProps, props);
+
     return <ellipse {...ellipseProps} {...yogaChildProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };

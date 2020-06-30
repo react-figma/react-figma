@@ -22,13 +22,15 @@ import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
 export interface StarProps
     extends DefaultShapeProps,
         CornerProps,
         StarNodeProps,
         InstanceItemProps,
-        SelectionEventProps {
+        SelectionEventProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
     children?: undefined;
 }
@@ -49,6 +51,7 @@ export const Star: React.FC<StarProps> = props => {
     };
     const fills = useFillsPreprocessor(starProps);
     const yogaProps = useYogaLayout({ nodeRef, ...starProps });
+    useOnLayoutHandler(yogaProps, props);
 
     return <star {...starProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };
