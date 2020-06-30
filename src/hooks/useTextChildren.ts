@@ -8,7 +8,7 @@ export const setTextChildren = (node, characters) => {
     $setTextChildren.next({ node, characters });
 };
 
-export const useTextChildren = (nodeRef) => {
+export const useTextChildren = nodeRef => {
     const [textChildren, setTextChildren] = React.useState(null);
 
     React.useEffect(() => {

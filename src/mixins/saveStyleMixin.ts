@@ -1,3 +1,3 @@
-export const saveStyleMixin = (node) => (props) => {
+export const saveStyleMixin = node => props => {
     node.setPluginData('reactStyle', JSON.stringify(props.style || {}));
 };

@@ -6,6 +6,6 @@ export const frameSpecificProps = propsAssign<FrameSpecificProps, FrameSpecificP
     {
         clipsContent: false,
         guides: [],
-        layoutGrids: [],
+        layoutGrids: []
     }
 );

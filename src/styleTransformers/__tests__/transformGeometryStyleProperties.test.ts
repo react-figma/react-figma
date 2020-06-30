@@ -13,7 +13,7 @@ describe('transformGeometryStyleProperties', () => {
 
     it('backgroundImage: linear-gradient(#e66465, #9198e5)', () => {
         const result = transformGeometryStyleProperties('fills', {
-            backgroundImage: 'linear-gradient(#e66465, #9198e5)',
+            backgroundImage: 'linear-gradient(#e66465, #9198e5)'
         });
         expect(result).toMatchSnapshot();
     });

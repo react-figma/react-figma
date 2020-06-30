@@ -1,4 +1,4 @@
-export const cleanNode = (node) => {
+export const cleanNode = node => {
     if (!node) {
         return;
     }

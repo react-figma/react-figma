@@ -5,5 +5,5 @@ export const rectangleCornerMixin = propsAssign<BorderProps, BorderProps>([
     'topLeftRadius',
     'topRightRadius',
     'bottomLeftRadius',
-    'bottomRightRadius',
+    'bottomRightRadius'
 ]);

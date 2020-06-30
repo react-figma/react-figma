@@ -41,11 +41,11 @@ const flatYogaStyle = (style: YogaStyleProperties) => {
         style && style.flexBasis,
         style && style.aspectRatio,
         style && style.alignSelf,
-        style && style.overflow,
+        style && style.overflow
     ];
 };
 
-export const useYogaLayout = (props) => {
+export const useYogaLayout = props => {
     const { nodeRef } = props;
     const [yogaProps, setYogaProps] = React.useState<any>({});
 
@@ -58,7 +58,7 @@ export const useYogaLayout = (props) => {
             map((message: any) => message.props)
         );
 
-        const subscription = subject.subscribe((props) => {
+        const subscription = subject.subscribe(props => {
             setYogaProps(props);
         });
 

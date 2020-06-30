@@ -7,7 +7,7 @@ describe('<Image />', () => {
     beforeEach(() => {
         // @ts-ignore
         global.figma = createFigma({
-            simulateErrors: true,
+            simulateErrors: true
         });
     });
 
@@ -18,7 +18,7 @@ describe('<Image />', () => {
                     source="./image.png"
                     style={{
                         width: 100,
-                        height: 200,
+                        height: 200
                     }}
                 />
             )
@@ -34,7 +34,7 @@ describe('<Image />', () => {
                     resizeMode="stretch"
                     style={{
                         width: 100,
-                        height: 200,
+                        height: 200
                     }}
                 />
             )

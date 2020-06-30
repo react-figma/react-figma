@@ -8,7 +8,7 @@ interface TGradientParser {
 
 var GradientParser: TGradientParser = {};
 
-GradientParser.parse = (function () {
+GradientParser.parse = (function() {
     var tokens = {
         linearGradient: /^(\-(webkit|o|ms|moz)\-)?(linear\-gradient)/i,
         repeatingLinearGradient: /^(\-(webkit|o|ms|moz)\-)?(repeating\-linear\-gradient)/i,
@@ -28,7 +28,7 @@ GradientParser.parse = (function () {
         literalColor: /^([a-zA-Z]+)/,
         rgbColor: /^rgb/i,
         rgbaColor: /^rgba/i,
-        number: /^(([0-9]*\.[0-9]+)|([0-9]+\.?))/,
+        number: /^(([0-9]*\.[0-9]+)|([0-9]+\.?))/
     };
 
     var input = '';
@@ -63,7 +63,7 @@ GradientParser.parse = (function () {
     }
 
     function matchGradient(gradientType, pattern, orientationMatcher) {
-        return matchCall(pattern, function (captures) {
+        return matchCall(pattern, function(captures) {
             var orientation = orientationMatcher();
             if (orientation) {
                 if (!scan(tokens.comma)) {
@@ -74,7 +74,7 @@ GradientParser.parse = (function () {
             return {
                 type: gradientType,
                 orientation: orientation,
-                colorStops: matchListing(matchColorStop),
+                colorStops: matchListing(matchColorStop)
             };
         });
     }
@@ -142,7 +142,7 @@ GradientParser.parse = (function () {
             if (defaultPosition) {
                 radialType = {
                     type: 'default-radial',
-                    at: defaultPosition,
+                    at: defaultPosition
                 };
             }
         }
@@ -192,7 +192,7 @@ GradientParser.parse = (function () {
         if (location.x || location.y) {
             return {
                 type: 'position',
-                value: location,
+                value: location
             };
         }
     }
@@ -200,7 +200,7 @@ GradientParser.parse = (function () {
     function matchCoordinates() {
         return {
             x: matchDistance(),
-            y: matchDistance(),
+            y: matchDistance()
         };
     }
 
@@ -247,19 +247,19 @@ GradientParser.parse = (function () {
     }
 
     function matchRGBColor() {
-        return matchCall(tokens.rgbColor, function () {
+        return matchCall(tokens.rgbColor, function() {
             return {
                 type: 'rgb',
-                value: matchListing(matchNumber),
+                value: matchListing(matchNumber)
             };
         });
     }
 
     function matchRGBAColor() {
-        return matchCall(tokens.rgbaColor, function () {
+        return matchCall(tokens.rgbaColor, function() {
             return {
                 type: 'rgba',
-                value: matchListing(matchNumber),
+                value: matchListing(matchNumber)
             };
         });
     }
@@ -285,7 +285,7 @@ GradientParser.parse = (function () {
         if (captures) {
             return {
                 type: type,
-                value: captures[captureIndex],
+                value: captures[captureIndex]
             };
         }
     }
@@ -310,7 +310,7 @@ GradientParser.parse = (function () {
         input = input.substr(size);
     }
 
-    return function (code) {
+    return function(code) {
         input = code.toString();
         return getAST();
     };

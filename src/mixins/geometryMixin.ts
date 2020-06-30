@@ -11,13 +11,13 @@ export const geometryMixin = propsAssign<GeometryProps, GeometryProps>(
         'strokeJoin',
         'dashPattern',
         'fillStyleId',
-        'strokeStyleId',
+        'strokeStyleId'
     ],
     {
         fills: [],
         strokes: [],
         strokeWeight: 0,
         strokeAlign: 'INSIDE',
-        strokeCap: 'NONE',
+        strokeCap: 'NONE'
     }
 );

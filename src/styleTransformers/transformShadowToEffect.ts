@@ -13,14 +13,14 @@ export const transformShadowToEffect = (styles: {
         offset: styles.shadowOffset
             ? {
                   x: styles.shadowOffset.width,
-                  y: styles.shadowOffset.height,
+                  y: styles.shadowOffset.height
               }
             : {
                   x: 0,
-                  y: 0,
+                  y: 0
               },
         radius: styles.shadowRadius || 0,
         visible: true,
-        blendMode: 'NORMAL',
+        blendMode: 'NORMAL'
     };
 };

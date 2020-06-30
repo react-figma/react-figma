@@ -8,7 +8,7 @@ describe('<Frame />', () => {
     beforeEach(() => {
         // @ts-ignore
         global.figma = createFigma({
-            simulateErrors: true,
+            simulateErrors: true
         });
     });
 
@@ -29,7 +29,7 @@ describe('<Frame />', () => {
                         width: 100,
                         height: 200,
                         top: 50,
-                        left: 20,
+                        left: 20
                     }}
                 />
             );
@@ -43,7 +43,7 @@ describe('<Frame />', () => {
             tree = create(
                 <Frame
                     style={{
-                        backgroundColor: '#1bff00',
+                        backgroundColor: '#1bff00'
                     }}
                 />
             );
@@ -59,7 +59,7 @@ describe('<Frame />', () => {
                     style={{
                         backgroundColor: '#ff8b29',
                         backgroundSize: 'cover',
-                        backgroundImage: './image.png',
+                        backgroundImage: './image.png'
                     }}
                 />
             );
@@ -75,7 +75,7 @@ describe('<Frame />', () => {
                     style={{
                         borderRadius: 10,
                         borderWidth: 1,
-                        borderColor: '#222020',
+                        borderColor: '#222020'
                     }}
                 />
             );
@@ -94,7 +94,7 @@ describe('<Frame />', () => {
                     style={{
                         borderRadius: 10,
                         borderWidth: 1,
-                        borderColor: '#222020',
+                        borderColor: '#222020'
                     }}
                 />
             );

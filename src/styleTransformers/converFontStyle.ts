@@ -12,10 +12,10 @@ const numberToWeightMapping = {
     '700': 'Bold',
     '800': 'ExtraBold',
     '900': 'Black',
-    '950': 'ExtraBlack',
+    '950': 'ExtraBlack'
 };
 
-const transformFontWeight = (fontWeight) => {
+const transformFontWeight = fontWeight => {
     if (`${parseInt(fontWeight)}` === `${fontWeight}`) {
         return numberToWeightMapping[`${fontWeight}`];
     } else {

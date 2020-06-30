@@ -5,8 +5,8 @@ describe('transformAutoLayoutToYoga', () => {
         const result = transformAutoLayoutToYoga({
             constraints: {
                 horizontal: 'MIN',
-                vertical: 'CENTER',
-            },
+                vertical: 'CENTER'
+            }
         });
         expect(result).toMatchSnapshot();
     });

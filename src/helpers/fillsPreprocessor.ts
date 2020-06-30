@@ -2,7 +2,7 @@ import { getImageHash } from './getImageHandler';
 
 export const fillsPreprocessor = async (props): Promise<Array<Paint>> => {
     if (props.fills) {
-        const newFills = props.fills.map(async (fill) => {
+        const newFills = props.fills.map(async fill => {
             if (fill.type !== 'IMAGE' || !fill.image) {
                 return fill;
             }

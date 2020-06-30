@@ -26,7 +26,7 @@ export const useSelectionChange = (nodeRef: { current?: any }, props: SelectionE
         if (!props.onSelectionEnter && !props.onSelectionLeave) {
             return;
         }
-        const handler = (selection) => {
+        const handler = selection => {
             if (selection.indexOf(instance.reactId) >= 0) {
                 setSelected(true);
             } else {
@@ -34,7 +34,7 @@ export const useSelectionChange = (nodeRef: { current?: any }, props: SelectionE
             }
         };
 
-        const subscription = $selectionReactIds.subscribe((value) => handler && handler(value));
+        const subscription = $selectionReactIds.subscribe(value => handler && handler(value));
 
         return () => subscription.unsubscribe();
     }, [props.onSelectionEnter, props.onSelectionLeave]);

@@ -1,4 +1,4 @@
-export const removeTempId = (node) => {
+export const removeTempId = node => {
     if (node && node.pluginData) {
         delete node.pluginData.reactId;
     }

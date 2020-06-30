@@ -8,21 +8,21 @@ import { SvgNodeProps } from '../components/svg/Svg';
 import { hashCode } from '../helpers/hashCode';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
-const createNodeFromSvg = (source) => {
+const createNodeFromSvg = source => {
     const node = figma.createNodeFromSvg(source);
     node.setPluginData('svgHash', hashCode(source));
     return node;
 };
 
-export const svg = (node) => (props: SvgNodeProps) => {
+export const svg = node => (props: SvgNodeProps) => {
     let frameNode = node || props.node || createNodeFromSvg(props.source);
 
     const savedHash = frameNode.getPluginData('svgHash');
     if (savedHash != hashCode(props.source)) {
         const newSvg = figma.createNodeFromSvg(props.source);
         layoutMixin(newSvg)(props);
-        frameNode.children.forEach((child) => child.remove());
-        newSvg.children.forEach((child) => {
+        frameNode.children.forEach(child => child.remove());
+        newSvg.children.forEach(child => {
             frameNode.appendChild(child);
         });
         newSvg.remove();

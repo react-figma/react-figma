@@ -12,7 +12,7 @@ const createNewGroup = () => {
     return figma.group([rect], figma.currentPage);
 };
 
-export const group = (node) => (props) => {
+export const group = node => props => {
     const frameNode = node || props.node || createNewGroup();
 
     saveStyleMixin(frameNode)(props);

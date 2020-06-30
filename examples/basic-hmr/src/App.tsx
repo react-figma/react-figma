@@ -15,8 +15,8 @@ const App = () => {
                     shadowRadius: 10,
                     shadowOffset: {
                         width: 10,
-                        height: 10,
-                    },
+                        height: 10
+                    }
                 }}
             />
             <Text style={{ color: '#ffffff' }}>text</Text>

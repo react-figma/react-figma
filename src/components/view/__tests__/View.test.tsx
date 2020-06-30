@@ -8,7 +8,7 @@ describe('<View />', () => {
     beforeEach(() => {
         // @ts-ignore
         global.figma = createFigma({
-            simulateErrors: true,
+            simulateErrors: true
         });
     });
 

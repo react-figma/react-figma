@@ -8,9 +8,9 @@ export const App = () => {
         <Page name="New page" isCurrent>
             <Spring
                 to={{
-                    left: clicked ? 0 : 500,
+                    left: clicked ? 0 : 500
                 }}>
-                {(props) => (
+                {props => (
                     <View
                         style={[{ backgroundColor: '#ff00ff' }, props]}
                         onSelectionEnter={() => {

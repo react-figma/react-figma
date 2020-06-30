@@ -6,7 +6,7 @@ import { removeNodeBatchId } from '../../helpers/removeNodeBatchId';
 import { removeTempId } from '../../helpers/removeTempId';
 import '../../rpc';
 
-const removeMeta = (node) => {
+const removeMeta = node => {
     return removeNodeBatchId(removeTempId(node));
 };
 
@@ -14,7 +14,7 @@ describe('Yoga layout integration', () => {
     beforeEach(() => {
         // @ts-ignore
         global.figma = createFigma({
-            simulateErrors: true,
+            simulateErrors: true
         });
     });
 

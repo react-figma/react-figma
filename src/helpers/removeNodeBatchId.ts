@@ -1,4 +1,4 @@
-export const removeNodeBatchId = (node) => {
+export const removeNodeBatchId = node => {
     if (node && node.pluginData) {
         delete node.pluginData.nodeBatchId;
     }

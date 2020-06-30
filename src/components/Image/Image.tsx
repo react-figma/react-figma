@@ -8,7 +8,7 @@ export interface ImageProps extends RectangleProps {
     resizeMode?: ResizeMode;
 }
 
-export const Image: React.FC<ImageProps> = (props) => {
+export const Image: React.FC<ImageProps> = props => {
     const { style, source, resizeMode } = props;
     return (
         <Rectangle

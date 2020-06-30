@@ -9,7 +9,7 @@ describe('Page', () => {
     beforeEach(() => {
         // @ts-ignore
         global.figma = createFigma({
-            simulateErrors: true,
+            simulateErrors: true
         });
 
         figma.on('currentpagechange', () => {

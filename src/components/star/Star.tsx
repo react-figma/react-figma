@@ -5,15 +5,15 @@ import {
     StarNodeProps,
     StyleOf,
     InstanceItemProps,
-    SelectionEventProps,
+    SelectionEventProps
 } from '../../types';
 import {
     LayoutStyleProperties,
-    transformLayoutStyleProperties,
+    transformLayoutStyleProperties
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import {
     GeometryStyleProperties,
-    transformGeometryStyleProperties,
+    transformGeometryStyleProperties
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
@@ -33,7 +33,7 @@ export interface StarProps
     children?: undefined;
 }
 
-export const Star: React.FC<StarProps> = (props) => {
+export const Star: React.FC<StarProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -45,7 +45,7 @@ export const Star: React.FC<StarProps> = (props) => {
         ...transformGeometryStyleProperties('fills', style),
         ...transformBlendProperties(style),
         ...props,
-        style,
+        style
     };
     const fills = useFillsPreprocessor(starProps);
     const yogaProps = useYogaLayout({ nodeRef, ...starProps });

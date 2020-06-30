@@ -10,35 +10,35 @@ import * as instagramIcon from './icons/011-instagram.png';
 
 const styles = StyleSheet.create({
     frame: {
-        padding: 10,
+        padding: 10
     },
     component: {
-        marginTop: 10,
+        marginTop: 10
     },
     sizingBlock: {
-        backgroundColor: '#C4C4C4',
+        backgroundColor: '#C4C4C4'
     },
     icon: {
         width: 16,
         height: 16,
         backgroundColor: '#ffffff',
-        backgroundSize: 'contain',
+        backgroundSize: 'contain'
     },
     sizingDescription: {
         fontSize: 8,
-        marginTop: 4,
+        marginTop: 4
     },
     hint: {
         fontSize: 6,
         marginTop: 2,
-        color: '#a0a0a0',
+        color: '#a0a0a0'
     },
     heading: {
         fontFamily: 'Helvetica Neue',
         fontWeight: 'bold',
         fontStyle: 'italic',
-        fontSize: 14,
-    },
+        fontSize: 14
+    }
 });
 
 const SpaceFrame = () => {
@@ -79,7 +79,7 @@ const SpaceFrame = () => {
     );
 };
 
-const TypeFrame = (props) => {
+const TypeFrame = props => {
     return (
         <Frame name="Type" style={[styles.frame, props.style]}>
             <Text style={styles.heading}>Type</Text>
@@ -122,7 +122,7 @@ const TypeFrame = (props) => {
     );
 };
 
-const IconsFrame = (props) => {
+const IconsFrame = props => {
     return (
         <Frame name="Icons" style={[styles.frame, props.style]}>
             <Text style={styles.heading}>Icons</Text>

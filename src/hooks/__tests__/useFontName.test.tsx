@@ -8,7 +8,7 @@ describe('useFontName', () => {
     beforeEach(() => {
         // @ts-ignore
         global.figma = createFigma({
-            simulateErrors: true,
+            simulateErrors: true
         });
     });
 
@@ -20,21 +20,21 @@ describe('useFontName', () => {
                 {
                     fontName: {
                         family: 'Inter',
-                        style: 'Regular',
-                    },
+                        style: 'Regular'
+                    }
                 },
                 {
                     fontName: {
                         family: 'Inter',
-                        style: 'Semi Bold',
-                    },
+                        style: 'Semi Bold'
+                    }
                 },
                 {
                     fontName: {
                         family: 'Inter',
-                        style: 'Bold',
-                    },
-                },
+                        style: 'Bold'
+                    }
+                }
             ]);
         });
         const Component = () => {

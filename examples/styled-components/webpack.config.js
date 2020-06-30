@@ -5,7 +5,7 @@ module.exports = configure({
     resolve: {
         alias: {
             react: path.resolve(__dirname, './node_modules/react/'),
-            'react-figma': path.resolve(__dirname, './node_modules/react-figma/'),
-        },
-    },
+            'react-figma': path.resolve(__dirname, './node_modules/react-figma/')
+        }
+    }
 });

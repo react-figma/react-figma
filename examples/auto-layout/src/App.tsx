@@ -11,7 +11,7 @@ export const App = () => {
                 itemSpacing={10}
                 style={{
                     backgroundColor: '#ffffff',
-                    width: 200,
+                    width: 200
                 }}>
                 <View
                     style={{ height: 40, backgroundColor: '#ffaa97' }}

@@ -5,7 +5,7 @@ describe('transformDimension', () => {
         const result = transformDimension(10);
         expect(result).toMatchObject({
             value: 10,
-            type: 'px',
+            type: 'px'
         });
     });
 
@@ -13,7 +13,7 @@ describe('transformDimension', () => {
         const result = transformDimension('10px');
         expect(result).toMatchObject({
             value: 10,
-            type: 'px',
+            type: 'px'
         });
     });
 
@@ -21,7 +21,7 @@ describe('transformDimension', () => {
         const result = transformDimension('10%');
         expect(result).toMatchObject({
             value: 10,
-            type: 'percentage',
+            type: 'percentage'
         });
     });
 
@@ -29,14 +29,14 @@ describe('transformDimension', () => {
         const result = transformDimension('10.5%');
         expect(result).toMatchObject({
             value: 10.5,
-            type: 'percentage',
+            type: 'percentage'
         });
     });
 
     it('auto', () => {
         const result = transformDimension('auto');
         expect(result).toMatchObject({
-            type: 'auto',
+            type: 'auto'
         });
     });
 });

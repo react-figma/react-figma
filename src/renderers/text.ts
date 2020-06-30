@@ -22,7 +22,7 @@ const textNodePropsAssign = propsAssign<TextProps, TextProps>(
         'textCase',
         'textDecoration',
         'letterSpacing',
-        'lineHeight',
+        'lineHeight'
     ],
     {
         characters: '',
@@ -35,7 +35,7 @@ const textNodePropsAssign = propsAssign<TextProps, TextProps>(
         textCase: 'ORIGINAL',
         textDecoration: 'NONE',
         letterSpacing: { value: 0, unit: 'PIXELS' },
-        lineHeight: { unit: 'AUTO' },
+        lineHeight: { unit: 'AUTO' }
     }
 );
 

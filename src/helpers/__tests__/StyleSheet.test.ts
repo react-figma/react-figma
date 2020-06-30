@@ -4,15 +4,18 @@ describe('StyleSheet', () => {
     it('compose', () => {
         const style1 = {
             width: '100%',
-            backgroundColor: 'green',
+            backgroundColor: 'green'
         };
 
         const style2 = {
             height: '100%',
-            backgroundColor: 'red',
+            backgroundColor: 'red'
         };
 
-        const result = StyleSheet.compose(style1, style2);
+        const result = StyleSheet.compose(
+            style1,
+            style2
+        );
         expect(result).toMatchSnapshot();
     });
 
@@ -21,11 +24,11 @@ describe('StyleSheet', () => {
             listItem: {
                 flex: 1,
                 fontSize: 16,
-                color: 'white',
+                color: 'white'
             },
             selectedListItem: {
-                color: 'green',
-            },
+                color: 'green'
+            }
         });
 
         const result = StyleSheet.flatten([styles.listItem, styles.selectedListItem]);

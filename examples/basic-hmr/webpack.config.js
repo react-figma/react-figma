@@ -4,7 +4,7 @@ module.exports = configure({
     resolve: {
         alias: {
             'react-figma$': '../../../src',
-            'react-figma/rpc$': '../../../src/rpc',
-        },
-    },
+            'react-figma/rpc$': '../../../src/rpc'
+        }
+    }
 });

@@ -5,7 +5,7 @@ module.exports = configure({
         extensions: ['.tsx', '.ts', '.jsx', '.js'],
         alias: {
             'react-figma$': '../../../src',
-            'react-figma/rpc$': '../../../src/rpc',
-        },
-    },
+            'react-figma/rpc$': '../../../src/rpc'
+        }
+    }
 });

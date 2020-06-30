@@ -2,13 +2,13 @@ import * as React from 'react';
 import { DefaultShapeProps, CornerProps, StyleOf, InstanceItemProps, SelectionEventProps } from '../../types';
 import {
     LayoutStyleProperties,
-    transformLayoutStyleProperties,
+    transformLayoutStyleProperties
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import {
     GeometryStyleProperties,
-    transformGeometryStyleProperties,
+    transformGeometryStyleProperties
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
@@ -22,7 +22,7 @@ export interface EllipseProps extends DefaultShapeProps, CornerProps, InstanceIt
     arcData?: ArcData;
 }
 
-export const Ellipse: React.FC<EllipseProps> = (props) => {
+export const Ellipse: React.FC<EllipseProps> = props => {
     const nodeRef = React.useRef();
     useSelectionChange(nodeRef, props);
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
@@ -32,7 +32,7 @@ export const Ellipse: React.FC<EllipseProps> = (props) => {
         ...transformBlendProperties(style),
         ...transformGeometryStyleProperties('fills', style),
         ...props,
-        style,
+        style
     };
     const fills = useFillsPreprocessor(ellipseProps);
     const yogaChildProps = useYogaLayout({ nodeRef, ...ellipseProps });

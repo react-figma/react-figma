@@ -8,7 +8,7 @@ describe('applyStyleToYogaNode', () => {
     it('width', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            width: 200,
+            width: 200
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -16,7 +16,7 @@ describe('applyStyleToYogaNode', () => {
     it('width with percentage', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            width: '50%',
+            width: '50%'
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -24,7 +24,7 @@ describe('applyStyleToYogaNode', () => {
     it('flexDirection', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            flexDirection: 'row',
+            flexDirection: 'row'
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -32,7 +32,7 @@ describe('applyStyleToYogaNode', () => {
     it('alignItems', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            alignItems: 'center',
+            alignItems: 'center'
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -40,7 +40,7 @@ describe('applyStyleToYogaNode', () => {
     it('justifyContent', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            justifyContent: 'center',
+            justifyContent: 'center'
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -48,7 +48,7 @@ describe('applyStyleToYogaNode', () => {
     it('paddingTop', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            paddingTop: 20,
+            paddingTop: 20
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -56,7 +56,7 @@ describe('applyStyleToYogaNode', () => {
     it('marginLeft', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            marginLeft: 20,
+            marginLeft: 20
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -64,7 +64,7 @@ describe('applyStyleToYogaNode', () => {
     it('position: absolute', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            position: 'absolute',
+            position: 'absolute'
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -75,7 +75,7 @@ describe('applyStyleToYogaNode', () => {
             top: 10,
             left: 20,
             right: 30,
-            bottom: 40,
+            bottom: 40
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -83,7 +83,7 @@ describe('applyStyleToYogaNode', () => {
     it('flexGrow', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            flexGrow: 2,
+            flexGrow: 2
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -91,7 +91,7 @@ describe('applyStyleToYogaNode', () => {
     it('flexShrink', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            flexShrink: 0.5,
+            flexShrink: 0.5
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -99,7 +99,7 @@ describe('applyStyleToYogaNode', () => {
     it('flexBasis', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            flexBasis: 100,
+            flexBasis: 100
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -107,7 +107,7 @@ describe('applyStyleToYogaNode', () => {
     it('flexBasis with percentage', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            flexBasis: '50%',
+            flexBasis: '50%'
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -115,7 +115,7 @@ describe('applyStyleToYogaNode', () => {
     it('aspectRatio', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            aspectRatio: 1.25,
+            aspectRatio: 1.25
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -123,7 +123,7 @@ describe('applyStyleToYogaNode', () => {
     it('alignItems', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            alignItems: 'flex-end',
+            alignItems: 'flex-end'
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -131,7 +131,7 @@ describe('applyStyleToYogaNode', () => {
     it('flexWrap', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            flexWrap: 'wrap',
+            flexWrap: 'wrap'
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });
@@ -139,7 +139,7 @@ describe('applyStyleToYogaNode', () => {
     it('overflow', () => {
         const yogaNode = yoga.Node.create();
         applyStyleToYogaNodeConnected(yogaNode, {
-            overflow: 'hidden',
+            overflow: 'hidden'
         });
         expect(serializeYogaNodeStyle(yogaNode)).toMatchSnapshot();
     });

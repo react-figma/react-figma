@@ -16,6 +16,6 @@ export const transformLayoutStyleProperties = (styles?: Partial<LayoutStylePrope
         ...(styles.width ? { width: transformSize(styles.width) } : {}),
         ...(styles.height ? { height: transformSize(styles.height) } : {}),
         ...(styles.left ? { x: transformSize(styles.left) } : {}),
-        ...(styles.top ? { y: transformSize(styles.top) } : {}),
+        ...(styles.top ? { y: transformSize(styles.top) } : {})
     };
 };

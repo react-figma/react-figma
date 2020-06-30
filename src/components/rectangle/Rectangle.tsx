@@ -5,21 +5,21 @@ import {
     CornerProps,
     StyleOf,
     InstanceItemProps,
-    SelectionEventProps,
+    SelectionEventProps
 } from '../../types';
 import {
     LayoutStyleProperties,
-    transformLayoutStyleProperties,
+    transformLayoutStyleProperties
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import {
     GeometryStyleProperties,
-    transformGeometryStyleProperties,
+    transformGeometryStyleProperties
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 import {
     BorderStyleProperties,
-    transformBorderStyleProperties,
+    transformBorderStyleProperties
 } from '../../styleTransformers/transformBorderProperties';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import { StyleSheet } from '../..';
@@ -43,7 +43,7 @@ export interface RectangleProps
     children?: undefined;
 }
 
-export const Rectangle: React.FC<RectangleProps> = (props) => {
+export const Rectangle: React.FC<RectangleProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -56,7 +56,7 @@ export const Rectangle: React.FC<RectangleProps> = (props) => {
         ...transformBorderStyleProperties(style),
         ...transformBlendProperties(style),
         ...props,
-        style,
+        style
     };
     const fills = useFillsPreprocessor(rectangleProps);
     const yogaProps = useYogaLayout({ nodeRef, ...rectangleProps });

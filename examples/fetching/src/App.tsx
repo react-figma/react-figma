@@ -4,14 +4,14 @@ import useFetch = require('react-fetch-hook');
 
 const styles = StyleSheet.create({
     frame: {
-        padding: 50,
+        padding: 50
     },
     text: {
         marginTop: 50,
         fontSize: 48,
         fontFamily: 'Roboto',
-        minWidth: 500,
-    },
+        minWidth: 500
+    }
 });
 
 export const App = () => {
@@ -21,9 +21,9 @@ export const App = () => {
         <Page isCurrent>
             <Frame style={styles.frame}>
                 <Text style={styles.text}>{`isLoading: ${(isLoading && 'true') || 'false'}`}</Text>
-                <Text style={styles.text}>{`Name: ${
-                    data && data.data && `${data.data.first_name} ${data.data.last_name}`
-                }`}</Text>
+                <Text style={styles.text}>{`Name: ${data &&
+                    data.data &&
+                    `${data.data.first_name} ${data.data.last_name}`}`}</Text>
             </Frame>
         </Page>
     );

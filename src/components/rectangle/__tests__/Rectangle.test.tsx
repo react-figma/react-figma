@@ -7,7 +7,7 @@ describe('<Rectangle />', () => {
     beforeEach(() => {
         // @ts-ignore
         global.figma = createFigma({
-            simulateErrors: true,
+            simulateErrors: true
         });
     });
 
@@ -24,7 +24,7 @@ describe('<Rectangle />', () => {
                         width: 100,
                         height: 200,
                         top: 50,
-                        left: 20,
+                        left: 20
                     }}
                 />
             )
@@ -37,7 +37,7 @@ describe('<Rectangle />', () => {
             .create(
                 <Rectangle
                     style={{
-                        backgroundColor: '#1bff00',
+                        backgroundColor: '#1bff00'
                     }}
                 />
             )
@@ -52,7 +52,7 @@ describe('<Rectangle />', () => {
                     style={{
                         backgroundColor: '#ff8b29',
                         backgroundSize: 'cover',
-                        backgroundImage: './image.png',
+                        backgroundImage: './image.png'
                     }}
                 />
             )
@@ -68,7 +68,7 @@ describe('<Rectangle />', () => {
                         width: 200,
                         height: 100,
                         borderWidth: 10,
-                        borderColor: '#ff8b29',
+                        borderColor: '#ff8b29'
                     }}
                 />
             )

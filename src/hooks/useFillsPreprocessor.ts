@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { fillsPreprocessor } from '../helpers/fillsPreprocessor';
 
-export const useFillsPreprocessor = (props) => {
+export const useFillsPreprocessor = props => {
     const [fills, setFills] = React.useState(
         props.fills &&
-            props.fills.filter((fill) => {
+            props.fills.filter(fill => {
                 return fill.type !== 'IMAGE';
             })
     );

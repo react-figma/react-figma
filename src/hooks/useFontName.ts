@@ -8,7 +8,7 @@ export const useFontName = (fontName: FontName) => {
         const loader = async () => {
             const fonts = await api.listAvailableFontsAsync();
             const findedFont = fonts.find(
-                (font) =>
+                font =>
                     font.fontName.family === fontName.family && isEqualFontStyle(font.fontName.style, fontName.style)
             );
             if (!findedFont) {
