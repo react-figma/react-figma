@@ -9,4 +9,4 @@ authorURL: http://twitter.com/losyear
 React Figma gains support of [React DevTools](https://github.com/facebook/react/tree/master/packages/react-devtools) electron app.
 Now developer experience has become even better.
 
-See our docs for [a guide](docs/devtools.md).
+See our docs for [a guide](docs/devtools).
