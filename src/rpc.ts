@@ -174,7 +174,7 @@ export const api = createPluginAPI(
         },
 
         highlightNativeElement(_node) {
-             const node = transformToNode(_node);
+            const node = transformToNode(_node);
 
             if (!node || node.type === 'DOCUMENT') {
                 return;
