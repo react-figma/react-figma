@@ -173,8 +173,8 @@ export const api = createPluginAPI(
             figma.currentPage = node;
         },
 
-        highlightNativeElement(id: string) {
-            const node = figma.getNodeById(id);
+        highlightNativeElement(_node) {
+             const node = transformToNode(_node);
 
             if (!node || node.type === 'DOCUMENT') {
                 return;

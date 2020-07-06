@@ -30,7 +30,7 @@ export const connectToDevTools = () => {
             }
 
             if (nodes !== null && nodes[0]) {
-                api.highlightNativeElement(nodes[0].id);
+                api.highlightNativeElement(nodes[0]);
             }
         });
     });
