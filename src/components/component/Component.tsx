@@ -10,8 +10,13 @@ import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
-export interface ComponentProps extends DefaultContainerProps, SelectionEventProps, AutoLayoutProps {
+export interface ComponentProps
+    extends DefaultContainerProps,
+        SelectionEventProps,
+        AutoLayoutProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
     nodeRef?: any;
 }
@@ -27,6 +32,8 @@ export const Component: React.FC<ComponentProps> = props => {
         style
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...componentProps });
+
+    useOnLayoutHandler(yogaChildProps, props);
 
     return <component {...componentProps} {...yogaChildProps} innerRef={nodeRef} />;
 };

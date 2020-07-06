@@ -22,13 +22,15 @@ import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
 export interface VectorProps
     extends VectorNodeProps,
         DefaultShapeProps,
         CornerProps,
         InstanceItemProps,
-        SelectionEventProps {
+        SelectionEventProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties & GeometryStyleProperties>;
     children?: undefined;
 }
@@ -49,5 +51,6 @@ export const Vector: React.FC<VectorProps> = props => {
     };
     const fills = useFillsPreprocessor(vectorProps);
     const yogaProps = useYogaLayout({ nodeRef, ...vectorProps });
+    useOnLayoutHandler(yogaProps, props);
     return <vector {...vectorProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };

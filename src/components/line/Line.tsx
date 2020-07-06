@@ -21,8 +21,15 @@ import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
-export interface LineProps extends DefaultShapeProps, CornerProps, BorderProps, InstanceItemProps, SelectionEventProps {
+export interface LineProps
+    extends DefaultShapeProps,
+        CornerProps,
+        BorderProps,
+        InstanceItemProps,
+        SelectionEventProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
 }
 
@@ -42,6 +49,7 @@ export const Line: React.FC<LineProps> = props => {
     };
 
     const yogaProps = useYogaLayout({ nodeRef, ...lineProps });
+    useOnLayoutHandler(yogaProps, props);
 
     return <line {...lineProps} {...yogaProps} innerRef={nodeRef} />;
 };

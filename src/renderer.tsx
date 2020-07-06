@@ -165,11 +165,7 @@ export const render = async (jsx: any) => {
         didNotFindHydratableTextInstance: () => {},
         didNotHydrateInstance: () => {},
         commitMount: (instance, type) => {},
-        commitHydratedContainer: container => {
-            /*container.children.forEach(child => {
-                updateYogaRoot(child);
-            });*/
-        }
+        commitHydratedContainer: () => {}
     };
 
     const reconciler = createReconciler(HostConfig);

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformBorderProperties borderBottomLeftRadius 1`] = `
+Object {
+  "bottomLeftRadius": 5,
+}
+`;
+
+exports[`transformBorderProperties borderBottomRightRadius 1`] = `
+Object {
+  "bottomRightRadius": 5,
+}
+`;
+
+exports[`transformBorderProperties borderColor 1`] = `
+Object {
+  "strokes": Array [
+    Object {
+      "color": Object {
+        "b": 1,
+        "g": 1,
+        "r": 1,
+      },
+      "opacity": 1,
+      "type": "SOLID",
+    },
+  ],
+}
+`;
+
+exports[`transformBorderProperties borderRadius 1`] = `
+Object {
+  "cornerRadius": 5,
+}
+`;
+
+exports[`transformBorderProperties borderTopLeftRadius 1`] = `
+Object {
+  "topLeftRadius": 5,
+}
+`;
+
+exports[`transformBorderProperties borderTopRightRadius 1`] = `
+Object {
+  "topRightRadius": 5,
+}
+`;
+
+exports[`transformBorderProperties borderWidth 1`] = `
+Object {
+  "strokeWeight": 2,
+}
+`;

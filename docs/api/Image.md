@@ -17,6 +17,7 @@ Renders Figma rectangle node with background.
 | `style`    | [`Style`](/docs/styling)   |         |                              |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
+| `onLayout` | `Function` |  | Event is fired once the layout has been calculated  |
 
 ```typescript
 type ResizeMode = 'contain' | 'cover' | 'stretch' | 'center' | 'repeat' | 'none';
