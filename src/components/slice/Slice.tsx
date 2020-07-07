@@ -6,9 +6,11 @@ import {
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { StyleSheet } from '../..';
+import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 
-export interface SliceProps extends BaseNodeProps, SceneNodeProps, LayoutProps, ExportProps {
-    style?: StyleOf<LayoutStyleProperties>;
+export interface SliceProps extends BaseNodeProps, SceneNodeProps, LayoutProps, ExportProps, OnLayoutHandlerProps {
+    style?: StyleOf<LayoutStyleProperties & YogaStyleProperties>;
     children?: undefined;
 }
 
@@ -22,7 +24,8 @@ export const Slice: React.FC<SliceProps> = props => {
         ...props,
         style
     };
-    const yogaChildProps = useYogaLayout({ nodeRef, ...sliceProps });
+    const yogaProps = useYogaLayout({ nodeRef, ...sliceProps });
+    useOnLayoutHandler(yogaProps, props);
 
-    return <slice {...sliceProps} {...yogaChildProps} innerRef={nodeRef} />;
+    return <slice {...sliceProps} {...yogaProps} innerRef={nodeRef} />;
 };
