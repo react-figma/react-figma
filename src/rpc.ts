@@ -180,7 +180,15 @@ export const api = createPluginAPI(
                 return;
             }
 
-            figma.currentPage = findRoot(node);
+            if(figma.currentPage.selection.includes(node)){
+                return;
+            }
+
+            const nodePage = findRoot(node);
+
+            if (figma.currentPage !== nodePage) {
+                figma.currentPage = nodePage;
+            }
 
             if (node.type !== 'PAGE') {
                 figma.viewport.scrollAndZoomIntoView([node]);
