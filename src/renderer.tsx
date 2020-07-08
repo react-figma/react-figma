@@ -171,7 +171,7 @@ export const render = async (jsx: any) => {
 
     reconciler.injectIntoDevTools({
         bundleType: 1, // 0 for PROD, 1 for DEV
-        version: '0.1.4',
+        version: '0.1.6',
         rendererPackageName: 'react-figma'
     });
 
