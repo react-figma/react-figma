@@ -1,7 +1,6 @@
 import * as nanoid from 'nanoid/non-secure';
 
-// * Development version of react-reconciler can't be used inside Figma realm.
-import * as createReconciler from 'react-reconciler/cjs/react-reconciler.production.min';
+import * as createReconciler from 'react-reconciler';
 
 import { setTextChildren } from './hooks/useTextChildren';
 import { api } from './rpc';
