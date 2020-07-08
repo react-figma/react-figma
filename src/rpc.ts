@@ -180,7 +180,7 @@ export const api = createPluginAPI(
                 return;
             }
 
-            if(figma.currentPage.selection.includes(node)){
+            if (figma.currentPage.selection.includes(node)) {
                 return;
             }
 
