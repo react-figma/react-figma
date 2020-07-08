@@ -33,7 +33,7 @@ export const useCurrentPageChange = (
     }, [_isCurrent]);
 };
 
-export const Page: React.FC<PageProps> = props => {
+const Page: React.FC<PageProps> = props => {
     const nodeRef = React.useRef();
     const { onCurrentChange, ...otherProps } = props;
     useCurrentPageChange(nodeRef, onCurrentChange, props.isCurrent);
@@ -43,3 +43,5 @@ export const Page: React.FC<PageProps> = props => {
 
     return <page {...otherProps} {...yogaChildProps} innerRef={nodeRef} />;
 };
+
+export { Page };

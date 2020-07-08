@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Getting Started": ["installation", "configure", "running", "hmr"],
+    "Getting Started": ["installation", "configure", "running", "hmr", "devtools"],
     "Docs": ["API","architecture", "roadmap"],
     "API": [
       "api/render",

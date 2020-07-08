@@ -35,7 +35,7 @@ export interface VectorProps
     children?: undefined;
 }
 
-export const Vector: React.FC<VectorProps> = props => {
+const Vector: React.FC<VectorProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -54,3 +54,5 @@ export const Vector: React.FC<VectorProps> = props => {
     useOnLayoutHandler(yogaProps, props);
     return <vector {...vectorProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };
+
+export { Vector };

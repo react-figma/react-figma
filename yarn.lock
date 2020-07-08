@@ -4297,6 +4297,14 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-devtools-core@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/react-devtools-core/-/react-devtools-core-4.7.0.tgz#71e89087352abe60c160dfb60a7fa700f612af7a"
+  integrity sha512-6w/e0nkV0gogUnfz+9Q3yiMtYYol9T+oD27UIf4XWmula1KvSTTkQ9DnzLOqSSch8d1YzNWbTxguuNJMof58ww==
+  dependencies:
+    shell-quote "^1.6.1"
+    ws "^7"
+
 react-fetch-hook@1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/react-fetch-hook/-/react-fetch-hook-1.7.2.tgz#5aaddea774746f8e19fc3157248575d140d92108"
@@ -4742,6 +4750,11 @@ shebang-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
   integrity sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=
+
+shell-quote@^1.6.1:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
+  integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
 
 shellwords@^0.1.1:
   version "0.1.1"
@@ -5699,6 +5712,11 @@ ws@^5.2.0:
   integrity sha512-jaHFD6PFv6UgoIVda6qZllptQsMlDEJkTQcybzzXDYM1XO9Y8em691FGMPmM46WGyLU4z9KMgQN+qrux/nhlHA==
   dependencies:
     async-limiter "~1.0.0"
+
+ws@^7:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.3.0.tgz#4b2f7f219b3d3737bc1a2fbf145d825b94d38ffd"
+  integrity sha512-iFtXzngZVXPGgpTlP1rBqsUK82p9tKqsWRPg5L56egiljujJT3vGAYnHANvFxBieXrTFavhzhxW52jnaWV+w2w==
 
 xml-name-validator@^3.0.0:
   version "3.0.0"

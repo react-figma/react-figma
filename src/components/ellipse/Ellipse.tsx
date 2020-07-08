@@ -28,7 +28,7 @@ export interface EllipseProps
     arcData?: ArcData;
 }
 
-export const Ellipse: React.FC<EllipseProps> = props => {
+const Ellipse: React.FC<EllipseProps> = props => {
     const nodeRef = React.useRef();
     useSelectionChange(nodeRef, props);
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
@@ -46,3 +46,5 @@ export const Ellipse: React.FC<EllipseProps> = props => {
 
     return <ellipse {...ellipseProps} {...yogaChildProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };
+
+export { Ellipse };

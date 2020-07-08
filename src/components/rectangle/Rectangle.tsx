@@ -45,7 +45,7 @@ export interface RectangleProps
     children?: undefined;
 }
 
-export const Rectangle: React.FC<RectangleProps> = props => {
+const Rectangle: React.FC<RectangleProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -67,3 +67,5 @@ export const Rectangle: React.FC<RectangleProps> = props => {
 
     return <rectangle {...rectangleProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };
+
+export { Rectangle };

@@ -5,7 +5,7 @@ import { FrameNodeProps } from '../frame/Frame';
 
 export type ViewProps = FrameNodeProps | RectangleProps;
 
-export const View: React.FC<ViewProps> = props => {
+const View: React.FC<ViewProps> = props => {
     if (props.children) {
         return (
             <Frame
@@ -17,3 +17,5 @@ export const View: React.FC<ViewProps> = props => {
         return <Rectangle {...(props as RectangleProps)} />;
     }
 };
+
+export { View };

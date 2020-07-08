@@ -24,7 +24,7 @@ export interface GroupNodeProps
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
 }
 
-export const Group: React.FC<GroupNodeProps> = props => {
+const Group: React.FC<GroupNodeProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -43,3 +43,5 @@ export const Group: React.FC<GroupNodeProps> = props => {
 
     return <group {...groupProps} {...yogaChildProps} innerRef={nodeRef} />;
 };
+
+export { Group };

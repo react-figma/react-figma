@@ -171,6 +171,29 @@ export const api = createPluginAPI(
         setCurrentPage(_node) {
             const node = transformToNode(_node);
             figma.currentPage = node;
+        },
+
+        highlightNativeElement(_node) {
+            const node = transformToNode(_node);
+
+            if (!node || node.type === 'DOCUMENT') {
+                return;
+            }
+
+            if (figma.currentPage.selection.includes(node)) {
+                return;
+            }
+
+            const nodePage = findRoot(node);
+
+            if (figma.currentPage !== nodePage) {
+                figma.currentPage = nodePage;
+            }
+
+            if (node.type !== 'PAGE') {
+                figma.viewport.scrollAndZoomIntoView([node]);
+                figma.currentPage.selection = [node];
+            }
         }
     },
     {

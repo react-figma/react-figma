@@ -35,7 +35,7 @@ export interface StarProps
     children?: undefined;
 }
 
-export const Star: React.FC<StarProps> = props => {
+const Star: React.FC<StarProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -55,3 +55,5 @@ export const Star: React.FC<StarProps> = props => {
 
     return <star {...starProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
 };
+
+export { Star };

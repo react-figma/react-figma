@@ -33,7 +33,7 @@ export interface LineProps
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
 }
 
-export const Line: React.FC<LineProps> = props => {
+const Line: React.FC<LineProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -53,3 +53,5 @@ export const Line: React.FC<LineProps> = props => {
 
     return <line {...lineProps} {...yogaProps} innerRef={nodeRef} />;
 };
+
+export { Line };
