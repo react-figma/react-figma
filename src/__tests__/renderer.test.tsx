@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from '../renderer';
-import { Rectangle, Page, Text, Group, Frame, Svg, createComponent } from '..';
+import { Rectangle, Page, Text, Group, Frame, Svg, createComponent, View } from '..';
 import { createFigma } from 'figma-api-stub';
 import { Subject } from 'rxjs';
 import { delay, take } from 'rxjs/operators';
@@ -513,5 +513,39 @@ describe('renderer', () => {
         );
         await wait();
         expect(removeMeta(figma.root)).toMatchSnapshot();
+    });
+
+    it('Removing nodes at runtime', async () => {
+        const waiting = new Subject();
+
+        const Component = () => {
+            const [flag, setFlag] = React.useState(false);
+            React.useEffect(() => {
+                figma.getNodeById('1:2').remove();
+                setTimeout(() => {
+                    setFlag(true);
+                    waiting.next();
+                });
+            }, []);
+            return <View name={flag ? 'name1' : 'name2'} />;
+        };
+
+        await render(
+            <Page>
+                <Component />
+            </Page>
+        );
+
+        return new Promise(resolve => {
+            waiting
+                .pipe(
+                    take(1),
+                    delay(0)
+                )
+                .subscribe(() => {
+                    expect(removeMeta(figma.root)).toMatchSnapshot();
+                    resolve();
+                });
+        });
     });
 });

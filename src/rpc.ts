@@ -1,14 +1,15 @@
 import { createPluginAPI, createUIAPI } from 'figma-jsonrpc';
-import { isReactFigmaNode } from './isReactFigmaNode';
+import { isReactFigmaNode } from './helpers/isReactFigmaNode';
 import * as renderers from './renderers';
 import * as nanoid from 'nanoid/non-secure';
 import { Subject } from 'rxjs';
+import { saveGetPluginData } from './helpers/saveGetPluginData';
 
 const getInitialTree = node => {
     return {
         id: node.id,
         type: node.type,
-        reactId: node.getPluginData('reactId'),
+        reactId: saveGetPluginData('reactId')(node),
         children:
             node.children && node.children.filter(item => isReactFigmaNode(item)).map(item => getInitialTree(item))
     };
@@ -37,10 +38,10 @@ const transformNodesToTree = node => {
         width: node.width,
         height: node.height,
         style:
-            (node.getPluginData && node.getPluginData('reactStyle') && JSON.parse(node.getPluginData('reactStyle'))) ||
+            (saveGetPluginData('reactStyle')(node) && JSON.parse(saveGetPluginData('reactStyle')(node) || '')) ||
             undefined,
         children: children && children.length > 0 ? children : undefined,
-        reactId: node.getPluginData('reactId'),
+        reactId: saveGetPluginData('reactId')(node),
         nodeBatchId
     };
 };
@@ -57,7 +58,7 @@ const renderInstance = (type, node, props, reactId) => {
 const cleanGroupStubElement = parentNode => {
     if (parentNode.type === 'GROUP') {
         parentNode.children.forEach(child => {
-            if (child.getPluginData('isGroupStubElement')) {
+            if (saveGetPluginData('isGroupStubElement')(child)) {
                 child.remove();
             }
         });
@@ -208,7 +209,7 @@ export const setupMainThread = () => {
     });
 
     figma.on('selectionchange', () => {
-        const reactIds = figma.currentPage.selection.map(node => node.getPluginData('reactId'));
+        const reactIds = figma.currentPage.selection.map(saveGetPluginData('reactId'));
         uiApi.selectionChange(reactIds);
     });
 };

@@ -243,6 +243,32 @@ ChildrenMixinStub {
 }
 `;
 
+exports[`renderer Removing nodes at runtime 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [],
+      "exportSettings": Array [],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;
+
 exports[`renderer Svg hydration 1`] = `
 ChildrenMixinStub {
   "children": Array [
