@@ -1,4 +1,4 @@
-export const saveGetPluginData = (key: string) => (node: BaseNodeMixin | undefined): string | void => {
+export const safeGetPluginData = (key: string) => (node: BaseNodeMixin | undefined): string | void => {
     if (!node || node.removed || !node.getPluginData) {
         return;
     }

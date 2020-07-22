@@ -7,7 +7,7 @@ import { frameMixin } from '../mixins/frameMixin';
 import { SvgNodeProps } from '../components/svg/Svg';
 import { hashCode } from '../helpers/hashCode';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
-import { saveGetPluginData } from '../helpers/saveGetPluginData';
+import { safeGetPluginData } from '../helpers/safeGetPluginData';
 
 const createNodeFromSvg = source => {
     const node = figma.createNodeFromSvg(source);
@@ -18,7 +18,7 @@ const createNodeFromSvg = source => {
 export const svg = node => (props: SvgNodeProps) => {
     let frameNode = node || props.node || createNodeFromSvg(props.source);
 
-    const savedHash = saveGetPluginData('svgHash')(frameNode);
+    const savedHash = safeGetPluginData('svgHash')(frameNode);
     if (savedHash != hashCode(props.source)) {
         const newSvg = figma.createNodeFromSvg(props.source);
         layoutMixin(newSvg)(props);

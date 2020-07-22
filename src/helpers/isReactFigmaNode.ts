@@ -1,3 +1,3 @@
-import { saveGetPluginData } from './saveGetPluginData';
+import { safeGetPluginData } from './safeGetPluginData';
 
-export const isReactFigmaNode = saveGetPluginData('isReactFigmaNode');
+export const isReactFigmaNode = safeGetPluginData('isReactFigmaNode');

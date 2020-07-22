@@ -3,13 +3,13 @@ import { isReactFigmaNode } from './helpers/isReactFigmaNode';
 import * as renderers from './renderers';
 import * as nanoid from 'nanoid/non-secure';
 import { Subject } from 'rxjs';
-import { saveGetPluginData } from './helpers/saveGetPluginData';
+import { safeGetPluginData } from './helpers/safeGetPluginData';
 
 const getInitialTree = node => {
     return {
         id: node.id,
         type: node.type,
-        reactId: saveGetPluginData('reactId')(node),
+        reactId: safeGetPluginData('reactId')(node),
         children:
             node.children && node.children.filter(item => isReactFigmaNode(item)).map(item => getInitialTree(item))
     };
@@ -38,10 +38,10 @@ const transformNodesToTree = node => {
         width: node.width,
         height: node.height,
         style:
-            (saveGetPluginData('reactStyle')(node) && JSON.parse(saveGetPluginData('reactStyle')(node) || '')) ||
+            (safeGetPluginData('reactStyle')(node) && JSON.parse(safeGetPluginData('reactStyle')(node) || '')) ||
             undefined,
         children: children && children.length > 0 ? children : undefined,
-        reactId: saveGetPluginData('reactId')(node),
+        reactId: safeGetPluginData('reactId')(node),
         nodeBatchId
     };
 };
@@ -58,7 +58,7 @@ const renderInstance = (type, node, props, reactId) => {
 const cleanGroupStubElement = parentNode => {
     if (parentNode.type === 'GROUP') {
         parentNode.children.forEach(child => {
-            if (saveGetPluginData('isGroupStubElement')(child)) {
+            if (safeGetPluginData('isGroupStubElement')(child)) {
                 child.remove();
             }
         });
@@ -209,7 +209,7 @@ export const setupMainThread = () => {
     });
 
     figma.on('selectionchange', () => {
-        const reactIds = figma.currentPage.selection.map(saveGetPluginData('reactId'));
+        const reactIds = figma.currentPage.selection.map(safeGetPluginData('reactId'));
         uiApi.selectionChange(reactIds);
     });
 };
