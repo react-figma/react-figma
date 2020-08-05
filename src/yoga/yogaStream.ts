@@ -1,5 +1,5 @@
 import { Observable, Subject } from 'rxjs';
-import { concatMap, delay } from 'rxjs/operators';
+import { delay, exhaustMap } from 'rxjs/operators';
 import { yogaHandler } from './yogaHandler';
 import { api } from '../rpc';
 
@@ -21,7 +21,7 @@ export const updateYogaNode = (node: any) => {
 $yogaRoot
     .pipe(
         delay(0),
-        concatMap((instance: any) => {
+        exhaustMap((instance: any) => {
             return new Observable(subscriber => {
                 const handleYogaProps = newProps => {
                     const { children: yogaChildren, nodeBatchId, reactId, ...yogaPropsWithoutChildren } = newProps;
