@@ -11,8 +11,12 @@
     "rootDirs": ["src"],
     "baseUrl": "src",
     "skipLibCheck": true,
-    "declaration": true
+    "declaration": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@figma"
+    ]
   },
-  "include": ["src/**/*", "figma.d.ts", "jsx-interfaces.d.ts", "images.d.ts"],
+  "include": ["src/**/*", "jsx-interfaces.d.ts", "images.d.ts"],
   "exclude": ["node_modules", "**/__tests__/**"]
 }
