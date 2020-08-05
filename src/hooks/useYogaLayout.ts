@@ -79,7 +79,15 @@ export const useYogaLayout = props => {
     React.useEffect(() => {
         const instance = nodeRef.current;
         updateYogaNode(instance);
-    }, [props.children, props.width, props.height, props.characters, props.fontSize, ...flatYogaStyle(props.style)]);
+    }, [
+        props.children,
+        props.width,
+        props.height,
+        props.characters,
+        props.fontSize,
+        props.loadedFont,
+        ...flatYogaStyle(props.style)
+    ]);
 
     return yogaProps;
 };
