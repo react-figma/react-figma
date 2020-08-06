@@ -15,7 +15,7 @@ A React renderer into [Figma](https://www.figma.com). Use React components as a 
 * ♻️ Hydration and [HMR](https://webpack.js.org/concepts/hot-module-replacement/) support.
 * ⚙️ Built on [Figma Plugin API](https://www.figma.com/plugin-docs/intro/).
 
-<p align="center"><img src="./demo.gif" width="800"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/1270648/89524327-09365c80-d7ed-11ea-9cb1-08f6fd56a350.gif" width="800"></p>
 
 Example of code:
 
