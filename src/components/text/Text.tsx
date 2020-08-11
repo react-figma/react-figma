@@ -62,7 +62,7 @@ const Text: React.FC<TextProps> = props => {
     };
     const hasDefinedWidth = textProps.width || style.maxWidth;
     const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });
-    const yogaProps = useYogaLayout({ nodeRef, ...textProps });
+    const yogaProps = useYogaLayout({ nodeRef, ...textProps, loadedFont });
     useOnLayoutHandler(yogaProps, props);
 
     return (
