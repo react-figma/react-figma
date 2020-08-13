@@ -1,7 +1,7 @@
 import { Observable, Subject } from 'rxjs';
-import { delay, exhaustMap } from 'rxjs/operators';
+import { delay, exhaustMap, map, tap } from 'rxjs/operators';
 import { yogaHandler } from './yogaHandler';
-import { api } from '../rpc';
+import { $updateYogaReactId, api } from '../rpc';
 
 const $yogaRoot = new Subject();
 
@@ -17,6 +17,18 @@ export const updateYogaNode = (node: any) => {
     }
     updateYogaRoot(node);
 };
+
+const isReactFigmaExperimental = process.env.REACT_FIGMA_EXPERIMENTAL;
+
+if (isReactFigmaExperimental) {
+    console.log('REACT_FIGMA_EXPERIMENTAL');
+    $updateYogaReactId
+        .pipe(
+            map(reactId => ({ reactId })),
+            tap(val => console.log('$updateYogaReactId', val))
+        )
+        .subscribe($yogaRoot);
+}
 
 $yogaRoot
     .pipe(

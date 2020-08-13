@@ -218,6 +218,8 @@ export const $currentPageTempId = new Subject();
 
 export const $selectionReactIds = new Subject();
 
+export const $updateYogaReactId = new Subject();
+
 // those methods will be executed in the Figma UI,
 // regardless of where they are called from
 export const uiApi = createUIAPI(
@@ -227,6 +229,9 @@ export const uiApi = createUIAPI(
         },
         selectionChange: reactIds => {
             $selectionReactIds.next(reactIds);
+        },
+        updateYogaNode: reactId => {
+            $updateYogaReactId.next(reactId);
         }
     },
     {
