@@ -9,6 +9,8 @@ import { blendMixin } from '../mixins/blendMixin';
 import { isValidSize } from '../helpers/isValidSize';
 import { isEqualFontStyle } from '../helpers/isEqualFontStyle';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
+import { uiApi } from '../rpc';
+import { safeGetPluginData } from '../helpers/safeGetPluginData';
 
 const textNodePropsAssign = propsAssign<TextProps, TextProps>(
     [
@@ -73,7 +75,15 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
         } else {
             textNode.textAutoResize = props.textAutoResize || 'WIDTH_AND_HEIGHT';
         }
+        const oldCharacters = textNode.characters;
+        const oldFontSize = textNode.fontSize;
         textNodePropsAssign(textNode)(props);
+        if (oldCharacters !== textNode.characters || oldFontSize !== textNode.fontSize) {
+            const reactId = safeGetPluginData('reactId')(textNode);
+            if (reactId) {
+                uiApi.updateYogaNode(reactId);
+            }
+        }
     }
 
     return textNode;
