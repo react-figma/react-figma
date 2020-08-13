@@ -12,6 +12,8 @@ import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 import { uiApi } from '../rpc';
 import { safeGetPluginData } from '../helpers/safeGetPluginData';
 
+const isReactFigmaExperimental = process.env.REACT_FIGMA_EXPERIMENTAL;
+
 const textNodePropsAssign = propsAssign<TextProps, TextProps>(
     [
         'characters',
@@ -75,14 +77,18 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
         } else {
             textNode.textAutoResize = props.textAutoResize || 'WIDTH_AND_HEIGHT';
         }
-        const oldCharacters = textNode.characters;
-        const oldFontSize = textNode.fontSize;
-        textNodePropsAssign(textNode)(props);
-        if (oldCharacters !== textNode.characters || oldFontSize !== textNode.fontSize) {
-            const reactId = safeGetPluginData('reactId')(textNode);
-            if (reactId) {
-                uiApi.updateYogaNode(reactId);
+        if (isReactFigmaExperimental) {
+            const oldCharacters = textNode.characters;
+            const oldFontSize = textNode.fontSize;
+            textNodePropsAssign(textNode)(props);
+            if (oldCharacters !== textNode.characters || oldFontSize !== textNode.fontSize) {
+                const reactId = safeGetPluginData('reactId')(textNode);
+                if (reactId) {
+                    uiApi.updateYogaNode(reactId);
+                }
             }
+        } else {
+            textNodePropsAssign(textNode)(props);
         }
     }
 
