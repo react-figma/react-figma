@@ -64,7 +64,7 @@ export const useYogaLayout = props => {
         const instance = nodeRef.current;
         const subject = $updatedYogaCoords.pipe(
             filter((message: any) => {
-                return message.reactId === instance.reactId;
+                return instance && message.reactId === instance.reactId;
             }),
             map((message: any) => message.props)
         );

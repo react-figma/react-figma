@@ -2,6 +2,15 @@ import * as React from 'react';
 const renderer = require('react-test-renderer');
 import { Rectangle } from '../Rectangle';
 import { createFigma } from 'figma-api-stub';
+import { wait } from '../../../helpers/wait';
+import { render } from '../../../renderer';
+import { removeNodeBatchId } from '../../../helpers/removeNodeBatchId';
+import { removeTempId } from '../../../helpers/removeTempId';
+import { Page } from '../../..';
+
+const removeMeta = node => {
+    return removeNodeBatchId(removeTempId(node));
+};
 
 describe('<Rectangle />', () => {
     beforeEach(() => {
@@ -74,5 +83,49 @@ describe('<Rectangle />', () => {
             )
             .toJSON();
         expect(tree).toMatchSnapshot();
+    });
+
+    it('Loading backgroundImage', async () => {
+        // @ts-ignore
+        global.figma.createImage = () => {
+            return {
+                hash: '<image hash>'
+            };
+        };
+
+        // @ts-ignore
+        global.FileReader = () => {
+            const obj: any = {
+                readAsDataURL: () => {},
+                readAsArrayBuffer: () => {}
+            };
+
+            setTimeout(() => {
+                obj.result = '<test hash>';
+                if (obj.onloadend) {
+                    obj.onloadend();
+                }
+                if (obj.onload) {
+                    obj.onload();
+                }
+            });
+
+            return obj;
+        };
+
+        await render(
+            <Page>
+                <Rectangle
+                    style={{
+                        backgroundImage: 'https://avatars1.githubusercontent.com/u/54585419'
+                    }}
+                />
+            </Page>
+        );
+        await wait();
+        await wait();
+        await wait();
+        await wait();
+        expect(removeMeta(figma.root)).toMatchSnapshot();
     });
 });
