@@ -22,6 +22,7 @@ import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useImageHash } from '../../hooks/useImageHash';
 
 export interface LineProps
     extends DefaultShapeProps,
@@ -40,9 +41,11 @@ const Line: React.FC<LineProps> = props => {
 
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
+    const imageHash = useImageHash(style.backgroundImage);
+
     const lineProps = {
         ...transformLayoutStyleProperties(style),
-        ...transformGeometryStyleProperties('fills', style),
+        ...transformGeometryStyleProperties('fills', style, imageHash),
         ...transformBlendProperties(style),
         ...props,
         style

@@ -113,11 +113,6 @@ exports[`<Frame /> Frame with image background 1`] = `
         "opacity": 1,
         "type": "SOLID",
       },
-      Object {
-        "image": "./image.png",
-        "scaleMode": "FILL",
-        "type": "IMAGE",
-      },
     ]
   }
   innerRef={

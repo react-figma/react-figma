@@ -29,6 +29,7 @@ import {
 } from '../../styleTransformers/transformBorderProperties';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useImageHash } from '../../hooks/useImageHash';
 
 interface Preset {
     name: string;
@@ -231,12 +232,14 @@ const Frame: React.FC<FrameNodeProps> = props => {
 
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
+    const imageHash = useImageHash(style.backgroundImage);
+
     const { preset, ...propWithoutPreset } = props;
     const frameProps = {
         ...(preset || {}),
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
-        ...transformGeometryStyleProperties('backgrounds', style),
+        ...transformGeometryStyleProperties('backgrounds', style, imageHash),
         ...transformBorderStyleProperties(style),
         ...propWithoutPreset,
         style

@@ -16,7 +16,6 @@ import {
     transformGeometryStyleProperties
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
-import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 import {
     BorderStyleProperties,
     transformBorderStyleProperties
@@ -27,6 +26,8 @@ import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { filter } from 'rxjs/operators';
+import { useImageHash } from '../../hooks/useImageHash';
 
 export interface RectangleProps
     extends DefaultShapeProps,
@@ -52,20 +53,21 @@ const Rectangle: React.FC<RectangleProps> = props => {
 
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
+    const imageHash = useImageHash(style.backgroundImage);
+
     const rectangleProps = {
         ...transformLayoutStyleProperties(style),
-        ...transformGeometryStyleProperties('fills', style),
+        ...transformGeometryStyleProperties('fills', style, imageHash),
         ...transformBorderStyleProperties(style),
         ...transformBlendProperties(style),
         ...props,
         style
     };
-    const fills = useFillsPreprocessor(rectangleProps);
     const yogaProps = useYogaLayout({ nodeRef, ...rectangleProps });
 
     useOnLayoutHandler(yogaProps, props);
 
-    return <rectangle {...rectangleProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
+    return <rectangle {...rectangleProps} {...yogaProps} innerRef={nodeRef} />;
 };
 
 export { Rectangle };
