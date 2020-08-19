@@ -2,7 +2,6 @@
 
 exports[`<Image /> Image with resizeMode prop 1`] = `
 <rectangle
-  fills={Array []}
   height={200}
   innerRef={
     Object {
@@ -25,7 +24,6 @@ exports[`<Image /> Image with resizeMode prop 1`] = `
 
 exports[`<Image /> Image with source and layout style properties 1`] = `
 <rectangle
-  fills={Array []}
   height={200}
   innerRef={
     Object {

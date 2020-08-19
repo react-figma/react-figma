@@ -52,6 +52,7 @@ Components use CSS styles + flexbox layout.
 | `aspectRatio`             | `number`                                                                                    | ✅          |
 | `zIndex`                  | `number`                                                                                    | ⛔          |
 | `backfaceVisibility`      | `visible` &#124; `hidden`                                                                   | ⛔️         |
+| `backgroundImage`         | `string` &#124; `{uri: string}   `                                                               | ✅          |
 | `backgroundColor`         | [`Color`](colors.md)                                                                        | ✅          |
 | `borderColor`             | [`Color`](colors.md)                                                                        | ✅          |
 | `borderTopColor`          | [`Color`](colors.md)                                                                        | ⛔          |

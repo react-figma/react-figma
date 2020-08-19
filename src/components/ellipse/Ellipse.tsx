@@ -10,12 +10,12 @@ import {
     GeometryStyleProperties,
     transformGeometryStyleProperties
 } from '../../styleTransformers/transformGeometryStyleProperties';
-import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useImageHash } from '../../hooks/useImageHash';
 
 export interface EllipseProps
     extends DefaultShapeProps,
@@ -33,18 +33,19 @@ const Ellipse: React.FC<EllipseProps> = props => {
     useSelectionChange(nodeRef, props);
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
+    const imageHash = useImageHash(style.backgroundImage);
+
     const ellipseProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
-        ...transformGeometryStyleProperties('fills', style),
+        ...transformGeometryStyleProperties('fills', style, imageHash),
         ...props,
         style
     };
-    const fills = useFillsPreprocessor(ellipseProps);
     const yogaChildProps = useYogaLayout({ nodeRef, ...ellipseProps });
     useOnLayoutHandler(yogaChildProps, props);
 
-    return <ellipse {...ellipseProps} {...yogaChildProps} {...(fills && { fills })} innerRef={nodeRef} />;
+    return <ellipse {...ellipseProps} {...yogaChildProps} innerRef={nodeRef} />;
 };
 
 export { Ellipse };
