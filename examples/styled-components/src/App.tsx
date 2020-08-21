@@ -4,7 +4,7 @@ import { Page, Frame } from 'react-figma';
 import styled from './styled';
 
 // Cross-platform component imported:
-import Swatch from './components/Swatch';
+import Swatch from './Swatch';
 
 const Artboard = styled(Frame)`
     padding-top: 40px;

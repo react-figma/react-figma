@@ -1,8 +1,8 @@
 // Inspired by: https://github.com/airbnb/react-sketchapp/tree/master/examples/styled-components
 import * as React from 'react';
 
-import styled from '../styled';
-import textColor from '../utils/text-color';
+import styled from './styled';
+import textColor from './utils/text-color';
 
 const SwatchTile = styled.View`
     height: 250px;
