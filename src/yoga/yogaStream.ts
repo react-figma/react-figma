@@ -18,17 +18,12 @@ export const updateYogaNode = (node: any) => {
     updateYogaRoot(node);
 };
 
-const isReactFigmaExperimental = process.env.REACT_FIGMA_EXPERIMENTAL;
-
-if (isReactFigmaExperimental) {
-    console.log('REACT_FIGMA_EXPERIMENTAL');
-    $updateYogaReactId
-        .pipe(
-            map(reactId => ({ reactId })),
-            tap(val => console.log('$updateYogaReactId', val))
-        )
-        .subscribe($yogaRoot);
-}
+$updateYogaReactId
+    .pipe(
+        map(reactId => ({ reactId })),
+        tap(val => console.log('$updateYogaReactId', val))
+    )
+    .subscribe($yogaRoot);
 
 $yogaRoot
     .pipe(
