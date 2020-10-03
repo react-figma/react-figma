@@ -9,14 +9,16 @@ import React from 'react';
 import classnames from 'classnames';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import useThemeContext from '@theme/hooks/useThemeContext';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
 const features = [
     {
-        title: <>UI Primitives support</>,
+        title: 'UI Primitives support',
         imageUrl: 'img/socket3.svg',
+        darkImageUrl: 'img/socket3-white.svg',
         description: (
             <>
                 Compatible with react-native, react-native-web, react-sketchapp API:
@@ -25,8 +27,9 @@ const features = [
         ),
     },
     {
-        title: <>Yoga Layout</>,
+        title: 'Yoga Layout',
         imageUrl: 'img/edit-grid.svg',
+        darkImageUrl: 'img/edit-grid-white.svg',
         description: (
             <>
                 It's possible to describe layouts with flexboxes instead of absolute positioning.
@@ -35,8 +38,9 @@ const features = [
         ),
     },
     {
-        title: <>React</>,
+        title: 'React',
         imageUrl: 'img/react-logo.svg',
+        darkImageUrl: 'img/react-logo-white.svg',
         description: (
             <>
                 The renderer supports a hydration (applying changes without re-creating existing nodes) and
@@ -85,23 +89,8 @@ function Home() {
                     <section className={styles.features}>
                         <div className="container">
                             <div className="row">
-                                {features.map(({ imageUrl, title, description }, idx) => (
-                                    <div
-                                        key={idx}
-                                        className={classnames('col col--4', styles.feature)}
-                                    >
-                                        {imageUrl && (
-                                            <div className="text--center margin-bottom--lg">
-                                                <img
-                                                    className={styles.featureImage}
-                                                    src={useBaseUrl(imageUrl)}
-                                                    alt={title}
-                                                />
-                                            </div>
-                                        )}
-                                        <h3>{title}</h3>
-                                        <p>{description}</p>
-                                    </div>
+                                {features.map((featureData, idx) => (
+                                    <Feature key={idx} {...featureData} />
                                 ))}
                             </div>
                         </div>
@@ -109,6 +98,30 @@ function Home() {
                 )}
             </main>
         </Layout>
+    );
+}
+
+const Feature = ({ darkImageUrl, imageUrl, title, description }) => {
+    const { isDarkTheme } = useThemeContext();
+
+    const url = isDarkTheme ? darkImageUrl || imageUrl : imageUrl;
+
+    return (
+        <div
+            className={classnames('col col--4', styles.feature)}
+        >
+            {imageUrl && (
+                <div className="text--center margin-bottom--lg">
+                    <img
+                        className={styles.featureImage}
+                        src={useBaseUrl(url)}
+                        alt={title}
+                    />
+                </div>
+            )}
+            <h3>{title}</h3>
+            <p>{description}</p>
+        </div>
     );
 }
 

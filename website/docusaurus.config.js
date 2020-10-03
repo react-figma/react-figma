@@ -21,8 +21,9 @@ const docusaurusConfig = {
             logo: {
                 alt: 'React Figma Logo',
                 src: 'img/react-figma-logo.svg',
+                srcDark: 'img/react-figma-logo-white.svg',
             },
-            links: [
+            items: [
                 {to: 'docs/API', label: 'Docs', position: 'right'},
                 {href: "https://github.com/react-figma/react-figma", label: "GitHub", position: 'right'},
                 {to: 'blog', label: "Blog", position: 'right'},
