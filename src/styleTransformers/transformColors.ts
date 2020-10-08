@@ -1,6 +1,8 @@
 import { Color } from '../types';
-import * as parse from 'color-parse';
+import * as _parse from 'color-parse';
 import gradientParse from '../helpers/gradientParser';
+
+const parse = typeof _parse === 'function' ? _parse : _parse.default;
 
 export const colorToRGB = (color: Color): RGB => {
     const parsed = parse(color);
