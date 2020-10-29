@@ -7,6 +7,7 @@ import {InstanceProps} from "./src/components/component/Instance";
 import {ComponentProps} from "./src/components/component/Component"
 import {StarProps} from "./src/components/star/Star";
 import {VectorProps} from "./src/components/vector/Vector";
+import {ComponentSetProps} from "./src/components/component/ComponentSet";
 
 declare global {
     namespace JSX {
@@ -20,7 +21,8 @@ declare global {
             ellipse: EllipseProps;
             star: StarProps;
             vector: VectorProps,
-            instance: InstanceProps
+            instance: InstanceProps,
+            componentset: ComponentSetProps
         }
     }
 }
