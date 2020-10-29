@@ -5,7 +5,6 @@ import {
     transformLayoutStyleProperties
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
-import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import * as all from '../../index';
@@ -19,7 +18,7 @@ export interface InstanceProps
         SelectionEventProps,
         AutoLayoutProps,
         OnLayoutHandlerProps {
-    style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
+    style?: StyleOf<YogaStyleProperties & LayoutStyleProperties>;
     overrides?: { [key: string]: Object };
     component: ComponentNode;
 }
@@ -58,7 +57,6 @@ const Instance: React.FC<InstanceProps> = props => {
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
     const componentProps = {
         ...transformLayoutStyleProperties(style),
-        ...transformBlendProperties(style),
         ...props,
         style
     };

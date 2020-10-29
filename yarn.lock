@@ -140,9 +140,9 @@
     minimist "^1.2.0"
 
 "@figma/plugin-typings@^1.15.0":
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/@figma/plugin-typings/-/plugin-typings-1.15.0.tgz#7563639f2ee44b118a136be78d754fa2cc4f3ede"
-  integrity sha512-Lr6QShIKlQNW9qdnneGr5+TIXH+EvapyfDvaaZHj7rACqIEslkZmH1mV4AmQHEs9FK5rqJMmKfSkNUNM2fztPg==
+  version "1.18.1"
+  resolved "https://registry.yarnpkg.com/@figma/plugin-typings/-/plugin-typings-1.18.1.tgz#26e25300b80c5090013057422e9942d9677da071"
+  integrity sha512-svwo82rQX251ElV7A0bnEVfYrKpmGJ17jaHgYH2pIAC3RrkNY8Jrbl3EAOmHBe1k8UdPlOHFhie2daEvlN4C9Q==
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"

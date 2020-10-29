@@ -124,6 +124,7 @@ export const App = () => {
 * [Data fetching](examples/fetching)
 * [💅 styled-components](examples/styled-components)
 * [PrimerDemo](https://github.com/react-figma/PrimerDemo) - Example of multifplatform UI-kit
+* [Component Variants](examples/component-variants)
 
 ## Become a Contributor 🎖
 

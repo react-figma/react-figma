@@ -927,7 +927,6 @@ ChildrenMixinStub {
     ExportMixinStub {
       "children": Array [
         LayoutMixinStub {
-          "blendMode": "NORMAL",
           "children": Array [
             ExportMixinStub {
               "blendMode": "NORMAL",
@@ -970,15 +969,12 @@ ChildrenMixinStub {
             "vertical": "MIN",
           },
           "counterAxisSizingMode": "AUTO",
-          "effects": Array [],
           "exportSettings": Array [],
           "horizontalPadding": 0,
           "id": "1:3",
-          "isMask": false,
           "itemSpacing": 0,
           "layoutMode": "NONE",
           "locked": false,
-          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -989,7 +985,6 @@ ChildrenMixinStub {
           "visible": true,
         },
         LayoutMixinStub {
-          "blendMode": "NORMAL",
           "children": Array [
             ExportMixinStub {
               "blendMode": "NORMAL",
@@ -1014,7 +1009,6 @@ ChildrenMixinStub {
               "locked": false,
               "opacity": 1,
               "parent": LayoutMixinStub {
-                "blendMode": "NORMAL",
                 "children": Array [
                   [Circular],
                 ],
@@ -1023,15 +1017,12 @@ ChildrenMixinStub {
                   "vertical": "MIN",
                 },
                 "counterAxisSizingMode": "AUTO",
-                "effects": Array [],
                 "exportSettings": Array [],
                 "horizontalPadding": 0,
                 "id": "1:3",
-                "isMask": false,
                 "itemSpacing": 0,
                 "layoutMode": "NONE",
                 "locked": false,
-                "opacity": 1,
                 "parent": [Circular],
                 "pluginData": Object {
                   "isReactFigmaNode": "true",
@@ -1059,14 +1050,11 @@ ChildrenMixinStub {
             "vertical": "MIN",
           },
           "counterAxisSizingMode": "AUTO",
-          "effects": Array [],
           "exportSettings": Array [],
           "horizontalPadding": 0,
-          "isMask": false,
           "itemSpacing": 0,
           "layoutMode": "NONE",
           "locked": false,
-          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -1104,7 +1092,6 @@ ChildrenMixinStub {
     ExportMixinStub {
       "children": Array [
         LayoutMixinStub {
-          "blendMode": "NORMAL",
           "children": Array [
             ExportMixinStub {
               "blendMode": "NORMAL",
@@ -1147,15 +1134,12 @@ ChildrenMixinStub {
             "vertical": "MIN",
           },
           "counterAxisSizingMode": "AUTO",
-          "effects": Array [],
           "exportSettings": Array [],
           "horizontalPadding": 0,
           "id": "1:3",
-          "isMask": false,
           "itemSpacing": 0,
           "layoutMode": "NONE",
           "locked": false,
-          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -1166,7 +1150,6 @@ ChildrenMixinStub {
           "visible": true,
         },
         LayoutMixinStub {
-          "blendMode": "NORMAL",
           "children": Array [
             ExportMixinStub {
               "blendMode": "NORMAL",
@@ -1191,7 +1174,6 @@ ChildrenMixinStub {
               "locked": false,
               "opacity": 1,
               "parent": LayoutMixinStub {
-                "blendMode": "NORMAL",
                 "children": Array [
                   [Circular],
                 ],
@@ -1200,15 +1182,12 @@ ChildrenMixinStub {
                   "vertical": "MIN",
                 },
                 "counterAxisSizingMode": "AUTO",
-                "effects": Array [],
                 "exportSettings": Array [],
                 "horizontalPadding": 0,
                 "id": "1:3",
-                "isMask": false,
                 "itemSpacing": 0,
                 "layoutMode": "NONE",
                 "locked": false,
-                "opacity": 1,
                 "parent": [Circular],
                 "pluginData": Object {
                   "isReactFigmaNode": "true",
@@ -1236,14 +1215,11 @@ ChildrenMixinStub {
             "vertical": "MIN",
           },
           "counterAxisSizingMode": "AUTO",
-          "effects": Array [],
           "exportSettings": Array [],
           "horizontalPadding": 0,
-          "isMask": false,
           "itemSpacing": 0,
           "layoutMode": "NONE",
           "locked": false,
-          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -1281,7 +1257,6 @@ ChildrenMixinStub {
     ExportMixinStub {
       "children": Array [
         LayoutMixinStub {
-          "blendMode": "NORMAL",
           "children": Array [
             ExportMixinStub {
               "blendMode": "NORMAL",
@@ -1325,16 +1300,13 @@ ChildrenMixinStub {
             "vertical": "MIN",
           },
           "counterAxisSizingMode": "AUTO",
-          "effects": Array [],
           "exportSettings": Array [],
           "height": 100,
           "horizontalPadding": 0,
           "id": "1:3",
-          "isMask": false,
           "itemSpacing": 0,
           "layoutMode": "NONE",
           "locked": false,
-          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
@@ -1348,7 +1320,6 @@ ChildrenMixinStub {
           "y": 0,
         },
         LayoutMixinStub {
-          "blendMode": "NORMAL",
           "children": Array [
             ExportMixinStub {
               "blendMode": "NORMAL",
@@ -1374,7 +1345,6 @@ ChildrenMixinStub {
               "name": "rect",
               "opacity": 1,
               "parent": LayoutMixinStub {
-                "blendMode": "NORMAL",
                 "children": Array [
                   [Circular],
                 ],
@@ -1383,16 +1353,13 @@ ChildrenMixinStub {
                   "vertical": "MIN",
                 },
                 "counterAxisSizingMode": "AUTO",
-                "effects": Array [],
                 "exportSettings": Array [],
                 "height": 100,
                 "horizontalPadding": 0,
                 "id": "1:3",
-                "isMask": false,
                 "itemSpacing": 0,
                 "layoutMode": "NONE",
                 "locked": false,
-                "opacity": 1,
                 "parent": [Circular],
                 "pluginData": Object {
                   "isReactFigmaNode": "true",
@@ -1423,15 +1390,12 @@ ChildrenMixinStub {
             "vertical": "MIN",
           },
           "counterAxisSizingMode": "AUTO",
-          "effects": Array [],
           "exportSettings": Array [],
           "height": 100,
           "horizontalPadding": 0,
-          "isMask": false,
           "itemSpacing": 0,
           "layoutMode": "NONE",
           "locked": false,
-          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",

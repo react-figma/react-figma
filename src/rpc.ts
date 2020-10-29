@@ -55,10 +55,18 @@ const renderInstance = (type, node, props, reactId) => {
     return instance;
 };
 
-const cleanGroupStubElement = parentNode => {
+const cleanStubElements = parentNode => {
     if (parentNode.type === 'GROUP') {
         parentNode.children.forEach(child => {
             if (safeGetPluginData('isGroupStubElement')(child)) {
+                child.remove();
+            }
+        });
+    }
+
+    if (parentNode.type === 'COMPONENT_SET') {
+        parentNode.children.forEach(child => {
+            if (safeGetPluginData('isComponentStubElement')(child)) {
                 child.remove();
             }
         });
@@ -71,7 +79,7 @@ const appendToContainer = (parentNode, childNode) => {
     }
 
     parentNode.appendChild(childNode);
-    cleanGroupStubElement(parentNode);
+    cleanStubElements(parentNode);
 };
 
 const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
@@ -80,7 +88,7 @@ const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
     }
     const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
     parentNode.insertChild(beforeChildIndex, newChildNode);
-    cleanGroupStubElement(parentNode);
+    cleanStubElements(parentNode);
 };
 
 const cache = {};
