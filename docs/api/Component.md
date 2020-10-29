@@ -88,7 +88,7 @@ const Rect = createComponent();
 </>
 ```
 
-### Overriding elements inside instance
+#### Overriding elements inside instance
 
 ```jsx
 const Rect = createComponent();
@@ -136,7 +136,7 @@ const Txt = createComponent();
 />
 ```
 
-### Using variants
+#### Using variants
 
 ```jsx
 <ComponentSet name="Button">
