@@ -139,7 +139,7 @@ const Txt = createComponent();
 ### Using variants
 
 ```jsx
-<ComponentSet name="Button"  style={styles.setContainer}>
+<ComponentSet name="Button">
     <Component name="variant=Primary">
         <PrimaryButton text="Primary" />
     </Component>

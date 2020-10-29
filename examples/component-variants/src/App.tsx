@@ -67,7 +67,7 @@ const SecondaryButton = (props: { text: string }) => {
 export const App = () => {
     return (
         <Page name="Buttons" isCurrent>
-            <ComponentSet name="Button"  style={styles.setContainer}>
+            <ComponentSet name="Button" style={styles.setContainer}>
                 <Component name="variant=Primary" style={{ marginRight: 30 }}>
                     <PrimaryButton text="Primary" />
                 </Component>

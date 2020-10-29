@@ -3,7 +3,7 @@
 An example of using [Figma Variants](https://help.figma.com/hc/en-us/articles/360055471353-Prepare-for-Variants).
 
 ```jsx
-<ComponentSet name="Button"  style={styles.setContainer}>
+<ComponentSet name="Button">
     <Component name="variant=Primary">
         <PrimaryButton text="Primary" />
     </Component>
