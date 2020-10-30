@@ -8,7 +8,7 @@
 [![CircleCI](https://circleci.com/gh/react-figma/react-figma.svg?style=shield)](https://circleci.com/gh/react-figma/react-figma)
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/react-figma)
 
-A React renderer into [Figma](https://www.figma.com). Use React components as a source for your designs.
+A React renderer for [Figma](https://www.figma.com). Use React components as a source for your designs.
 
 * 🍬 Compatible with [react-native](https://facebook.github.io/react-native/), [react-sketchapp](https://github.com/airbnb/react-sketchapp), [react-primitives](https://github.com/lelandrichardson/react-primitives) API.
 * 🦄 Flexible layouts support with [Yoga Layout](https://yogalayout.com/).
