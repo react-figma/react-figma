@@ -1,0 +1,23 @@
+{
+  "name": "mdx",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webpack:watch": "webpack --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "@mdx-js/loader": "^1.6.21",
+    "babel-loader": "^8.1.0"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.21",
+    "@mdx-js/react": "^1.6.21",
+    "@mdx-js/runtime": "^1.6.21"
+  }
+}
