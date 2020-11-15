@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Page, View, Text, StyleSheet } from 'react-figma';
-const { MDXProvider } = require('@mdx-js/react');
+import { MDXProvider } from '@mdx-js/react';
 import Hello from './hello.mdx';
 
 const styles = StyleSheet.create({
