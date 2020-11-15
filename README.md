@@ -125,6 +125,7 @@ export const App = () => {
 * [💅 styled-components](examples/styled-components)
 * [PrimerDemo](https://github.com/react-figma/PrimerDemo) - Example of multifplatform UI-kit
 * [Component Variants](examples/component-variants)
+* [MDX](examples/mdx)
 
 ## Become a Contributor 🎖
 
