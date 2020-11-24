@@ -1,8 +1,8 @@
 
 const docusaurusConfig = {
     title: 'React Figma',
-    tagline: 'Render React components to Figma',
-    url: 'https://react-figma.now.sh/',
+    tagline: 'A React renderer for Figma',
+    url: 'https://react-figma.dev/',
     baseUrl: '/',
 
     projectName: 'react-figma',
@@ -67,7 +67,7 @@ const docusaurusConfig = {
                 alt: 'React Figma Logo',
                 src: '/img/react-figma-logo-white.svg',
             },
-            copyright: `Copyright © ${new Date().getFullYear()} React Figma Team`,
+            copyright: `Copyright © ${new Date().getFullYear()} Ilya Lesik`,
         },
     },
 

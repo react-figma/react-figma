@@ -17,6 +17,17 @@
     overflow: hidden;
 }
 
+.heroLogo {
+    padding-left: 0.5rem;
+    height: 2.3rem;
+}
+
+.heroTitleContainer {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
 @media screen and (max-width: 966px) {
     .heroBanner {
         padding: 2rem;
@@ -43,4 +54,10 @@
 .featureImage {
     height: 180px;
     width: 180px;
+}
+
+.demoGif {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0;
 }

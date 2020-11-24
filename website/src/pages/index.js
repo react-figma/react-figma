@@ -56,11 +56,11 @@ function Home() {
     return (
         <Layout
             title="React Figma"
-            description={"Render React components to Figma"}
+            description={"A React renderer for Figma. Use React components as a source for your designs."}
         >
             <header className={classnames('hero hero--primary', styles.heroBanner)}>
                 <div className="container">
-                    <h1 className="hero__title">{siteConfig.title}</h1>
+                    <Title title={siteConfig.title} />
                     <p className="hero__subtitle">{siteConfig.tagline}</p>
                     <div className={styles.buttons}>
                         <Link
@@ -85,6 +85,10 @@ function Home() {
                 </div>
             </header>
             <main>
+                <div className={styles.demoGif}>
+                    <img src="https://user-images.githubusercontent.com/1270648/89524327-09365c80-d7ed-11ea-9cb1-08f6fd56a350.gif" width="800" />
+                </div>
+
                 {features && features.length && (
                     <section className={styles.features}>
                         <div className="container">
@@ -123,6 +127,18 @@ const Feature = ({ darkImageUrl, imageUrl, title, description }) => {
             <p>{description}</p>
         </div>
     );
+}
+
+const Title = (props) => {
+    const { title } = props;
+    const { isDarkTheme } = useThemeContext();
+
+    return <div className={styles.heroTitleContainer}>
+        <h1 className="hero__title">
+            {title}
+        </h1>
+        <img className={styles.heroLogo} src={isDarkTheme ? "/img/react-figma-logo.svg" : "/img/react-figma-logo-white.svg" } />
+    </div>
 }
 
 export default Home;

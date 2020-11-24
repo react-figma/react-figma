@@ -103,18 +103,18 @@ export const App = () => {
 };
 ```
 
-## [Docs](https://react-figma.now.sh/docs/API)
+## [Docs](https://react-figma.dev/docs/API)
 
-* [API Overview](https://react-figma.now.sh/docs/API)
-  + [render](https://react-figma.now.sh/docs/api/render)
-  + [Page](https://react-figma.now.sh/docs/api/page)
-  + [Frame](https://react-figma.now.sh/docs/api/frame)
-  + [View](https://react-figma.now.sh/docs/api/view)
-  + [Text](https://react-figma.now.sh/docs/api/text)
-  + [Image](https://react-figma.now.sh/docs/api/image)
+* [API Overview](https://react-figma.dev/docs/API)
+  + [render](https://react-figma.dev/docs/api/render)
+  + [Page](https://react-figma.dev/docs/api/page)
+  + [Frame](https://react-figma.dev/docs/api/frame)
+  + [View](https://react-figma.dev/docs/api/view)
+  + [Text](https://react-figma.dev/docs/api/text)
+  + [Image](https://react-figma.dev/docs/api/image)
   + ...
-* [Styling](https://react-figma.now.sh/docs/styling)
-* [Architecture](https://react-figma.now.sh/docs/architecture)
+* [Styling](https://react-figma.dev/docs/styling)
+* [Architecture](https://react-figma.dev/docs/architecture)
 
 ## Examples
 
