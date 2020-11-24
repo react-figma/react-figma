@@ -56,7 +56,7 @@ function Home() {
     return (
         <Layout
             title="React Figma"
-            description={"Render React components to Figma"}
+            description={"A React renderer for Figma. Use React components as a source for your designs."}
         >
             <header className={classnames('hero hero--primary', styles.heroBanner)}>
                 <div className="container">
