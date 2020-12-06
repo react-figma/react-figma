@@ -151,9 +151,19 @@ export interface ChangePageEventProps {
 
 export interface AutoLayoutProps {
     layoutMode?: 'NONE' | 'HORIZONTAL' | 'VERTICAL';
+    primaryAxisSizingMode?: 'FIXED' | 'AUTO';
     counterAxisSizingMode?: 'FIXED' | 'AUTO';
-    horizontalPadding?: number;
-    verticalPadding?: number;
+
+    primaryAxisAlignItems?: 'MIN' | 'MAX' | 'CENTER' | 'SPACE_BETWEEN';
+    counterAxisAlignItems?: 'MIN' | 'MAX' | 'CENTER';
+
+    paddingLeft?: number;
+    paddingRight?: number;
+    paddingTop?: number;
+    paddingBottom?: number;
+
+    horizontalPadding?: number; // DEPRECATED
+    verticalPadding?: number; // DEPRECATED
     itemSpacing?: number;
     constraints?: Constraints;
 }

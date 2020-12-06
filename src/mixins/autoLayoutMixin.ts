@@ -2,7 +2,21 @@ import { AutoLayoutProps } from '../types';
 import { propsAssign } from '../helpers/propsAssign';
 
 export const autoLayoutMixin = propsAssign<AutoLayoutProps, AutoLayoutProps>(
-    ['layoutMode', 'counterAxisSizingMode', 'horizontalPadding', 'verticalPadding', 'itemSpacing', 'constraints'],
+    [
+        'layoutMode',
+        'primaryAxisSizingMode',
+        'counterAxisSizingMode',
+        'primaryAxisAlignItems',
+        'counterAxisAlignItems',
+        'paddingLeft',
+        'paddingRight',
+        'paddingTop',
+        'paddingBottom',
+        'horizontalPadding',
+        'verticalPadding',
+        'itemSpacing',
+        'constraints'
+    ],
     {
         layoutMode: 'NONE',
         counterAxisSizingMode: 'AUTO',
