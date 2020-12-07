@@ -63,6 +63,26 @@ export const transformAutoLayoutToYoga = (props: AutoLayoutAllProps) => {
             ? {
                   alignItems: constraintToAlignItems[props.constraints.vertical]
               }
+            : {}),
+        ...(props.paddingLeft
+            ? {
+                  paddingLeft: props.paddingLeft
+              }
+            : {}),
+        ...(props.paddingRight
+            ? {
+                  paddingRight: props.paddingRight
+              }
+            : {}),
+        ...(props.paddingTop
+            ? {
+                  paddingTop: props.paddingTop
+              }
+            : {}),
+        ...(props.paddingBottom
+            ? {
+                  paddingBottom: props.paddingBottom
+              }
             : {})
     };
 };
