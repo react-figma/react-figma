@@ -17,6 +17,9 @@ export const autoLayoutAssign = propsAssign<AutoLayoutProps, AutoLayoutProps>(
     ],
     {
         layoutMode: 'NONE',
+        primaryAxisAlignItems: 'MIN',
+        primaryAxisSizingMode: 'AUTO',
+        counterAxisAlignItems: 'MIN',
         counterAxisSizingMode: 'AUTO',
         itemSpacing: 0,
         paddingLeft: 0,
