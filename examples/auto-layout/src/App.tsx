@@ -1,48 +1,19 @@
 import * as React from 'react';
-import { Page, View, Text } from 'react-figma';
+import { Page, View } from 'react-figma';
 
 export const App = () => {
     return (
         <Page name="New page" isCurrent>
             <View
                 layoutMode="VERTICAL"
-                horizontalPadding={20}
-                verticalPadding={20}
+                paddingLeft={20}
+                paddingRight={20}
+                paddingTop={20}
+                paddingBottom={20}
                 itemSpacing={10}
                 style={{
                     backgroundColor: '#ffffff',
                     width: 200
-                }}>
-                <View
-                    style={{ height: 40, backgroundColor: '#ffaa97' }}
-                    layoutMode="HORIZONTAL"
-                    layoutAlign="STRETCH"
-                />
-                <View
-                    style={{ height: 40, backgroundColor: '#ffaa97', marginTop: 10 }}
-                    layoutMode="HORIZONTAL"
-                    layoutAlign="STRETCH"
-                />
-                <View
-                    style={{ width: 80, height: 40, backgroundColor: '#ffaa97', marginTop: 10 }}
-                    layoutMode="HORIZONTAL"
-                    layoutAlign="MAX"
-                />
-            </View>
-
-            {/* Paddings */}
-
-            <View
-                layoutMode="VERTICAL"
-                paddingLeft={10}
-                paddingRight={30}
-                paddingTop={20}
-                paddingBottom={40}
-                itemSpacing={10}
-                style={{
-                    backgroundColor: '#ffffff',
-                    width: 200,
-                    marginTop: 50
                 }}>
                 <View
                     style={{ height: 40, backgroundColor: '#ffaa97' }}
