@@ -15,21 +15,9 @@ export const App = () => {
                     backgroundColor: '#ffffff',
                     width: 200
                 }}>
-                <View
-                    style={{ height: 40, backgroundColor: '#ffaa97' }}
-                    layoutMode="HORIZONTAL"
-                    layoutAlign="STRETCH"
-                />
-                <View
-                    style={{ height: 40, backgroundColor: '#ffaa97', marginTop: 10 }}
-                    layoutMode="HORIZONTAL"
-                    layoutAlign="STRETCH"
-                />
-                <View
-                    style={{ width: 80, height: 40, backgroundColor: '#ffaa97', marginTop: 10 }}
-                    layoutMode="HORIZONTAL"
-                    layoutAlign="MAX"
-                />
+                <View style={{ height: 40, backgroundColor: '#ffaa97' }} layoutAlign="STRETCH" />
+                <View style={{ height: 40, backgroundColor: '#ffaa97', marginTop: 10 }} layoutAlign="STRETCH" />
+                <View style={{ width: 80, height: 40, backgroundColor: '#ffaa97', marginTop: 10 }} />
             </View>
         </Page>
     );

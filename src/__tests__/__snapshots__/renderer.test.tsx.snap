@@ -191,10 +191,6 @@ ChildrenMixinStub {
             },
           ],
           "clipsContent": false,
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "counterAxisAlignItems": "MIN",
@@ -969,10 +965,6 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
           "counterAxisAlignItems": "MIN",
           "counterAxisSizingMode": "AUTO",
           "exportSettings": Array [],
@@ -1022,10 +1014,6 @@ ChildrenMixinStub {
                 "children": Array [
                   [Circular],
                 ],
-                "constraints": Object {
-                  "horizontal": "MIN",
-                  "vertical": "MIN",
-                },
                 "counterAxisAlignItems": "MIN",
                 "counterAxisSizingMode": "AUTO",
                 "exportSettings": Array [],
@@ -1060,10 +1048,6 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
           "counterAxisAlignItems": "MIN",
           "counterAxisSizingMode": "AUTO",
           "exportSettings": Array [],
@@ -1149,10 +1133,6 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
           "counterAxisAlignItems": "MIN",
           "counterAxisSizingMode": "AUTO",
           "exportSettings": Array [],
@@ -1202,10 +1182,6 @@ ChildrenMixinStub {
                 "children": Array [
                   [Circular],
                 ],
-                "constraints": Object {
-                  "horizontal": "MIN",
-                  "vertical": "MIN",
-                },
                 "counterAxisAlignItems": "MIN",
                 "counterAxisSizingMode": "AUTO",
                 "exportSettings": Array [],
@@ -1240,10 +1216,6 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
           "counterAxisAlignItems": "MIN",
           "counterAxisSizingMode": "AUTO",
           "exportSettings": Array [],
@@ -1330,10 +1302,6 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
           "counterAxisAlignItems": "MIN",
           "counterAxisSizingMode": "AUTO",
           "exportSettings": Array [],
@@ -1388,10 +1356,6 @@ ChildrenMixinStub {
                 "children": Array [
                   [Circular],
                 ],
-                "constraints": Object {
-                  "horizontal": "MIN",
-                  "vertical": "MIN",
-                },
                 "counterAxisAlignItems": "MIN",
                 "counterAxisSizingMode": "AUTO",
                 "exportSettings": Array [],
@@ -1430,10 +1394,6 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
           "counterAxisAlignItems": "MIN",
           "counterAxisSizingMode": "AUTO",
           "exportSettings": Array [],

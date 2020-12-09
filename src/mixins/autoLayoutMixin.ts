@@ -12,8 +12,7 @@ export const autoLayoutAssign = propsAssign<AutoLayoutProps, AutoLayoutProps>(
         'paddingRight',
         'paddingTop',
         'paddingBottom',
-        'itemSpacing',
-        'constraints'
+        'itemSpacing'
     ],
     {
         layoutMode: 'NONE',
@@ -25,11 +24,7 @@ export const autoLayoutAssign = propsAssign<AutoLayoutProps, AutoLayoutProps>(
         paddingLeft: 0,
         paddingRight: 0,
         paddingTop: 0,
-        paddingBottom: 0,
-        constraints: {
-            horizontal: 'MIN',
-            vertical: 'MIN'
-        }
+        paddingBottom: 0
     }
 );
 
