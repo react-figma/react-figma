@@ -1,11 +1,14 @@
 import { AutoLayoutProps, LayoutProps } from '../types';
+import { YogaStyleProperties } from '../yoga/YogaStyleProperties';
 
-const layoutModeToFlexDirection = {
+const layoutModeToFlexDirection: Partial<
+    { [k in AutoLayoutProps['layoutMode']]: YogaStyleProperties['flexDirection'] }
+> = {
     HORIZONTAL: 'row',
     VERTICAL: 'column'
 };
 
-const layoutAlignToAlignSelf = {
+const layoutAlignToAlignSelf: Partial<{ [k in LayoutProps['layoutAlign']]: YogaStyleProperties['alignItems'] }> = {
     MIN: 'flex-start',
     CENTER: 'center',
     MAX: 'flex-end',
@@ -14,7 +17,7 @@ const layoutAlignToAlignSelf = {
 
 interface AutoLayoutAllProps extends AutoLayoutProps, LayoutProps {}
 
-export const transformAutoLayoutToYoga = (props: AutoLayoutAllProps) => {
+export const transformAutoLayoutToYoga = (props: AutoLayoutAllProps): Partial<YogaStyleProperties> => {
     return {
         ...(props.layoutMode && layoutModeToFlexDirection[props.layoutMode]
             ? {

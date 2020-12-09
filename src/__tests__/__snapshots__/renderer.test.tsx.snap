@@ -21,6 +21,10 @@ ChildrenMixinStub {
               "children": Array [
                 ExportMixinStub {
                   "blendMode": "NORMAL",
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
                   "cornerRadius": 0,
                   "cornerSmoothing": 0,
                   "effects": Array [],
@@ -57,6 +61,10 @@ ChildrenMixinStub {
                   "y": 0,
                 },
               ],
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
               "effects": Array [],
               "exportSettings": Array [],
               "height": 100,
@@ -81,6 +89,10 @@ ChildrenMixinStub {
               "children": Array [
                 ExportMixinStub {
                   "blendMode": "NORMAL",
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
                   "cornerRadius": 0,
                   "cornerSmoothing": 0,
                   "effects": Array [],
@@ -115,6 +127,10 @@ ChildrenMixinStub {
                   "width": 200,
                 },
               ],
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
               "effects": Array [],
               "exportSettings": Array [],
               "id": "2:12",
@@ -135,6 +151,10 @@ ChildrenMixinStub {
               "children": Array [
                 ExportMixinStub {
                   "blendMode": "NORMAL",
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
                   "cornerRadius": 0,
                   "cornerSmoothing": 0,
                   "effects": Array [],
@@ -171,6 +191,10 @@ ChildrenMixinStub {
                   "y": 0,
                 },
               ],
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
               "effects": Array [],
               "exportSettings": Array [],
               "height": 100,
@@ -191,6 +215,10 @@ ChildrenMixinStub {
             },
           ],
           "clipsContent": false,
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "counterAxisAlignItems": "MIN",
@@ -301,6 +329,10 @@ ChildrenMixinStub {
               "type": "RECTANGLE",
             },
           ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "effects": Array [],
           "exportSettings": Array [],
           "id": "1:3",
@@ -363,6 +395,10 @@ ChildrenMixinStub {
               "type": "RECTANGLE",
             },
           ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "effects": Array [],
           "exportSettings": Array [],
           "id": "1:3",
@@ -427,6 +463,10 @@ ChildrenMixinStub {
               "type": "RECTANGLE",
             },
           ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "effects": Array [],
           "exportSettings": Array [],
           "id": "1:3",
@@ -474,6 +514,10 @@ ChildrenMixinStub {
           "_textAutoResize": "WIDTH_AND_HEIGHT",
           "autoRename": false,
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "effects": Array [],
           "exportSettings": Array [],
           "fills": Array [
@@ -549,6 +593,10 @@ ChildrenMixinStub {
           "_textAutoResize": "WIDTH_AND_HEIGHT",
           "autoRename": false,
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "effects": Array [],
           "exportSettings": Array [],
           "fills": Array [
@@ -624,6 +672,10 @@ ChildrenMixinStub {
           "_textAutoResize": "WIDTH_AND_HEIGHT",
           "autoRename": false,
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "effects": Array [],
           "exportSettings": Array [],
           "fills": Array [
@@ -701,6 +753,10 @@ ChildrenMixinStub {
           "_textAutoResize": "WIDTH_AND_HEIGHT",
           "autoRename": false,
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "effects": Array [],
           "exportSettings": Array [],
           "fills": Array [
@@ -782,6 +838,10 @@ ChildrenMixinStub {
           "_textAutoResize": "WIDTH_AND_HEIGHT",
           "autoRename": false,
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "effects": Array [],
           "exportSettings": Array [],
           "fills": Array [
@@ -857,6 +917,10 @@ ChildrenMixinStub {
           "_textAutoResize": "WIDTH_AND_HEIGHT",
           "autoRename": false,
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "effects": Array [],
           "exportSettings": Array [],
           "fills": Array [
@@ -931,6 +995,10 @@ ChildrenMixinStub {
           "children": Array [
             ExportMixinStub {
               "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
               "cornerRadius": 0,
               "cornerSmoothing": 0,
               "effects": Array [],
@@ -965,6 +1033,10 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "counterAxisAlignItems": "MIN",
           "counterAxisSizingMode": "AUTO",
           "exportSettings": Array [],
@@ -990,6 +1062,10 @@ ChildrenMixinStub {
           "children": Array [
             ExportMixinStub {
               "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
               "cornerRadius": 0,
               "cornerSmoothing": 0,
               "effects": Array [],
@@ -1014,6 +1090,10 @@ ChildrenMixinStub {
                 "children": Array [
                   [Circular],
                 ],
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
                 "counterAxisAlignItems": "MIN",
                 "counterAxisSizingMode": "AUTO",
                 "exportSettings": Array [],
@@ -1048,6 +1128,10 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "counterAxisAlignItems": "MIN",
           "counterAxisSizingMode": "AUTO",
           "exportSettings": Array [],
@@ -1099,6 +1183,10 @@ ChildrenMixinStub {
           "children": Array [
             ExportMixinStub {
               "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
               "cornerRadius": 0,
               "cornerSmoothing": 0,
               "effects": Array [],
@@ -1133,6 +1221,10 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "counterAxisAlignItems": "MIN",
           "counterAxisSizingMode": "AUTO",
           "exportSettings": Array [],
@@ -1158,6 +1250,10 @@ ChildrenMixinStub {
           "children": Array [
             ExportMixinStub {
               "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
               "cornerRadius": 0,
               "cornerSmoothing": 0,
               "effects": Array [],
@@ -1182,6 +1278,10 @@ ChildrenMixinStub {
                 "children": Array [
                   [Circular],
                 ],
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
                 "counterAxisAlignItems": "MIN",
                 "counterAxisSizingMode": "AUTO",
                 "exportSettings": Array [],
@@ -1216,6 +1316,10 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "counterAxisAlignItems": "MIN",
           "counterAxisSizingMode": "AUTO",
           "exportSettings": Array [],
@@ -1267,6 +1371,10 @@ ChildrenMixinStub {
           "children": Array [
             ExportMixinStub {
               "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
               "cornerRadius": 0,
               "cornerSmoothing": 0,
               "effects": Array [],
@@ -1302,6 +1410,10 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "counterAxisAlignItems": "MIN",
           "counterAxisSizingMode": "AUTO",
           "exportSettings": Array [],
@@ -1331,6 +1443,10 @@ ChildrenMixinStub {
           "children": Array [
             ExportMixinStub {
               "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
               "cornerRadius": 0,
               "cornerSmoothing": 0,
               "effects": Array [],
@@ -1356,6 +1472,10 @@ ChildrenMixinStub {
                 "children": Array [
                   [Circular],
                 ],
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
                 "counterAxisAlignItems": "MIN",
                 "counterAxisSizingMode": "AUTO",
                 "exportSettings": Array [],
@@ -1394,6 +1514,10 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "counterAxisAlignItems": "MIN",
           "counterAxisSizingMode": "AUTO",
           "exportSettings": Array [],
@@ -1455,6 +1579,10 @@ ChildrenMixinStub {
               "children": Array [
                 ExportMixinStub {
                   "blendMode": "NORMAL",
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
                   "cornerRadius": 0,
                   "cornerSmoothing": 0,
                   "effects": Array [],
@@ -1489,6 +1617,10 @@ ChildrenMixinStub {
                   "width": 200,
                 },
               ],
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
               "effects": Array [],
               "exportSettings": Array [],
               "id": "1:4",
@@ -1509,6 +1641,10 @@ ChildrenMixinStub {
               "children": Array [
                 ExportMixinStub {
                   "blendMode": "NORMAL",
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
                   "cornerRadius": 0,
                   "cornerSmoothing": 0,
                   "effects": Array [],
@@ -1544,6 +1680,10 @@ ChildrenMixinStub {
                 },
                 ExportMixinStub {
                   "blendMode": "NORMAL",
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
                   "cornerRadius": 0,
                   "cornerSmoothing": 0,
                   "effects": Array [],
@@ -1578,6 +1718,10 @@ ChildrenMixinStub {
                   "width": 200,
                 },
               ],
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
               "effects": Array [],
               "exportSettings": Array [],
               "id": "1:8",
@@ -1593,6 +1737,10 @@ ChildrenMixinStub {
               "visible": true,
             },
           ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "effects": Array [],
           "exportSettings": Array [],
           "id": "1:10",
@@ -1640,6 +1788,10 @@ ChildrenMixinStub {
           "children": Array [
             ExportMixinStub {
               "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
               "cornerRadius": 0,
               "cornerSmoothing": 0,
               "effects": Array [],
@@ -1674,6 +1826,10 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "effects": Array [],
           "exportSettings": Array [],
           "id": "1:4",
@@ -1717,6 +1873,10 @@ ChildrenMixinStub {
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],
@@ -1752,6 +1912,10 @@ ChildrenMixinStub {
         },
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],
@@ -1787,6 +1951,10 @@ ChildrenMixinStub {
         },
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],
@@ -1879,6 +2047,10 @@ ChildrenMixinStub {
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],
@@ -1914,6 +2086,10 @@ ChildrenMixinStub {
         },
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],
@@ -1976,6 +2152,10 @@ ChildrenMixinStub {
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],
@@ -2011,6 +2191,10 @@ ChildrenMixinStub {
         },
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],
@@ -2073,6 +2257,10 @@ ChildrenMixinStub {
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],
@@ -2135,6 +2323,10 @@ ChildrenMixinStub {
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],
@@ -2197,6 +2389,10 @@ ChildrenMixinStub {
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],
@@ -2232,6 +2428,10 @@ ChildrenMixinStub {
         },
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],
@@ -2294,6 +2494,10 @@ ChildrenMixinStub {
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],
@@ -2329,6 +2533,10 @@ ChildrenMixinStub {
         },
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],

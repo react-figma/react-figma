@@ -13,6 +13,10 @@ ChildrenMixinStub {
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
           "cornerRadius": 0,
           "cornerSmoothing": 0,
           "effects": Array [],
