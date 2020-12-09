@@ -7,6 +7,7 @@ import { cornerMixin } from '../mixins/cornerMixin';
 import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
+import { constraintsMixin } from '../mixins/constraintsMixin';
 
 const starNodePropsAssign = propsAssign<StarProps, StarProps>(['pointCount', 'innerRadius']);
 
@@ -21,6 +22,7 @@ export const star = (node: StarNode) => (props: StarProps) => {
     blendMixin(starNode)(props);
     starNodePropsAssign(starNode)(props);
     sceneNodeMixin(starNode)(props);
+    constraintsMixin(starNode)(props);
 
     return starNode;
 };

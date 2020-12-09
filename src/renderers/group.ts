@@ -5,6 +5,7 @@ import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { frameMixin } from '../mixins/frameMixin';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
+import { constraintsMixin } from '../mixins/constraintsMixin';
 
 const createNewGroup = () => {
     const rect = figma.createRectangle();
@@ -23,6 +24,7 @@ export const group = node => props => {
 
     frameMixin(frameNode)(props);
     sceneNodeMixin(frameNode)(props);
+    constraintsMixin(frameNode)(props);
 
     return frameNode;
 };

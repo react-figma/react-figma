@@ -6,6 +6,7 @@ import { LineProps } from '../components/line/Line';
 import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
+import { constraintsMixin } from '../mixins/constraintsMixin';
 
 export const line = (node: RectangleNode) => (props: LineProps) => {
     const lineNode = node || props.node || figma.createLine();
@@ -17,6 +18,7 @@ export const line = (node: RectangleNode) => (props: LineProps) => {
     exportMixin(lineNode)(props);
     blendMixin(lineNode)(props);
     sceneNodeMixin(lineNode)(props);
+    constraintsMixin(lineNode)(props);
 
     return lineNode;
 };

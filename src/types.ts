@@ -119,6 +119,7 @@ export interface SceneNodeProps {
 export interface DefaultShapeProps
     extends BaseNodeProps,
         LayoutProps,
+        ConstraintsProps,
         GeometryProps,
         ExportProps,
         BlendProps,
@@ -128,6 +129,7 @@ export interface DefaultContainerProps
     extends BaseNodeProps,
         ChildrenProps,
         LayoutProps,
+        ConstraintsProps,
         ExportProps,
         BlendProps,
         FrameProps,
@@ -149,6 +151,10 @@ export interface ChangePageEventProps {
     onCurrentChange?: (isCurrent: boolean) => void;
 }
 
+export interface ConstraintsProps {
+    constraints?: Constraints;
+}
+
 export interface AutoLayoutProps {
     layoutMode?: 'NONE' | 'HORIZONTAL' | 'VERTICAL';
     primaryAxisSizingMode?: 'FIXED' | 'AUTO';
@@ -165,7 +171,6 @@ export interface AutoLayoutProps {
     horizontalPadding?: number; // DEPRECATED
     verticalPadding?: number; // DEPRECATED
     itemSpacing?: number;
-    constraints?: Constraints;
 }
 
 export interface FrameSpecificProps {
