@@ -15,6 +15,23 @@ const layoutAlignToAlignSelf: Partial<{ [k in LayoutProps['layoutAlign']]: YogaS
     STRETCH: 'stretch'
 };
 
+const primaryAxisAlignItemsToJustifyContent: Partial<
+    { [k in AutoLayoutProps['primaryAxisAlignItems']]: YogaStyleProperties['justifyContent'] }
+> = {
+    MIN: 'flex-start',
+    MAX: 'flex-end',
+    CENTER: 'center',
+    SPACE_BETWEEN: 'space-between'
+};
+
+const counterAxisAlignItemsToAlignItems: Partial<
+    { [k in AutoLayoutProps['counterAxisAlignItems']]: YogaStyleProperties['alignItems'] }
+> = {
+    MIN: 'flex-start',
+    MAX: 'flex-end',
+    CENTER: 'center'
+};
+
 interface AutoLayoutAllProps extends AutoLayoutProps, LayoutProps {}
 
 export const transformAutoLayoutToYoga = (props: AutoLayoutAllProps): Partial<YogaStyleProperties> => {
@@ -64,6 +81,16 @@ export const transformAutoLayoutToYoga = (props: AutoLayoutAllProps): Partial<Yo
         ...(props.paddingBottom
             ? {
                   paddingBottom: props.paddingBottom
+              }
+            : {}),
+        ...(props.primaryAxisAlignItems && primaryAxisAlignItemsToJustifyContent[props.primaryAxisAlignItems]
+            ? {
+                  justifyContent: primaryAxisAlignItemsToJustifyContent[props.primaryAxisAlignItems]
+              }
+            : {}),
+        ...(props.counterAxisAlignItems && counterAxisAlignItemsToAlignItems[props.counterAxisAlignItems]
+            ? {
+                  alignItems: counterAxisAlignItemsToAlignItems[props.counterAxisAlignItems]
               }
             : {})
     };

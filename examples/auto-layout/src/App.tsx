@@ -11,6 +11,8 @@ export const App = () => {
                 paddingTop={20}
                 paddingBottom={20}
                 itemSpacing={10}
+                primaryAxisAlignItems="SPACE_BETWEEN"
+                counterAxisAlignItems="MAX"
                 style={{
                     backgroundColor: '#ffffff',
                     width: 200
