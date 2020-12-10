@@ -30,6 +30,8 @@ ChildrenMixinStub {
           ],
           "id": "1:2",
           "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
           "locked": false,
           "opacity": 1,
           "parent": [Circular],

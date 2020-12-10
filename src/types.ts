@@ -29,7 +29,8 @@ export interface LayoutProps {
     width?: number;
     height?: number;
     isWithoutConstraints?: boolean;
-    layoutAlign?: 'MIN' | 'CENTER' | 'MAX' | 'STRETCH';
+    layoutAlign?: 'MIN' | 'CENTER' | 'MAX' | 'STRETCH' | 'INHERIT';
+    layoutGrow?: number;
 }
 
 export interface ChildrenProps {
