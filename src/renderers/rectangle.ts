@@ -10,6 +10,7 @@ import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { rectangleCornerMixin } from '../mixins/rectangleCornerMixin';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
+import { constraintsMixin } from '../mixins/constraintsMixin';
 
 export const rectangle = (node: RectangleNode) => (props: RectangleProps) => {
     const rect = node || props.node || figma.createRectangle();
@@ -23,6 +24,7 @@ export const rectangle = (node: RectangleNode) => (props: RectangleProps) => {
     exportMixin(rect)(props);
     blendMixin(rect)(props);
     sceneNodeMixin(rect)(props);
+    constraintsMixin(rect)(props);
 
     return rect;
 };

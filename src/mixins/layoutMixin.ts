@@ -36,7 +36,6 @@ export const layoutMixin = (node: LayoutMixin & BaseNode) => (props: LayoutProps
         }
     }
 
-    if (props.layoutAlign) {
-        node.layoutAlign = props.layoutAlign;
-    }
+    node.layoutAlign = props.layoutAlign || 'INHERIT';
+    node.layoutGrow = props.layoutGrow || 0;
 };

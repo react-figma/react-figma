@@ -9,17 +9,27 @@ Example of usage Figma auto-layout instead of yoga-layout.
 ```javascript
 <View
     layoutMode="VERTICAL"
-    horizontalPadding={20}
-    verticalPadding={20}
+    paddingLeft={20}
+    paddingRight={20}
+    paddingTop={20}
+    paddingBottom={20}
     itemSpacing={10}
     style={{
         backgroundColor: '#ffffff',
         width: 200
     }}>
-    <View style={{ height: 40, backgroundColor: '#ffaa97' }} layoutMode="HORIZONTAL" layoutAlign="STRETCH" />
-    <View style={{ height: 40, backgroundColor: '#ffaa97' }} layoutMode="HORIZONTAL" layoutAlign="STRETCH" />
-    <View style={{ height: 40, backgroundColor: '#ffaa97' }} layoutMode="HORIZONTAL" layoutAlign="STRETCH" />
-</View>                                                                                       
+    <View
+        style={{ height: 40, backgroundColor: '#ffaa97' }}
+        layoutAlign="STRETCH"
+    />
+    <View
+        style={{ height: 40, backgroundColor: '#ffaa97', marginTop: 10 }}
+        layoutAlign="STRETCH"
+    />
+    <View
+        style={{ width: 80, height: 40, backgroundColor: '#ffaa97', marginTop: 10 }}
+    />
+</View>                                                                                    
 ```
 
 [How to run](../../contributing.md#running-examples)

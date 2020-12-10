@@ -29,7 +29,8 @@ export interface LayoutProps {
     width?: number;
     height?: number;
     isWithoutConstraints?: boolean;
-    layoutAlign?: 'MIN' | 'CENTER' | 'MAX' | 'STRETCH';
+    layoutAlign?: 'MIN' | 'CENTER' | 'MAX' | 'STRETCH' | 'INHERIT';
+    layoutGrow?: number;
 }
 
 export interface ChildrenProps {
@@ -119,6 +120,7 @@ export interface SceneNodeProps {
 export interface DefaultShapeProps
     extends BaseNodeProps,
         LayoutProps,
+        ConstraintsProps,
         GeometryProps,
         ExportProps,
         BlendProps,
@@ -128,6 +130,7 @@ export interface DefaultContainerProps
     extends BaseNodeProps,
         ChildrenProps,
         LayoutProps,
+        ConstraintsProps,
         ExportProps,
         BlendProps,
         FrameProps,
@@ -149,13 +152,26 @@ export interface ChangePageEventProps {
     onCurrentChange?: (isCurrent: boolean) => void;
 }
 
+export interface ConstraintsProps {
+    constraints?: Constraints;
+}
+
 export interface AutoLayoutProps {
     layoutMode?: 'NONE' | 'HORIZONTAL' | 'VERTICAL';
+    primaryAxisSizingMode?: 'FIXED' | 'AUTO';
     counterAxisSizingMode?: 'FIXED' | 'AUTO';
-    horizontalPadding?: number;
-    verticalPadding?: number;
+
+    primaryAxisAlignItems?: 'MIN' | 'MAX' | 'CENTER' | 'SPACE_BETWEEN';
+    counterAxisAlignItems?: 'MIN' | 'MAX' | 'CENTER';
+
+    paddingLeft?: number;
+    paddingRight?: number;
+    paddingTop?: number;
+    paddingBottom?: number;
+
+    horizontalPadding?: number; // DEPRECATED
+    verticalPadding?: number; // DEPRECATED
     itemSpacing?: number;
-    constraints?: Constraints;
 }
 
 export interface FrameSpecificProps {
