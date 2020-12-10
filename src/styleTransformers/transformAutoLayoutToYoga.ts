@@ -24,6 +24,16 @@ export const transformAutoLayoutToYoga = (props: AutoLayoutAllProps): Partial<Yo
                   flexDirection: layoutModeToFlexDirection[props.layoutMode]
               }
             : {}),
+        ...(props.layoutAlign && layoutAlignToAlignSelf[props.layoutAlign]
+            ? {
+                  alignSelf: layoutAlignToAlignSelf[props.layoutAlign]
+              }
+            : {}),
+        ...(props.layoutGrow
+            ? {
+                  flexGrow: props.layoutGrow
+              }
+            : {}),
         ...(props.horizontalPadding
             ? {
                   paddingLeft: props.horizontalPadding,
@@ -34,11 +44,6 @@ export const transformAutoLayoutToYoga = (props: AutoLayoutAllProps): Partial<Yo
             ? {
                   paddingTop: props.verticalPadding,
                   paddingBottom: props.verticalPadding
-              }
-            : {}),
-        ...(props.layoutAlign && layoutAlignToAlignSelf[props.layoutAlign]
-            ? {
-                  alignSelf: layoutAlignToAlignSelf[props.layoutAlign]
               }
             : {}),
         ...(props.paddingLeft
