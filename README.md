@@ -34,13 +34,6 @@ export const App = () => {
 };
 ```
 
-___
-
-⚠️ Warning!️ Project is not production ready and currently at beta version. API can be changed.
-
-___
-
-
 ## Installation
 
 #### Using boilerplate
