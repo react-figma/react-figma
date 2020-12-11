@@ -47,6 +47,10 @@ const docusaurusConfig = {
                             label: 'Styling',
                             to: '/docs/styling',
                         },
+                        {
+                            label: 'Ecosystem',
+                            to: '/docs/ecosystem',
+                        },
                     ],
                 },
                 {
