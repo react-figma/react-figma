@@ -1,8 +1,26 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "esnext",
+    "outDir": "dist",
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["es5", "es6", "es7", "es2017", "dom"],
+    "sourceMap": true,
+    "allowJs": false,
+    "jsx": "react",
     "moduleResolution": "node",
-    "jsx": "react"
-  }
+    "rootDirs": ["src"],
+    "baseUrl": "src",
+    "skipLibCheck": true,
+    "declaration": true,
+    "paths": {
+      "react-figma": ["../../../src/index.ts"],
+      "react-figma/rpc": ["../../../src/rpc.ts"]
+    },
+    "typeRoots": [
+      "../../node_modules/@types",
+      "../../node_modules/@figma"
+    ]
+  },
+  "include": ["src/**/*", "../../jsx-interfaces.d.ts", "../../images.d.ts"],
+  "exclude": ["node_modules", "dist", "**/__tests__/**"]
 }

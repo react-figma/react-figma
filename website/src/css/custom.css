@@ -1,14 +1,20 @@
 
 :root {
-    --ifm-color-primary: #1abcfe;
-    --ifm-color-primary-dark: #01b3fb;
-    --ifm-color-primary-darker: #01a9ed;
-    --ifm-color-primary-darkest: #018bc3;
-    --ifm-color-primary-light: #36c4fe;
-    --ifm-color-primary-lighter: #44c8fe;
-    --ifm-color-primary-lightest: #6ed4fe;
+    --ifm-color-primary: #eb212e;
+    --ifm-color-primary-dark: #eb212e;
+    --ifm-color-primary-darker: #eb212e;
+    --ifm-color-primary-darkest: #eb212e;
+    --ifm-color-primary-light: #eb212e;
+    --ifm-color-primary-lighter: #eb212e;
+    --ifm-color-primary-lightest: #eb212e;
+    --ifm-color-secondary: #f5f5f5;
 }
 
 .docusaurus-highlight-code-line {
-    background: #1abcfe20;
+    background: #eb212e80;
+}
+
+.footer--dark {
+    --ifm-footer-background-color: #000;
+
 }

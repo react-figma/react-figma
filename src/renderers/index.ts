@@ -3,6 +3,7 @@ export { text } from './text';
 export { page } from './page';
 export { frame } from './frame';
 export { component } from './component';
+export { componentset } from './componentset';
 export { instance } from './instance';
 export { star } from './star';
 export { vector } from './vector';

@@ -13,7 +13,6 @@ import {
 } from '../../styleTransformers/transformLayoutStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
-import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 import {
     transformGeometryStyleProperties,
     GeometryStyleProperties
@@ -23,6 +22,7 @@ import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useImageHash } from '../../hooks/useImageHash';
 
 export interface VectorProps
     extends VectorNodeProps,
@@ -35,22 +35,25 @@ export interface VectorProps
     children?: undefined;
 }
 
-export const Vector: React.FC<VectorProps> = props => {
+const Vector: React.FC<VectorProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
 
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
+    const imageHash = useImageHash(style.backgroundImage);
+
     const vectorProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
-        ...transformGeometryStyleProperties('fills', style),
+        ...transformGeometryStyleProperties('fills', style, imageHash),
         ...props,
         style
     };
-    const fills = useFillsPreprocessor(vectorProps);
     const yogaProps = useYogaLayout({ nodeRef, ...vectorProps });
     useOnLayoutHandler(yogaProps, props);
-    return <vector {...vectorProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
+    return <vector {...vectorProps} {...yogaProps} innerRef={nodeRef} />;
 };
+
+export { Vector };

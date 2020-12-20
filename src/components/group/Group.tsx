@@ -15,6 +15,7 @@ import {
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useImageHash } from '../../hooks/useImageHash';
 
 export interface GroupNodeProps
     extends DefaultShapeProps,
@@ -24,17 +25,19 @@ export interface GroupNodeProps
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
 }
 
-export const Group: React.FC<GroupNodeProps> = props => {
+const Group: React.FC<GroupNodeProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
 
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
+    const imageHash = useImageHash(style.backgroundImage);
+
     const groupProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
-        ...transformGeometryStyleProperties('backgrounds', style),
+        ...transformGeometryStyleProperties('backgrounds', style, imageHash),
         ...props,
         style
     };
@@ -43,3 +46,5 @@ export const Group: React.FC<GroupNodeProps> = props => {
 
     return <group {...groupProps} {...yogaChildProps} innerRef={nodeRef} />;
 };
+
+export { Group };

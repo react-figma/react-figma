@@ -9,14 +9,16 @@ import React from 'react';
 import classnames from 'classnames';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import useThemeContext from '@theme/hooks/useThemeContext';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
 const features = [
     {
-        title: <>UI Primitives support</>,
+        title: 'UI Primitives support',
         imageUrl: 'img/socket3.svg',
+        darkImageUrl: 'img/socket3-white.svg',
         description: (
             <>
                 Compatible with react-native, react-native-web, react-sketchapp API:
@@ -25,8 +27,9 @@ const features = [
         ),
     },
     {
-        title: <>Yoga Layout</>,
+        title: 'Yoga Layout',
         imageUrl: 'img/edit-grid.svg',
+        darkImageUrl: 'img/edit-grid-white.svg',
         description: (
             <>
                 It's possible to describe layouts with flexboxes instead of absolute positioning.
@@ -35,8 +38,9 @@ const features = [
         ),
     },
     {
-        title: <>React</>,
+        title: 'React',
         imageUrl: 'img/react-logo.svg',
+        darkImageUrl: 'img/react-logo-white.svg',
         description: (
             <>
                 The renderer supports a hydration (applying changes without re-creating existing nodes) and
@@ -52,11 +56,11 @@ function Home() {
     return (
         <Layout
             title="React Figma"
-            description={"Render React components to Figma"}
+            description={"A React renderer for Figma. Use React components as a source for your designs."}
         >
             <header className={classnames('hero hero--primary', styles.heroBanner)}>
                 <div className="container">
-                    <h1 className="hero__title">{siteConfig.title}</h1>
+                    <Title title={siteConfig.title} />
                     <p className="hero__subtitle">{siteConfig.tagline}</p>
                     <div className={styles.buttons}>
                         <Link
@@ -81,27 +85,16 @@ function Home() {
                 </div>
             </header>
             <main>
+                <div className={styles.demoGif}>
+                    <img src="https://user-images.githubusercontent.com/1270648/89524327-09365c80-d7ed-11ea-9cb1-08f6fd56a350.gif" width="800" />
+                </div>
+
                 {features && features.length && (
                     <section className={styles.features}>
                         <div className="container">
                             <div className="row">
-                                {features.map(({ imageUrl, title, description }, idx) => (
-                                    <div
-                                        key={idx}
-                                        className={classnames('col col--4', styles.feature)}
-                                    >
-                                        {imageUrl && (
-                                            <div className="text--center margin-bottom--lg">
-                                                <img
-                                                    className={styles.featureImage}
-                                                    src={useBaseUrl(imageUrl)}
-                                                    alt={title}
-                                                />
-                                            </div>
-                                        )}
-                                        <h3>{title}</h3>
-                                        <p>{description}</p>
-                                    </div>
+                                {features.map((featureData, idx) => (
+                                    <Feature key={idx} {...featureData} />
                                 ))}
                             </div>
                         </div>
@@ -110,6 +103,42 @@ function Home() {
             </main>
         </Layout>
     );
+}
+
+const Feature = ({ darkImageUrl, imageUrl, title, description }) => {
+    const { isDarkTheme } = useThemeContext();
+
+    const url = isDarkTheme ? darkImageUrl || imageUrl : imageUrl;
+
+    return (
+        <div
+            className={classnames('col col--4', styles.feature)}
+        >
+            {imageUrl && (
+                <div className="text--center margin-bottom--lg">
+                    <img
+                        className={styles.featureImage}
+                        src={useBaseUrl(url)}
+                        alt={title}
+                    />
+                </div>
+            )}
+            <h3>{title}</h3>
+            <p>{description}</p>
+        </div>
+    );
+}
+
+const Title = (props) => {
+    const { title } = props;
+    const { isDarkTheme } = useThemeContext();
+
+    return <div className={styles.heroTitleContainer}>
+        <h1 className="hero__title">
+            {title}
+        </h1>
+        <img className={styles.heroLogo} src={isDarkTheme ? "/img/react-figma-logo.svg" : "/img/react-figma-logo-white.svg" } />
+    </div>
 }
 
 export default Home;

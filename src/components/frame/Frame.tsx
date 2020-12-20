@@ -29,6 +29,7 @@ import {
 } from '../../styleTransformers/transformBorderProperties';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useImageHash } from '../../hooks/useImageHash';
 
 interface Preset {
     name: string;
@@ -224,19 +225,21 @@ export interface FrameNodeProps
     preset?: Preset;
 }
 
-export const Frame: React.FC<FrameNodeProps> = props => {
+const Frame: React.FC<FrameNodeProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
 
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
+    const imageHash = useImageHash(style.backgroundImage);
+
     const { preset, ...propWithoutPreset } = props;
     const frameProps = {
         ...(preset || {}),
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
-        ...transformGeometryStyleProperties('backgrounds', style),
+        ...transformGeometryStyleProperties('backgrounds', style, imageHash),
         ...transformBorderStyleProperties(style),
         ...propWithoutPreset,
         style
@@ -247,3 +250,5 @@ export const Frame: React.FC<FrameNodeProps> = props => {
 
     return <frame {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
 };
+
+export { Frame };

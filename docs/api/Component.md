@@ -44,6 +44,18 @@ Factory method for creating linked Component and Instance. Returns
 }
 ```
 
+## ComponentSet
+
+Wrapper for the Figma [ComponentSet](https://www.figma.com/plugin-docs/api/ComponentSetNode/). It allows defining component variants.
+
+#### Props
+
+| Prop       | Type     | Default | Note                                              |
+| ---------- | -------- | ------- | ------------------------------------------------- |
+| `name`     | `String` |         | The name to be displayed in the Figma Layers List |
+| `children` | `Node`   |         | Only `Component` nodes                            |
+| `style`    | [`Style`](/docs/styling)   |         | Not all props                   |
+
 ## Examples
 
 #### Simple component
@@ -76,7 +88,7 @@ const Rect = createComponent();
 </>
 ```
 
-### Overriding elements inside instance
+#### Overriding elements inside instance
 
 ```jsx
 const Rect = createComponent();
@@ -122,5 +134,21 @@ const Txt = createComponent();
         }
     }}
 />
+```
+
+#### Using variants
+
+```jsx
+<ComponentSet name="Button">
+    <Component name="variant=Primary">
+        <PrimaryButton text="Primary" />
+    </Component>
+    <Component name="variant=Dangerous">
+        <DangerousButton text="Dangerous" />
+    </Component>
+    <Component name="variant=Secondary">
+        <SecondaryButton text="Secondary" />
+    </Component>
+</ComponentSet>
 ```
 

@@ -19,7 +19,3 @@ You can use `styled-components/primitives` to build cross-platform UI components
 
 ![react-figma styled-components example](https://user-images.githubusercontent.com/6757532/78387041-87cc8480-75d6-11ea-8fd0-b202d2e221ee.png)
 
-## Credit
-  - [react-sketchapp](https://github.com/airbnb/react-sketchapp)
-    - MIT License
-    - Copyright (c) 2018 Airbnb

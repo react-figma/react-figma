@@ -1,8 +1,7 @@
-declare type fetch = (input: RequestInfo, init?: RequestInit) => Promise<Response>;
+import * as React from 'react';
+import { App } from './App';
 
-import * as yoga from 'yoga-layout-prebuilt';
-import { uiWorker } from 'react-figma';
+import 'react-figma/rpc';
+import { render } from 'react-figma';
 
-onmessage = event => {
-    uiWorker({ yoga, fetch })(event);
-};
+render(<App />);

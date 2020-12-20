@@ -1,9 +1,11 @@
 export { render } from './renderer';
+export { connectToDevTools } from './helpers/connectToDevTools';
 
 export { Text } from './components/text/Text';
 export { Rectangle } from './components/rectangle/Rectangle';
 export { Page } from './components/page/Page';
 export { Component } from './components/component/Component';
+export { ComponentSet } from './components/component/ComponentSet';
 export { Instance } from './components/component/Instance';
 export { createComponent } from './components/component/createComponent';
 export { Frame, FRAME_PRESETS } from './components/frame/Frame';

@@ -61,9 +61,9 @@ Before commit pre-commit hook will be launched. It runs prettier and linting/tes
 ## Pushing changes
 
 1. Check linting/tests
-2. Check that project is can be built `npm run build`
+2. Check project is can be built `npm run build`
 3. Make Pull Request with your changes.
 
 ## Publishing new version to NPM
-1. Bump version in `package.json`
+1. Bump version in `package.json` and `src/renderer.tsx`
 2. Create new release/new tag on Github named `vx.y.z` where `x.y.z` is new version number

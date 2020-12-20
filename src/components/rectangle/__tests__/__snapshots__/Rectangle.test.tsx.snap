@@ -1,5 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Rectangle /> Loading backgroundImage 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fills": Array [
+            Object {
+              "imageHash": "<image hash>",
+              "scaleMode": "FILL",
+              "type": "IMAGE",
+            },
+          ],
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"backgroundImage\\":\\"https://avatars1.githubusercontent.com/u/54585419\\"}",
+          },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
+          "type": "RECTANGLE",
+          "visible": true,
+          "x": 0,
+          "y": 0,
+        },
+      ],
+      "exportSettings": Array [],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;
+
 exports[`<Rectangle /> Rectangle with border props 1`] = `
 <rectangle
   height={100}

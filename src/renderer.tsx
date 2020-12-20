@@ -1,11 +1,16 @@
 import * as nanoid from 'nanoid/non-secure';
 
-// * Development version of react-reconciler can't be used inside Figma realm.
-import * as createReconciler from 'react-reconciler/cjs/react-reconciler.production.min';
+import * as createReconciler from 'react-reconciler';
 
 import { setTextChildren } from './hooks/useTextChildren';
 import { api } from './rpc';
 import { serializeProps } from './serializers';
+
+const isReactFigmaExperimental = process.env.REACT_FIGMA_EXPERIMENTAL;
+
+if (isReactFigmaExperimental) {
+    console.log('REACT_FIGMA_EXPERIMENTAL');
+}
 
 const setTextInstance = (parentNode, childNode) => {
     childNode.parent = parentNode;
@@ -169,6 +174,12 @@ export const render = async (jsx: any) => {
     };
 
     const reconciler = createReconciler(HostConfig);
+
+    reconciler.injectIntoDevTools({
+        bundleType: 1, // 0 for PROD, 1 for DEV
+        version: '0.1.6',
+        rendererPackageName: 'react-figma'
+    });
 
     const container = reconciler.createContainer(rootNode, true, true);
     reconciler.updateContainer(jsx, container);

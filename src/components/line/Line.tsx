@@ -22,6 +22,7 @@ import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useImageHash } from '../../hooks/useImageHash';
 
 export interface LineProps
     extends DefaultShapeProps,
@@ -33,16 +34,18 @@ export interface LineProps
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
 }
 
-export const Line: React.FC<LineProps> = props => {
+const Line: React.FC<LineProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
 
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
+    const imageHash = useImageHash(style.backgroundImage);
+
     const lineProps = {
         ...transformLayoutStyleProperties(style),
-        ...transformGeometryStyleProperties('fills', style),
+        ...transformGeometryStyleProperties('fills', style, imageHash),
         ...transformBlendProperties(style),
         ...props,
         style
@@ -53,3 +56,5 @@ export const Line: React.FC<LineProps> = props => {
 
     return <line {...lineProps} {...yogaProps} innerRef={nodeRef} />;
 };
+
+export { Line };

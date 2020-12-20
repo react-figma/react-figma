@@ -16,17 +16,7 @@ Object {
 }
 `;
 
-exports[`transformGeometryStyleProperties backgroundImage: ./image.png 1`] = `
-Object {
-  "fills": Array [
-    Object {
-      "image": "./image.png",
-      "scaleMode": undefined,
-      "type": "IMAGE",
-    },
-  ],
-}
-`;
+exports[`transformGeometryStyleProperties backgroundImage: ./image.png 1`] = `Object {}`;
 
 exports[`transformGeometryStyleProperties backgroundImage: linear-gradient(#e66465, #9198e5) 1`] = `
 Object {

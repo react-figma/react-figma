@@ -41,7 +41,7 @@ const normalizeTextNodeChidren = children => {
     return Array.isArray(children) ? children.join('') : children;
 };
 
-export const Text: React.FC<TextProps> = props => {
+const Text: React.FC<TextProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
@@ -62,7 +62,7 @@ export const Text: React.FC<TextProps> = props => {
     };
     const hasDefinedWidth = textProps.width || style.maxWidth;
     const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });
-    const yogaProps = useYogaLayout({ nodeRef, ...textProps });
+    const yogaProps = useYogaLayout({ nodeRef, ...textProps, loadedFont });
     useOnLayoutHandler(yogaProps, props);
 
     return (
@@ -75,3 +75,5 @@ export const Text: React.FC<TextProps> = props => {
         />
     );
 };
+
+export { Text };

@@ -1,7 +1,7 @@
 import { Observable, Subject } from 'rxjs';
-import { concatMap, delay } from 'rxjs/operators';
+import { delay, exhaustMap, map, tap } from 'rxjs/operators';
 import { yogaHandler } from './yogaHandler';
-import { api } from '../rpc';
+import { $updateYogaReactId, api } from '../rpc';
 
 const $yogaRoot = new Subject();
 
@@ -18,10 +18,17 @@ export const updateYogaNode = (node: any) => {
     updateYogaRoot(node);
 };
 
+$updateYogaReactId
+    .pipe(
+        map(reactId => ({ reactId })),
+        tap(val => console.log('$updateYogaReactId', val))
+    )
+    .subscribe($yogaRoot);
+
 $yogaRoot
     .pipe(
         delay(0),
-        concatMap((instance: any) => {
+        exhaustMap((instance: any) => {
             return new Observable(subscriber => {
                 const handleYogaProps = newProps => {
                     const { children: yogaChildren, nodeBatchId, reactId, ...yogaPropsWithoutChildren } = newProps;

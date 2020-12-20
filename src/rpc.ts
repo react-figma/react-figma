@@ -1,14 +1,15 @@
 import { createPluginAPI, createUIAPI } from 'figma-jsonrpc';
-import { isReactFigmaNode } from './isReactFigmaNode';
+import { isReactFigmaNode } from './helpers/isReactFigmaNode';
 import * as renderers from './renderers';
 import * as nanoid from 'nanoid/non-secure';
 import { Subject } from 'rxjs';
+import { safeGetPluginData } from './helpers/safeGetPluginData';
 
 const getInitialTree = node => {
     return {
         id: node.id,
         type: node.type,
-        reactId: node.getPluginData('reactId'),
+        reactId: safeGetPluginData('reactId')(node),
         children:
             node.children && node.children.filter(item => isReactFigmaNode(item)).map(item => getInitialTree(item))
     };
@@ -37,10 +38,10 @@ const transformNodesToTree = node => {
         width: node.width,
         height: node.height,
         style:
-            (node.getPluginData && node.getPluginData('reactStyle') && JSON.parse(node.getPluginData('reactStyle'))) ||
+            (safeGetPluginData('reactStyle')(node) && JSON.parse(safeGetPluginData('reactStyle')(node) || '')) ||
             undefined,
         children: children && children.length > 0 ? children : undefined,
-        reactId: node.getPluginData('reactId'),
+        reactId: safeGetPluginData('reactId')(node),
         nodeBatchId
     };
 };
@@ -54,10 +55,18 @@ const renderInstance = (type, node, props, reactId) => {
     return instance;
 };
 
-const cleanGroupStubElement = parentNode => {
+const cleanStubElements = parentNode => {
     if (parentNode.type === 'GROUP') {
         parentNode.children.forEach(child => {
-            if (child.getPluginData('isGroupStubElement')) {
+            if (safeGetPluginData('isGroupStubElement')(child)) {
+                child.remove();
+            }
+        });
+    }
+
+    if (parentNode.type === 'COMPONENT_SET') {
+        parentNode.children.forEach(child => {
+            if (safeGetPluginData('isComponentStubElement')(child)) {
                 child.remove();
             }
         });
@@ -70,7 +79,7 @@ const appendToContainer = (parentNode, childNode) => {
     }
 
     parentNode.appendChild(childNode);
-    cleanGroupStubElement(parentNode);
+    cleanStubElements(parentNode);
 };
 
 const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
@@ -79,7 +88,7 @@ const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
     }
     const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
     parentNode.insertChild(beforeChildIndex, newChildNode);
-    cleanGroupStubElement(parentNode);
+    cleanStubElements(parentNode);
 };
 
 const cache = {};
@@ -171,6 +180,29 @@ export const api = createPluginAPI(
         setCurrentPage(_node) {
             const node = transformToNode(_node);
             figma.currentPage = node;
+        },
+
+        highlightNativeElement(_node) {
+            const node = transformToNode(_node);
+
+            if (!node || node.type === 'DOCUMENT') {
+                return;
+            }
+
+            if (figma.currentPage.selection.includes(node)) {
+                return;
+            }
+
+            const nodePage = findRoot(node);
+
+            if (figma.currentPage !== nodePage) {
+                figma.currentPage = nodePage;
+            }
+
+            if (node.type !== 'PAGE') {
+                figma.viewport.scrollAndZoomIntoView([node]);
+                figma.currentPage.selection = [node];
+            }
         }
     },
     {
@@ -185,7 +217,7 @@ export const setupMainThread = () => {
     });
 
     figma.on('selectionchange', () => {
-        const reactIds = figma.currentPage.selection.map(node => node.getPluginData('reactId'));
+        const reactIds = figma.currentPage.selection.map(safeGetPluginData('reactId'));
         uiApi.selectionChange(reactIds);
     });
 };
@@ -193,6 +225,8 @@ export const setupMainThread = () => {
 export const $currentPageTempId = new Subject();
 
 export const $selectionReactIds = new Subject();
+
+export const $updateYogaReactId = new Subject();
 
 // those methods will be executed in the Figma UI,
 // regardless of where they are called from
@@ -203,6 +237,9 @@ export const uiApi = createUIAPI(
         },
         selectionChange: reactIds => {
             $selectionReactIds.next(reactIds);
+        },
+        updateYogaNode: reactId => {
+            $updateYogaReactId.next(reactId);
         }
     },
     {

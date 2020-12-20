@@ -1,4 +1,4 @@
-import chroma from 'chroma-js';
+import * as chroma from 'chroma-js';
 
 // take a hex and give us a nice text color to put over it
 const textColor = hex => {
