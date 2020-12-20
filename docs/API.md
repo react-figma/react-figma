@@ -32,4 +32,5 @@ Components that compatible with react-native API.
 * [Rectangle](api/Rectangle.md) — A React component for displaying Figma rectangle.
 * [Star](api/Star.md) — A React component for displaying Figma star.
 * [Vector](api/Vector.md) — A React component for displaying Figma vector.
+* [Slice](api/Slice.md) — A React component for displaying Figma slice.
 

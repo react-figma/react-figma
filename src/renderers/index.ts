@@ -11,3 +11,4 @@ export { line } from './line';
 export { group } from './group';
 export { ellipse } from './ellipse';
 export { svg } from './svg';
+export { slice } from './slice';

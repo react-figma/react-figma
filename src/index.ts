@@ -17,6 +17,7 @@ export { Ellipse } from './components/ellipse/Ellipse';
 export { View } from './components/view/View';
 export { Svg } from './components/svg/Svg';
 export { Image } from './components/Image/Image';
+export { Slice } from './components/slice/Slice';
 
 export { StyleSheet } from './helpers/StyleSheet';
 export { Platform } from './helpers/Platform';

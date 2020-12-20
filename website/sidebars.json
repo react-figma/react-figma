@@ -31,7 +31,8 @@
           "api/line",
           "api/rectangle",
           "api/star",
-          "api/vector"
+          "api/vector",
+          "api/slice"
         ]
       }
     ]
