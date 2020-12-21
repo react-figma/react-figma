@@ -112,6 +112,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "szeko",
+      "name": "szeko",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5523724?v=4",
+      "profile": "http://szeko.com.au",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
