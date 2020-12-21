@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CornerProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
+import { ConstraintsProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -18,7 +18,7 @@ import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayou
 import { useImageHash } from '../../hooks/useImageHash';
 
 export interface GroupNodeProps
-    extends DefaultShapeProps,
+    extends Omit<DefaultShapeProps, keyof ConstraintsProps>,
         InstanceItemProps,
         SelectionEventProps,
         OnLayoutHandlerProps {
