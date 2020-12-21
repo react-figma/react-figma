@@ -1988,10 +1988,10 @@ figgy-pudding@^3.5.1:
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"
   integrity sha512-vNKxJHTEKNThjfrdJwHc7brvM6eVevuO5nTj6ez8ZQ1qbXTvGthucRF7S4vf2cr71QVnT70V34v0S1DyQsti0w==
 
-figma-api-stub@0.0.43:
-  version "0.0.43"
-  resolved "https://registry.yarnpkg.com/figma-api-stub/-/figma-api-stub-0.0.43.tgz#86f73d53317cc0d74d802fd5ec9576c31daad4f5"
-  integrity sha512-2x0fvHMrMH6e5wMZ219xUARxMoQ8tz+lkawXfBA4W2k7W6ZiVI58JYmYaayPuXD1ePhaBhSho/aBZp8IURDIYw==
+figma-api-stub@0.0.44:
+  version "0.0.44"
+  resolved "https://registry.yarnpkg.com/figma-api-stub/-/figma-api-stub-0.0.44.tgz#7739397b8aa5af2586b3bbaf0ff086ee0b1475ee"
+  integrity sha512-fmS38UZ8/XK2m77TAjc4etVqC3kE11w49G4K/S4E+bPPdV5ZallSXTBmY0Dx5ycsrjrhaOqA7gkGuEiJz2D3vA==
   dependencies:
     clone-deep "^4.0.1"
     rxjs "^6.5.3"
