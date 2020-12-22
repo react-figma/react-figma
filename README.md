@@ -119,9 +119,29 @@ export const App = () => {
 * [Component Variants](examples/component-variants)
 * [MDX](examples/mdx)
 
-## Become a Contributor 🎖
+## Sponsoring
 
-Whether you're helping us implement features, fix bugs or improve the docs, we'd love to have you as part of the community! 
+[Become a backer](https://opencollective.com/reactfigma#backer) and get your logo on our Readme on GitHub with a link to your site.
+
+<a href="https://opencollective.com/reactfigma/backer/0/website" target="_blank"><img src="https://opencollective.com/reactfigma/backer/0/avatar.svg"></a>
+<a href="https://opencollective.com/reactfigma/backer/1/website" target="_blank"><img src="https://opencollective.com/reactfigma/backer/1/avatar.svg"></a>
+<a href="https://opencollective.com/reactfigma/backer/2/website" target="_blank"><img src="https://opencollective.com/reactfigma/backer/2/avatar.svg"></a>
+<a href="https://opencollective.com/reactfigma/backer/3/website" target="_blank"><img src="https://opencollective.com/reactfigma/backer/3/avatar.svg"></a>
+<a href="https://opencollective.com/reactfigma/backer/4/website" target="_blank"><img src="https://opencollective.com/reactfigma/backer/4/avatar.svg"></a>
+<a href="https://opencollective.com/reactfigma/backer/5/website" target="_blank"><img src="https://opencollective.com/reactfigma/backer/5/avatar.svg"></a>
+
+[Become a sponsor](https://opencollective.com/reactfigma#sponsor) and get your logo on our README on Github with a link to your site.
+
+<a href="https://opencollective.com/reactfigma/sponsor/0/website" target="_blank"><img src="https://opencollective.com/reactfigma/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/reactfigma/sponsor/1/website" target="_blank"><img src="https://opencollective.com/reactfigma/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/reactfigma/sponsor/2/website" target="_blank"><img src="https://opencollective.com/reactfigma/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/reactfigma/sponsor/3/website" target="_blank"><img src="https://opencollective.com/reactfigma/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/reactfigma/sponsor/4/website" target="_blank"><img src="https://opencollective.com/reactfigma/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/reactfigma/sponsor/5/website" target="_blank"><img src="https://opencollective.com/reactfigma/sponsor/5/avatar.svg"></a>
+
+## Contributing
+
+Everyone is welcome to contribute. Whether you're helping us implement features, fix bugs or improve the docs, we'd love to have you as part of the community! 
 
 #### How to Contribute
 
