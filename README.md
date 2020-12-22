@@ -184,6 +184,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/pgrimaud"><img src="https://avatars1.githubusercontent.com/u/1866496?v=4" width="100px;" alt=""/><br /><sub><b>Pierre Grimaud</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=pgrimaud" title="Documentation">📖</a></td>
     <td align="center"><a href="http://gwst.io"><img src="https://avatars3.githubusercontent.com/u/2213636?v=4" width="100px;" alt=""/><br /><sub><b>Greg Westneat</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=leggomuhgreggo" title="Code">💻</a></td>
     <td align="center"><a href="https://mariusreimer.com"><img src="https://avatars3.githubusercontent.com/u/15148377?v=4" width="100px;" alt=""/><br /><sub><b>Marius Reimer</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=reime005" title="Code">💻</a></td>
+    <td align="center"><a href="http://szeko.com.au"><img src="https://avatars1.githubusercontent.com/u/5523724?v=4" width="100px;" alt=""/><br /><sub><b>szeko</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=szeko" title="Code">💻</a></td>
   </tr>
 </table>
 
