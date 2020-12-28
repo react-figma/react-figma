@@ -85,37 +85,37 @@ const TypeFrame = props => {
             <Text style={styles.heading}>Type</Text>
 
             <Component name="HeaderH1" style={styles.component}>
-                <Text style={{ fontSize: 64 }}>Header 1</Text>
+                <Text style={{ fontSize: 64, color: '#000000' }}>Header 1</Text>
             </Component>
             <Text style={styles.hint}>64px</Text>
 
             <Component name="HeaderH2" style={styles.component}>
-                <Text style={{ fontSize: 44 }}>Header 2</Text>
+                <Text style={{ fontSize: 44, color: '#000000' }}>Header 2</Text>
             </Component>
             <Text style={styles.hint}>44px</Text>
 
             <Component name="HeaderH3" style={styles.component}>
-                <Text style={{ fontSize: 24 }}>Heading 3</Text>
+                <Text style={{ fontSize: 24, color: '#000000' }}>Heading 3</Text>
             </Component>
             <Text style={styles.hint}>24px</Text>
 
             <Component name="HeaderH4" style={styles.component}>
-                <Text style={{ fontSize: 16 }}>HEADER 4</Text>
+                <Text style={{ fontSize: 16, color: '#000000' }}>HEADER 4</Text>
             </Component>
             <Text style={styles.hint}>16px</Text>
 
             <Component name="RegularText" style={styles.component}>
-                <Text style={{ fontSize: 16 }}>Regular text</Text>
+                <Text style={{ fontSize: 16, color: '#000000' }}>Regular text</Text>
             </Component>
             <Text style={styles.hint}>16px</Text>
 
             <Component name="SmallText" style={styles.component}>
-                <Text style={{ fontSize: 14 }}>Small text</Text>
+                <Text style={{ fontSize: 14, color: '#000000' }}>Small text</Text>
             </Component>
             <Text style={styles.hint}>14px</Text>
 
             <Component name="XSmallText" style={styles.component}>
-                <Text style={{ fontSize: 11 }}>X-Small text</Text>
+                <Text style={{ fontSize: 11, color: '#000000' }}>X-Small text</Text>
             </Component>
             <Text style={styles.hint}>11px</Text>
         </Frame>
