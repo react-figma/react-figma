@@ -23,6 +23,30 @@ describe('transformGeometryStyleProperties', () => {
         expect(result).toMatchSnapshot();
     });
 
+    it('imageHash transforms to fills with uri as background image', () => {
+        const result = transformGeometryStyleProperties(
+            'fills',
+            { backgroundImage: { uri: './image.png' } },
+            'data:image/png;base64,iVBORw0KGgoAAA\n' +
+                'ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4\n' +
+                '//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU\n' +
+                '5ErkJggg=='
+        );
+        expect(result).toMatchSnapshot();
+    });
+
+    it('imageHash transforms to fills with default as background image', () => {
+        const result = transformGeometryStyleProperties(
+            'fills',
+            { backgroundImage: { uri: './image.png' } },
+            'data:image/png;base64,iVBORw0KGgoAAA\n' +
+                'ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4\n' +
+                '//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU\n' +
+                '5ErkJggg=='
+        );
+        expect(result).toMatchSnapshot();
+    });
+
     it('backgroundImage: linear-gradient(#e66465, #9198e5)', () => {
         const result = transformGeometryStyleProperties('fills', {
             backgroundImage: 'linear-gradient(#e66465, #9198e5)'

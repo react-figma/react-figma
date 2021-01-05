@@ -74,3 +74,33 @@ ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4
   ],
 }
 `;
+
+exports[`transformGeometryStyleProperties imageHash transforms to fills with default as background image 1`] = `
+Object {
+  "fills": Array [
+    Object {
+      "imageHash": "data:image/png;base64,iVBORw0KGgoAAA
+ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4
+//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU
+5ErkJggg==",
+      "scaleMode": "FILL",
+      "type": "IMAGE",
+    },
+  ],
+}
+`;
+
+exports[`transformGeometryStyleProperties imageHash transforms to fills with uri as background image 1`] = `
+Object {
+  "fills": Array [
+    Object {
+      "imageHash": "data:image/png;base64,iVBORw0KGgoAAA
+ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4
+//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU
+5ErkJggg==",
+      "scaleMode": "FILL",
+      "type": "IMAGE",
+    },
+  ],
+}
+`;

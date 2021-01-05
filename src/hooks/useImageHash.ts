@@ -15,8 +15,8 @@ export const toDataURL = (url: string): Promise<string> =>
                 })
         );
 
-export const useImageHash = (source: string | { uri: string } | void) => {
-    const src = source && (typeof source === 'string' ? source : source.uri);
+export const useImageHash = (source: string | { uri: string } | { default: string } | void) => {
+    const src = source && (typeof source === 'string' ? source : 'uri' in source ? source.uri : source.default);
     const { data: dataUrl } = usePromise(
         src => (src && (src.slice(0, 5) === 'data:' ? Promise.resolve(src) : toDataURL(src))) || Promise.resolve(null),
         src

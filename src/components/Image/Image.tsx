@@ -4,7 +4,7 @@ import { ResizeMode } from '../../styleTransformers/transformGeometryStyleProper
 import { StyleSheet } from '../..';
 
 export interface ImageProps extends RectangleProps {
-    source: string | { uri: string };
+    source: string | { uri: string } | { default: string };
     resizeMode?: ResizeMode;
 }
 
