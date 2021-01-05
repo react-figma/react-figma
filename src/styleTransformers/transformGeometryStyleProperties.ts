@@ -7,7 +7,7 @@ export type ResizeMode = 'contain' | 'cover' | 'stretch' | 'center' | 'repeat' |
 
 export type GeometryStyleProperties = {
     backgroundColor: string;
-    backgroundImage: string | { uri: string };
+    backgroundImage: string | { uri: string } | { default: string };
     backgroundSize: ResizeMode;
 };
 
@@ -39,7 +39,11 @@ export const transformGeometryStyleProperties = (
         let color;
         try {
             color = colorToPaint(
-                typeof style.backgroundImage === 'string' ? style.backgroundImage : style.backgroundImage.uri
+                typeof style.backgroundImage === 'string'
+                    ? style.backgroundImage
+                    : 'uri' in style.backgroundImage
+                    ? style.backgroundImage.uri
+                    : style.backgroundImage.default
             );
         } catch (e) {}
         if (color) {
