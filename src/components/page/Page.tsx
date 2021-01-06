@@ -5,6 +5,7 @@ import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { $currentPageTempId, api } from '../../rpc';
 import { map } from 'rxjs/operators';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { InheritStyleProvider } from '../../hooks/useInheritStyle';
 
 export interface PageProps extends BaseNodeProps, ChildrenProps, ExportProps, OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties>;
@@ -41,7 +42,11 @@ const Page: React.FC<PageProps> = props => {
     const yogaChildProps = useYogaLayout({ nodeRef, ...otherProps });
     useOnLayoutHandler(yogaChildProps, props);
 
-    return <page {...otherProps} {...yogaChildProps} innerRef={nodeRef} />;
+    return (
+        <InheritStyleProvider style={props.style}>
+            <page {...otherProps} {...yogaChildProps} innerRef={nodeRef} />
+        </InheritStyleProvider>
+    );
 };
 
 export { Page };
