@@ -30,6 +30,7 @@ import {
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 import { useImageHash } from '../../hooks/useImageHash';
+import { InheritStyleProvider } from '../../hooks/useInheritStyle';
 
 interface Preset {
     name: string;
@@ -248,7 +249,11 @@ const Frame: React.FC<FrameNodeProps> = props => {
 
     useOnLayoutHandler(yogaChildProps, props);
 
-    return <frame {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
+    return (
+        <InheritStyleProvider style={style}>
+            <frame {...frameProps} {...yogaChildProps} innerRef={nodeRef} />
+        </InheritStyleProvider>
+    );
 };
 
 export { Frame };

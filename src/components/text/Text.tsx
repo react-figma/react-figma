@@ -24,6 +24,7 @@ import { useTextChildren } from '../../hooks/useTextChildren';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useInheritStyle } from '../../hooks/useInheritStyle';
 
 export interface TextProps
     extends TextNodeProps,
@@ -45,8 +46,13 @@ const Text: React.FC<TextProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
+    const inheritedStyle = useInheritStyle();
 
-    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
+    const style = {
+        ...(process.env.REACT_FIGMA_STYLE_INHERITANCE_ENABLED ? inheritedStyle : {}),
+        ...StyleSheet.flatten(props.style),
+        ...transformAutoLayoutToYoga(props)
+    };
     const children = normalizeTextNodeChidren(props.children);
 
     const charactersByChildren = useTextChildren(nodeRef);
