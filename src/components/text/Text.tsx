@@ -51,7 +51,9 @@ const Text: React.FC<TextProps> = props => {
 
     const style = {
         ...(process.env.REACT_FIGMA_STYLE_INHERITANCE_ENABLED ? inheritedStyle : {}),
-        ...(process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED && props.style && (flattenOriginalStyle as any).display === 'block'
+        ...(process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED &&
+        props.style &&
+        (flattenOriginalStyle as any).display === 'block'
             ? { width: '100%' }
             : {}),
         ...StyleSheet.flatten(flattenOriginalStyle),
