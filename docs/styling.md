@@ -191,3 +191,13 @@ Supported components:
 * Text (as a recipient)
 
 > Warning! Inheritance is not compatible with React Native.
+
+#### Web defaults
+
+Available under the flag `process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED`.
+
+On the Web defaults mode, react-figma will try to simulate Web default behavior:
+
+* A text with display: block should get full width (`width: 100%`)
+* A container with display: flex should get `flexDirection: row`
+* `alignItems: stretch` for containers by default
