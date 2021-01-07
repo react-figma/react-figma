@@ -50,9 +50,13 @@ const Text: React.FC<TextProps> = props => {
 
     const style = {
         ...(process.env.REACT_FIGMA_STYLE_INHERITANCE_ENABLED ? inheritedStyle : {}),
+        ...(process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED && props.style && (props.style as any).display === 'block'
+            ? { width: '100%' }
+            : {}),
         ...StyleSheet.flatten(props.style),
         ...transformAutoLayoutToYoga(props)
     };
+    console.log(style);
     const children = normalizeTextNodeChidren(props.children);
 
     const charactersByChildren = useTextChildren(nodeRef);
