@@ -49,4 +49,11 @@ describe('<Text />', () => {
         expect(tree).toMatchSnapshot();
         delete process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED;
     });
+
+    it('Text got full width when display: block (wrapped to array)', () => {
+        process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED = '1';
+        const tree = renderer.create(<Text style={[{ display: 'block' } as any]} />).toJSON();
+        expect(tree).toMatchSnapshot();
+        delete process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED;
+    });
 });

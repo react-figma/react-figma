@@ -1,5 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Text /> Text got full width when display: block (wrapped to array) 1`] = `
+<text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
+  hasDefinedWidth={100}
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  loadedFont={null}
+  style={
+    Object {
+      "display": "block",
+      "width": "100%",
+    }
+  }
+  width={100}
+/>
+`;
+
 exports[`<Text /> Text got full width when display: block 1`] = `
 <text
   fills={
