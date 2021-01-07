@@ -171,3 +171,113 @@ exports[`<View /> View without children 1`] = `
   }
 />
 `;
+
+exports[`<View /> alignItems: "stretch" on web defaults mode 1`] = `
+<frame
+  backgrounds={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 0,
+        "type": "SOLID",
+      },
+    ]
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "transparent",
+    }
+  }
+>
+  <text
+    fills={
+      Array [
+        Object {
+          "color": Object {
+            "b": 0,
+            "g": 0,
+            "r": 0,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+        },
+      ]
+    }
+    innerRef={
+      Object {
+        "current": undefined,
+      }
+    }
+    loadedFont={null}
+    style={Object {}}
+  >
+    text
+  </text>
+</frame>
+`;
+
+exports[`<View /> flexDirection: "row" when display: flex on web defaults mode 1`] = `
+<frame
+  backgrounds={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 0,
+        "type": "SOLID",
+      },
+    ]
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  style={
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "transparent",
+      "display": "flex",
+      "flexDirection": "row",
+    }
+  }
+>
+  <text
+    fills={
+      Array [
+        Object {
+          "color": Object {
+            "b": 0,
+            "g": 0,
+            "r": 0,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+        },
+      ]
+    }
+    innerRef={
+      Object {
+        "current": undefined,
+      }
+    }
+    loadedFont={null}
+    style={Object {}}
+  >
+    text
+  </text>
+</frame>
+`;
