@@ -54,7 +54,7 @@ const Text: React.FC<TextProps> = props => {
         ...(process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED &&
         props.style &&
         (flattenOriginalStyle as any).display === 'block'
-            ? { width: '100%' }
+            ? { minWidth: '100%' }
             : {}),
         ...StyleSheet.flatten(flattenOriginalStyle),
         ...transformAutoLayoutToYoga(props)

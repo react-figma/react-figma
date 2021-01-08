@@ -15,7 +15,6 @@ exports[`<Text /> Text got full width when display: block (wrapped to array) 1`]
       },
     ]
   }
-  hasDefinedWidth={100}
   innerRef={
     Object {
       "current": undefined,
@@ -25,10 +24,9 @@ exports[`<Text /> Text got full width when display: block (wrapped to array) 1`]
   style={
     Object {
       "display": "block",
-      "width": "100%",
+      "minWidth": "100%",
     }
   }
-  width={100}
 />
 `;
 
@@ -47,7 +45,6 @@ exports[`<Text /> Text got full width when display: block 1`] = `
       },
     ]
   }
-  hasDefinedWidth={100}
   innerRef={
     Object {
       "current": undefined,
@@ -57,10 +54,9 @@ exports[`<Text /> Text got full width when display: block 1`] = `
   style={
     Object {
       "display": "block",
-      "width": "100%",
+      "minWidth": "100%",
     }
   }
-  width={100}
 />
 `;
 
