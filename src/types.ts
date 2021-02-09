@@ -38,7 +38,7 @@ export interface ChildrenProps {
 }
 
 export interface GeometryProps {
-    fills?: ReadonlyArray<Paint> | symbol;
+    fills?: ReadonlyArray<Paint>;
     strokes?: ReadonlyArray<Paint>;
     strokeWeight?: number;
     strokeAlign?: 'CENTER' | 'INSIDE' | 'OUTSIDE';

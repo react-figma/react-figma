@@ -21,3 +21,5 @@ export { Slice } from './components/slice/Slice';
 
 export { StyleSheet } from './helpers/StyleSheet';
 export { Platform } from './helpers/Platform';
+
+export { createPaintStyle } from './localStyles/createPaintStyle';

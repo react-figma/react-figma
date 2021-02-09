@@ -4,6 +4,8 @@ import * as renderers from './renderers';
 import * as nanoid from 'nanoid/non-secure';
 import { Subject } from 'rxjs';
 import { safeGetPluginData } from './helpers/safeGetPluginData';
+import { LayoutStyleProperties } from './styleTransformers/transformLayoutStyleProperties';
+import { GeometryStyleProperties } from './styleTransformers/transformGeometryStyleProperties';
 
 const getInitialTree = node => {
     return {
@@ -203,6 +205,20 @@ export const api = createPluginAPI(
                 figma.viewport.scrollAndZoomIntoView([node]);
                 figma.currentPage.selection = [node];
             }
+        },
+
+        createPaintStyle(properties: {
+            paints: ReadonlyArray<Paint>;
+            params: {
+                name?: string;
+            };
+        }) {
+            const { paints, params } = properties;
+            const { name } = params;
+            const paintStyle = figma.createPaintStyle();
+            paintStyle.name = name;
+            paintStyle.paints = paints;
+            return paintStyle.id;
         }
     },
     {
