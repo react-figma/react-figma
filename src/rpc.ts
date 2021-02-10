@@ -207,7 +207,7 @@ export const api = createPluginAPI(
             }
         },
 
-        createPaintStyle(properties: {
+        createOrUpdatePaintStyle(properties: {
             paints: ReadonlyArray<Paint>;
             params: {
                 name?: string;
@@ -215,7 +215,8 @@ export const api = createPluginAPI(
         }) {
             const { paints, params } = properties;
             const { name } = params;
-            const paintStyle = figma.createPaintStyle();
+            const foundPaintStyle = figma.getLocalPaintStyles().find((style) => style.name === name);
+            const paintStyle = foundPaintStyle || figma.createPaintStyle();
             paintStyle.name = name;
             paintStyle.paints = paints;
             return paintStyle.id;

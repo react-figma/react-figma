@@ -18,7 +18,7 @@ export const usePaintStyle = (
 
     React.useEffect(() => {
         const createStyle = async () => {
-            const id = await api.createPaintStyle({
+            const id = await api.createOrUpdatePaintStyle({
                 paints: transformedStyle.fills,
                 params
             });
