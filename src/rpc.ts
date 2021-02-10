@@ -215,7 +215,7 @@ export const api = createPluginAPI(
         }) {
             const { paints, params } = properties;
             const { name } = params;
-            const foundPaintStyle = figma.getLocalPaintStyles().find((style) => style.name === name);
+            const foundPaintStyle = figma.getLocalPaintStyles().find(style => style.name === name);
             const paintStyle = foundPaintStyle || figma.createPaintStyle();
             paintStyle.name = name;
             paintStyle.paints = paints;
