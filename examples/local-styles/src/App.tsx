@@ -1,16 +1,17 @@
 import * as React from 'react';
-import { Page, View, Text, createPaintStyle } from 'react-figma';
+import { Page, View, Text, StyleSheet, usePaintStyle } from 'react-figma';
 
-const paintStyle = createPaintStyle(
-    {
+const styles = StyleSheet.create({
+    root: {
         backgroundColor: '#dd55aa'
-    },
-    {
-        name: 'background/color'
     }
-);
+});
 
 export const App = () => {
+    const paintStyle = usePaintStyle(styles.root, {
+        name: 'background/color'
+    });
+
     return (
         <Page name="New page" isCurrent>
             <View>

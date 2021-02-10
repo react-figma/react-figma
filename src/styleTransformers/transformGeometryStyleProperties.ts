@@ -22,7 +22,7 @@ const backgroundSizeToScaleMode = {
 
 export const transformGeometryStyleProperties = (
     property: 'fills' | 'backgrounds',
-    style?: Partial<LayoutStyleProperties & GeometryStyleProperties>,
+    style?: Partial<LayoutStyleProperties & GeometryStyleProperties & { fillStyleId?: string }>,
     imageHash?: string
 ): GeometryProps => {
     if (!style) {
@@ -69,6 +69,7 @@ export const transformGeometryStyleProperties = (
     }
 
     return {
-        ...((fills.length > 0 && { [property]: fills }) || {})
+        ...((fills.length > 0 && { [property]: fills }) || {}),
+        ...((style.fillStyleId && { fillStyleId: style.fillStyleId }) || {})
     };
 };
