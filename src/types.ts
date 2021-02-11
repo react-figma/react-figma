@@ -94,6 +94,8 @@ export interface TextNodeProps {
     textDecoration?: TextDecoration | symbol;
     letterSpacing?: LetterSpacing | symbol;
     lineHeight?: LineHeight | symbol;
+
+    textStyleId?: string;
 }
 
 export interface VectorNodeProps {

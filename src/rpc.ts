@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 import { safeGetPluginData } from './helpers/safeGetPluginData';
 import { LayoutStyleProperties } from './styleTransformers/transformLayoutStyleProperties';
 import { GeometryStyleProperties } from './styleTransformers/transformGeometryStyleProperties';
+import { isEqualFontStyle } from './helpers/isEqualFontStyle';
 
 const getInitialTree = node => {
     return {
@@ -220,6 +221,33 @@ export const api = createPluginAPI(
             paintStyle.name = name;
             paintStyle.paints = paints;
             return paintStyle.id;
+        },
+
+        createOrUpdateTextStyle(properties: {
+            textProperties: any;
+            params: {
+                name?: string;
+            };
+            loadedFont: any;
+        }) {
+            const { textProperties, params, loadedFont } = properties;
+            const { name } = params;
+            const foundTextStyle = figma.getLocalTextStyles().find(style => style.name === name);
+            const textStyle = foundTextStyle || figma.createTextStyle();
+            textStyle.name = name;
+
+            const { fontName = { family: 'Roboto', style: 'Regular' } } = textProperties;
+            if (
+                loadedFont &&
+                fontName &&
+                loadedFont.family === fontName.family &&
+                isEqualFontStyle(loadedFont.style, fontName.style)
+            ) {
+                Object.keys(textProperties).forEach(key => {
+                    textStyle[key] = textProperties[key];
+                });
+            }
+            return textStyle.id;
         }
     },
     {

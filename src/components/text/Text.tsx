@@ -59,7 +59,6 @@ const Text: React.FC<TextProps> = props => {
         ...StyleSheet.flatten(flattenOriginalStyle),
         ...transformAutoLayoutToYoga(props)
     };
-    console.log(style);
     const children = normalizeTextNodeChidren(props.children);
 
     const charactersByChildren = useTextChildren(nodeRef);
@@ -70,6 +69,7 @@ const Text: React.FC<TextProps> = props => {
         ...transformBlendProperties(style),
         ...props,
         characters: charactersByChildren || props.characters,
+        ...(style && style.textStyleId ? { textStyleId: style.textStyleId } : {}),
         style,
         children
     };

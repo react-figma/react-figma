@@ -25,7 +25,8 @@ const textNodePropsAssign = propsAssign<TextProps, TextProps>(
         'textCase',
         'textDecoration',
         'letterSpacing',
-        'lineHeight'
+        'lineHeight',
+        'textStyleId'
     ],
     {
         characters: '',
