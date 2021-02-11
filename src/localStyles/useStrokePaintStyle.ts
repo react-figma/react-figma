@@ -2,6 +2,7 @@ import { BorderStyleProperties, transformBorderStyleProperties } from '../styleT
 
 import { api } from '../rpc';
 import * as React from 'react';
+import { Platform } from '../helpers/Platform';
 
 export const useStrokePaintStyle = (
     style: Partial<BorderStyleProperties>,
@@ -17,6 +18,9 @@ export const useStrokePaintStyle = (
     };
 
     React.useEffect(() => {
+        if (Platform.OS !== 'figma') {
+            return;
+        }
         const createStrokesStyle = async () => {
             if (!transformedStyles.strokes) {
                 return;

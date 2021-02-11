@@ -6,6 +6,7 @@ import {
 import { api } from '../rpc';
 import * as React from 'react';
 import { useImageHash } from '../hooks/useImageHash';
+import { Platform } from '../helpers/Platform';
 
 export const useFillPaintStyle = (
     style: Partial<GeometryStyleProperties>,
@@ -22,6 +23,9 @@ export const useFillPaintStyle = (
     };
 
     React.useEffect(() => {
+        if (Platform.OS !== 'figma') {
+            return;
+        }
         const createFillsStyle = async () => {
             if (!transformedStyles.fills) {
                 return;
