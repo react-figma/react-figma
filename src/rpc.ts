@@ -1,7 +1,7 @@
 import { createPluginAPI, createUIAPI } from 'figma-jsonrpc';
 import { isReactFigmaNode } from './helpers/isReactFigmaNode';
 import * as renderers from './renderers';
-import * as nanoid from 'nanoid/non-secure';
+import { nanoid } from 'nanoid/non-secure';
 import { Subject } from 'rxjs';
 import { safeGetPluginData } from './helpers/safeGetPluginData';
 import { LayoutStyleProperties } from './styleTransformers/transformLayoutStyleProperties';
