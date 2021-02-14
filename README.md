@@ -118,6 +118,7 @@ export const App = () => {
 * [PrimerDemo](https://github.com/react-figma/PrimerDemo) - Example of multifplatform UI-kit
 * [Component Variants](examples/component-variants)
 * [MDX](examples/mdx)
+* [Local Styles](examples/local-styles)
 
 ## Sponsoring
 
