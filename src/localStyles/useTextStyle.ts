@@ -3,6 +3,7 @@ import { Platform } from '../helpers/Platform';
 import { TextStyleProperties, transformTextStyleProperties } from '../styleTransformers/transformTextStyleProperties';
 import * as React from 'react';
 import { useFontName } from '../hooks/useFontName';
+import { CommonStyleProps } from '../types';
 
 const AVAILABLE_TEXT_PROPERTIES = [
     'fontSize',
@@ -15,12 +16,7 @@ const AVAILABLE_TEXT_PROPERTIES = [
     'textCase'
 ];
 
-export const useTextStyle = (
-    style: Partial<TextStyleProperties>,
-    params: {
-        name?: string;
-    }
-) => {
+export const useTextStyle = (style: Partial<TextStyleProperties>, params: CommonStyleProps) => {
     const [textStyleId, setTextStyleId] = React.useState(null);
 
     const transformedStyles = React.useMemo(

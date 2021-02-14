@@ -7,13 +7,9 @@ import { api } from '../rpc';
 import * as React from 'react';
 import { useImageHash } from '../hooks/useImageHash';
 import { Platform } from '../helpers/Platform';
+import { CommonStyleProps } from '../types';
 
-export const useFillPaintStyle = (
-    style: Partial<GeometryStyleProperties>,
-    params: {
-        name?: string;
-    }
-) => {
+export const useFillPaintStyle = (style: Partial<GeometryStyleProperties>, params: CommonStyleProps) => {
     const [fillStyleId, setFillStyleId] = React.useState(null);
     const imageHash = useImageHash(style.backgroundImage);
 

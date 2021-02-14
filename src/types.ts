@@ -182,3 +182,9 @@ export interface FrameSpecificProps {
     layoutGrids?: ReadonlyArray<LayoutGrid>;
     gridStyleId?: string;
 }
+
+export interface CommonStyleProps {
+    id?: string;
+    name?: string;
+    description?: string;
+}
