@@ -46,10 +46,10 @@ and returns an object that contains `textStyleId` and can be consumed in `style`
 
 #### Notes
 
-* Local styles hooks tried to find a style by `name` or `id`.
+* Local styles hooks tried to find a style by `name` or `id`
     * Creates a new style if can't find
 * Not all style props can be assigned to local style
-* It's possible to use existing styles, you can pass an empty style object.
+* It's possible to use existing styles; you can pass an empty style object.
 
 #### Example
 
