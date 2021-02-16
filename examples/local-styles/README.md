@@ -1,6 +1,6 @@
 # Local Styles
 
-The example demonstrates a local styles supporting.
+The example demonstrates a local styles supporting. The [Doc](https://react-figma.dev/docs/local-styles).
 
 Demo:
 
