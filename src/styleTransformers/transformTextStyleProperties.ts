@@ -17,6 +17,7 @@ export interface TextStyleProperties {
     textShadowColor: Color;
     textShadowOffset: { width: number; height: number };
     textShadowRadius: number;
+    textStyleId: string;
 }
 
 interface TextProperties extends GeometryProps, TextNodeProps {}

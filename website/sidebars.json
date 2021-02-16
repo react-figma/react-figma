@@ -6,6 +6,7 @@
       "api/render",
       "styling",
       "colors",
+      "local-styles",
       "data-fetching",
       {
         "type": "category",

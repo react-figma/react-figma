@@ -38,7 +38,7 @@ export interface ChildrenProps {
 }
 
 export interface GeometryProps {
-    fills?: ReadonlyArray<Paint> | symbol;
+    fills?: ReadonlyArray<Paint>;
     strokes?: ReadonlyArray<Paint>;
     strokeWeight?: number;
     strokeAlign?: 'CENTER' | 'INSIDE' | 'OUTSIDE';
@@ -94,6 +94,8 @@ export interface TextNodeProps {
     textDecoration?: TextDecoration | symbol;
     letterSpacing?: LetterSpacing | symbol;
     lineHeight?: LineHeight | symbol;
+
+    textStyleId?: string;
 }
 
 export interface VectorNodeProps {
@@ -179,4 +181,10 @@ export interface FrameSpecificProps {
     guides?: ReadonlyArray<Guide>;
     layoutGrids?: ReadonlyArray<LayoutGrid>;
     gridStyleId?: string;
+}
+
+export interface CommonStyleProps {
+    id?: string;
+    name?: string;
+    description?: string;
 }

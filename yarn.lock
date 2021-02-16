@@ -1988,12 +1988,13 @@ figgy-pudding@^3.5.1:
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"
   integrity sha512-vNKxJHTEKNThjfrdJwHc7brvM6eVevuO5nTj6ez8ZQ1qbXTvGthucRF7S4vf2cr71QVnT70V34v0S1DyQsti0w==
 
-figma-api-stub@0.0.44:
-  version "0.0.44"
-  resolved "https://registry.yarnpkg.com/figma-api-stub/-/figma-api-stub-0.0.44.tgz#7739397b8aa5af2586b3bbaf0ff086ee0b1475ee"
-  integrity sha512-fmS38UZ8/XK2m77TAjc4etVqC3kE11w49G4K/S4E+bPPdV5ZallSXTBmY0Dx5ycsrjrhaOqA7gkGuEiJz2D3vA==
+figma-api-stub@0.0.45:
+  version "0.0.45"
+  resolved "https://registry.yarnpkg.com/figma-api-stub/-/figma-api-stub-0.0.45.tgz#03d8622cc38826fadd70dd6cc346b659c5613820"
+  integrity sha512-dwU21XwzbsQZp1kEKDsBxIs3G6d9XaL1t3xGAb0UHar97SdF6kSxZxUHz0heoZ3i1s9WbFUNJcfo6KGF+v8ycQ==
   dependencies:
     clone-deep "^4.0.1"
+    nanoid "^3.1.20"
     rxjs "^6.5.3"
 
 figma-jsonrpc@^0.4.0:
@@ -3636,10 +3637,10 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"
   integrity sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
 
-nanoid@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-2.0.3.tgz#dde999e173bc9d7bd2ee2746b89909ade98e075e"
-  integrity sha512-NbaoqdhIYmY6FXDRB4eYtDVC9Z9eCbn8TyaiC16LNKtpPv/aqa0tOPD8y6gNE4yUNnaZ7LLhYtXOev/6+cBtfw==
+nanoid@3.1.20, nanoid@^3.1.20:
+  version "3.1.20"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.20.tgz#badc263c6b1dcf14b71efaa85f6ab4c1d6cfc788"
+  integrity sha512-a1cQNyczgKbLX9jwbS/+d7W8fX/RfgYR7lVWwWOGIPNgK2m0MWvrGF6/m4kk6U3QcFMnZf3RIhL0v2Jgh/0Uxw==
 
 nanomatch@^1.2.9:
   version "1.2.13"

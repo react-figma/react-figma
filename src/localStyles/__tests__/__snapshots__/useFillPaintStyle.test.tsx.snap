@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useFillPaintStyle useFillPaintStyle correctly applied 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fillStyleId": "S:test,",
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0.10980392156862745,
+                "g": 1,
+                "r": 0.4627450980392157,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"backgroundColor\\":\\"#76ff1c\\",\\"borderColor\\":\\"#ffffff\\",\\"borderWidth\\":5,\\"fillStyleId\\":\\"S:test,\\"}",
+          },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 5,
+          "strokes": Array [
+            Object {
+              "color": Object {
+                "b": 1,
+                "g": 1,
+                "r": 1,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
+          "type": "RECTANGLE",
+          "visible": true,
+        },
+      ],
+      "exportSettings": Array [],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`useFillPaintStyle useFillPaintStyle correctly applied 2`] = `
+Array [
+  PaintStyleStub {
+    "id": "S:test,",
+    "name": "root/background",
+    "paints": Array [
+      Object {
+        "color": Object {
+          "b": 0.10980392156862745,
+          "g": 1,
+          "r": 0.4627450980392157,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ],
+    "remote": false,
+    "type": "PAINT",
+  },
+]
+`;

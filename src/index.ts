@@ -21,3 +21,7 @@ export { Slice } from './components/slice/Slice';
 
 export { StyleSheet } from './helpers/StyleSheet';
 export { Platform } from './helpers/Platform';
+
+export { useFillPaintStyle } from './localStyles/useFillPaintStyle';
+export { useStrokePaintStyle } from './localStyles/useStrokePaintStyle';
+export { useTextStyle } from './localStyles/useTextStyle';

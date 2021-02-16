@@ -1,9 +1,13 @@
 import { createPluginAPI, createUIAPI } from 'figma-jsonrpc';
 import { isReactFigmaNode } from './helpers/isReactFigmaNode';
 import * as renderers from './renderers';
-import * as nanoid from 'nanoid/non-secure';
+import { nanoid } from 'nanoid/non-secure';
 import { Subject } from 'rxjs';
 import { safeGetPluginData } from './helpers/safeGetPluginData';
+import { LayoutStyleProperties } from './styleTransformers/transformLayoutStyleProperties';
+import { GeometryStyleProperties } from './styleTransformers/transformGeometryStyleProperties';
+import { isEqualFontStyle } from './helpers/isEqualFontStyle';
+import { CommonStyleProps } from './types';
 
 const getInitialTree = node => {
     return {
@@ -203,6 +207,49 @@ export const api = createPluginAPI(
                 figma.viewport.scrollAndZoomIntoView([node]);
                 figma.currentPage.selection = [node];
             }
+        },
+
+        createOrUpdatePaintStyle(properties: { paints: ReadonlyArray<Paint> | void; params: CommonStyleProps }) {
+            const { paints, params } = properties;
+            const { name, id, description } = params;
+            const foundPaintStyle = figma.getLocalPaintStyles().find(style => style.name === name || style.id === id);
+            const paintStyle = foundPaintStyle || figma.createPaintStyle();
+            if (name) {
+                paintStyle.name = name;
+            }
+            if (description) {
+                paintStyle.description = description;
+            }
+            if (paints) {
+                paintStyle.paints = paints;
+            }
+            return paintStyle.id;
+        },
+
+        createOrUpdateTextStyle(properties: { textProperties: any | void; params: CommonStyleProps; loadedFont: any }) {
+            const { textProperties = {}, params, loadedFont } = properties;
+            const { name, id, description } = params;
+            const foundTextStyle = figma.getLocalTextStyles().find(style => style.name === name || style.id === id);
+            const textStyle = foundTextStyle || figma.createTextStyle();
+            if (name) {
+                textStyle.name = name;
+            }
+            if (description) {
+                textStyle.description = description;
+            }
+
+            const { fontName = { family: 'Roboto', style: 'Regular' } } = textProperties;
+            if (
+                loadedFont &&
+                fontName &&
+                loadedFont.family === fontName.family &&
+                isEqualFontStyle(loadedFont.style, fontName.style)
+            ) {
+                Object.keys(textProperties).forEach(key => {
+                    textStyle[key] = textProperties[key];
+                });
+            }
+            return textStyle.id;
         }
     },
     {
