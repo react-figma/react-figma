@@ -209,7 +209,10 @@ export const api = createPluginAPI(
             }
         },
 
-        createOrUpdatePaintStyle(properties: { paints: ReadonlyArray<Paint> | void; params: CommonStyleProps }) {
+        createOrUpdatePaintStyle(properties: {
+            paints: ReadonlyArray<Paint> | symbol | void;
+            params: CommonStyleProps;
+        }) {
             const { paints, params } = properties;
             const { name, id, description } = params;
             const foundPaintStyle = figma.getLocalPaintStyles().find(style => style.name === name || style.id === id);
