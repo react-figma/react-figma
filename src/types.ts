@@ -38,7 +38,7 @@ export interface ChildrenProps {
 }
 
 export interface GeometryProps {
-    fills?: ReadonlyArray<Paint>;
+    fills?: ReadonlyArray<Paint> | symbol;
     strokes?: ReadonlyArray<Paint>;
     strokeWeight?: number;
     strokeAlign?: 'CENTER' | 'INSIDE' | 'OUTSIDE';
@@ -73,7 +73,7 @@ export interface ExportProps {
 
 export interface BlendProps {
     opacity?: number;
-    blendMode?: BlendMode;
+    blendMode?: 'PASS_THROUGH' | BlendMode;
     isMask?: boolean;
     effects?: ReadonlyArray<Effect>;
     effectStyleId?: string;
