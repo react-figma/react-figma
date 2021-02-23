@@ -57,13 +57,17 @@ const docusaurusConfig = {
                     title: 'Social',
                     items: [
                         {
-                            label: 'Spectrum Chat',
-                            to: 'https://spectrum.chat/react-figma',
+                            label: 'GitHub Discussions',
+                            to: 'https://github.com/react-figma/react-figma/discussions'
                         },
                         {
                             label: 'Twitter',
-                            to: 'https://twitter.com/ilialesik',
+                            to: 'https://twitter.com/react_figma',
                         },
+                        {
+                            label: 'LinkedIn',
+                            to: 'https://www.linkedin.com/company/reactfigma'
+                        }
                     ],
                 },
             ],
