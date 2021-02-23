@@ -224,7 +224,7 @@ export const api = createPluginAPI(
                 paintStyle.description = description;
             }
             if (paints) {
-                paintStyle.paints = paints;
+                paintStyle.paints = paints as any;
             }
             return paintStyle.id;
         },
