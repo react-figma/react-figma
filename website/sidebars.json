@@ -40,7 +40,8 @@
         "type": "category",
         "label": "React Native compatibility",
         "items": [
-          "api/Dimensions"
+          "api/Dimensions",
+          "api/useWindowDimensions"
         ]
       }
     ]
