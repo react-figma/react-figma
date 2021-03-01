@@ -35,6 +35,14 @@
           "api/vector",
           "api/slice"
         ]
+      },
+      {
+        "type": "category",
+        "label": "React Native compatibility",
+        "items": [
+          "api/Dimensions",
+          "api/useWindowDimensions"
+        ]
       }
     ]
   }
