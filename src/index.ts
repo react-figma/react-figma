@@ -23,6 +23,7 @@ export { StyleSheet } from './helpers/StyleSheet';
 export { Platform } from './helpers/Platform';
 export { Dimensions } from './rn/Dimensions';
 export { useWindowDimensions } from './rn/useWindowDimensions';
+export { StatusBar } from './rn/StatusBar';
 
 export { useFillPaintStyle } from './localStyles/useFillPaintStyle';
 export { useStrokePaintStyle } from './localStyles/useStrokePaintStyle';
