@@ -41,7 +41,8 @@
         "label": "React Native compatibility",
         "items": [
           "api/Dimensions",
-          "api/useWindowDimensions"
+          "api/useWindowDimensions",
+          "api/StatusBar"
         ]
       }
     ]
