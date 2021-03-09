@@ -25,6 +25,7 @@ export { Dimensions } from './rn/Dimensions';
 export { useWindowDimensions } from './rn/useWindowDimensions';
 export { StatusBar } from './rn/StatusBar';
 export { default as Easing } from './rn/Animated/Easing';
+export { I18nManager } from './rn/I18nManager';
 
 export { useFillPaintStyle } from './localStyles/useFillPaintStyle';
 export { useStrokePaintStyle } from './localStyles/useStrokePaintStyle';
