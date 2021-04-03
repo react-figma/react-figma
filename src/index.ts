@@ -25,6 +25,7 @@ export { Dimensions } from './rn/Dimensions';
 export { useWindowDimensions } from './rn/useWindowDimensions';
 export { StatusBar } from './rn/StatusBar';
 export { default as Easing } from './rn/Animated/Easing';
+export { default as Animated } from './rn/Animated';
 export { I18nManager } from './rn/I18nManager';
 export { NativeModules } from './rn/NativeModules';
 
