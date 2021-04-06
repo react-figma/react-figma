@@ -1,9 +1,9 @@
 ---
 id: render
-title: render(element, container)
+title: render(element: ReactElement)
 ---
 
-Render `element` at Figma `container`.
+Render React `element` into the Figma root node (current document). The only [Pages](./Page.md) allowed as first-class children.
 
 
 ##### `element` (required)
@@ -21,10 +21,6 @@ Example:
     </Frame>
   </Page>
 ```
-
-##### `container` (required)
-
-The element to render into. It's recommended to use `figma.root` or `figma.currentPage`.
 
 #### Examples
 
@@ -49,22 +45,6 @@ const App = () => (
 );
 
 export default () => {
-  render(<App />, figma.root);
-};
-``` 
-
-Render to `figma.currentPage`:
-
-```jsx
-import { View, Text, render } from 'react-figma';
-
-const App = () => (
-    <View>
-        <Text>Hello world!</Text>
-    </View>
-);
-
-export default () => {
-  render(<App />, figma.currentPage);
+  render(<App />);
 };
 ``` 

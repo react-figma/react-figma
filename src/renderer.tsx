@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { nanoid } from 'nanoid/non-secure';
 
 import * as createReconciler from 'react-reconciler';
@@ -85,7 +86,7 @@ const renderInstance = (type, node, props) => {
     return result;
 };
 
-export const render = async (jsx: any) => {
+export const render = async (jsx: React.ReactElement) => {
     const rootNode = await api.getInitialTree();
     prepareToHydration(rootNode, undefined);
 
