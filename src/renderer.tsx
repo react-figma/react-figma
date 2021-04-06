@@ -85,8 +85,8 @@ const renderInstance = (type, node, props) => {
     return result;
 };
 
-export const render = async (jsx: any) => {
-    const rootNode = await api.getInitialTree();
+export const render = async (jsx: any, targetNodeId?: string) => {
+    const rootNode = await api.getInitialTree(targetNodeId);
     prepareToHydration(rootNode, undefined);
 
     const HostConfig = {

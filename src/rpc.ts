@@ -116,8 +116,9 @@ const findNodeByName = (children, name) => {
 
 export const api = createPluginAPI(
     {
-        getInitialTree() {
-            return getInitialTree(figma.root);
+        async getInitialTree(nodeId: string = figma.root.id) {
+            const node = figma.getNodeById(nodeId);
+            return getInitialTree(node);
         },
 
         renderInstance(type, _node, props, tempNode) {

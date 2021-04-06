@@ -1,10 +1,9 @@
 ---
 id: render
-title: render(element, container)
+title: render(element, containerNodeId)
 ---
 
-Render `element` at Figma `container`.
-
+Render `element` at Figma `containerNodeId`.
 
 ##### `element` (required)
 
@@ -22,9 +21,9 @@ Example:
   </Page>
 ```
 
-##### `container` (required)
+##### `containerNodeId` (optional)
 
-The element to render into. It's recommended to use `figma.root` or `figma.currentPage`.
+The figma container node id to render into. Defaults to the figma root nodes id (figma.root.id).
 
 #### Examples
 
@@ -65,6 +64,6 @@ const App = () => (
 );
 
 export default () => {
-  render(<App />, figma.currentPage);
+  render(<App />, figma.currentPage.id);
 };
 ``` 
