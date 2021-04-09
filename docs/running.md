@@ -29,12 +29,24 @@ Go to `Menu > Plugins > Development > +` and select the `mainfest.json` file.
 
 <img src="/img/add-plugin.png" align="center"
      alt="Add Plugin" width="303" height="195" />
-     
+
 
 
 ## Running plugin
 
-Go to File Menu > Plugins > Development and select your plugin. 
+First start webpack:
+
+```
+yarn webpack:watch
+```
+
+Or with npm:
+
+```
+npm run webpack:watch
+```
+
+Then in Figma go to `File Menu > Plugins > Development` and select your plugin.
 It's expected result:
 
 ![running result](/img/running-result.png)
