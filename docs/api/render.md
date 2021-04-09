@@ -1,6 +1,6 @@
 ---
 id: render
-title: render(element: ReactElement)
+title: render(element)
 ---
 
 Render React `element` into the Figma root node (current document). The only [Pages](./Page.md) allowed as first-class children.
