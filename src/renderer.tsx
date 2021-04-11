@@ -128,7 +128,12 @@ export const render = async (jsx: any) => {
             appendToContainer(parentNode, childNode);
         },
         insertInContainerBefore: () => {},
-        removeChildFromContainer: () => {},
+        removeChildFromContainer: (container, child) => {
+            if (container && container.type === 'INSTANCE') {
+                return;
+            }
+            remove(child);
+        },
         prepareUpdate: () => {
             return true;
         },
@@ -148,6 +153,22 @@ export const render = async (jsx: any) => {
                 return;
             }
             remove(childNode);
+        },
+        canHydrateTextInstance: (textInstance, text) => {
+            if (text === '' || textInstance.type !== 'TEXT_CONTAINER') {
+                return null;
+            }
+            return textInstance;
+        },
+        canHydrateSuspenseInstance(instance) {
+            if (instance.nodeType !== 'COMMENT_NODE') {
+                return null;
+            }
+
+            return instance;
+        },
+        hydrateTextInstance: (textInstance, text, internalInstanceHandle) => {
+            return textInstance.value === text;
         },
         canHydrateInstance: (instance, type, props) => {
             if (!checkInstanceMatchType(instance, type) || (instance.parent && instance.parent.type === 'INSTANCE')) {
