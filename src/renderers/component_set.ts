@@ -12,7 +12,7 @@ const createNewComponentSet = () => {
     return figma.combineAsVariants([component], figma.currentPage);
 };
 
-export const componentset = node => props => {
+export const component_set = node => props => {
     const componentSetNode = node || props.node || createNewComponentSet();
 
     saveStyleMixin(componentSetNode)(props);

@@ -33,7 +33,7 @@ const ComponentSet: React.FC<ComponentSetProps> = props => {
 
     useOnLayoutHandler(yogaChildProps, props);
 
-    return <componentset {...componentProps} {...yogaChildProps} innerRef={nodeRef} />;
+    return <component_set {...componentProps} {...yogaChildProps} innerRef={nodeRef} />;
 };
 
 export { ComponentSet };
