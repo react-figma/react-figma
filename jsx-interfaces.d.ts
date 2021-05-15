@@ -8,8 +8,7 @@ import { ComponentProps } from './src/components/component/Component';
 import { StarProps } from './src/components/star/Star';
 import { VectorProps } from './src/components/vector/Vector';
 import { SliceProps } from './src/components/slice/Slice';
-import {ComponentSetProps} from "./src/components/component/ComponentSet";
-
+import { ComponentSetProps } from './src/components/component/ComponentSet';
 
 declare global {
     namespace JSX {
@@ -25,7 +24,7 @@ declare global {
             vector: VectorProps;
             instance: InstanceProps;
             slice: SliceProps;
-            componentset: ComponentSetProps
+            component_set: ComponentSetProps;
         }
     }
 }
