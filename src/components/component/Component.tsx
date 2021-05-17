@@ -30,6 +30,10 @@ import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAuto
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 import { useImageHash } from '../../hooks/useImageHash';
 
+interface DocumentationLink {
+    readonly uri: string;
+}
+
 export interface ComponentProps
     extends DefaultShapeProps,
         DefaultContainerProps,
@@ -47,6 +51,8 @@ export interface ComponentProps
             BorderStyleProperties
     >;
     nodeRef?: any;
+    description?: string;
+    documentationLinks?: ReadonlyArray<DocumentationLink>;
 }
 
 const Component: React.FC<ComponentProps> = props => {
