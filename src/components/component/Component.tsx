@@ -6,6 +6,7 @@ import {
     DefaultContainerProps,
     DefaultShapeProps,
     FrameSpecificProps,
+    PublishableProps,
     SelectionEventProps,
     StyleOf
 } from '../../types';
@@ -38,7 +39,8 @@ export interface ComponentProps
         BorderProps,
         CornerProps,
         FrameSpecificProps,
-        OnLayoutHandlerProps {
+        OnLayoutHandlerProps,
+        PublishableProps {
     style?: StyleOf<
         GeometryStyleProperties &
             YogaStyleProperties &

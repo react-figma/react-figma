@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AutoLayoutProps, DefaultContainerProps, SelectionEventProps, StyleOf } from '../../types';
+import { AutoLayoutProps, DefaultContainerProps, PublishableProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -15,7 +15,8 @@ export interface ComponentSetProps
     extends DefaultContainerProps,
         SelectionEventProps,
         AutoLayoutProps,
-        OnLayoutHandlerProps {
+        OnLayoutHandlerProps,
+        PublishableProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties>;
     nodeRef?: any;
 }

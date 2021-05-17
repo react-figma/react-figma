@@ -12,6 +12,7 @@ import { geometryMixin } from '../mixins/geometryMixin';
 import { frameSpecificProps } from '../mixins/frameSpecificMixin';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 import { constraintsMixin } from '../mixins/constraintsMixin';
+import { publishableMixin } from '../mixins/publishableMixin';
 
 export const component = (node: ComponentNode) => (props: ComponentProps) => {
     const componentNode = node || figma.createComponent();
@@ -30,6 +31,7 @@ export const component = (node: ComponentNode) => (props: ComponentProps) => {
     frameMixin(componentNode)(props);
     frameSpecificProps(componentNode)(props);
     sceneNodeMixin(componentNode)(props);
+    publishableMixin(componentNode)(props);
 
     return componentNode;
 };

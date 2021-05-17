@@ -600,6 +600,8 @@ ExportMixinStub {
           "cornerSmoothing": 0,
           "counterAxisAlignItems": "MIN",
           "counterAxisSizingMode": "AUTO",
+          "description": "",
+          "documentationLinks": Array [],
           "effects": Array [],
           "exportSettings": Array [],
           "fills": Array [],

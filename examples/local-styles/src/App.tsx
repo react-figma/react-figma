@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
 
 export const App = () => {
     const rootFillStyle = useFillPaintStyle(styles.root, {
-        name: 'root/background'
+        name: 'root/background',
+        description: 'Background color'
     });
 
     const rootStrokeStyle = useStrokePaintStyle(styles.root, {

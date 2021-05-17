@@ -188,3 +188,12 @@ export interface CommonStyleProps {
     name?: string;
     description?: string;
 }
+
+interface DocumentationLink {
+    readonly uri: string;
+}
+
+export interface PublishableProps {
+    description?: string;
+    documentationLinks?: ReadonlyArray<DocumentationLink>;
+}
