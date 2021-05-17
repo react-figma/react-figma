@@ -3,6 +3,8 @@ id: component
 title: Component, Instance, createComponent
 ---
 
+## Component
+
 Wrapper for the Figma [Component](https://www.figma.com/plugin-docs/api/ComponentNode/).
 
 #### Props

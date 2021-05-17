@@ -67,14 +67,29 @@ const SecondaryButton = (props: { text: string }) => {
 export const App = () => {
     return (
         <Page name="Buttons" isCurrent>
-            <ComponentSet name="Button" style={styles.setContainer}>
-                <Component name="variant=Primary" style={{ marginRight: 30 }}>
+            <ComponentSet
+                name="Button"
+                style={styles.setContainer}
+                description="ComponentSet"
+                documentationLinks={[{ uri: 'https://react-figma.dev/docs/api/component#componentset' }]}>
+                <Component
+                    name="variant=Primary"
+                    style={{ marginRight: 30 }}
+                    description="Component"
+                    documentationLinks={[{ uri: 'https://react-figma.dev/docs/api/component' }]}>
                     <PrimaryButton text="Primary" />
                 </Component>
-                <Component name="variant=Dangerous" style={{ marginRight: 30 }}>
+                <Component
+                    name="variant=Dangerous"
+                    style={{ marginRight: 30 }}
+                    description="Component"
+                    documentationLinks={[{ uri: 'https://react-figma.dev/docs/api/component' }]}>
                     <DangerousButton text="Dangerous" />
                 </Component>
-                <Component name="variant=Secondary">
+                <Component
+                    name="variant=Secondary"
+                    description="Component"
+                    documentationLinks={[{ uri: 'https://react-figma.dev/docs/api/component' }]}>
                     <SecondaryButton text="Secondary" />
                 </Component>
             </ComponentSet>
