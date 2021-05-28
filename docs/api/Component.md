@@ -36,6 +36,7 @@ Wrapper for the `component.createInstance` method.
 | `style`    | [`Style`](/docs/styling)   |         | Not all props |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
+| `detach` | boolean | | Detach instance |
 
 ## createComponent
 
