@@ -18,5 +18,9 @@ export const instance = (node: InstanceNode) => (props: InstanceProps) => {
     autoLayoutMixin(instanceNode)(props);
     sceneNodeMixin(instanceNode)(props);
 
+    if (props.detach) {
+        instanceNode.detachInstance();
+    }
+
     return instanceNode;
 };

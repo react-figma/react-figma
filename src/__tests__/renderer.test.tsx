@@ -548,4 +548,48 @@ describe('renderer', () => {
                 });
         });
     });
+
+    it('Instance detach', async () => {
+        const waiting = new Subject();
+        const Rect = createComponent();
+
+        const Component = () => {
+            const [isDetached, setIsDetached] = React.useState(false);
+            React.useEffect(() => {
+                setTimeout(() => {
+                    setIsDetached(true);
+                    waiting.next();
+                });
+            }, []);
+            return (
+                <View>
+                    <Rect.Component>
+                        <Rectangle style={{ width: 200, height: 100, backgroundColor: '#12ff00' }} />
+                    </Rect.Component>
+                    <Rect.Instance detach={isDetached} />
+                </View>
+            );
+        };
+
+        await render(
+            <Page>
+                <Component />
+            </Page>
+        );
+
+        return new Promise(resolve => {
+            waiting
+                .pipe(
+                    take(1),
+                    delay(0)
+                )
+                .subscribe(() => {
+                    // @ts-ignore
+                    const instanceNode = figma.getNodeById('1:4').children[1];
+                    expect(instanceNode.type).toEqual('FRAME');
+                    expect(removeMeta(figma.root)).toMatchSnapshot();
+                    resolve();
+                });
+        });
+    });
 });
