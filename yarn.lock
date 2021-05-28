@@ -1990,10 +1990,10 @@ figgy-pudding@^3.5.1:
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.2.tgz#b4eee8148abb01dcf1d1ac34367d59e12fa61d6e"
   integrity sha512-0btnI/H8f2pavGMN8w40mlSKOfTK2SVJmBfBeVIj3kNw0swwgzyRq0d5TJVOwodFmtvpPeWPN/MCcfuWF0Ezbw==
 
-figma-api-stub@0.0.45:
-  version "0.0.45"
-  resolved "https://registry.yarnpkg.com/figma-api-stub/-/figma-api-stub-0.0.45.tgz#03d8622cc38826fadd70dd6cc346b659c5613820"
-  integrity sha512-dwU21XwzbsQZp1kEKDsBxIs3G6d9XaL1t3xGAb0UHar97SdF6kSxZxUHz0heoZ3i1s9WbFUNJcfo6KGF+v8ycQ==
+figma-api-stub@0.0.48:
+  version "0.0.48"
+  resolved "https://registry.nlark.com/figma-api-stub/download/figma-api-stub-0.0.48.tgz#6d695cb7b205e326401a97fa1373816b0db3868c"
+  integrity sha1-bWlct7IF4yZAGpf6E3OBaw2zhow=
   dependencies:
     clone-deep "^4.0.1"
     nanoid "^3.1.20"

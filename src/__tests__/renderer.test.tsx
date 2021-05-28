@@ -221,10 +221,15 @@ describe('renderer', () => {
         await render(<Component />);
 
         return new Promise(resolve => {
-            waiting.pipe(take(1), delay(0)).subscribe(() => {
-                expect(removeMeta(figma.root)).toMatchSnapshot();
-                resolve();
-            });
+            waiting
+                .pipe(
+                    take(1),
+                    delay(0)
+                )
+                .subscribe(() => {
+                    expect(removeMeta(figma.root)).toMatchSnapshot();
+                    resolve();
+                });
         });
     });
 
@@ -329,10 +334,15 @@ describe('renderer', () => {
         );
 
         return new Promise(resolve => {
-            waiting.pipe(take(1), delay(0)).subscribe(() => {
-                expect(removeMeta(figma.root)).toMatchSnapshot();
-                resolve();
-            });
+            waiting
+                .pipe(
+                    take(1),
+                    delay(0)
+                )
+                .subscribe(() => {
+                    expect(removeMeta(figma.root)).toMatchSnapshot();
+                    resolve();
+                });
         });
     });
 
@@ -436,11 +446,16 @@ describe('renderer', () => {
         );
 
         return new Promise(resolve => {
-            waiting.pipe(take(1), delay(0)).subscribe(() => {
-                expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(2);
-                expect(removeMeta(figma.root)).toMatchSnapshot();
-                resolve();
-            });
+            waiting
+                .pipe(
+                    take(1),
+                    delay(0)
+                )
+                .subscribe(() => {
+                    expect(figma.createNodeFromSvg).toHaveBeenCalledTimes(2);
+                    expect(removeMeta(figma.root)).toMatchSnapshot();
+                    resolve();
+                });
         });
     });
 
@@ -522,10 +537,15 @@ describe('renderer', () => {
         );
 
         return new Promise(resolve => {
-            waiting.pipe(take(1), delay(0)).subscribe(() => {
-                expect(removeMeta(figma.root)).toMatchSnapshot();
-                resolve();
-            });
+            waiting
+                .pipe(
+                    take(1),
+                    delay(0)
+                )
+                .subscribe(() => {
+                    expect(removeMeta(figma.root)).toMatchSnapshot();
+                    resolve();
+                });
         });
     });
 
@@ -558,13 +578,18 @@ describe('renderer', () => {
         );
 
         return new Promise(resolve => {
-            waiting.pipe(take(1), delay(0)).subscribe(() => {
-                // @ts-ignore
-                const instanceNode = figma.getNodeById('1:4').children[1];
-                expect(instanceNode.type).toEqual('FRAME');
-                expect(removeMeta(figma.root)).toMatchSnapshot();
-                resolve();
-            });
+            waiting
+                .pipe(
+                    take(1),
+                    delay(0)
+                )
+                .subscribe(() => {
+                    // @ts-ignore
+                    const instanceNode = figma.getNodeById('1:4').children[1];
+                    expect(instanceNode.type).toEqual('FRAME');
+                    expect(removeMeta(figma.root)).toMatchSnapshot();
+                    resolve();
+                });
         });
     });
 });
