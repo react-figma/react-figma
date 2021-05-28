@@ -188,6 +188,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://szeko.com.au"><img src="https://avatars1.githubusercontent.com/u/5523724?v=4?s=100" width="100px;" alt=""/><br /><sub><b>szeko</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=szeko" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/yoniholmes"><img src="https://avatars.githubusercontent.com/u/184589?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jonathan Holmes</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=yoniholmes" title="Documentation">📖</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://michaelzheng.medium.com/"><img src="https://avatars.githubusercontent.com/u/7504237?v=4?s=100" width="100px;" alt=""/><br /><sub><b>不吃猫的鱼</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=n0ruSh" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
