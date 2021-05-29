@@ -1,20 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`transformShadowToEffect opacity from rgba 1`] = `
-Object {
-  "blendMode": "NORMAL",
-  "color": Object {
-    "a": 0.4,
-    "b": 0.34509803921568627,
-    "g": 0.8156862745098039,
-    "r": 0.20392156862745098,
+Array [
+  Object {
+    "blendMode": "NORMAL",
+    "color": Object {
+      "a": 0.4,
+      "b": 0.34509803921568627,
+      "g": 0.8156862745098039,
+      "r": 0.20392156862745098,
+    },
+    "offset": Object {
+      "x": 0,
+      "y": 0,
+    },
+    "radius": 0,
+    "type": "DROP_SHADOW",
+    "visible": true,
   },
-  "offset": Object {
-    "x": 0,
-    "y": 0,
-  },
-  "radius": 0,
-  "type": "DROP_SHADOW",
-  "visible": true,
-}
+]
 `;

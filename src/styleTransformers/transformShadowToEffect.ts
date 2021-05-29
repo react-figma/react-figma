@@ -1,26 +1,25 @@
 import { colorToRGBA } from './transformColors';
-import { Color } from '../types';
+import { ShadowProperties, BlendStyleProperties } from './transformBlendProperties';
 
-export const transformShadowToEffect = (styles: {
-    shadowOffset?: { width: number; height: number };
-    shadowOpacity?: number;
-    shadowRadius?: number;
-    shadowColor?: Color;
-}): ShadowEffect => {
-    return {
+export const transformShadowToEffect = (styles: Partial<BlendStyleProperties>): ShadowEffect[] => {
+    let shadows: Partial<ShadowProperties>[] = [styles];
+    if ('shadows' in styles && Array.isArray(styles.shadows)) {
+        shadows = styles.shadows;
+    }
+    return shadows.map(shadow => ({
         type: 'DROP_SHADOW',
-        color: colorToRGBA(styles.shadowColor, styles.shadowOpacity),
-        offset: styles.shadowOffset
+        color: colorToRGBA(shadow.shadowColor, shadow.shadowOpacity),
+        offset: shadow.shadowOffset
             ? {
-                  x: styles.shadowOffset.width,
-                  y: styles.shadowOffset.height
+                  x: shadow.shadowOffset.width,
+                  y: shadow.shadowOffset.height
               }
             : {
                   x: 0,
                   y: 0
               },
-        radius: styles.shadowRadius || 0,
+        radius: shadow.shadowRadius || 0,
         visible: true,
         blendMode: 'NORMAL'
-    };
+    }));
 };
