@@ -1,5 +1,4 @@
 import { BlendProps, Color } from '../types';
-import { colorToRGBA } from './transformColors';
 import { transformShadowToEffect } from './transformShadowToEffect';
 
 export type CSSBlendMode =
@@ -20,13 +19,17 @@ export type CSSBlendMode =
     | 'color'
     | 'luminosity';
 
-export interface BlendStyleProperties {
+export interface ShadowProperties {
+    shadowColor: Color;
+    shadowOffset?: { width: number; height: number };
+    shadowOpacity: number;
+    shadowRadius?: number;
+}
+
+export interface BlendStyleProperties extends ShadowProperties {
     opacity: number;
     blendMode: CSSBlendMode;
-    shadowColor: Color;
-    shadowOffset: { width: number; height: number };
-    shadowOpacity: number;
-    shadowRadius: number;
+    shadows?: ShadowProperties[];
 }
 
 const transofrmBlendMode = (cssBlendMode: CSSBlendMode): BlendMode => {
@@ -85,8 +88,8 @@ export const transformBlendProperties = (styles?: Partial<BlendStyleProperties>)
         blendProps.blendMode = transofrmBlendMode(styles.blendMode);
     }
 
-    if (styles.shadowColor) {
-        blendProps.effects = [transformShadowToEffect(styles)];
+    if (styles.shadowColor || styles.shadows) {
+        blendProps.effects = transformShadowToEffect(styles);
     }
 
     return blendProps;

@@ -80,13 +80,11 @@ export const transformTextStyleProperties = (style?: Partial<TextStyleProperties
             }),
         ...(style &&
             style.textShadowColor && {
-                effects: [
-                    transformShadowToEffect({
-                        shadowColor: style.textShadowColor,
-                        shadowOffset: style.textShadowOffset,
-                        shadowRadius: style.textShadowRadius
-                    })
-                ]
+                effects: transformShadowToEffect({
+                    shadowColor: style.textShadowColor,
+                    shadowOffset: style.textShadowOffset,
+                    shadowRadius: style.textShadowRadius
+                })
             })
     };
 };
