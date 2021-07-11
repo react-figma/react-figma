@@ -133,6 +133,7 @@ export const api = createPluginAPI(
                 tempNode.reactId
             );
             cache[tempNode.reactId] = instance;
+            uiApi.bindReactIdWithNode(tempNode.reactId, instance.id);
         },
 
         appendToContainer(_parentNode, _childNode) {
@@ -278,6 +279,8 @@ export const $selectionReactIds = new Subject();
 
 export const $updateYogaReactId = new Subject();
 
+export const $bindReactIdWithNodeId = new Subject<[string, string]>();
+
 // those methods will be executed in the Figma UI,
 // regardless of where they are called from
 export const uiApi = createUIAPI(
@@ -290,6 +293,9 @@ export const uiApi = createUIAPI(
         },
         updateYogaNode: reactId => {
             $updateYogaReactId.next(reactId);
+        },
+        bindReactIdWithNode: (reactId, nodeId) => {
+            $bindReactIdWithNodeId.next([reactId, nodeId]);
         }
     },
     {

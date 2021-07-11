@@ -28,6 +28,7 @@ import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAuto
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 import { filter } from 'rxjs/operators';
 import { useImageHash } from '../../hooks/useImageHash';
+import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
 
 export interface RectangleProps
     extends DefaultShapeProps,
@@ -50,6 +51,7 @@ const Rectangle: React.FC<RectangleProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
+    useNodeIdCallback(nodeRef, props.onNodeId);
 
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 

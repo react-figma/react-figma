@@ -19,6 +19,7 @@ export interface BaseNodeProps {
             [key: string]: string;
         };
     };
+    onNodeId?: (nodeId: string) => void;
 }
 
 export interface LayoutProps {

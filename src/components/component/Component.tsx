@@ -30,6 +30,7 @@ import {
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 import { useImageHash } from '../../hooks/useImageHash';
+import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
 
 export interface ComponentProps
     extends DefaultShapeProps,
@@ -54,6 +55,7 @@ export interface ComponentProps
 const Component: React.FC<ComponentProps> = props => {
     const nodeRef = props.nodeRef || React.useRef();
     useSelectionChange(nodeRef, props);
+    useNodeIdCallback(nodeRef, props.onNodeId);
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
     const imageHash = useImageHash(style.backgroundImage);
     const componentProps = {

@@ -10,6 +10,7 @@ import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
 
 export interface ComponentSetProps
     extends DefaultContainerProps,
@@ -24,6 +25,7 @@ export interface ComponentSetProps
 const ComponentSet: React.FC<ComponentSetProps> = props => {
     const nodeRef = props.nodeRef || React.useRef();
     useSelectionChange(nodeRef, props);
+    useNodeIdCallback(nodeRef, props.onNodeId);
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
     const componentProps = {
         ...transformLayoutStyleProperties(style),
