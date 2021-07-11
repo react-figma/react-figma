@@ -26,7 +26,8 @@ const textNodePropsAssign = propsAssign<TextProps, TextProps>(
         'textDecoration',
         'letterSpacing',
         'lineHeight',
-        'textStyleId'
+        'textStyleId',
+        'hyperlink'
     ],
     {
         characters: '',
@@ -39,7 +40,8 @@ const textNodePropsAssign = propsAssign<TextProps, TextProps>(
         textCase: 'ORIGINAL',
         textDecoration: 'NONE',
         letterSpacing: { value: 0, unit: 'PIXELS' },
-        lineHeight: { unit: 'AUTO' }
+        lineHeight: { unit: 'AUTO' },
+        hyperlink: null
     }
 );
 
