@@ -18,6 +18,8 @@ Wrapper for Figma [Text](https://www.figma.com/plugin-docs/api/TextNode/).
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 | `onLayout` | `Function` |  | Event is fired once the layout has been calculated  |
+| `onNodeId` | `Fuction` | | Getting Figma Node ID callback |  
+| `hyperlink` | [HyperlinkTarget](https://www.figma.com/plugin-docs/api/HyperlinkTarget/) |  | Hyperlink (to URL or node) |
 
 Also, most of the [TextNode](https://www.figma.com/plugin-docs/api/TextNode/) fields supported as props.
 
