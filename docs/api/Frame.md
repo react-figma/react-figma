@@ -16,6 +16,7 @@ Wrapper for Figma [Frame](https://www.figma.com/plugin-docs/api/FrameNode/).
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 | `onLayout` | `Function` |  | Event is fired once the layout has been calculated  |
+| `onNodeId` | `Fuction` | | Getting Figma Node ID callback |  
 
 Also, most of [FrameNode](https://www.figma.com/plugin-docs/api/FrameNode/) fields supported as props.
 

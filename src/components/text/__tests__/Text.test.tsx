@@ -56,4 +56,20 @@ describe('<Text />', () => {
         expect(tree).toMatchSnapshot();
         delete process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED;
     });
+
+    it('Text with hyperlink', () => {
+        const tree = renderer
+            .create(
+                <Text
+                    style={{ color: '#308eff' }}
+                    hyperlink={{
+                        type: 'URL',
+                        value: 'https://react-figma.dev/'
+                    }}>
+                    React Figma website
+                </Text>
+            )
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });

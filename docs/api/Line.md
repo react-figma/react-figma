@@ -16,6 +16,7 @@ Wrapper for the Figma [Line](https://www.figma.com/plugin-docs/api/LineNode/).
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 | `onLayout` | `Function` |  | Event is fired once the layout has been calculated  |
+| `onNodeId` | `Fuction` | | Getting Figma Node ID callback |  
 
 Also, most of the [LineNode](https://www.figma.com/plugin-docs/api/LineNode/) fields are supported as props.
 

@@ -31,6 +31,7 @@ import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAuto
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 import { useImageHash } from '../../hooks/useImageHash';
 import { InheritStyleProvider } from '../../hooks/useInheritStyle';
+import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
 
 interface Preset {
     name: string;
@@ -230,6 +231,7 @@ const Frame: React.FC<FrameNodeProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
+    useNodeIdCallback(nodeRef, props.onNodeId);
 
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 

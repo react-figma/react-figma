@@ -17,6 +17,7 @@ Wrapper for the Figma [Component](https://www.figma.com/plugin-docs/api/Componen
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 | `onLayout` | `Function` |  | Event is fired once the layout has been calculated  |
+| `onNodeId` | `Fuction` | | Getting Figma Node ID callback |  
 | `description` | `String` | | The annotation entered by the user for this component |
 | `documentationLinks` | [`ReadonlyArray<DocumentationLink>`](https://www.figma.com/plugin-docs/api/DocumentationLink/) | | The documentation links for this component |
 

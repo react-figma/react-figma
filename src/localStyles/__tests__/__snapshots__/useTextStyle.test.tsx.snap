@@ -38,6 +38,7 @@ ChildrenMixinStub {
             },
           ],
           "fontSize": 24,
+          "hyperlink": null,
           "id": "1:2",
           "isMask": false,
           "layoutAlign": "INHERIT",

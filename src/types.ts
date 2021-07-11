@@ -19,6 +19,7 @@ export interface BaseNodeProps {
             [key: string]: string;
         };
     };
+    onNodeId?: (nodeId: string) => void;
 }
 
 export interface LayoutProps {
@@ -96,6 +97,8 @@ export interface TextNodeProps {
     lineHeight?: LineHeight | symbol;
 
     textStyleId?: string;
+
+    hyperlink?: HyperlinkTarget;
 }
 
 export interface VectorNodeProps {
@@ -196,4 +199,9 @@ interface DocumentationLink {
 export interface PublishableProps {
     description?: string;
     documentationLinks?: ReadonlyArray<DocumentationLink>;
+}
+
+export interface HyperlinkTarget {
+    type: 'URL' | 'NODE';
+    value: string;
 }

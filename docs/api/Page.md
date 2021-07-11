@@ -17,6 +17,7 @@ Figma document (`figma.root`) should be a parent.
 | `isCurrent`| `Boolean`|         | Make page current                                 |
 | `onCurrentChange` | `Function` | | Changing current page callback |
 | `onLayout` | `Function` |  | Event is fired once the layout has been calculated  |
+| `onNodeId` | `Fuction` | | Getting Figma Node ID callback |  
 
 #### Example
 

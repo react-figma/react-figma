@@ -168,6 +168,43 @@ exports[`<Text /> Text with fontFamily, fontWeight, fontStyle 1`] = `
 />
 `;
 
+exports[`<Text /> Text with hyperlink 1`] = `
+<text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 1,
+          "g": 0.5568627450980392,
+          "r": 0.18823529411764706,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
+  hyperlink={
+    Object {
+      "type": "URL",
+      "value": "https://react-figma.dev/",
+    }
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  loadedFont={null}
+  style={
+    Object {
+      "color": "#308eff",
+    }
+  }
+>
+  React Figma website
+</text>
+`;
+
 exports[`<Text /> Text with maxWidth 1`] = `
 <text
   fills={
