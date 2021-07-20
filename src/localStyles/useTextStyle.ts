@@ -40,7 +40,7 @@ export const useTextStyle = (style: Partial<TextStyleProperties>, params: Common
     const loadedFont = useFontName((textProperties as any).fontName || { family: 'Roboto', style: 'Regular' });
 
     React.useEffect(() => {
-        if (Platform.OS !== 'figma') {
+        if (Platform.OS !== 'figma' || !loadedFont) {
             return;
         }
         const createTextStyle = async () => {
