@@ -11,7 +11,7 @@ title: Ecosystem
 * [Interactive](https://github.com/react-figma/react-figma/tree/master/examples/interactive)
 * [Data fetching](https://github.com/react-figma/react-figma/tree/master/examples/fetching)
 * [💅 styled-components](https://github.com/react-figma/react-figma/tree/master/examples/styled-components)
-* [PrimerDemo](https://github.com/react-figma/react-figma/PrimerDemo) - Example of multifplatform UI-kit
+* [PrimerDemo](https://github.com/react-figma/react-figma/PrimerDemo) - Example of multiplatform UI-kit
 * [Component Variants](https://github.com/react-figma/react-figma/tree/master/examples/component-variants)
 * [MDX](https://github.com/react-figma/react-figma/tree/master/examples/mdx)
 
