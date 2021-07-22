@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webpack:watch": "webpack && webpack-dev-server --config webpack.ui.config.js"
+    "webpack:watch": "webpack && webpack-dev-server --hot --config webpack.ui.config.js"
   },
   "author": "",
   "license": "ISC"
