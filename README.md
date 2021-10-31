@@ -131,7 +131,7 @@ export const App = () => {
 <a href="https://opencollective.com/reactfigma/backer/4/website" target="_blank"><img src="https://opencollective.com/reactfigma/backer/4/avatar.svg"></a>
 <a href="https://opencollective.com/reactfigma/backer/5/website" target="_blank"><img src="https://opencollective.com/reactfigma/backer/5/avatar.svg"></a>
 
-[Become a sponsor](https://opencollective.com/reactfigma#sponsor) and get your logo on our README on Github with a link to your site.
+[Become a sponsor](https://opencollective.com/reactfigma#sponsor) and get your logo on our README on GitHub with a link to your site.
 
 <a href="https://opencollective.com/reactfigma/sponsor/0/website" target="_blank"><img src="https://opencollective.com/reactfigma/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/reactfigma/sponsor/1/website" target="_blank"><img src="https://opencollective.com/reactfigma/sponsor/1/avatar.svg"></a>
