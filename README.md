@@ -192,6 +192,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://michaelzheng.medium.com/"><img src="https://avatars.githubusercontent.com/u/7504237?v=4?s=100" width="100px;" alt=""/><br /><sub><b>不吃猫的鱼</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=n0ruSh" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/kant"><img src="https://avatars.githubusercontent.com/u/32717?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Darío Hereñú</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=kant" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/KonstHardy"><img src="https://avatars.githubusercontent.com/u/46906648?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Konstantin Popov</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=KonstHardy" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://utkarsh299-tech.github.io/myportfolio/"><img src="https://avatars.githubusercontent.com/u/60184229?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Utkarsh Singh</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=Utkarsh299-tech" title="Documentation">📖</a></td>
   </tr>
 </table>
 
