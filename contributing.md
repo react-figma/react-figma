@@ -66,4 +66,4 @@ Before commit pre-commit hook will be launched. It runs prettier and linting/tes
 
 ## Publishing new version to NPM
 1. Bump version in `package.json` and `src/renderer.tsx`
-2. Create new release/new tag on Github named `vx.y.z` where `x.y.z` is new version number
+2. Create new release/new tag on GitHub named `vx.y.z` where `x.y.z` is new version number
