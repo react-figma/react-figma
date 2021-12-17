@@ -166,6 +166,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "mrkenneh",
+      "name": "mrkenneh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/96268806?v=4",
+      "profile": "https://github.com/mrkenneh",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
