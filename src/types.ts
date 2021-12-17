@@ -52,6 +52,7 @@ export interface GeometryProps {
 
 export interface FrameProps {
     backgrounds?: ReadonlyArray<Paint>;
+    fillStyleId?: string | symbol;
 }
 
 export interface CornerProps {
