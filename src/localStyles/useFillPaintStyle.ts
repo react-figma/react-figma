@@ -17,7 +17,7 @@ export const useFillPaintStyle = (style: Partial<GeometryStyleProperties>, param
         ...transformGeometryStyleProperties('fills', style, imageHash),
         style
     };
-    const [createFillsStyle, fillStyleId] = useCreateFillStyleId(transformedStyles, params);
+    const [createFillsStyle, fillStyleId] = useCreateFillStyleId(transformedStyles.fills, params);
 
     React.useEffect(() => {
         if (Platform.OS !== 'figma') {
