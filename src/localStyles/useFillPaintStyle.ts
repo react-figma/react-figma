@@ -8,30 +8,22 @@ import * as React from 'react';
 import { useImageHash } from '../hooks/useImageHash';
 import { Platform } from '../helpers/Platform';
 import { CommonStyleProps } from '../types';
+import { useCreateFillStyleId } from './useCreateFillStyleId';
 
 export const useFillPaintStyle = (style: Partial<GeometryStyleProperties>, params: CommonStyleProps) => {
-    const [fillStyleId, setFillStyleId] = React.useState(null);
     const imageHash = useImageHash(style.backgroundImage);
 
     const transformedStyles = {
         ...transformGeometryStyleProperties('fills', style, imageHash),
         style
     };
+    const [createFillsStyle, fillStyleId] = useCreateFillStyleId(transformedStyles.fills, params);
 
     React.useEffect(() => {
         if (Platform.OS !== 'figma') {
             return;
         }
-        const createFillsStyle = async () => {
-            if (!transformedStyles.fills) {
-                return;
-            }
-            const id = await api.createOrUpdatePaintStyle({
-                paints: transformedStyles.fills,
-                params
-            });
-            setFillStyleId(id);
-        };
+
         createFillsStyle();
     }, [transformedStyles]);
 

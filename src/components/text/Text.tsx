@@ -72,6 +72,7 @@ const Text: React.FC<TextProps> = props => {
         ...props,
         characters: charactersByChildren || props.characters,
         ...(style && style.textStyleId ? { textStyleId: style.textStyleId } : {}),
+        ...(style && style.fillStyleId ? { fillStyleId: style.fillStyleId } : {}),
         style,
         children
     };

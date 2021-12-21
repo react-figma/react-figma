@@ -4,6 +4,7 @@ import { TextStyleProperties, transformTextStyleProperties } from '../styleTrans
 import * as React from 'react';
 import { useFontName } from '../hooks/useFontName';
 import { CommonStyleProps } from '../types';
+import { useCreateFillStyleId } from './useCreateFillStyleId';
 
 const AVAILABLE_TEXT_PROPERTIES = [
     'fontSize',
@@ -27,6 +28,8 @@ export const useTextStyle = (style: Partial<TextStyleProperties>, params: Common
         [style]
     );
 
+    const [createFillsStyle, fillStyleId] = useCreateFillStyleId(transformedStyles.fills, params);
+
     const textProperties = React.useMemo(() => {
         return Object.keys(transformedStyles).reduce(
             (prev, current) => ({
@@ -40,7 +43,7 @@ export const useTextStyle = (style: Partial<TextStyleProperties>, params: Common
     const loadedFont = useFontName((textProperties as any).fontName || { family: 'Roboto', style: 'Regular' });
 
     React.useEffect(() => {
-        if (Platform.OS !== 'figma' || !loadedFont) {
+        if (Platform.OS !== 'figma') {
             return;
         }
         const createTextStyle = async () => {
@@ -54,8 +57,17 @@ export const useTextStyle = (style: Partial<TextStyleProperties>, params: Common
             });
             setTextStyleId(id);
         };
-        createTextStyle();
+
+        if (loadedFont) {
+            createTextStyle();
+        }
+
+        createFillsStyle();
     }, [textProperties, loadedFont]);
 
-    return { ...style, ...(textStyleId ? { textStyleId: textStyleId } : {}) };
+    return {
+        ...style,
+        ...(textStyleId ? { textStyleId: textStyleId } : {}),
+        ...(fillStyleId ? { fillStyleId: fillStyleId } : {})
+    };
 };
