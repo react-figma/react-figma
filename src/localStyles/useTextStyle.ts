@@ -18,6 +18,7 @@ const AVAILABLE_TEXT_PROPERTIES = [
 
 export const useTextStyle = (style: Partial<TextStyleProperties>, params: CommonStyleProps) => {
     const [textStyleId, setTextStyleId] = React.useState(null);
+    const [fillStyleId, setFillStyleId] = React.useState(null);
 
     const transformedStyles = React.useMemo(
         () => ({
@@ -40,7 +41,7 @@ export const useTextStyle = (style: Partial<TextStyleProperties>, params: Common
     const loadedFont = useFontName((textProperties as any).fontName || { family: 'Roboto', style: 'Regular' });
 
     React.useEffect(() => {
-        if (Platform.OS !== 'figma' || !loadedFont) {
+        if (Platform.OS !== 'figma') {
             return;
         }
         const createTextStyle = async () => {
@@ -54,8 +55,28 @@ export const useTextStyle = (style: Partial<TextStyleProperties>, params: Common
             });
             setTextStyleId(id);
         };
-        createTextStyle();
+
+        const createFillsStyle = async () => {
+            if (!transformedStyles.fills) {
+                return;
+            }
+            const id = await api.createOrUpdatePaintStyle({
+                paints: transformedStyles.fills,
+                params
+            });
+            setFillStyleId(id);
+        };
+
+        if (loadedFont) {
+            createTextStyle();
+        }
+
+        createFillsStyle();
     }, [textProperties, loadedFont]);
 
-    return { ...style, ...(textStyleId ? { textStyleId: textStyleId } : {}) };
+    return {
+        ...style,
+        ...(textStyleId ? { textStyleId: textStyleId } : {}),
+        ...(fillStyleId ? { fillStyleId: fillStyleId } : {})
+    };
 };

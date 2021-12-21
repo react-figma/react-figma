@@ -26,6 +26,7 @@ ChildrenMixinStub {
           },
           "effects": Array [],
           "exportSettings": Array [],
+          "fillStyleId": "S:test,",
           "fills": Array [
             Object {
               "color": Object {
@@ -57,7 +58,7 @@ ChildrenMixinStub {
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
-            "reactStyle": "{\\"fontFamily\\":\\"Roboto\\",\\"fontWeight\\":\\"bold\\",\\"fontSize\\":24,\\"color\\":\\"#000000\\",\\"textStyleId\\":\\"S:test,\\"}",
+            "reactStyle": "{\\"fontFamily\\":\\"Roboto\\",\\"fontWeight\\":\\"bold\\",\\"fontSize\\":24,\\"color\\":\\"#000000\\",\\"textStyleId\\":\\"S:test,\\",\\"fillStyleId\\":\\"S:test,\\"}",
           },
           "strokeAlign": "INSIDE",
           "strokeCap": "NONE",
