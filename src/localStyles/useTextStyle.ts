@@ -4,6 +4,7 @@ import { TextStyleProperties, transformTextStyleProperties } from '../styleTrans
 import * as React from 'react';
 import { useFontName } from '../hooks/useFontName';
 import { CommonStyleProps } from '../types';
+import { useCreateFillStyleId } from './useCreateFillStyleId';
 
 const AVAILABLE_TEXT_PROPERTIES = [
     'fontSize',
@@ -18,7 +19,6 @@ const AVAILABLE_TEXT_PROPERTIES = [
 
 export const useTextStyle = (style: Partial<TextStyleProperties>, params: CommonStyleProps) => {
     const [textStyleId, setTextStyleId] = React.useState(null);
-    const [fillStyleId, setFillStyleId] = React.useState(null);
 
     const transformedStyles = React.useMemo(
         () => ({
@@ -27,6 +27,8 @@ export const useTextStyle = (style: Partial<TextStyleProperties>, params: Common
         }),
         [style]
     );
+
+    const [createFillsStyle, fillStyleId] = useCreateFillStyleId(transformedStyles, params);
 
     const textProperties = React.useMemo(() => {
         return Object.keys(transformedStyles).reduce(
@@ -54,17 +56,6 @@ export const useTextStyle = (style: Partial<TextStyleProperties>, params: Common
                 loadedFont
             });
             setTextStyleId(id);
-        };
-
-        const createFillsStyle = async () => {
-            if (!transformedStyles.fills) {
-                return;
-            }
-            const id = await api.createOrUpdatePaintStyle({
-                paints: transformedStyles.fills,
-                params
-            });
-            setFillStyleId(id);
         };
 
         if (loadedFont) {
