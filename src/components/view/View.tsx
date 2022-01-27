@@ -12,7 +12,6 @@ const View: React.FC<ViewProps> = props => {
             <Frame
                 {...props}
                 style={[
-                    { backgroundColor: 'transparent' },
                     (process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED &&
                         ((style as any).display === 'flex' || (style as any).display === 'inline-flex') && {
                             flexDirection: 'row'

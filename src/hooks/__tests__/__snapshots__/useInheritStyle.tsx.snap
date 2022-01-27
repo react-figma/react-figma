@@ -4,31 +4,11 @@ exports[`useInheritStyle havent propagating without REACT_FIGMA_STYLE_INHERITANC
 ExportMixinStub {
   "children": Array [
     ExportMixinStub {
-      "backgrounds": Array [
-        Object {
-          "color": Object {
-            "b": 0,
-            "g": 0,
-            "r": 0,
-          },
-          "opacity": 0,
-          "type": "SOLID",
-        },
-      ],
+      "backgrounds": Array [],
       "blendMode": "NORMAL",
       "children": Array [
         ExportMixinStub {
-          "backgrounds": Array [
-            Object {
-              "color": Object {
-                "b": 0,
-                "g": 0,
-                "r": 0,
-              },
-              "opacity": 0,
-              "type": "SOLID",
-            },
-          ],
+          "backgrounds": Array [],
           "blendMode": "NORMAL",
           "children": Array [
             ExportMixinStub {
@@ -157,7 +137,7 @@ ExportMixinStub {
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
-            "reactStyle": "{\\"backgroundColor\\":\\"transparent\\",\\"fontSize\\":48}",
+            "reactStyle": "{\\"fontSize\\":48}",
           },
           "primaryAxisAlignItems": "MIN",
           "primaryAxisSizingMode": "AUTO",
@@ -198,7 +178,7 @@ ExportMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
-        "reactStyle": "{\\"backgroundColor\\":\\"transparent\\",\\"fontSize\\":50,\\"fontWeight\\":\\"bold\\",\\"fontFamily\\":\\"Roboto\\"}",
+        "reactStyle": "{\\"fontSize\\":50,\\"fontWeight\\":\\"bold\\",\\"fontFamily\\":\\"Roboto\\"}",
       },
       "primaryAxisAlignItems": "MIN",
       "primaryAxisSizingMode": "AUTO",
@@ -238,31 +218,11 @@ exports[`useInheritStyle styles propagating works 1`] = `
 ExportMixinStub {
   "children": Array [
     ExportMixinStub {
-      "backgrounds": Array [
-        Object {
-          "color": Object {
-            "b": 0,
-            "g": 0,
-            "r": 0,
-          },
-          "opacity": 0,
-          "type": "SOLID",
-        },
-      ],
+      "backgrounds": Array [],
       "blendMode": "NORMAL",
       "children": Array [
         ExportMixinStub {
-          "backgrounds": Array [
-            Object {
-              "color": Object {
-                "b": 0,
-                "g": 0,
-                "r": 0,
-              },
-              "opacity": 0,
-              "type": "SOLID",
-            },
-          ],
+          "backgrounds": Array [],
           "blendMode": "NORMAL",
           "children": Array [
             ExportMixinStub {
@@ -395,7 +355,7 @@ ExportMixinStub {
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
-            "reactStyle": "{\\"backgroundColor\\":\\"transparent\\",\\"fontSize\\":48}",
+            "reactStyle": "{\\"fontSize\\":48}",
           },
           "primaryAxisAlignItems": "MIN",
           "primaryAxisSizingMode": "AUTO",
@@ -436,7 +396,7 @@ ExportMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
-        "reactStyle": "{\\"backgroundColor\\":\\"transparent\\",\\"fontSize\\":50,\\"fontWeight\\":\\"bold\\",\\"fontFamily\\":\\"Roboto\\"}",
+        "reactStyle": "{\\"fontSize\\":50,\\"fontWeight\\":\\"bold\\",\\"fontFamily\\":\\"Roboto\\"}",
       },
       "primaryAxisAlignItems": "MIN",
       "primaryAxisSizingMode": "AUTO",
@@ -476,17 +436,7 @@ exports[`useInheritStyle styles propagating works over component without useInhe
 ExportMixinStub {
   "children": Array [
     ExportMixinStub {
-      "backgrounds": Array [
-        Object {
-          "color": Object {
-            "b": 0,
-            "g": 0,
-            "r": 0,
-          },
-          "opacity": 0,
-          "type": "SOLID",
-        },
-      ],
+      "backgrounds": Array [],
       "blendMode": "NORMAL",
       "children": Array [
         LayoutMixinStub {
@@ -666,7 +616,7 @@ ExportMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
-        "reactStyle": "{\\"backgroundColor\\":\\"transparent\\",\\"fontSize\\":50,\\"fontWeight\\":\\"bold\\",\\"fontFamily\\":\\"Roboto\\"}",
+        "reactStyle": "{\\"fontSize\\":50,\\"fontWeight\\":\\"bold\\",\\"fontFamily\\":\\"Roboto\\"}",
       },
       "primaryAxisAlignItems": "MIN",
       "primaryAxisSizingMode": "AUTO",
@@ -706,31 +656,11 @@ exports[`useInheritStyle styles propagating works with wrapping to component 1`]
 ExportMixinStub {
   "children": Array [
     ExportMixinStub {
-      "backgrounds": Array [
-        Object {
-          "color": Object {
-            "b": 0,
-            "g": 0,
-            "r": 0,
-          },
-          "opacity": 0,
-          "type": "SOLID",
-        },
-      ],
+      "backgrounds": Array [],
       "blendMode": "NORMAL",
       "children": Array [
         ExportMixinStub {
-          "backgrounds": Array [
-            Object {
-              "color": Object {
-                "b": 0,
-                "g": 0,
-                "r": 0,
-              },
-              "opacity": 0,
-              "type": "SOLID",
-            },
-          ],
+          "backgrounds": Array [],
           "blendMode": "NORMAL",
           "children": Array [
             ExportMixinStub {
@@ -863,7 +793,7 @@ ExportMixinStub {
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
-            "reactStyle": "{\\"backgroundColor\\":\\"transparent\\",\\"fontSize\\":48}",
+            "reactStyle": "{\\"fontSize\\":48}",
           },
           "primaryAxisAlignItems": "MIN",
           "primaryAxisSizingMode": "AUTO",
@@ -904,7 +834,7 @@ ExportMixinStub {
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
-        "reactStyle": "{\\"backgroundColor\\":\\"transparent\\",\\"fontSize\\":50,\\"fontWeight\\":\\"bold\\",\\"fontFamily\\":\\"Roboto\\"}",
+        "reactStyle": "{\\"fontSize\\":50,\\"fontWeight\\":\\"bold\\",\\"fontFamily\\":\\"Roboto\\"}",
       },
       "primaryAxisAlignItems": "MIN",
       "primaryAxisSizingMode": "AUTO",

@@ -2,19 +2,6 @@
 
 exports[`<View /> View with children 1`] = `
 <frame
-  backgrounds={
-    Array [
-      Object {
-        "color": Object {
-          "b": 0,
-          "g": 0,
-          "r": 0,
-        },
-        "opacity": 0,
-        "type": "SOLID",
-      },
-    ]
-  }
   innerRef={
     Object {
       "current": undefined,
@@ -22,7 +9,6 @@ exports[`<View /> View with children 1`] = `
   }
   style={
     Object {
-      "backgroundColor": "transparent",
       "flex": 1,
     }
   }
@@ -174,19 +160,6 @@ exports[`<View /> View without children 1`] = `
 
 exports[`<View /> alignItems: "stretch" on web defaults mode 1`] = `
 <frame
-  backgrounds={
-    Array [
-      Object {
-        "color": Object {
-          "b": 0,
-          "g": 0,
-          "r": 0,
-        },
-        "opacity": 0,
-        "type": "SOLID",
-      },
-    ]
-  }
   innerRef={
     Object {
       "current": undefined,
@@ -195,7 +168,6 @@ exports[`<View /> alignItems: "stretch" on web defaults mode 1`] = `
   style={
     Object {
       "alignItems": "stretch",
-      "backgroundColor": "transparent",
     }
   }
 >
@@ -228,19 +200,6 @@ exports[`<View /> alignItems: "stretch" on web defaults mode 1`] = `
 
 exports[`<View /> flexDirection: "row" when display: flex on web defaults mode 1`] = `
 <frame
-  backgrounds={
-    Array [
-      Object {
-        "color": Object {
-          "b": 0,
-          "g": 0,
-          "r": 0,
-        },
-        "opacity": 0,
-        "type": "SOLID",
-      },
-    ]
-  }
   innerRef={
     Object {
       "current": undefined,
@@ -249,7 +208,6 @@ exports[`<View /> flexDirection: "row" when display: flex on web defaults mode 1
   style={
     Object {
       "alignItems": "stretch",
-      "backgroundColor": "transparent",
       "display": "flex",
       "flexDirection": "row",
     }

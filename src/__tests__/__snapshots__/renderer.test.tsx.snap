@@ -286,17 +286,7 @@ ChildrenMixinStub {
     ExportMixinStub {
       "children": Array [
         ExportMixinStub {
-          "backgrounds": Array [
-            Object {
-              "color": Object {
-                "b": 0,
-                "g": 0,
-                "r": 0,
-              },
-              "opacity": 0,
-              "type": "SOLID",
-            },
-          ],
+          "backgrounds": Array [],
           "blendMode": "NORMAL",
           "children": Array [
             LayoutMixinStub {
@@ -551,7 +541,7 @@ ChildrenMixinStub {
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
-            "reactStyle": "{\\"backgroundColor\\":\\"transparent\\"}",
+            "reactStyle": "{}",
           },
           "primaryAxisAlignItems": "MIN",
           "primaryAxisSizingMode": "AUTO",
