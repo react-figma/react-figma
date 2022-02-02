@@ -1,6 +1,6 @@
 {
   "name": "react-figma",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "description": "Render React components to Figma",
   "scripts": {
     "tsc": "tsc -p tsconfig.json --noEmit",
