@@ -194,6 +194,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/KonstHardy"><img src="https://avatars.githubusercontent.com/u/46906648?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Konstantin Popov</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=KonstHardy" title="Documentation">📖</a></td>
     <td align="center"><a href="https://utkarsh299-tech.github.io/myportfolio/"><img src="https://avatars.githubusercontent.com/u/60184229?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Utkarsh Singh</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=Utkarsh299-tech" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/mrkenneh"><img src="https://avatars.githubusercontent.com/u/96268806?v=4?s=100" width="100px;" alt=""/><br /><sub><b>mrkenneh</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=mrkenneh" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/annuhdo"><img src="https://avatars.githubusercontent.com/u/6846913?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Anna Do</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=annuhdo" title="Code">💻</a></td>
   </tr>
 </table>
 
