@@ -1,12 +1,11 @@
 import { Color, GeometryProps, TextNodeProps } from '../types';
-import { colorToPaint } from './transformColors';
+import { colorToPaint, colorToRGB } from './transformColors';
 import { convertFontStyle } from './converFontStyle';
 import { transformDimensionMapper } from './transformDimension';
 import { transformShadowToEffect } from './transformShadowToEffect';
 
 export interface TextStyleProperties {
     color: string;
-    fillStyleId: string;
     fontFamily: string;
     fontWeight: 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
     fontStyle: 'normal' | 'italic' | 'solid';
@@ -19,6 +18,7 @@ export interface TextStyleProperties {
     textShadowOffset: { width: number; height: number };
     textShadowRadius: number;
     textStyleId: string;
+    fillStyleId: string;
 }
 
 interface TextProperties extends GeometryProps, TextNodeProps {}

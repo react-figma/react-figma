@@ -28,10 +28,7 @@ export const useTextStyle = (style: Partial<TextStyleProperties>, params: Common
         [style]
     );
 
-    const [createFillsStyle, fillStyleId] = useCreateFillStyleId(
-        style && style.color ? transformedStyles.fills : null,
-        params
-    );
+    const [createFillsStyle, fillStyleId] = useCreateFillStyleId(transformedStyles.fills, params);
 
     const textProperties = React.useMemo(() => {
         return Object.keys(transformedStyles).reduce(
