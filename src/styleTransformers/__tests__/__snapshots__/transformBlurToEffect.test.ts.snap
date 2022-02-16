@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformBlurToEffect blur radius 1`] = `
+Array [
+  Object {
+    "radius": 4,
+    "type": "LAYER_BLUR",
+    "visible": true,
+  },
+]
+`;
