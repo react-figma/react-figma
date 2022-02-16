@@ -7,7 +7,7 @@ export const transformShadowToEffect = (styles: Partial<BlendStyleProperties>): 
         shadows = styles.shadows;
     }
     return shadows.map(shadow => ({
-        type: 'DROP_SHADOW',
+        type: shadow.shadowType != null ? shadow.shadowType : 'DROP_SHADOW',
         color: colorToRGBA(shadow.shadowColor, shadow.shadowOpacity),
         offset: shadow.shadowOffset
             ? {
@@ -19,6 +19,7 @@ export const transformShadowToEffect = (styles: Partial<BlendStyleProperties>): 
                   y: 0
               },
         radius: shadow.shadowRadius || 0,
+        spread: shadow.shadowSpread || 0,
         visible: true,
         blendMode: 'NORMAL'
     }));

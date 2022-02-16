@@ -254,6 +254,26 @@ export const api = createPluginAPI(
                 });
             }
             return textStyle.id;
+        },
+
+        createOrUpdateEffectStyle(properties: {
+            effects: ReadonlyArray<Effect> | symbol | void;
+            params: CommonStyleProps;
+        }) {
+            const { effects, params } = properties;
+            const { name, id, description } = params;
+            const foundEffectStyle = figma.getLocalEffectStyles().find(style => style.name === name || style.id === id);
+            const effectStyle = foundEffectStyle || figma.createEffectStyle();
+            if (name) {
+                effectStyle.name = name;
+            }
+            if (description) {
+                effectStyle.description = description;
+            }
+            if (effects) {
+                effectStyle.effects = effects as any;
+            }
+            return effectStyle.id;
         }
     },
     {

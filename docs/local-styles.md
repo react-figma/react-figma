@@ -8,7 +8,7 @@ React Figma provides access to [Figma Styles API](https://www.figma.com/plugin-d
 #### useFillPaintStyle
 
 The `useFillPaintStyle` hook creates (or updates) [PaintStyle](https://www.figma.com/plugin-docs/api/PaintStyle/)
-and returns an object that contains `fillStyleId` and can be consumed in `style` prop. 
+and returns an object that contains `fillStyleId` and can be consumed in `style` prop.
 
 | Args       | Type     | Default | Note                                              |
 | ---------- | -------- | ------- | ------------------------------------------------- |
@@ -44,6 +44,22 @@ and returns an object that contains `textStyleId` and can be consumed in `style`
 | `params.name` | `String` |  | A style name |
 | `params.description` | `String` |  | A style description |
 
+#### useEffectStyle
+
+The `useEffectStyle` hook creates (or updates) [EffectStyle](https://www.figma.com/plugin-docs/api/EffectStyle/)
+and returns an object that contains `effectStyleId` and can be consumed in `style` prop.
+
+| Args       | Type     | Default | Note                                              |
+| ---------- | -------- | ------- | ------------------------------------------------- |
+| `style`     | [`Style`](/docs/styling) Object | | The `style` will applied to a local style |
+| `style.shadowType` | [`DROP_SHADOW`](https://www.figma.com/plugin-docs/api/Effect/#dropshadoweffect) or [`INNER_SHADOW`](https://www.figma.com/plugin-docs/api/Effect/#innershadoweffect) | `DROP_SHADOW` | Type of shadow effect |
+| `style.shadowSpread` | [`number`](https://www.figma.com/plugin-docs/api/Effect/#spread) | `0` | Shadow expansion distance |
+| `params` | `Object` |  |  |
+| `params.id` | `String` |  | A style id |
+| `params.name` | `String` |  | A style name |
+| `params.description` | `String` |  | A style description |
+
+
 #### Notes
 
 * Local styles hooks tried to find a style by `name` or `id`
@@ -55,7 +71,16 @@ and returns an object that contains `textStyleId` and can be consumed in `style`
 
 ```jsx
 import * as React from 'react';
-import { Page, View, Text, StyleSheet, useFillPaintStyle, useStrokePaintStyle, useTextStyle } from 'react-figma';
+import {
+    Page,
+    View,
+    Text,
+    StyleSheet,
+    useFillPaintStyle,
+    useStrokePaintStyle,
+    useTextStyle,
+    useEffectStyle
+} from 'react-figma';
 
 const styles = StyleSheet.create({
     root: {
@@ -68,12 +93,25 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 24,
         color: '#000000'
+    },
+    innerShadow: {
+        shadowColor: '#0300AE',
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        shadowOffset: { width: -10, height: -10 }
+    },
+    dropShadow: {
+        shadowColor: '#E5187B',
+        shadowOpacity: 0.5,
+        shadowRadius: 4,
+        shadowOffset: { width: 2, height: 4 }
     }
 });
 
 export const App = () => {
     const rootFillStyle = useFillPaintStyle(styles.root, {
-        name: 'root/background'
+        name: 'root/background',
+        description: 'Background color'
     });
 
     const rootStrokeStyle = useStrokePaintStyle(styles.root, {
@@ -84,14 +122,34 @@ export const App = () => {
         name: 'heading'
     });
 
+    const shadowStyle = useEffectStyle(
+        {
+            shadows: [
+                { ...styles.innerShadow, shadowType: 'INNER_SHADOW', shadowSpread: 2 },
+                { ...styles.dropShadow, shadowType: 'DROP_SHADOW' }
+            ]
+        },
+        {
+            name: 'Shadow Effect'
+        }
+    );
+
     return (
         <Page name="New page" isCurrent>
             <View>
-                <View style={{ width: 200, height: 100, ...styles.root, ...rootFillStyle, ...rootStrokeStyle }} />
+                <View
+                    style={{
+                        width: 200,
+                        height: 100,
+                        ...styles.root,
+                        ...rootFillStyle,
+                        ...rootStrokeStyle,
+                        ...shadowStyle
+                    }}
+                />
                 <Text style={{ ...headingTextStyle }}>Local styles</Text>
             </View>
         </Page>
     );
 };
 ```
-
