@@ -15,6 +15,7 @@ Array [
       "y": 0,
     },
     "radius": 0,
+    "spread": 0,
     "type": "DROP_SHADOW",
     "visible": true,
   },

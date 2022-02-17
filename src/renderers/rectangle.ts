@@ -1,9 +1,7 @@
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
 import { layoutMixin } from '../mixins/layoutMixin';
-import { BorderProps } from '../types';
 import { geometryMixin } from '../mixins/geometryMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
-import { propsAssign } from '../helpers/propsAssign';
 import { RectangleProps } from '../components/rectangle/Rectangle';
 import { cornerMixin } from '../mixins/cornerMixin';
 import { exportMixin } from '../mixins/exportMixin';

@@ -115,6 +115,7 @@ Object {
         "y": 20,
       },
       "radius": 15,
+      "spread": 0,
       "type": "DROP_SHADOW",
       "visible": true,
     },
