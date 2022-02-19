@@ -53,7 +53,8 @@ and returns an object that contains `effectStyleId` and can be consumed in `styl
 | ---------- | -------- | ------- | ------------------------------------------------- |
 | `style`     | [`Style`](/docs/styling) Object | | The `style` will applied to a local style |
 | `style.shadowType` | [`DROP_SHADOW`](https://www.figma.com/plugin-docs/api/Effect/#dropshadoweffect) or [`INNER_SHADOW`](https://www.figma.com/plugin-docs/api/Effect/#innershadoweffect) | `DROP_SHADOW` | Type of shadow effect |
-| `style.shadowSpread` | [`number`](https://www.figma.com/plugin-docs/api/Effect/#spread) | `0` | Shadow expansion distance |
+| `style.blurType` | [`LAYER_BLUR or BACKGROUND_BLUR`](https://www.figma.com/plugin-docs/api/Effect/#blureffect) | `LAYER_BLUR` | Type of blur effect |
+| `style.blurRadius` | `number` | `0` | Blur radius. Must be >= 0 |
 | `params` | `Object` |  |  |
 | `params.id` | `String` |  | A style id |
 | `params.name` | `String` |  | A style name |
@@ -88,6 +89,11 @@ const styles = StyleSheet.create({
         borderColor: '#ffffff',
         borderWidth: 5
     },
+    blurContainer: {
+        backgroundColor: '#30885E',
+        borderColor: '#ffffff',
+        borderWidth: 5
+    },
     heading: {
         fontFamily: 'Roboto',
         fontWeight: 'bold',
@@ -105,6 +111,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 4,
         shadowOffset: { width: 2, height: 4 }
+    },
+    layerBlur: {
+        blurRadius: 4
     }
 });
 
@@ -112,6 +121,11 @@ export const App = () => {
     const rootFillStyle = useFillPaintStyle(styles.root, {
         name: 'root/background',
         description: 'Background color'
+    });
+
+    const blurFillStyle = useFillPaintStyle(styles.blurContainer, {
+        name: 'blur/background',
+        description: 'Blur Background color'
     });
 
     const rootStrokeStyle = useStrokePaintStyle(styles.root, {
@@ -134,6 +148,16 @@ export const App = () => {
         }
     );
 
+    const blurShadowElevationStyle = useEffectStyle(
+        {
+            shadows: [{ ...styles.innerShadow, shadowType: 'INNER_SHADOW' }],
+            blurs: [{ ...styles.layerBlur, blurType: 'LAYER_BLUR' }]
+        },
+        {
+            name: 'Blur Shadow Effect'
+        }
+    );
+
     return (
         <Page name="New page" isCurrent>
             <View>
@@ -145,6 +169,15 @@ export const App = () => {
                         ...rootFillStyle,
                         ...rootStrokeStyle,
                         ...shadowStyle
+                    }}
+                />
+                <View
+                    style={{
+                        width: 200,
+                        height: 50,
+                        ...blurFillStyle,
+                        ...rootStrokeStyle,
+                        ...blurShadowElevationStyle
                     }}
                 />
                 <Text style={{ ...headingTextStyle }}>Local styles</Text>

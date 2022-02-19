@@ -1,4 +1,5 @@
 import { BlendProps, Color } from '../types';
+import { transformBlurToEffect } from './transformBlurToEffect';
 import { transformShadowToEffect } from './transformShadowToEffect';
 
 export type CSSBlendMode =
@@ -19,6 +20,11 @@ export type CSSBlendMode =
     | 'color'
     | 'luminosity';
 
+export interface BlurProperties {
+    blurRadius?: number;
+    blurType?: 'LAYER_BLUR' | 'BACKGROUND_BLUR';
+}
+
 export interface ShadowProperties {
     shadowColor: Color;
     shadowOffset?: { width: number; height: number };
@@ -28,10 +34,11 @@ export interface ShadowProperties {
     shadowType?: 'DROP_SHADOW' | 'INNER_SHADOW';
 }
 
-export interface BlendStyleProperties extends ShadowProperties {
+export interface BlendStyleProperties extends ShadowProperties, BlurProperties {
     opacity: number;
     blendMode: CSSBlendMode;
     shadows?: ShadowProperties[];
+    blurs?: BlurProperties[];
     effectStyleId?: string;
 }
 
@@ -94,7 +101,17 @@ export const transformBlendProperties = (
     }
 
     if (styles.shadowColor || styles.shadows) {
-        blendProps.effects = transformShadowToEffect(styles);
+        blendProps.effects = [
+            ...(blendProps.effects != null ? blendProps.effects : []),
+            ...transformShadowToEffect(styles)
+        ];
+    }
+
+    if (styles.blurRadius || styles.blurs) {
+        blendProps.effects = [
+            ...(blendProps.effects != null ? blendProps.effects : []),
+            ...transformBlurToEffect(styles)
+        ];
     }
 
     return { ...blendProps, ...((styles.effectStyleId && { effectStyleId: styles.effectStyleId }) || {}) };
