@@ -11,6 +11,7 @@ export interface PageProps extends BaseNodeProps, ChildrenProps, ExportProps, On
     style?: StyleOf<YogaStyleProperties>;
     isCurrent?: boolean;
     onCurrentChange?: (isCurrent: boolean) => void;
+    backgrounds?: ReadonlyArray<Paint>;
 }
 
 export const useCurrentPageChange = (

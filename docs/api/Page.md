@@ -16,6 +16,7 @@ Figma document (`figma.root`) should be a parent.
 | `style`    | [`Style`](/docs/styling)   |         | Only layout props                                                 |
 | `isCurrent`| `Boolean`|         | Make page current                                 |
 | `onCurrentChange` | `Function` | | Changing current page callback |
+| `backgrounds` | `Paint[]` | | Zero or one fill styles for the page |
 | `onLayout` | `Function` |  | Event is fired once the layout has been calculated  |
 | `onNodeId` | `Fuction` | | Getting Figma Node ID callback |  
 
