@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useStyleByKey useTextStyle correctly applied 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fillStyleId": "testStyleId",
+          "fills": Array [],
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"fillStyleId\\":\\"testStyleId\\"}",
+          },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
+          "type": "RECTANGLE",
+          "visible": true,
+        },
+        ExportMixinStub {
+          "_characters": "",
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0,
+                "r": 0,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
+          "fontSize": 12,
+          "hyperlink": null,
+          "id": "1:3",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "letterSpacing": Object {
+            "unit": "PIXELS",
+            "value": 0,
+          },
+          "lineHeight": Object {
+            "unit": "AUTO",
+          },
+          "locked": false,
+          "opacity": 1,
+          "paragraphIndent": 0,
+          "paragraphSpacing": 0,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{\\"textStyleId\\":\\"testStyleId\\"}",
+          },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
+          "textAlignHorizontal": "LEFT",
+          "textAlignVertical": "TOP",
+          "textCase": "ORIGINAL",
+          "textDecoration": "NONE",
+          "textStyleId": "testStyleId",
+          "type": "TEXT",
+          "visible": true,
+        },
+      ],
+      "exportSettings": Array [],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;

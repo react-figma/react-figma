@@ -210,6 +210,10 @@ export const api = createPluginAPI(
             }
         },
 
+        async importStyleByKeyAsync(key: string): Promise<BaseStyle> {
+            return figma.importStyleByKeyAsync(key);
+        },
+
         createOrUpdatePaintStyle(properties: {
             paints: ReadonlyArray<Paint> | symbol | void;
             params: CommonStyleProps;
