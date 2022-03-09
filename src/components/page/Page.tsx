@@ -9,9 +9,9 @@ import { InheritStyleProvider } from '../../hooks/useInheritStyle';
 import {
     GeometryStyleProperties,
     transformGeometryStyleProperties
-} from "../../styleTransformers/transformGeometryStyleProperties";
-import {StyleSheet} from "../../helpers/StyleSheet";
-import {useImageHash} from "../../hooks/useImageHash";
+} from '../../styleTransformers/transformGeometryStyleProperties';
+import { StyleSheet } from '../../helpers/StyleSheet';
+import { useImageHash } from '../../hooks/useImageHash';
 
 export interface PageProps extends BaseNodeProps, ChildrenProps, ExportProps, OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & GeometryStyleProperties>;
