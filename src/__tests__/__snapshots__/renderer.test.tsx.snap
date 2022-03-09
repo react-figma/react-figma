@@ -10,6 +10,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "backgrounds": Array [],
@@ -284,6 +285,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "backgrounds": Array [
@@ -591,6 +593,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [],
       "exportSettings": Array [],
       "id": "1:1",
@@ -617,6 +620,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "backgrounds": Array [],
@@ -685,6 +689,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "backgrounds": Array [],
@@ -755,6 +760,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "backgrounds": Array [],
@@ -823,6 +829,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "_characters": "some text",
@@ -905,6 +912,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "_characters": "Some text",
@@ -987,6 +995,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "_characters": "Some text 2",
@@ -1071,6 +1080,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "_characters": "text 2",
@@ -1155,6 +1165,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "_characters": "some text",
@@ -1241,6 +1252,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "_characters": "1/2",
@@ -1323,6 +1335,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         LayoutMixinStub {
           "backgrounds": Array [],
@@ -1555,6 +1568,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         LayoutMixinStub {
           "backgrounds": Array [],
@@ -1787,6 +1801,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         LayoutMixinStub {
           "backgrounds": Array [],
@@ -2033,6 +2048,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         LayoutMixinStub {
           "backgrounds": Array [],
@@ -2246,6 +2262,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         LayoutMixinStub {
           "backgrounds": Array [],
@@ -2335,6 +2352,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
@@ -2515,6 +2533,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
@@ -2624,6 +2643,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
@@ -2733,6 +2753,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
@@ -2801,6 +2822,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
@@ -2869,6 +2891,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
@@ -2978,6 +3001,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
+      "backgrounds": Array [],
       "children": Array [
         ExportMixinStub {
           "blendMode": "NORMAL",
