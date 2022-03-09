@@ -33,3 +33,4 @@ export { useFillPaintStyle } from './localStyles/useFillPaintStyle';
 export { useStrokePaintStyle } from './localStyles/useStrokePaintStyle';
 export { useTextStyle } from './localStyles/useTextStyle';
 export { useEffectStyle } from './localStyles/useEffectStyle';
+export { useStyleByKey } from './localStyles/useStyleByKey';

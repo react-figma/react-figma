@@ -9,6 +9,7 @@ export type GeometryStyleProperties = {
     backgroundColor: string;
     backgroundImage: string | { uri: string } | { default: string };
     backgroundSize: ResizeMode;
+    fillStyleId?: string;
 };
 
 const backgroundSizeToScaleMode = {
@@ -22,7 +23,7 @@ const backgroundSizeToScaleMode = {
 
 export const transformGeometryStyleProperties = (
     property: 'fills' | 'backgrounds',
-    style?: Partial<LayoutStyleProperties & GeometryStyleProperties & { fillStyleId?: string; strokeStyleId?: string }>,
+    style?: Partial<LayoutStyleProperties & GeometryStyleProperties & { strokeStyleId?: string }>,
     imageHash?: string
 ): GeometryProps => {
     if (!style) {
