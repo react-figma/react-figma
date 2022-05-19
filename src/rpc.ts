@@ -8,6 +8,7 @@ import { LayoutStyleProperties } from './styleTransformers/transformLayoutStyleP
 import { GeometryStyleProperties } from './styleTransformers/transformGeometryStyleProperties';
 import { isEqualFontStyle } from './helpers/isEqualFontStyle';
 import { CommonStyleProps } from './types';
+import { DEFAULT_FONT } from './helpers/constants';
 
 const getInitialTree = node => {
     return {
@@ -246,7 +247,7 @@ export const api = createPluginAPI(
                 textStyle.description = description;
             }
 
-            const { fontName = { family: 'Roboto', style: 'Regular' } } = textProperties;
+            const { fontName = DEFAULT_FONT } = textProperties;
             if (
                 loadedFont &&
                 fontName &&

@@ -1,5 +1,6 @@
 import { createFigma } from 'figma-api-stub';
 import { text } from '../text';
+import { DEFAULT_FONT } from '../../helpers/constants';
 
 describe('text renderer', () => {
     beforeEach(() => {
@@ -13,25 +14,25 @@ describe('text renderer', () => {
     // Without setup textAutoResize text can unexpectedly wrap to the next line
     // --------------
     it('textAutoResize: WIDTH_AND_HEIGHT by default', async () => {
-        await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
-        const textNode = text(null)({ loadedFont: { family: 'Roboto', style: 'Regular' } });
+        await figma.loadFontAsync(DEFAULT_FONT);
+        const textNode = text(null)({ loadedFont: DEFAULT_FONT });
         expect(textNode.textAutoResize).toEqual('WIDTH_AND_HEIGHT');
     });
 
     it('textAutoResize prop supported overrides default', async () => {
-        await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
-        const textNode = text(null)({ textAutoResize: 'HEIGHT', loadedFont: { family: 'Roboto', style: 'Regular' } });
+        await figma.loadFontAsync(DEFAULT_FONT);
+        const textNode = text(null)({ textAutoResize: 'HEIGHT', loadedFont: DEFAULT_FONT });
         expect(textNode.textAutoResize).toEqual('HEIGHT');
     });
 
     it('textAutoResize: HEIGHT when hasDefinedWidth is true', async () => {
-        await figma.loadFontAsync({ family: 'Roboto', style: 'Regular' });
+        await figma.loadFontAsync(DEFAULT_FONT);
         const node = figma.createText();
         // @ts-ignore
         node.height = 20;
         const textNode = text(node)({
             width: 200,
-            loadedFont: { family: 'Roboto', style: 'Regular' },
+            loadedFont: DEFAULT_FONT,
             hasDefinedWidth: true
         });
         expect(textNode.textAutoResize).toEqual('HEIGHT');

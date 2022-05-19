@@ -26,6 +26,7 @@ import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAuto
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 import { useInheritStyle } from '../../hooks/useInheritStyle';
 import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
+import { DEFAULT_FONT } from '../../helpers/constants';
 
 export interface TextProps
     extends TextNodeProps,
@@ -77,7 +78,7 @@ const Text: React.FC<TextProps> = props => {
         children
     };
     const hasDefinedWidth = textProps.width || style.maxWidth;
-    const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });
+    const loadedFont = useFontName(textProps.fontName || DEFAULT_FONT);
     const yogaProps = useYogaLayout({ nodeRef, ...textProps, loadedFont });
     useOnLayoutHandler(yogaProps, props);
 
