@@ -5,9 +5,10 @@ import * as React from 'react';
 import { Component, Page, Text, View } from '../..';
 import { removeNodeBatchId } from '../../helpers/removeNodeBatchId';
 import { removeTempId } from '../../helpers/removeTempId';
+import { removeKey } from '../../helpers/removeKey';
 
 const removeMeta = node => {
-    return removeNodeBatchId(removeTempId(node));
+    return removeKey(removeNodeBatchId(removeTempId(node)));
 };
 
 describe('useInheritStyle', () => {

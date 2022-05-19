@@ -12,6 +12,7 @@ import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 import { uiApi } from '../rpc';
 import { safeGetPluginData } from '../helpers/safeGetPluginData';
 import { constraintsMixin } from '../mixins/constraintsMixin';
+import { DEFAULT_FONT } from '../helpers/constants';
 
 const textNodePropsAssign = propsAssign<TextProps, TextProps>(
     [
@@ -45,7 +46,7 @@ const textNodePropsAssign = propsAssign<TextProps, TextProps>(
     }
 );
 
-const defaultFont = { family: 'Roboto', style: 'Regular' };
+const defaultFont = DEFAULT_FONT;
 
 export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontName; hasDefinedWidth?: boolean }) => {
     const textNode = node || props.node || figma.createText();

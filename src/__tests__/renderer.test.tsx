@@ -7,9 +7,10 @@ import { delay, take } from 'rxjs/operators';
 import { wait } from '../helpers/wait';
 import { removeTempId } from '../helpers/removeTempId';
 import { removeNodeBatchId } from '../helpers/removeNodeBatchId';
+import { removeKey } from '../helpers/removeKey';
 
 const removeMeta = node => {
-    return removeNodeBatchId(removeTempId(node));
+    return removeKey(removeNodeBatchId(removeTempId(node)));
 };
 
 describe('renderer', () => {

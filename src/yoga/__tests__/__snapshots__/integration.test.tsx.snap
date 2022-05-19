@@ -5,6 +5,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -12,7 +13,8 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
+          "_fills": Array [],
           "backgrounds": Array [
             Object {
               "color": Object {
@@ -26,17 +28,8 @@ ChildrenMixinStub {
           ],
           "blendMode": "NORMAL",
           "children": Array [
-            ExportMixinStub {
-              "blendMode": "NORMAL",
-              "constraints": Object {
-                "horizontal": "MIN",
-                "vertical": "MIN",
-              },
-              "cornerRadius": 0,
-              "cornerSmoothing": 0,
-              "effects": Array [],
-              "exportSettings": Array [],
-              "fills": Array [
+            GeometryMixinStub {
+              "_fills": Array [
                 Object {
                   "color": Object {
                     "b": 0,
@@ -47,6 +40,19 @@ ChildrenMixinStub {
                   "type": "SOLID",
                 },
               ],
+              "blendMode": "NORMAL",
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportSettings": Array [],
               "height": 100,
               "id": "1:2",
               "isMask": false,
@@ -69,17 +75,8 @@ ChildrenMixinStub {
               "x": 0,
               "y": 0,
             },
-            ExportMixinStub {
-              "blendMode": "NORMAL",
-              "constraints": Object {
-                "horizontal": "MIN",
-                "vertical": "MIN",
-              },
-              "cornerRadius": 0,
-              "cornerSmoothing": 0,
-              "effects": Array [],
-              "exportSettings": Array [],
-              "fills": Array [
+            GeometryMixinStub {
+              "_fills": Array [
                 Object {
                   "color": Object {
                     "b": 0.09019607843137255,
@@ -90,6 +87,19 @@ ChildrenMixinStub {
                   "type": "SOLID",
                 },
               ],
+              "blendMode": "NORMAL",
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportSettings": Array [],
               "height": 100,
               "id": "1:3",
               "isMask": false,
@@ -114,6 +124,10 @@ ChildrenMixinStub {
             },
           ],
           "clipsContent": false,
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -124,7 +138,6 @@ ChildrenMixinStub {
           "counterAxisSizingMode": "AUTO",
           "effects": Array [],
           "exportSettings": Array [],
-          "fills": Array [],
           "guides": Array [],
           "height": 200,
           "id": "1:4",
@@ -158,6 +171,10 @@ ChildrenMixinStub {
           "y": 0,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -168,6 +185,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }

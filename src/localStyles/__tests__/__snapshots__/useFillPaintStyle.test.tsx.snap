@@ -5,6 +5,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -12,18 +13,8 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fillStyleId": "S:test,",
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0.10980392156862745,
@@ -34,6 +25,20 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fillStyleId": "S:test,",
           "id": "1:2",
           "isMask": false,
           "layoutAlign": "INHERIT",
@@ -63,6 +68,10 @@ ChildrenMixinStub {
           "visible": true,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -73,6 +82,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -95,6 +105,15 @@ Array [
       },
     ],
     "remote": false,
+    "styleBasics": Object {
+      "effectStyles": Array [],
+      "gridStyles": Array [],
+      "paintStyles": [Circular],
+      "styles": Map {
+        "S:test," => [Circular],
+      },
+      "textStyles": Array [],
+    },
     "type": "PAINT",
   },
 ]

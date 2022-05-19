@@ -5,6 +5,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -12,8 +13,19 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
+          "_fills": Array [
+            Object {
+              "imageHash": "<image hash>",
+              "scaleMode": "FILL",
+              "type": "IMAGE",
+            },
+          ],
           "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -22,13 +34,6 @@ ChildrenMixinStub {
           "cornerSmoothing": 0,
           "effects": Array [],
           "exportSettings": Array [],
-          "fills": Array [
-            Object {
-              "imageHash": "<image hash>",
-              "scaleMode": "FILL",
-              "type": "IMAGE",
-            },
-          ],
           "id": "1:2",
           "isMask": false,
           "layoutAlign": "INHERIT",
@@ -50,6 +55,10 @@ ChildrenMixinStub {
           "y": 0,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -60,6 +69,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }

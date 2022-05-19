@@ -5,6 +5,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -12,7 +13,8 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
+          "_fills": Array [],
           "backgrounds": Array [],
           "blendMode": "NORMAL",
           "children": Array [
@@ -20,17 +22,8 @@ ChildrenMixinStub {
               "backgrounds": Array [],
               "blendMode": "NORMAL",
               "children": Array [
-                ExportMixinStub {
-                  "blendMode": "NORMAL",
-                  "constraints": Object {
-                    "horizontal": "MIN",
-                    "vertical": "MIN",
-                  },
-                  "cornerRadius": 0,
-                  "cornerSmoothing": 0,
-                  "effects": Array [],
-                  "exportSettings": Array [],
-                  "fills": Array [
+                GeometryMixinStub {
+                  "_fills": Array [
                     Object {
                       "color": Object {
                         "b": 1,
@@ -41,6 +34,19 @@ ChildrenMixinStub {
                       "type": "SOLID",
                     },
                   ],
+                  "blendMode": "NORMAL",
+                  "config": Object {
+                    "isWithoutTimeout": false,
+                    "simulateErrors": true,
+                  },
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportSettings": Array [],
                   "height": 100,
                   "id": "1:2",
                   "isMask": false,
@@ -64,6 +70,10 @@ ChildrenMixinStub {
                   "y": 0,
                 },
               ],
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
               "effects": Array [],
               "exportSettings": Array [],
               "height": 100,
@@ -88,17 +98,8 @@ ChildrenMixinStub {
               "backgrounds": Array [],
               "blendMode": "NORMAL",
               "children": Array [
-                ExportMixinStub {
-                  "blendMode": "NORMAL",
-                  "constraints": Object {
-                    "horizontal": "MIN",
-                    "vertical": "MIN",
-                  },
-                  "cornerRadius": 0,
-                  "cornerSmoothing": 0,
-                  "effects": Array [],
-                  "exportSettings": Array [],
-                  "fills": Array [
+                GeometryMixinStub {
+                  "_fills": Array [
                     Object {
                       "color": Object {
                         "b": 0.09019607843137255,
@@ -109,6 +110,19 @@ ChildrenMixinStub {
                       "type": "SOLID",
                     },
                   ],
+                  "blendMode": "NORMAL",
+                  "config": Object {
+                    "isWithoutTimeout": false,
+                    "simulateErrors": true,
+                  },
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportSettings": Array [],
                   "height": 100,
                   "id": "2:10",
                   "isMask": false,
@@ -130,6 +144,10 @@ ChildrenMixinStub {
                   "width": 200,
                 },
               ],
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
               "effects": Array [],
               "exportSettings": Array [],
               "id": "2:12",
@@ -150,17 +168,8 @@ ChildrenMixinStub {
               "backgrounds": Array [],
               "blendMode": "NORMAL",
               "children": Array [
-                ExportMixinStub {
-                  "blendMode": "NORMAL",
-                  "constraints": Object {
-                    "horizontal": "MIN",
-                    "vertical": "MIN",
-                  },
-                  "cornerRadius": 0,
-                  "cornerSmoothing": 0,
-                  "effects": Array [],
-                  "exportSettings": Array [],
-                  "fills": Array [
+                GeometryMixinStub {
+                  "_fills": Array [
                     Object {
                       "color": Object {
                         "b": 0,
@@ -171,6 +180,19 @@ ChildrenMixinStub {
                       "type": "SOLID",
                     },
                   ],
+                  "blendMode": "NORMAL",
+                  "config": Object {
+                    "isWithoutTimeout": false,
+                    "simulateErrors": true,
+                  },
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportSettings": Array [],
                   "height": 100,
                   "id": "1:5",
                   "isMask": false,
@@ -194,6 +216,10 @@ ChildrenMixinStub {
                   "y": 0,
                 },
               ],
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
               "effects": Array [],
               "exportSettings": Array [],
               "height": 100,
@@ -216,6 +242,10 @@ ChildrenMixinStub {
             },
           ],
           "clipsContent": false,
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -226,7 +256,6 @@ ChildrenMixinStub {
           "counterAxisSizingMode": "AUTO",
           "effects": Array [],
           "exportSettings": Array [],
-          "fills": Array [],
           "guides": Array [],
           "height": 200,
           "id": "1:8",
@@ -260,6 +289,10 @@ ChildrenMixinStub {
           "y": 0,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -270,6 +303,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -280,6 +314,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -287,7 +322,8 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
+          "_fills": Array [],
           "backgrounds": Array [
             Object {
               "color": Object {
@@ -301,21 +337,13 @@ ChildrenMixinStub {
           ],
           "blendMode": "NORMAL",
           "children": Array [
-            LayoutMixinStub {
+            GeometryMixinStub {
+              "_fills": Array [],
               "backgrounds": Array [],
               "blendMode": "NORMAL",
               "children": Array [
-                ExportMixinStub {
-                  "blendMode": "NORMAL",
-                  "constraints": Object {
-                    "horizontal": "MIN",
-                    "vertical": "MIN",
-                  },
-                  "cornerRadius": 0,
-                  "cornerSmoothing": 0,
-                  "effects": Array [],
-                  "exportSettings": Array [],
-                  "fills": Array [
+                GeometryMixinStub {
+                  "_fills": Array [
                     Object {
                       "color": Object {
                         "b": 0,
@@ -326,6 +354,19 @@ ChildrenMixinStub {
                       "type": "SOLID",
                     },
                   ],
+                  "blendMode": "NORMAL",
+                  "config": Object {
+                    "isWithoutTimeout": false,
+                    "simulateErrors": true,
+                  },
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportSettings": Array [],
                   "height": 100,
                   "id": "1:2",
                   "isMask": false,
@@ -350,6 +391,10 @@ ChildrenMixinStub {
                 },
               ],
               "clipsContent": false,
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
               "constraints": Object {
                 "horizontal": "MIN",
                 "vertical": "MIN",
@@ -362,7 +407,6 @@ ChildrenMixinStub {
               "documentationLinks": Array [],
               "effects": Array [],
               "exportSettings": Array [],
-              "fills": Array [],
               "guides": Array [],
               "height": 100,
               "id": "1:3",
@@ -395,19 +439,112 @@ ChildrenMixinStub {
               "x": 0,
               "y": 0,
             },
-            LayoutMixinStub {
-              "children": Array [
-                ExportMixinStub {
-                  "blendMode": "NORMAL",
-                  "constraints": Object {
-                    "horizontal": "MIN",
-                    "vertical": "MIN",
+            ChildrenMixinStub {
+              "_orig": GeometryMixinStub {
+                "_fills": Array [],
+                "backgrounds": Array [],
+                "blendMode": "NORMAL",
+                "children": Array [
+                  GeometryMixinStub {
+                    "_fills": Array [
+                      Object {
+                        "color": Object {
+                          "b": 0,
+                          "g": 1,
+                          "r": 0.07058823529411765,
+                        },
+                        "opacity": 1,
+                        "type": "SOLID",
+                      },
+                    ],
+                    "blendMode": "NORMAL",
+                    "config": Object {
+                      "isWithoutTimeout": false,
+                      "simulateErrors": true,
+                    },
+                    "constraints": Object {
+                      "horizontal": "MIN",
+                      "vertical": "MIN",
+                    },
+                    "cornerRadius": 0,
+                    "cornerSmoothing": 0,
+                    "effects": Array [],
+                    "exportSettings": Array [],
+                    "height": 100,
+                    "id": "1:2",
+                    "isMask": false,
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0,
+                    "locked": false,
+                    "opacity": 1,
+                    "parent": [Circular],
+                    "pluginData": Object {
+                      "isReactFigmaNode": "true",
+                      "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                    },
+                    "strokeAlign": "INSIDE",
+                    "strokeCap": "NONE",
+                    "strokeWeight": 0,
+                    "strokes": Array [],
+                    "type": "RECTANGLE",
+                    "visible": true,
+                    "width": 200,
+                    "x": 0,
+                    "y": 0,
                   },
-                  "cornerRadius": 0,
-                  "cornerSmoothing": 0,
-                  "effects": Array [],
-                  "exportSettings": Array [],
-                  "fills": Array [
+                ],
+                "clipsContent": false,
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "counterAxisAlignItems": "MIN",
+                "counterAxisSizingMode": "AUTO",
+                "description": "",
+                "documentationLinks": Array [],
+                "effects": Array [],
+                "exportSettings": Array [],
+                "guides": Array [],
+                "height": 100,
+                "id": "1:3",
+                "isMask": false,
+                "itemSpacing": 0,
+                "layoutAlign": "INHERIT",
+                "layoutGrids": Array [],
+                "layoutGrow": 0,
+                "layoutMode": "NONE",
+                "locked": false,
+                "opacity": 1,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "parent": [Circular],
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{}",
+                },
+                "primaryAxisAlignItems": "MIN",
+                "primaryAxisSizingMode": "AUTO",
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "COMPONENT",
+                "visible": true,
+                "width": 200,
+                "x": 0,
+                "y": 0,
+              },
+              "children": Array [
+                GeometryMixinStub {
+                  "_fills": Array [
                     Object {
                       "color": Object {
                         "b": 0,
@@ -418,6 +555,127 @@ ChildrenMixinStub {
                       "type": "SOLID",
                     },
                   ],
+                  "_orig": GeometryMixinStub {
+                    "_fills": Array [
+                      Object {
+                        "color": Object {
+                          "b": 0,
+                          "g": 1,
+                          "r": 0.07058823529411765,
+                        },
+                        "opacity": 1,
+                        "type": "SOLID",
+                      },
+                    ],
+                    "blendMode": "NORMAL",
+                    "config": Object {
+                      "isWithoutTimeout": false,
+                      "simulateErrors": true,
+                    },
+                    "constraints": Object {
+                      "horizontal": "MIN",
+                      "vertical": "MIN",
+                    },
+                    "cornerRadius": 0,
+                    "cornerSmoothing": 0,
+                    "effects": Array [],
+                    "exportSettings": Array [],
+                    "height": 100,
+                    "id": "1:2",
+                    "isMask": false,
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0,
+                    "locked": false,
+                    "opacity": 1,
+                    "parent": GeometryMixinStub {
+                      "_fills": Array [],
+                      "backgrounds": Array [],
+                      "blendMode": "NORMAL",
+                      "children": Array [
+                        [Circular],
+                      ],
+                      "clipsContent": false,
+                      "config": Object {
+                        "isWithoutTimeout": false,
+                        "simulateErrors": true,
+                      },
+                      "constraints": Object {
+                        "horizontal": "MIN",
+                        "vertical": "MIN",
+                      },
+                      "cornerRadius": 0,
+                      "cornerSmoothing": 0,
+                      "counterAxisAlignItems": "MIN",
+                      "counterAxisSizingMode": "AUTO",
+                      "description": "",
+                      "documentationLinks": Array [],
+                      "effects": Array [],
+                      "exportSettings": Array [],
+                      "guides": Array [],
+                      "height": 100,
+                      "id": "1:3",
+                      "isMask": false,
+                      "itemSpacing": 0,
+                      "layoutAlign": "INHERIT",
+                      "layoutGrids": Array [],
+                      "layoutGrow": 0,
+                      "layoutMode": "NONE",
+                      "locked": false,
+                      "opacity": 1,
+                      "paddingBottom": 0,
+                      "paddingLeft": 0,
+                      "paddingRight": 0,
+                      "paddingTop": 0,
+                      "parent": [Circular],
+                      "pluginData": Object {
+                        "isReactFigmaNode": "true",
+                        "reactStyle": "{}",
+                      },
+                      "primaryAxisAlignItems": "MIN",
+                      "primaryAxisSizingMode": "AUTO",
+                      "strokeAlign": "INSIDE",
+                      "strokeCap": "NONE",
+                      "strokeWeight": 0,
+                      "strokes": Array [],
+                      "type": "COMPONENT",
+                      "visible": true,
+                      "width": 200,
+                      "x": 0,
+                      "y": 0,
+                    },
+                    "pluginData": Object {
+                      "isReactFigmaNode": "true",
+                      "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                    },
+                    "strokeAlign": "INSIDE",
+                    "strokeCap": "NONE",
+                    "strokeWeight": 0,
+                    "strokes": Array [],
+                    "type": "RECTANGLE",
+                    "visible": true,
+                    "width": 200,
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "blendMode": "NORMAL",
+                  "config": Object {
+                    "isWithoutTimeout": false,
+                    "simulateErrors": true,
+                  },
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportAsync": [Function],
+                  "exportSettings": Array [],
+                  "getPluginData": [Function],
+                  "getPluginDataKeys": [Function],
+                  "getRelaunchData": [Function],
+                  "getSharedPluginData": [Function],
+                  "getSharedPluginDataKeys": [Function],
                   "height": 100,
                   "id": "1:2",
                   "isMask": false,
@@ -425,13 +683,65 @@ ChildrenMixinStub {
                   "layoutGrow": 0,
                   "locked": false,
                   "opacity": 1,
-                  "parent": LayoutMixinStub {
+                  "outlineStroke": [Function],
+                  "parent": GeometryMixinStub {
+                    "_fills": Array [],
                     "backgrounds": Array [],
                     "blendMode": "NORMAL",
                     "children": Array [
-                      [Circular],
+                      GeometryMixinStub {
+                        "_fills": Array [
+                          Object {
+                            "color": Object {
+                              "b": 0,
+                              "g": 1,
+                              "r": 0.07058823529411765,
+                            },
+                            "opacity": 1,
+                            "type": "SOLID",
+                          },
+                        ],
+                        "blendMode": "NORMAL",
+                        "config": Object {
+                          "isWithoutTimeout": false,
+                          "simulateErrors": true,
+                        },
+                        "constraints": Object {
+                          "horizontal": "MIN",
+                          "vertical": "MIN",
+                        },
+                        "cornerRadius": 0,
+                        "cornerSmoothing": 0,
+                        "effects": Array [],
+                        "exportSettings": Array [],
+                        "height": 100,
+                        "id": "1:2",
+                        "isMask": false,
+                        "layoutAlign": "INHERIT",
+                        "layoutGrow": 0,
+                        "locked": false,
+                        "opacity": 1,
+                        "parent": [Circular],
+                        "pluginData": Object {
+                          "isReactFigmaNode": "true",
+                          "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                        },
+                        "strokeAlign": "INSIDE",
+                        "strokeCap": "NONE",
+                        "strokeWeight": 0,
+                        "strokes": Array [],
+                        "type": "RECTANGLE",
+                        "visible": true,
+                        "width": 200,
+                        "x": 0,
+                        "y": 0,
+                      },
                     ],
                     "clipsContent": false,
+                    "config": Object {
+                      "isWithoutTimeout": false,
+                      "simulateErrors": true,
+                    },
                     "constraints": Object {
                       "horizontal": "MIN",
                       "vertical": "MIN",
@@ -444,7 +754,6 @@ ChildrenMixinStub {
                     "documentationLinks": Array [],
                     "effects": Array [],
                     "exportSettings": Array [],
-                    "fills": Array [],
                     "guides": Array [],
                     "height": 100,
                     "id": "1:3",
@@ -477,10 +786,15 @@ ChildrenMixinStub {
                     "x": 0,
                     "y": 0,
                   },
-                  "pluginData": Object {
-                    "isReactFigmaNode": "true",
-                    "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
-                  },
+                  "pluginData": Object {},
+                  "remove": [Function],
+                  "rescale": [Function],
+                  "resize": [Function],
+                  "resizeWithoutConstraints": [Function],
+                  "setPluginData": [Function],
+                  "setRelaunchData": [Function],
+                  "setSharedPluginData": [Function],
+                  "sharedPluginData": Object {},
                   "strokeAlign": "INSIDE",
                   "strokeCap": "NONE",
                   "strokeWeight": 0,
@@ -488,10 +802,12 @@ ChildrenMixinStub {
                   "type": "RECTANGLE",
                   "visible": true,
                   "width": 200,
-                  "x": 0,
-                  "y": 0,
                 },
               ],
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
               "constraints": Object {
                 "horizontal": "MIN",
                 "vertical": "MIN",
@@ -505,6 +821,108 @@ ChildrenMixinStub {
               "layoutGrow": 0,
               "layoutMode": "NONE",
               "locked": false,
+              "mainComponent": GeometryMixinStub {
+                "_fills": Array [],
+                "backgrounds": Array [],
+                "blendMode": "NORMAL",
+                "children": Array [
+                  GeometryMixinStub {
+                    "_fills": Array [
+                      Object {
+                        "color": Object {
+                          "b": 0,
+                          "g": 1,
+                          "r": 0.07058823529411765,
+                        },
+                        "opacity": 1,
+                        "type": "SOLID",
+                      },
+                    ],
+                    "blendMode": "NORMAL",
+                    "config": Object {
+                      "isWithoutTimeout": false,
+                      "simulateErrors": true,
+                    },
+                    "constraints": Object {
+                      "horizontal": "MIN",
+                      "vertical": "MIN",
+                    },
+                    "cornerRadius": 0,
+                    "cornerSmoothing": 0,
+                    "effects": Array [],
+                    "exportSettings": Array [],
+                    "height": 100,
+                    "id": "1:2",
+                    "isMask": false,
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0,
+                    "locked": false,
+                    "opacity": 1,
+                    "parent": [Circular],
+                    "pluginData": Object {
+                      "isReactFigmaNode": "true",
+                      "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                    },
+                    "strokeAlign": "INSIDE",
+                    "strokeCap": "NONE",
+                    "strokeWeight": 0,
+                    "strokes": Array [],
+                    "type": "RECTANGLE",
+                    "visible": true,
+                    "width": 200,
+                    "x": 0,
+                    "y": 0,
+                  },
+                ],
+                "clipsContent": false,
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "counterAxisAlignItems": "MIN",
+                "counterAxisSizingMode": "AUTO",
+                "description": "",
+                "documentationLinks": Array [],
+                "effects": Array [],
+                "exportSettings": Array [],
+                "guides": Array [],
+                "height": 100,
+                "id": "1:3",
+                "isMask": false,
+                "itemSpacing": 0,
+                "layoutAlign": "INHERIT",
+                "layoutGrids": Array [],
+                "layoutGrow": 0,
+                "layoutMode": "NONE",
+                "locked": false,
+                "opacity": 1,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "parent": [Circular],
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{}",
+                },
+                "primaryAxisAlignItems": "MIN",
+                "primaryAxisSizingMode": "AUTO",
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "COMPONENT",
+                "visible": true,
+                "width": 200,
+                "x": 0,
+                "y": 0,
+              },
               "paddingBottom": 0,
               "paddingLeft": 0,
               "paddingRight": 0,
@@ -524,6 +942,10 @@ ChildrenMixinStub {
             },
           ],
           "clipsContent": false,
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -534,7 +956,6 @@ ChildrenMixinStub {
           "counterAxisSizingMode": "AUTO",
           "effects": Array [],
           "exportSettings": Array [],
-          "fills": Array [],
           "guides": Array [],
           "height": 200,
           "id": "1:4",
@@ -568,6 +989,10 @@ ChildrenMixinStub {
           "y": 0,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -578,6 +1003,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -588,6 +1014,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -595,6 +1022,10 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -605,6 +1036,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -615,6 +1047,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -622,12 +1055,12 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
           "backgrounds": Array [],
           "blendMode": "NORMAL",
           "children": Array [
-            ExportMixinStub {
-              "fills": Array [
+            GeometryMixinStub {
+              "_fills": Array [
                 Object {
                   "color": Object {
                     "b": 0,
@@ -637,11 +1070,19 @@ ChildrenMixinStub {
                   "type": "SOLID",
                 },
               ],
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
               "id": "2:5",
               "parent": [Circular],
               "type": "RECTANGLE",
             },
           ],
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -664,6 +1105,10 @@ ChildrenMixinStub {
           "visible": true,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -674,6 +1119,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -684,6 +1130,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -691,12 +1138,12 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
           "backgrounds": Array [],
           "blendMode": "NORMAL",
           "children": Array [
-            ExportMixinStub {
-              "fills": Array [
+            GeometryMixinStub {
+              "_fills": Array [
                 Object {
                   "color": Object {
                     "b": 0,
@@ -706,11 +1153,19 @@ ChildrenMixinStub {
                   "type": "SOLID",
                 },
               ],
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
               "id": "2:5",
               "parent": [Circular],
               "type": "RECTANGLE",
             },
           ],
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -735,6 +1190,10 @@ ChildrenMixinStub {
           "y": 0,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -745,6 +1204,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -755,6 +1215,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -762,12 +1223,12 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
           "backgrounds": Array [],
           "blendMode": "NORMAL",
           "children": Array [
-            ExportMixinStub {
-              "fills": Array [
+            GeometryMixinStub {
+              "_fills": Array [
                 Object {
                   "color": Object {
                     "b": 1,
@@ -777,11 +1238,19 @@ ChildrenMixinStub {
                   "type": "SOLID",
                 },
               ],
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
               "id": "1:2",
               "parent": [Circular],
               "type": "RECTANGLE",
             },
           ],
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -804,6 +1273,10 @@ ChildrenMixinStub {
           "visible": true,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -814,6 +1287,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -824,6 +1298,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -831,18 +1306,9 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
           "_characters": "some text",
-          "_textAutoResize": "WIDTH_AND_HEIGHT",
-          "autoRename": false,
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -853,6 +1319,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
           "fontSize": 12,
           "hyperlink": null,
           "id": "1:2",
@@ -887,6 +1366,10 @@ ChildrenMixinStub {
           "visible": true,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -897,6 +1380,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -907,6 +1391,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -914,18 +1399,9 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
           "_characters": "Some text",
-          "_textAutoResize": "WIDTH_AND_HEIGHT",
-          "autoRename": false,
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -936,6 +1412,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
           "fontSize": 12,
           "hyperlink": null,
           "id": "1:2",
@@ -970,6 +1459,10 @@ ChildrenMixinStub {
           "visible": true,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -980,6 +1473,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -990,6 +1484,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -997,18 +1492,9 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
           "_characters": "Some text 2",
-          "_textAutoResize": "WIDTH_AND_HEIGHT",
-          "autoRename": false,
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -1019,6 +1505,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
           "fontSize": 12,
           "hyperlink": null,
           "id": "1:2",
@@ -1055,6 +1554,10 @@ ChildrenMixinStub {
           "y": 0,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -1065,6 +1568,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -1075,6 +1579,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -1082,18 +1587,9 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
           "_characters": "text 2",
-          "_textAutoResize": "WIDTH_AND_HEIGHT",
-          "autoRename": false,
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -1104,6 +1600,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
           "fontSize": 12,
           "hyperlink": null,
           "id": "1:2",
@@ -1140,6 +1649,10 @@ ChildrenMixinStub {
           "y": 0,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -1150,6 +1663,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -1160,6 +1674,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -1167,22 +1682,9 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
           "_characters": "some text",
-          "_fontName": Object {
-            "family": "Helvetica",
-            "style": "Bold",
-          },
-          "_textAutoResize": "WIDTH_AND_HEIGHT",
-          "autoRename": false,
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -1193,6 +1695,23 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "_fontName": Object {
+            "family": "Helvetica",
+            "style": "Bold",
+          },
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
           "fontSize": 12,
           "hyperlink": null,
           "id": "1:2",
@@ -1227,6 +1746,10 @@ ChildrenMixinStub {
           "visible": true,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -1237,6 +1760,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -1247,6 +1771,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -1254,18 +1779,9 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
           "_characters": "1/2",
-          "_textAutoResize": "WIDTH_AND_HEIGHT",
-          "autoRename": false,
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -1276,6 +1792,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
           "fontSize": 12,
           "hyperlink": null,
           "id": "1:2",
@@ -1310,6 +1839,10 @@ ChildrenMixinStub {
           "visible": true,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -1320,6 +1853,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -1330,6 +1864,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -1337,21 +1872,13 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        LayoutMixinStub {
+        GeometryMixinStub {
+          "_fills": Array [],
           "backgrounds": Array [],
           "blendMode": "NORMAL",
           "children": Array [
-            ExportMixinStub {
-              "blendMode": "NORMAL",
-              "constraints": Object {
-                "horizontal": "MIN",
-                "vertical": "MIN",
-              },
-              "cornerRadius": 0,
-              "cornerSmoothing": 0,
-              "effects": Array [],
-              "exportSettings": Array [],
-              "fills": Array [
+            GeometryMixinStub {
+              "_fills": Array [
                 Object {
                   "color": Object {
                     "b": 0,
@@ -1362,6 +1889,19 @@ ChildrenMixinStub {
                   "type": "SOLID",
                 },
               ],
+              "blendMode": "NORMAL",
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportSettings": Array [],
               "height": 100,
               "id": "1:2",
               "isMask": false,
@@ -1384,6 +1924,10 @@ ChildrenMixinStub {
             },
           ],
           "clipsContent": false,
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -1396,7 +1940,6 @@ ChildrenMixinStub {
           "documentationLinks": Array [],
           "effects": Array [],
           "exportSettings": Array [],
-          "fills": Array [],
           "guides": Array [],
           "id": "1:3",
           "isMask": false,
@@ -1425,19 +1968,106 @@ ChildrenMixinStub {
           "type": "COMPONENT",
           "visible": true,
         },
-        LayoutMixinStub {
-          "children": Array [
-            ExportMixinStub {
-              "blendMode": "NORMAL",
-              "constraints": Object {
-                "horizontal": "MIN",
-                "vertical": "MIN",
+        ChildrenMixinStub {
+          "_orig": GeometryMixinStub {
+            "_fills": Array [],
+            "backgrounds": Array [],
+            "blendMode": "NORMAL",
+            "children": Array [
+              GeometryMixinStub {
+                "_fills": Array [
+                  Object {
+                    "color": Object {
+                      "b": 0,
+                      "g": 1,
+                      "r": 0.07058823529411765,
+                    },
+                    "opacity": 1,
+                    "type": "SOLID",
+                  },
+                ],
+                "blendMode": "NORMAL",
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "effects": Array [],
+                "exportSettings": Array [],
+                "height": 100,
+                "id": "1:2",
+                "isMask": false,
+                "layoutAlign": "INHERIT",
+                "layoutGrow": 0,
+                "locked": false,
+                "opacity": 1,
+                "parent": [Circular],
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                },
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "RECTANGLE",
+                "visible": true,
+                "width": 200,
               },
-              "cornerRadius": 0,
-              "cornerSmoothing": 0,
-              "effects": Array [],
-              "exportSettings": Array [],
-              "fills": Array [
+            ],
+            "clipsContent": false,
+            "config": Object {
+              "isWithoutTimeout": false,
+              "simulateErrors": true,
+            },
+            "constraints": Object {
+              "horizontal": "MIN",
+              "vertical": "MIN",
+            },
+            "cornerRadius": 0,
+            "cornerSmoothing": 0,
+            "counterAxisAlignItems": "MIN",
+            "counterAxisSizingMode": "AUTO",
+            "description": "",
+            "documentationLinks": Array [],
+            "effects": Array [],
+            "exportSettings": Array [],
+            "guides": Array [],
+            "id": "1:3",
+            "isMask": false,
+            "itemSpacing": 0,
+            "layoutAlign": "INHERIT",
+            "layoutGrids": Array [],
+            "layoutGrow": 0,
+            "layoutMode": "NONE",
+            "locked": false,
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "parent": [Circular],
+            "pluginData": Object {
+              "isReactFigmaNode": "true",
+              "reactStyle": "{}",
+            },
+            "primaryAxisAlignItems": "MIN",
+            "primaryAxisSizingMode": "AUTO",
+            "strokeAlign": "INSIDE",
+            "strokeCap": "NONE",
+            "strokeWeight": 0,
+            "strokes": Array [],
+            "type": "COMPONENT",
+            "visible": true,
+          },
+          "children": Array [
+            GeometryMixinStub {
+              "_fills": Array [
                 Object {
                   "color": Object {
                     "b": 0,
@@ -1448,6 +2078,121 @@ ChildrenMixinStub {
                   "type": "SOLID",
                 },
               ],
+              "_orig": GeometryMixinStub {
+                "_fills": Array [
+                  Object {
+                    "color": Object {
+                      "b": 0,
+                      "g": 1,
+                      "r": 0.07058823529411765,
+                    },
+                    "opacity": 1,
+                    "type": "SOLID",
+                  },
+                ],
+                "blendMode": "NORMAL",
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "effects": Array [],
+                "exportSettings": Array [],
+                "height": 100,
+                "id": "1:2",
+                "isMask": false,
+                "layoutAlign": "INHERIT",
+                "layoutGrow": 0,
+                "locked": false,
+                "opacity": 1,
+                "parent": GeometryMixinStub {
+                  "_fills": Array [],
+                  "backgrounds": Array [],
+                  "blendMode": "NORMAL",
+                  "children": Array [
+                    [Circular],
+                  ],
+                  "clipsContent": false,
+                  "config": Object {
+                    "isWithoutTimeout": false,
+                    "simulateErrors": true,
+                  },
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "counterAxisAlignItems": "MIN",
+                  "counterAxisSizingMode": "AUTO",
+                  "description": "",
+                  "documentationLinks": Array [],
+                  "effects": Array [],
+                  "exportSettings": Array [],
+                  "guides": Array [],
+                  "id": "1:3",
+                  "isMask": false,
+                  "itemSpacing": 0,
+                  "layoutAlign": "INHERIT",
+                  "layoutGrids": Array [],
+                  "layoutGrow": 0,
+                  "layoutMode": "NONE",
+                  "locked": false,
+                  "opacity": 1,
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 0,
+                  "parent": [Circular],
+                  "pluginData": Object {
+                    "isReactFigmaNode": "true",
+                    "reactStyle": "{}",
+                  },
+                  "primaryAxisAlignItems": "MIN",
+                  "primaryAxisSizingMode": "AUTO",
+                  "strokeAlign": "INSIDE",
+                  "strokeCap": "NONE",
+                  "strokeWeight": 0,
+                  "strokes": Array [],
+                  "type": "COMPONENT",
+                  "visible": true,
+                },
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                },
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "RECTANGLE",
+                "visible": true,
+                "width": 200,
+              },
+              "blendMode": "NORMAL",
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportAsync": [Function],
+              "exportSettings": Array [],
+              "getPluginData": [Function],
+              "getPluginDataKeys": [Function],
+              "getRelaunchData": [Function],
+              "getSharedPluginData": [Function],
+              "getSharedPluginDataKeys": [Function],
               "height": 100,
               "id": "1:2",
               "isMask": false,
@@ -1455,13 +2200,63 @@ ChildrenMixinStub {
               "layoutGrow": 0,
               "locked": false,
               "opacity": 1,
-              "parent": LayoutMixinStub {
+              "outlineStroke": [Function],
+              "parent": GeometryMixinStub {
+                "_fills": Array [],
                 "backgrounds": Array [],
                 "blendMode": "NORMAL",
                 "children": Array [
-                  [Circular],
+                  GeometryMixinStub {
+                    "_fills": Array [
+                      Object {
+                        "color": Object {
+                          "b": 0,
+                          "g": 1,
+                          "r": 0.07058823529411765,
+                        },
+                        "opacity": 1,
+                        "type": "SOLID",
+                      },
+                    ],
+                    "blendMode": "NORMAL",
+                    "config": Object {
+                      "isWithoutTimeout": false,
+                      "simulateErrors": true,
+                    },
+                    "constraints": Object {
+                      "horizontal": "MIN",
+                      "vertical": "MIN",
+                    },
+                    "cornerRadius": 0,
+                    "cornerSmoothing": 0,
+                    "effects": Array [],
+                    "exportSettings": Array [],
+                    "height": 100,
+                    "id": "1:2",
+                    "isMask": false,
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0,
+                    "locked": false,
+                    "opacity": 1,
+                    "parent": [Circular],
+                    "pluginData": Object {
+                      "isReactFigmaNode": "true",
+                      "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                    },
+                    "strokeAlign": "INSIDE",
+                    "strokeCap": "NONE",
+                    "strokeWeight": 0,
+                    "strokes": Array [],
+                    "type": "RECTANGLE",
+                    "visible": true,
+                    "width": 200,
+                  },
                 ],
                 "clipsContent": false,
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
                 "constraints": Object {
                   "horizontal": "MIN",
                   "vertical": "MIN",
@@ -1474,7 +2269,6 @@ ChildrenMixinStub {
                 "documentationLinks": Array [],
                 "effects": Array [],
                 "exportSettings": Array [],
-                "fills": Array [],
                 "guides": Array [],
                 "id": "1:3",
                 "isMask": false,
@@ -1503,10 +2297,15 @@ ChildrenMixinStub {
                 "type": "COMPONENT",
                 "visible": true,
               },
-              "pluginData": Object {
-                "isReactFigmaNode": "true",
-                "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
-              },
+              "pluginData": Object {},
+              "remove": [Function],
+              "rescale": [Function],
+              "resize": [Function],
+              "resizeWithoutConstraints": [Function],
+              "setPluginData": [Function],
+              "setRelaunchData": [Function],
+              "setSharedPluginData": [Function],
+              "sharedPluginData": Object {},
               "strokeAlign": "INSIDE",
               "strokeCap": "NONE",
               "strokeWeight": 0,
@@ -1516,6 +2315,10 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -1528,6 +2331,102 @@ ChildrenMixinStub {
           "layoutGrow": 0,
           "layoutMode": "NONE",
           "locked": false,
+          "mainComponent": GeometryMixinStub {
+            "_fills": Array [],
+            "backgrounds": Array [],
+            "blendMode": "NORMAL",
+            "children": Array [
+              GeometryMixinStub {
+                "_fills": Array [
+                  Object {
+                    "color": Object {
+                      "b": 0,
+                      "g": 1,
+                      "r": 0.07058823529411765,
+                    },
+                    "opacity": 1,
+                    "type": "SOLID",
+                  },
+                ],
+                "blendMode": "NORMAL",
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "effects": Array [],
+                "exportSettings": Array [],
+                "height": 100,
+                "id": "1:2",
+                "isMask": false,
+                "layoutAlign": "INHERIT",
+                "layoutGrow": 0,
+                "locked": false,
+                "opacity": 1,
+                "parent": [Circular],
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                },
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "RECTANGLE",
+                "visible": true,
+                "width": 200,
+              },
+            ],
+            "clipsContent": false,
+            "config": Object {
+              "isWithoutTimeout": false,
+              "simulateErrors": true,
+            },
+            "constraints": Object {
+              "horizontal": "MIN",
+              "vertical": "MIN",
+            },
+            "cornerRadius": 0,
+            "cornerSmoothing": 0,
+            "counterAxisAlignItems": "MIN",
+            "counterAxisSizingMode": "AUTO",
+            "description": "",
+            "documentationLinks": Array [],
+            "effects": Array [],
+            "exportSettings": Array [],
+            "guides": Array [],
+            "id": "1:3",
+            "isMask": false,
+            "itemSpacing": 0,
+            "layoutAlign": "INHERIT",
+            "layoutGrids": Array [],
+            "layoutGrow": 0,
+            "layoutMode": "NONE",
+            "locked": false,
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "parent": [Circular],
+            "pluginData": Object {
+              "isReactFigmaNode": "true",
+              "reactStyle": "{}",
+            },
+            "primaryAxisAlignItems": "MIN",
+            "primaryAxisSizingMode": "AUTO",
+            "strokeAlign": "INSIDE",
+            "strokeCap": "NONE",
+            "strokeWeight": 0,
+            "strokes": Array [],
+            "type": "COMPONENT",
+            "visible": true,
+          },
           "paddingBottom": 0,
           "paddingLeft": 0,
           "paddingRight": 0,
@@ -1543,6 +2442,10 @@ ChildrenMixinStub {
           "visible": true,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -1553,6 +2456,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -1563,6 +2467,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -1570,21 +2475,13 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        LayoutMixinStub {
+        GeometryMixinStub {
+          "_fills": Array [],
           "backgrounds": Array [],
           "blendMode": "NORMAL",
           "children": Array [
-            ExportMixinStub {
-              "blendMode": "NORMAL",
-              "constraints": Object {
-                "horizontal": "MIN",
-                "vertical": "MIN",
-              },
-              "cornerRadius": 0,
-              "cornerSmoothing": 0,
-              "effects": Array [],
-              "exportSettings": Array [],
-              "fills": Array [
+            GeometryMixinStub {
+              "_fills": Array [
                 Object {
                   "color": Object {
                     "b": 1,
@@ -1595,6 +2492,19 @@ ChildrenMixinStub {
                   "type": "SOLID",
                 },
               ],
+              "blendMode": "NORMAL",
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportSettings": Array [],
               "height": 100,
               "id": "1:2",
               "isMask": false,
@@ -1617,6 +2527,10 @@ ChildrenMixinStub {
             },
           ],
           "clipsContent": false,
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -1629,7 +2543,6 @@ ChildrenMixinStub {
           "documentationLinks": Array [],
           "effects": Array [],
           "exportSettings": Array [],
-          "fills": Array [],
           "guides": Array [],
           "id": "1:3",
           "isMask": false,
@@ -1658,10 +2571,217 @@ ChildrenMixinStub {
           "type": "COMPONENT",
           "visible": true,
         },
-        LayoutMixinStub {
+        ChildrenMixinStub {
+          "_orig": GeometryMixinStub {
+            "_fills": Array [],
+            "backgrounds": Array [],
+            "blendMode": "NORMAL",
+            "children": Array [
+              GeometryMixinStub {
+                "_fills": Array [
+                  Object {
+                    "color": Object {
+                      "b": 1,
+                      "g": 0.3176470588235294,
+                      "r": 0,
+                    },
+                    "opacity": 1,
+                    "type": "SOLID",
+                  },
+                ],
+                "blendMode": "NORMAL",
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "effects": Array [],
+                "exportSettings": Array [],
+                "height": 100,
+                "id": "1:2",
+                "isMask": false,
+                "layoutAlign": "INHERIT",
+                "layoutGrow": 0,
+                "locked": false,
+                "opacity": 1,
+                "parent": [Circular],
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#0051ff\\"}",
+                },
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "RECTANGLE",
+                "visible": true,
+                "width": 200,
+              },
+            ],
+            "clipsContent": false,
+            "config": Object {
+              "isWithoutTimeout": false,
+              "simulateErrors": true,
+            },
+            "constraints": Object {
+              "horizontal": "MIN",
+              "vertical": "MIN",
+            },
+            "cornerRadius": 0,
+            "cornerSmoothing": 0,
+            "counterAxisAlignItems": "MIN",
+            "counterAxisSizingMode": "AUTO",
+            "description": "",
+            "documentationLinks": Array [],
+            "effects": Array [],
+            "exportSettings": Array [],
+            "guides": Array [],
+            "id": "1:3",
+            "isMask": false,
+            "itemSpacing": 0,
+            "layoutAlign": "INHERIT",
+            "layoutGrids": Array [],
+            "layoutGrow": 0,
+            "layoutMode": "NONE",
+            "locked": false,
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "parent": [Circular],
+            "pluginData": Object {
+              "isReactFigmaNode": "true",
+              "reactStyle": "{}",
+            },
+            "primaryAxisAlignItems": "MIN",
+            "primaryAxisSizingMode": "AUTO",
+            "strokeAlign": "INSIDE",
+            "strokeCap": "NONE",
+            "strokeWeight": 0,
+            "strokes": Array [],
+            "type": "COMPONENT",
+            "visible": true,
+          },
           "children": Array [
-            ExportMixinStub {
+            GeometryMixinStub {
+              "_fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 0,
+                    "g": 1,
+                    "r": 0.07058823529411765,
+                  },
+                  "opacity": 1,
+                  "type": "SOLID",
+                },
+              ],
+              "_orig": GeometryMixinStub {
+                "_fills": Array [
+                  Object {
+                    "color": Object {
+                      "b": 1,
+                      "g": 0.3176470588235294,
+                      "r": 0,
+                    },
+                    "opacity": 1,
+                    "type": "SOLID",
+                  },
+                ],
+                "blendMode": "NORMAL",
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "effects": Array [],
+                "exportSettings": Array [],
+                "height": 100,
+                "id": "1:2",
+                "isMask": false,
+                "layoutAlign": "INHERIT",
+                "layoutGrow": 0,
+                "locked": false,
+                "opacity": 1,
+                "parent": GeometryMixinStub {
+                  "_fills": Array [],
+                  "backgrounds": Array [],
+                  "blendMode": "NORMAL",
+                  "children": Array [
+                    [Circular],
+                  ],
+                  "clipsContent": false,
+                  "config": Object {
+                    "isWithoutTimeout": false,
+                    "simulateErrors": true,
+                  },
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "counterAxisAlignItems": "MIN",
+                  "counterAxisSizingMode": "AUTO",
+                  "description": "",
+                  "documentationLinks": Array [],
+                  "effects": Array [],
+                  "exportSettings": Array [],
+                  "guides": Array [],
+                  "id": "1:3",
+                  "isMask": false,
+                  "itemSpacing": 0,
+                  "layoutAlign": "INHERIT",
+                  "layoutGrids": Array [],
+                  "layoutGrow": 0,
+                  "layoutMode": "NONE",
+                  "locked": false,
+                  "opacity": 1,
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 0,
+                  "parent": [Circular],
+                  "pluginData": Object {
+                    "isReactFigmaNode": "true",
+                    "reactStyle": "{}",
+                  },
+                  "primaryAxisAlignItems": "MIN",
+                  "primaryAxisSizingMode": "AUTO",
+                  "strokeAlign": "INSIDE",
+                  "strokeCap": "NONE",
+                  "strokeWeight": 0,
+                  "strokes": Array [],
+                  "type": "COMPONENT",
+                  "visible": true,
+                },
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#0051ff\\"}",
+                },
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "RECTANGLE",
+                "visible": true,
+                "width": 200,
+              },
               "blendMode": "NORMAL",
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
               "constraints": Object {
                 "horizontal": "MIN",
                 "vertical": "MIN",
@@ -1669,18 +2789,13 @@ ChildrenMixinStub {
               "cornerRadius": 0,
               "cornerSmoothing": 0,
               "effects": Array [],
+              "exportAsync": [Function],
               "exportSettings": Array [],
-              "fills": Array [
-                Object {
-                  "color": Object {
-                    "b": 1,
-                    "g": 0.3176470588235294,
-                    "r": 0,
-                  },
-                  "opacity": 1,
-                  "type": "SOLID",
-                },
-              ],
+              "getPluginData": [Function],
+              "getPluginDataKeys": [Function],
+              "getRelaunchData": [Function],
+              "getSharedPluginData": [Function],
+              "getSharedPluginDataKeys": [Function],
               "height": 100,
               "id": "1:2",
               "isMask": false,
@@ -1688,13 +2803,63 @@ ChildrenMixinStub {
               "layoutGrow": 0,
               "locked": false,
               "opacity": 1,
-              "parent": LayoutMixinStub {
+              "outlineStroke": [Function],
+              "parent": GeometryMixinStub {
+                "_fills": Array [],
                 "backgrounds": Array [],
                 "blendMode": "NORMAL",
                 "children": Array [
-                  [Circular],
+                  GeometryMixinStub {
+                    "_fills": Array [
+                      Object {
+                        "color": Object {
+                          "b": 1,
+                          "g": 0.3176470588235294,
+                          "r": 0,
+                        },
+                        "opacity": 1,
+                        "type": "SOLID",
+                      },
+                    ],
+                    "blendMode": "NORMAL",
+                    "config": Object {
+                      "isWithoutTimeout": false,
+                      "simulateErrors": true,
+                    },
+                    "constraints": Object {
+                      "horizontal": "MIN",
+                      "vertical": "MIN",
+                    },
+                    "cornerRadius": 0,
+                    "cornerSmoothing": 0,
+                    "effects": Array [],
+                    "exportSettings": Array [],
+                    "height": 100,
+                    "id": "1:2",
+                    "isMask": false,
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0,
+                    "locked": false,
+                    "opacity": 1,
+                    "parent": [Circular],
+                    "pluginData": Object {
+                      "isReactFigmaNode": "true",
+                      "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#0051ff\\"}",
+                    },
+                    "strokeAlign": "INSIDE",
+                    "strokeCap": "NONE",
+                    "strokeWeight": 0,
+                    "strokes": Array [],
+                    "type": "RECTANGLE",
+                    "visible": true,
+                    "width": 200,
+                  },
                 ],
                 "clipsContent": false,
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
                 "constraints": Object {
                   "horizontal": "MIN",
                   "vertical": "MIN",
@@ -1707,7 +2872,6 @@ ChildrenMixinStub {
                 "documentationLinks": Array [],
                 "effects": Array [],
                 "exportSettings": Array [],
-                "fills": Array [],
                 "guides": Array [],
                 "id": "1:3",
                 "isMask": false,
@@ -1736,10 +2900,15 @@ ChildrenMixinStub {
                 "type": "COMPONENT",
                 "visible": true,
               },
-              "pluginData": Object {
-                "isReactFigmaNode": "true",
-                "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#0051ff\\"}",
-              },
+              "pluginData": Object {},
+              "remove": [Function],
+              "rescale": [Function],
+              "resize": [Function],
+              "resizeWithoutConstraints": [Function],
+              "setPluginData": [Function],
+              "setRelaunchData": [Function],
+              "setSharedPluginData": [Function],
+              "sharedPluginData": Object {},
               "strokeAlign": "INSIDE",
               "strokeCap": "NONE",
               "strokeWeight": 0,
@@ -1749,6 +2918,10 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -1761,6 +2934,102 @@ ChildrenMixinStub {
           "layoutGrow": 0,
           "layoutMode": "NONE",
           "locked": false,
+          "mainComponent": GeometryMixinStub {
+            "_fills": Array [],
+            "backgrounds": Array [],
+            "blendMode": "NORMAL",
+            "children": Array [
+              GeometryMixinStub {
+                "_fills": Array [
+                  Object {
+                    "color": Object {
+                      "b": 1,
+                      "g": 0.3176470588235294,
+                      "r": 0,
+                    },
+                    "opacity": 1,
+                    "type": "SOLID",
+                  },
+                ],
+                "blendMode": "NORMAL",
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "effects": Array [],
+                "exportSettings": Array [],
+                "height": 100,
+                "id": "1:2",
+                "isMask": false,
+                "layoutAlign": "INHERIT",
+                "layoutGrow": 0,
+                "locked": false,
+                "opacity": 1,
+                "parent": [Circular],
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#0051ff\\"}",
+                },
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "RECTANGLE",
+                "visible": true,
+                "width": 200,
+              },
+            ],
+            "clipsContent": false,
+            "config": Object {
+              "isWithoutTimeout": false,
+              "simulateErrors": true,
+            },
+            "constraints": Object {
+              "horizontal": "MIN",
+              "vertical": "MIN",
+            },
+            "cornerRadius": 0,
+            "cornerSmoothing": 0,
+            "counterAxisAlignItems": "MIN",
+            "counterAxisSizingMode": "AUTO",
+            "description": "",
+            "documentationLinks": Array [],
+            "effects": Array [],
+            "exportSettings": Array [],
+            "guides": Array [],
+            "id": "1:3",
+            "isMask": false,
+            "itemSpacing": 0,
+            "layoutAlign": "INHERIT",
+            "layoutGrids": Array [],
+            "layoutGrow": 0,
+            "layoutMode": "NONE",
+            "locked": false,
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "parent": [Circular],
+            "pluginData": Object {
+              "isReactFigmaNode": "true",
+              "reactStyle": "{}",
+            },
+            "primaryAxisAlignItems": "MIN",
+            "primaryAxisSizingMode": "AUTO",
+            "strokeAlign": "INSIDE",
+            "strokeCap": "NONE",
+            "strokeWeight": 0,
+            "strokes": Array [],
+            "type": "COMPONENT",
+            "visible": true,
+          },
           "paddingBottom": 0,
           "paddingLeft": 0,
           "paddingRight": 0,
@@ -1776,6 +3045,10 @@ ChildrenMixinStub {
           "visible": true,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -1786,6 +3059,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -1796,6 +3070,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -1803,21 +3078,13 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        LayoutMixinStub {
+        GeometryMixinStub {
+          "_fills": Array [],
           "backgrounds": Array [],
           "blendMode": "NORMAL",
           "children": Array [
-            ExportMixinStub {
-              "blendMode": "NORMAL",
-              "constraints": Object {
-                "horizontal": "MIN",
-                "vertical": "MIN",
-              },
-              "cornerRadius": 0,
-              "cornerSmoothing": 0,
-              "effects": Array [],
-              "exportSettings": Array [],
-              "fills": Array [
+            GeometryMixinStub {
+              "_fills": Array [
                 Object {
                   "color": Object {
                     "b": 1,
@@ -1828,6 +3095,19 @@ ChildrenMixinStub {
                   "type": "SOLID",
                 },
               ],
+              "blendMode": "NORMAL",
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportSettings": Array [],
               "height": 100,
               "id": "1:2",
               "isMask": false,
@@ -1851,6 +3131,10 @@ ChildrenMixinStub {
             },
           ],
           "clipsContent": false,
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -1863,7 +3147,6 @@ ChildrenMixinStub {
           "documentationLinks": Array [],
           "effects": Array [],
           "exportSettings": Array [],
-          "fills": Array [],
           "guides": Array [],
           "height": 100,
           "id": "1:3",
@@ -1896,10 +3179,227 @@ ChildrenMixinStub {
           "x": 0,
           "y": 0,
         },
-        LayoutMixinStub {
+        ChildrenMixinStub {
+          "_orig": GeometryMixinStub {
+            "_fills": Array [],
+            "backgrounds": Array [],
+            "blendMode": "NORMAL",
+            "children": Array [
+              GeometryMixinStub {
+                "_fills": Array [
+                  Object {
+                    "color": Object {
+                      "b": 1,
+                      "g": 0,
+                      "r": 0,
+                    },
+                    "opacity": 1,
+                    "type": "SOLID",
+                  },
+                ],
+                "blendMode": "NORMAL",
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "effects": Array [],
+                "exportSettings": Array [],
+                "height": 100,
+                "id": "1:2",
+                "isMask": false,
+                "layoutAlign": "INHERIT",
+                "layoutGrow": 0,
+                "locked": false,
+                "name": "rect",
+                "opacity": 1,
+                "parent": [Circular],
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{\\"backgroundColor\\":\\"#0000ff\\"}",
+                },
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "RECTANGLE",
+                "visible": true,
+                "width": 200,
+              },
+            ],
+            "clipsContent": false,
+            "config": Object {
+              "isWithoutTimeout": false,
+              "simulateErrors": true,
+            },
+            "constraints": Object {
+              "horizontal": "MIN",
+              "vertical": "MIN",
+            },
+            "cornerRadius": 0,
+            "cornerSmoothing": 0,
+            "counterAxisAlignItems": "MIN",
+            "counterAxisSizingMode": "AUTO",
+            "description": "",
+            "documentationLinks": Array [],
+            "effects": Array [],
+            "exportSettings": Array [],
+            "guides": Array [],
+            "height": 100,
+            "id": "1:3",
+            "isMask": false,
+            "itemSpacing": 0,
+            "layoutAlign": "INHERIT",
+            "layoutGrids": Array [],
+            "layoutGrow": 0,
+            "layoutMode": "NONE",
+            "locked": false,
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "parent": [Circular],
+            "pluginData": Object {
+              "isReactFigmaNode": "true",
+              "reactStyle": "{}",
+            },
+            "primaryAxisAlignItems": "MIN",
+            "primaryAxisSizingMode": "AUTO",
+            "strokeAlign": "INSIDE",
+            "strokeCap": "NONE",
+            "strokeWeight": 0,
+            "strokes": Array [],
+            "type": "COMPONENT",
+            "visible": true,
+            "width": 200,
+            "x": 0,
+            "y": 0,
+          },
           "children": Array [
-            ExportMixinStub {
+            GeometryMixinStub {
+              "_fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 0,
+                    "g": 1,
+                    "r": 0.07058823529411765,
+                  },
+                  "opacity": 1,
+                  "type": "SOLID",
+                },
+              ],
+              "_orig": GeometryMixinStub {
+                "_fills": Array [
+                  Object {
+                    "color": Object {
+                      "b": 1,
+                      "g": 0,
+                      "r": 0,
+                    },
+                    "opacity": 1,
+                    "type": "SOLID",
+                  },
+                ],
+                "blendMode": "NORMAL",
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "effects": Array [],
+                "exportSettings": Array [],
+                "height": 100,
+                "id": "1:2",
+                "isMask": false,
+                "layoutAlign": "INHERIT",
+                "layoutGrow": 0,
+                "locked": false,
+                "name": "rect",
+                "opacity": 1,
+                "parent": GeometryMixinStub {
+                  "_fills": Array [],
+                  "backgrounds": Array [],
+                  "blendMode": "NORMAL",
+                  "children": Array [
+                    [Circular],
+                  ],
+                  "clipsContent": false,
+                  "config": Object {
+                    "isWithoutTimeout": false,
+                    "simulateErrors": true,
+                  },
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "counterAxisAlignItems": "MIN",
+                  "counterAxisSizingMode": "AUTO",
+                  "description": "",
+                  "documentationLinks": Array [],
+                  "effects": Array [],
+                  "exportSettings": Array [],
+                  "guides": Array [],
+                  "height": 100,
+                  "id": "1:3",
+                  "isMask": false,
+                  "itemSpacing": 0,
+                  "layoutAlign": "INHERIT",
+                  "layoutGrids": Array [],
+                  "layoutGrow": 0,
+                  "layoutMode": "NONE",
+                  "locked": false,
+                  "opacity": 1,
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 0,
+                  "parent": [Circular],
+                  "pluginData": Object {
+                    "isReactFigmaNode": "true",
+                    "reactStyle": "{}",
+                  },
+                  "primaryAxisAlignItems": "MIN",
+                  "primaryAxisSizingMode": "AUTO",
+                  "strokeAlign": "INSIDE",
+                  "strokeCap": "NONE",
+                  "strokeWeight": 0,
+                  "strokes": Array [],
+                  "type": "COMPONENT",
+                  "visible": true,
+                  "width": 200,
+                  "x": 0,
+                  "y": 0,
+                },
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{\\"backgroundColor\\":\\"#0000ff\\"}",
+                },
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "RECTANGLE",
+                "visible": true,
+                "width": 200,
+              },
               "blendMode": "NORMAL",
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
               "constraints": Object {
                 "horizontal": "MIN",
                 "vertical": "MIN",
@@ -1907,18 +3407,13 @@ ChildrenMixinStub {
               "cornerRadius": 0,
               "cornerSmoothing": 0,
               "effects": Array [],
+              "exportAsync": [Function],
               "exportSettings": Array [],
-              "fills": Array [
-                Object {
-                  "color": Object {
-                    "b": 1,
-                    "g": 0,
-                    "r": 0,
-                  },
-                  "opacity": 1,
-                  "type": "SOLID",
-                },
-              ],
+              "getPluginData": [Function],
+              "getPluginDataKeys": [Function],
+              "getRelaunchData": [Function],
+              "getSharedPluginData": [Function],
+              "getSharedPluginDataKeys": [Function],
               "height": 100,
               "id": "1:2",
               "isMask": false,
@@ -1927,13 +3422,64 @@ ChildrenMixinStub {
               "locked": false,
               "name": "rect",
               "opacity": 1,
-              "parent": LayoutMixinStub {
+              "outlineStroke": [Function],
+              "parent": GeometryMixinStub {
+                "_fills": Array [],
                 "backgrounds": Array [],
                 "blendMode": "NORMAL",
                 "children": Array [
-                  [Circular],
+                  GeometryMixinStub {
+                    "_fills": Array [
+                      Object {
+                        "color": Object {
+                          "b": 1,
+                          "g": 0,
+                          "r": 0,
+                        },
+                        "opacity": 1,
+                        "type": "SOLID",
+                      },
+                    ],
+                    "blendMode": "NORMAL",
+                    "config": Object {
+                      "isWithoutTimeout": false,
+                      "simulateErrors": true,
+                    },
+                    "constraints": Object {
+                      "horizontal": "MIN",
+                      "vertical": "MIN",
+                    },
+                    "cornerRadius": 0,
+                    "cornerSmoothing": 0,
+                    "effects": Array [],
+                    "exportSettings": Array [],
+                    "height": 100,
+                    "id": "1:2",
+                    "isMask": false,
+                    "layoutAlign": "INHERIT",
+                    "layoutGrow": 0,
+                    "locked": false,
+                    "name": "rect",
+                    "opacity": 1,
+                    "parent": [Circular],
+                    "pluginData": Object {
+                      "isReactFigmaNode": "true",
+                      "reactStyle": "{\\"backgroundColor\\":\\"#0000ff\\"}",
+                    },
+                    "strokeAlign": "INSIDE",
+                    "strokeCap": "NONE",
+                    "strokeWeight": 0,
+                    "strokes": Array [],
+                    "type": "RECTANGLE",
+                    "visible": true,
+                    "width": 200,
+                  },
                 ],
                 "clipsContent": false,
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
                 "constraints": Object {
                   "horizontal": "MIN",
                   "vertical": "MIN",
@@ -1946,7 +3492,6 @@ ChildrenMixinStub {
                 "documentationLinks": Array [],
                 "effects": Array [],
                 "exportSettings": Array [],
-                "fills": Array [],
                 "guides": Array [],
                 "height": 100,
                 "id": "1:3",
@@ -1979,10 +3524,15 @@ ChildrenMixinStub {
                 "x": 0,
                 "y": 0,
               },
-              "pluginData": Object {
-                "isReactFigmaNode": "true",
-                "reactStyle": "{\\"backgroundColor\\":\\"#0000ff\\"}",
-              },
+              "pluginData": Object {},
+              "remove": [Function],
+              "rescale": [Function],
+              "resize": [Function],
+              "resizeWithoutConstraints": [Function],
+              "setPluginData": [Function],
+              "setRelaunchData": [Function],
+              "setSharedPluginData": [Function],
+              "sharedPluginData": Object {},
               "strokeAlign": "INSIDE",
               "strokeCap": "NONE",
               "strokeWeight": 0,
@@ -1992,6 +3542,10 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -2005,6 +3559,107 @@ ChildrenMixinStub {
           "layoutGrow": 0,
           "layoutMode": "NONE",
           "locked": false,
+          "mainComponent": GeometryMixinStub {
+            "_fills": Array [],
+            "backgrounds": Array [],
+            "blendMode": "NORMAL",
+            "children": Array [
+              GeometryMixinStub {
+                "_fills": Array [
+                  Object {
+                    "color": Object {
+                      "b": 1,
+                      "g": 0,
+                      "r": 0,
+                    },
+                    "opacity": 1,
+                    "type": "SOLID",
+                  },
+                ],
+                "blendMode": "NORMAL",
+                "config": Object {
+                  "isWithoutTimeout": false,
+                  "simulateErrors": true,
+                },
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "effects": Array [],
+                "exportSettings": Array [],
+                "height": 100,
+                "id": "1:2",
+                "isMask": false,
+                "layoutAlign": "INHERIT",
+                "layoutGrow": 0,
+                "locked": false,
+                "name": "rect",
+                "opacity": 1,
+                "parent": [Circular],
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{\\"backgroundColor\\":\\"#0000ff\\"}",
+                },
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "RECTANGLE",
+                "visible": true,
+                "width": 200,
+              },
+            ],
+            "clipsContent": false,
+            "config": Object {
+              "isWithoutTimeout": false,
+              "simulateErrors": true,
+            },
+            "constraints": Object {
+              "horizontal": "MIN",
+              "vertical": "MIN",
+            },
+            "cornerRadius": 0,
+            "cornerSmoothing": 0,
+            "counterAxisAlignItems": "MIN",
+            "counterAxisSizingMode": "AUTO",
+            "description": "",
+            "documentationLinks": Array [],
+            "effects": Array [],
+            "exportSettings": Array [],
+            "guides": Array [],
+            "height": 100,
+            "id": "1:3",
+            "isMask": false,
+            "itemSpacing": 0,
+            "layoutAlign": "INHERIT",
+            "layoutGrids": Array [],
+            "layoutGrow": 0,
+            "layoutMode": "NONE",
+            "locked": false,
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "parent": [Circular],
+            "pluginData": Object {
+              "isReactFigmaNode": "true",
+              "reactStyle": "{}",
+            },
+            "primaryAxisAlignItems": "MIN",
+            "primaryAxisSizingMode": "AUTO",
+            "strokeAlign": "INSIDE",
+            "strokeCap": "NONE",
+            "strokeWeight": 0,
+            "strokes": Array [],
+            "type": "COMPONENT",
+            "visible": true,
+            "width": 200,
+            "x": 0,
+            "y": 0,
+          },
           "paddingBottom": 0,
           "paddingLeft": 0,
           "paddingRight": 0,
@@ -2023,6 +3678,10 @@ ChildrenMixinStub {
           "y": 100,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -2033,6 +3692,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -2043,6 +3703,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -2058,17 +3719,8 @@ ChildrenMixinStub {
               "backgrounds": Array [],
               "blendMode": "NORMAL",
               "children": Array [
-                ExportMixinStub {
-                  "blendMode": "NORMAL",
-                  "constraints": Object {
-                    "horizontal": "MIN",
-                    "vertical": "MIN",
-                  },
-                  "cornerRadius": 0,
-                  "cornerSmoothing": 0,
-                  "effects": Array [],
-                  "exportSettings": Array [],
-                  "fills": Array [
+                GeometryMixinStub {
+                  "_fills": Array [
                     Object {
                       "color": Object {
                         "b": 0,
@@ -2079,6 +3731,19 @@ ChildrenMixinStub {
                       "type": "SOLID",
                     },
                   ],
+                  "blendMode": "NORMAL",
+                  "config": Object {
+                    "isWithoutTimeout": false,
+                    "simulateErrors": true,
+                  },
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportSettings": Array [],
                   "height": 100,
                   "id": "1:2",
                   "isMask": false,
@@ -2100,6 +3765,10 @@ ChildrenMixinStub {
                   "width": 200,
                 },
               ],
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
               "effects": Array [],
               "exportSettings": Array [],
               "id": "1:4",
@@ -2120,17 +3789,8 @@ ChildrenMixinStub {
               "backgrounds": Array [],
               "blendMode": "NORMAL",
               "children": Array [
-                ExportMixinStub {
-                  "blendMode": "NORMAL",
-                  "constraints": Object {
-                    "horizontal": "MIN",
-                    "vertical": "MIN",
-                  },
-                  "cornerRadius": 0,
-                  "cornerSmoothing": 0,
-                  "effects": Array [],
-                  "exportSettings": Array [],
-                  "fills": Array [
+                GeometryMixinStub {
+                  "_fills": Array [
                     Object {
                       "color": Object {
                         "b": 0,
@@ -2141,6 +3801,19 @@ ChildrenMixinStub {
                       "type": "SOLID",
                     },
                   ],
+                  "blendMode": "NORMAL",
+                  "config": Object {
+                    "isWithoutTimeout": false,
+                    "simulateErrors": true,
+                  },
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportSettings": Array [],
                   "height": 100,
                   "id": "1:5",
                   "isMask": false,
@@ -2161,17 +3834,8 @@ ChildrenMixinStub {
                   "visible": true,
                   "width": 200,
                 },
-                ExportMixinStub {
-                  "blendMode": "NORMAL",
-                  "constraints": Object {
-                    "horizontal": "MIN",
-                    "vertical": "MIN",
-                  },
-                  "cornerRadius": 0,
-                  "cornerSmoothing": 0,
-                  "effects": Array [],
-                  "exportSettings": Array [],
-                  "fills": Array [
+                GeometryMixinStub {
+                  "_fills": Array [
                     Object {
                       "color": Object {
                         "b": 0,
@@ -2182,6 +3846,19 @@ ChildrenMixinStub {
                       "type": "SOLID",
                     },
                   ],
+                  "blendMode": "NORMAL",
+                  "config": Object {
+                    "isWithoutTimeout": false,
+                    "simulateErrors": true,
+                  },
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportSettings": Array [],
                   "height": 100,
                   "id": "1:6",
                   "isMask": false,
@@ -2203,6 +3880,10 @@ ChildrenMixinStub {
                   "width": 200,
                 },
               ],
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
               "effects": Array [],
               "exportSettings": Array [],
               "id": "1:8",
@@ -2220,6 +3901,10 @@ ChildrenMixinStub {
               "visible": true,
             },
           ],
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "effects": Array [],
           "exportSettings": Array [],
           "id": "1:10",
@@ -2237,6 +3922,10 @@ ChildrenMixinStub {
           "visible": true,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -2247,6 +3936,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -2257,6 +3947,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -2268,17 +3959,8 @@ ChildrenMixinStub {
           "backgrounds": Array [],
           "blendMode": "NORMAL",
           "children": Array [
-            ExportMixinStub {
-              "blendMode": "NORMAL",
-              "constraints": Object {
-                "horizontal": "MIN",
-                "vertical": "MIN",
-              },
-              "cornerRadius": 0,
-              "cornerSmoothing": 0,
-              "effects": Array [],
-              "exportSettings": Array [],
-              "fills": Array [
+            GeometryMixinStub {
+              "_fills": Array [
                 Object {
                   "color": Object {
                     "b": 0,
@@ -2289,6 +3971,19 @@ ChildrenMixinStub {
                   "type": "SOLID",
                 },
               ],
+              "blendMode": "NORMAL",
+              "config": Object {
+                "isWithoutTimeout": false,
+                "simulateErrors": true,
+              },
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportSettings": Array [],
               "height": 100,
               "id": "1:2",
               "isMask": false,
@@ -2310,6 +4005,10 @@ ChildrenMixinStub {
               "width": 200,
             },
           ],
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "effects": Array [],
           "exportSettings": Array [],
           "id": "1:4",
@@ -2327,6 +4026,10 @@ ChildrenMixinStub {
           "visible": true,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -2337,6 +4040,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -2347,6 +4051,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -2354,17 +4059,8 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -2375,6 +4071,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "height": 100,
           "id": "1:2",
           "isMask": false,
@@ -2395,17 +4104,8 @@ ChildrenMixinStub {
           "visible": true,
           "width": 200,
         },
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 1,
@@ -2416,6 +4116,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "height": 100,
           "id": "1:3",
           "isMask": false,
@@ -2436,17 +4149,8 @@ ChildrenMixinStub {
           "visible": true,
           "width": 200,
         },
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -2457,6 +4161,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "height": 100,
           "id": "2:5",
           "isMask": false,
@@ -2478,6 +4195,10 @@ ChildrenMixinStub {
           "width": 200,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -2488,6 +4209,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -2496,11 +4218,13 @@ ChildrenMixinStub {
 exports[`renderer mark page isCurrent=false 1`] = `
 ExportMixinStub {
   "children": Array [],
+  "config": undefined,
   "id": "0:1",
   "parent": ChildrenMixinStub {
     "children": Array [
       [Circular],
     ],
+    "config": undefined,
     "id": "0:0",
     "type": "DOCUMENT",
   },
@@ -2511,11 +4235,13 @@ ExportMixinStub {
 exports[`renderer mark page isCurrent=true 1`] = `
 ExportMixinStub {
   "children": Array [],
+  "config": undefined,
   "id": "0:1",
   "parent": ChildrenMixinStub {
     "children": Array [
       [Circular],
     ],
+    "config": undefined,
     "id": "0:0",
     "type": "DOCUMENT",
   },
@@ -2528,6 +4254,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -2535,17 +4262,8 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 1,
@@ -2556,6 +4274,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "height": 100,
           "id": "1:2",
           "isMask": false,
@@ -2576,17 +4307,8 @@ ChildrenMixinStub {
           "visible": true,
           "width": 200,
         },
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -2597,6 +4319,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "height": 100,
           "id": "1:3",
           "isMask": false,
@@ -2618,6 +4353,10 @@ ChildrenMixinStub {
           "width": 200,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -2628,6 +4367,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -2638,6 +4378,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -2645,17 +4386,8 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -2666,6 +4398,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "height": 100,
           "id": "1:2",
           "isMask": false,
@@ -2686,17 +4431,8 @@ ChildrenMixinStub {
           "visible": true,
           "width": 200,
         },
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -2707,6 +4443,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "height": 100,
           "id": "1:4",
           "isMask": false,
@@ -2728,6 +4477,10 @@ ChildrenMixinStub {
           "width": 200,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -2738,6 +4491,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -2748,6 +4502,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -2755,17 +4510,8 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -2776,6 +4522,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "height": 100,
           "id": "1:2",
           "isMask": false,
@@ -2797,6 +4556,10 @@ ChildrenMixinStub {
           "width": 200,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -2807,6 +4570,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -2817,6 +4581,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -2824,17 +4589,8 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -2845,6 +4601,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "height": 100,
           "id": "1:2",
           "isMask": false,
@@ -2866,6 +4635,10 @@ ChildrenMixinStub {
           "width": 200,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -2876,6 +4649,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -2886,6 +4660,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -2893,17 +4668,8 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -2914,6 +4680,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "height": 100,
           "id": "2:3",
           "isMask": false,
@@ -2934,17 +4713,8 @@ ChildrenMixinStub {
           "visible": true,
           "width": 200,
         },
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -2955,6 +4725,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "height": 100,
           "id": "2:4",
           "isMask": false,
@@ -2976,6 +4759,10 @@ ChildrenMixinStub {
           "width": 200,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -2986,6 +4773,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -2996,6 +4784,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -3003,17 +4792,8 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -3024,6 +4804,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "height": 100,
           "id": "1:2",
           "isMask": false,
@@ -3044,17 +4837,8 @@ ChildrenMixinStub {
           "visible": true,
           "width": 200,
         },
-        ExportMixinStub {
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "cornerRadius": 0,
-          "cornerSmoothing": 0,
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+        GeometryMixinStub {
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -3065,6 +4849,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "height": 100,
           "id": "1:3",
           "isMask": false,
@@ -3086,6 +4883,10 @@ ChildrenMixinStub {
           "width": 200,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -3096,6 +4897,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }

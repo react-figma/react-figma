@@ -5,6 +5,7 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
@@ -12,8 +13,13 @@ ChildrenMixinStub {
     ExportMixinStub {
       "backgrounds": Array [],
       "children": Array [
-        ExportMixinStub {
+        GeometryMixinStub {
+          "_fills": Array [],
           "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
           "constraints": Object {
             "horizontal": "MIN",
             "vertical": "MIN",
@@ -23,7 +29,6 @@ ChildrenMixinStub {
           "effects": Array [],
           "exportSettings": Array [],
           "fillStyleId": "testStyleId",
-          "fills": Array [],
           "id": "1:2",
           "isMask": false,
           "layoutAlign": "INHERIT",
@@ -42,18 +47,9 @@ ChildrenMixinStub {
           "type": "RECTANGLE",
           "visible": true,
         },
-        ExportMixinStub {
+        GeometryMixinStub {
           "_characters": "",
-          "_textAutoResize": "WIDTH_AND_HEIGHT",
-          "autoRename": false,
-          "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
-          },
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -64,6 +60,19 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
           "fontSize": 12,
           "hyperlink": null,
           "id": "1:3",
@@ -99,6 +108,10 @@ ChildrenMixinStub {
           "visible": true,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -109,6 +122,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }

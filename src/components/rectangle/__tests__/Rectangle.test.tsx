@@ -7,9 +7,10 @@ import { render } from '../../../renderer';
 import { removeNodeBatchId } from '../../../helpers/removeNodeBatchId';
 import { removeTempId } from '../../../helpers/removeTempId';
 import { Page } from '../../..';
+import { removeKey } from '../../../helpers/removeKey';
 
 const removeMeta = node => {
-    return removeNodeBatchId(removeTempId(node));
+    return removeKey(removeNodeBatchId(removeTempId(node)));
 };
 
 describe('<Rectangle />', () => {

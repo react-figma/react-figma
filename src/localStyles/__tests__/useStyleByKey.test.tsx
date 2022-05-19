@@ -9,12 +9,13 @@ import { removeNodeBatchId } from '../../helpers/removeNodeBatchId';
 import { removeTempId } from '../../helpers/removeTempId';
 
 const removeMeta = node => {
-    return removeNodeBatchId(removeTempId(node));
+    return removeKey(removeNodeBatchId(removeTempId(node)));
 };
 
 jest.mock('nanoid');
 import { nanoid } from 'nanoid';
 import { useStyleByKey } from '../useStyleByKey';
+import { removeKey } from '../../helpers/removeKey';
 
 describe('useStyleByKey', () => {
     beforeEach(() => {
