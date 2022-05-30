@@ -11,7 +11,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_fills": Array [],
@@ -320,7 +332,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_fills": Array [],
@@ -1020,7 +1044,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [],
       "config": Object {
         "isWithoutTimeout": false,
@@ -1053,7 +1089,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "backgrounds": Array [],
@@ -1136,7 +1184,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "backgrounds": Array [],
@@ -1221,7 +1281,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "backgrounds": Array [],
@@ -1304,7 +1376,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_characters": "some text",
@@ -1397,7 +1481,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_characters": "Some text",
@@ -1490,7 +1586,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_characters": "Some text 2",
@@ -1585,7 +1693,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_characters": "text 2",
@@ -1680,7 +1800,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_characters": "some text",
@@ -1777,7 +1909,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_characters": "1/2",
@@ -1870,7 +2014,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_fills": Array [],
@@ -2473,7 +2629,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_fills": Array [],
@@ -3076,7 +3244,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_fills": Array [],
@@ -3709,7 +3889,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         LayoutMixinStub {
           "backgrounds": Array [],
@@ -3953,7 +4145,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         LayoutMixinStub {
           "backgrounds": Array [],
@@ -4057,7 +4261,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_fills": Array [
@@ -4260,7 +4476,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_fills": Array [
@@ -4384,7 +4612,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_fills": Array [
@@ -4508,7 +4748,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_fills": Array [
@@ -4587,7 +4839,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_fills": Array [
@@ -4666,7 +4930,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_fills": Array [
@@ -4790,7 +5066,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_fills": Array [

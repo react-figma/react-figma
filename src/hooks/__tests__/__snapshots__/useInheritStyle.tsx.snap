@@ -2,7 +2,19 @@
 
 exports[`useInheritStyle havent propagating without REACT_FIGMA_STYLE_INHERITANCE_ENABLED flag 1`] = `
 ExportMixinStub {
-  "backgrounds": Array [],
+  "_backgrounds": Array [
+    Object {
+      "blendMode": "NORMAL",
+      "color": Object {
+        "b": 0.9607843160629272,
+        "g": 0.9607843160629272,
+        "r": 0.9607843160629272,
+      },
+      "opacity": 1,
+      "type": "SOLID",
+      "visible": true,
+    },
+  ],
   "children": Array [
     GeometryMixinStub {
       "_fills": Array [],
@@ -259,7 +271,19 @@ ExportMixinStub {
 
 exports[`useInheritStyle styles propagating works 1`] = `
 ExportMixinStub {
-  "backgrounds": Array [],
+  "_backgrounds": Array [
+    Object {
+      "blendMode": "NORMAL",
+      "color": Object {
+        "b": 0.9607843160629272,
+        "g": 0.9607843160629272,
+        "r": 0.9607843160629272,
+      },
+      "opacity": 1,
+      "type": "SOLID",
+      "visible": true,
+    },
+  ],
   "children": Array [
     GeometryMixinStub {
       "_fills": Array [],
@@ -520,7 +544,19 @@ ExportMixinStub {
 
 exports[`useInheritStyle styles propagating works over component without useInheritStyle 1`] = `
 ExportMixinStub {
-  "backgrounds": Array [],
+  "_backgrounds": Array [
+    Object {
+      "blendMode": "NORMAL",
+      "color": Object {
+        "b": 0.9607843160629272,
+        "g": 0.9607843160629272,
+        "r": 0.9607843160629272,
+      },
+      "opacity": 1,
+      "type": "SOLID",
+      "visible": true,
+    },
+  ],
   "children": Array [
     GeometryMixinStub {
       "_fills": Array [],
@@ -773,7 +809,19 @@ ExportMixinStub {
 
 exports[`useInheritStyle styles propagating works with wrapping to component 1`] = `
 ExportMixinStub {
-  "backgrounds": Array [],
+  "_backgrounds": Array [
+    Object {
+      "blendMode": "NORMAL",
+      "color": Object {
+        "b": 0.9607843160629272,
+        "g": 0.9607843160629272,
+        "r": 0.9607843160629272,
+      },
+      "opacity": 1,
+      "type": "SOLID",
+      "visible": true,
+    },
+  ],
   "children": Array [
     GeometryMixinStub {
       "_fills": Array [],
