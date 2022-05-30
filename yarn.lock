@@ -1975,10 +1975,10 @@ figgy-pudding@^3.5.1:
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.2.tgz#b4eee8148abb01dcf1d1ac34367d59e12fa61d6e"
   integrity sha512-0btnI/H8f2pavGMN8w40mlSKOfTK2SVJmBfBeVIj3kNw0swwgzyRq0d5TJVOwodFmtvpPeWPN/MCcfuWF0Ezbw==
 
-figma-api-stub@0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/figma-api-stub/-/figma-api-stub-0.0.54.tgz#0c95472070d9cd1072f7ac430736a88e678df5ad"
-  integrity sha512-3eFMFSMSGKxJGIy0vM/A9jhX/5fWEmKNaITrlOOn4xjdi4Wb8ZZ+dHlgDhVrMBRTQsoFvWWYCaizyDJQzYB9yg==
+figma-api-stub@0.0.55:
+  version "0.0.55"
+  resolved "https://registry.yarnpkg.com/figma-api-stub/-/figma-api-stub-0.0.55.tgz#2f5c318e0ab7c9d7dd769ae762a5d709a7f0a5a1"
+  integrity sha512-6/ltnSZTz2xti9NrS2d2gEN1fRQUy4UThCFrZOKywKFBRlDjDuTcy/B078JK6ApwS4EkKOtwRzTznImxn5rLAg==
   dependencies:
     clone-deep "^4.0.1"
     nanoid "^3.1.20"

@@ -11,7 +11,19 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
     ExportMixinStub {
-      "backgrounds": Array [],
+      "_backgrounds": Array [
+        Object {
+          "blendMode": "NORMAL",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
+          },
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
       "children": Array [
         GeometryMixinStub {
           "_fills": Array [],
