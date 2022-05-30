@@ -197,6 +197,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/annuhdo"><img src="https://avatars.githubusercontent.com/u/6846913?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Anna Do</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=annuhdo" title="Code">💻</a></td>
     <td align="center"><a href="http://stevenpetryk.com"><img src="https://avatars.githubusercontent.com/u/1724000?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Steven Petryk</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=stevenpetryk" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="http://www.anotherplanet.io"><img src="https://avatars.githubusercontent.com/u/197471?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Thierry Charbonnel</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=thierryc" title="Documentation">📖</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->

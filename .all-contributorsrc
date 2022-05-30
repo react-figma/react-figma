@@ -193,6 +193,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "thierryc",
+      "name": "Thierry Charbonnel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/197471?v=4",
+      "profile": "http://www.anotherplanet.io",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
