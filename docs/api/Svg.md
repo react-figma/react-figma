@@ -4,7 +4,7 @@ title: Svg
 ---
 
 Creates frame with figma nodes inside from svg source code. 
-Wrapper for the Figma [createNodeFromSvg](https://www.figma.com/plugin-docs/api/createNodeFromSvg/).
+Wrapper for the Figma [createNodeFromSvg](https://www.figma.com/plugin-docs/api/figma/#createnodefromsvg).
 
 #### Props
 
