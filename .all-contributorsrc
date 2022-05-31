@@ -202,6 +202,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "jackoliver",
+      "name": "Jack Oliver",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1788455?v=4",
+      "profile": "https://jv-la.com",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
