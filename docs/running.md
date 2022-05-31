@@ -25,7 +25,7 @@ export const App = () => {
 
 ## Adding plugin
 
-Go to `Menu > Plugins > Development > +` and select the `mainfest.json` file.
+Go to `Menu > Plugins > Development > +` and select the `manifest.json` file.
 
 <img src="/img/add-plugin.png" align="center"
      alt="Add Plugin" width="303" height="195" />
