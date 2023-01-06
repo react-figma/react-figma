@@ -211,6 +211,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "msabramo",
+      "name": "Marc Abramowitz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/305268?v=4",
+      "profile": "http://marc-abramowitz.com",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -218,5 +227,6 @@
   "projectOwner": "react-figma",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }
