@@ -41,6 +41,12 @@ exports[`<View /> View with children 1`] = `
         },
       ]
     }
+    fontName={
+      Object {
+        "family": "Inter",
+        "style": "Regular",
+      }
+    }
     innerRef={
       Object {
         "current": undefined,
@@ -94,6 +100,12 @@ exports[`<View /> View with children and rectangle styles 1`] = `
           "type": "SOLID",
         },
       ]
+    }
+    fontName={
+      Object {
+        "family": "Inter",
+        "style": "Regular",
+      }
     }
     innerRef={
       Object {
@@ -213,6 +225,12 @@ exports[`<View /> alignItems: "stretch" on web defaults mode 1`] = `
         },
       ]
     }
+    fontName={
+      Object {
+        "family": "Inter",
+        "style": "Regular",
+      }
+    }
     innerRef={
       Object {
         "current": undefined,
@@ -268,6 +286,12 @@ exports[`<View /> flexDirection: "row" when display: flex on web defaults mode 1
           "type": "SOLID",
         },
       ]
+    }
+    fontName={
+      Object {
+        "family": "Inter",
+        "style": "Regular",
+      }
     }
     innerRef={
       Object {
