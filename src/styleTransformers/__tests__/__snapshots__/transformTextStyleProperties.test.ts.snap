@@ -13,6 +13,10 @@ Object {
       "type": "SOLID",
     },
   ],
+  "fontName": Object {
+    "family": "Inter",
+    "style": "Regular",
+  },
   "letterSpacing": Object {
     "unit": "PERCENT",
     "value": 50,
@@ -33,6 +37,10 @@ Object {
       "type": "SOLID",
     },
   ],
+  "fontName": Object {
+    "family": "Inter",
+    "style": "Regular",
+  },
   "letterSpacing": Object {
     "unit": "PIXELS",
     "value": 1.4,
@@ -53,6 +61,10 @@ Object {
       "type": "SOLID",
     },
   ],
+  "fontName": Object {
+    "family": "Inter",
+    "style": "Regular",
+  },
   "lineHeight": Object {
     "unit": "PERCENT",
     "value": 50,
@@ -73,6 +85,10 @@ Object {
       "type": "SOLID",
     },
   ],
+  "fontName": Object {
+    "family": "Inter",
+    "style": "Regular",
+  },
   "lineHeight": Object {
     "unit": "PIXELS",
     "value": 14,
@@ -93,6 +109,10 @@ Object {
       "type": "SOLID",
     },
   ],
+  "fontName": Object {
+    "family": "Inter",
+    "style": "Regular",
+  },
   "lineHeight": Object {
     "unit": "AUTO",
   },
@@ -131,6 +151,10 @@ Object {
       "type": "SOLID",
     },
   ],
+  "fontName": Object {
+    "family": "Inter",
+    "style": "Regular",
+  },
 }
 `;
 
@@ -147,6 +171,10 @@ Object {
       "type": "SOLID",
     },
   ],
+  "fontName": Object {
+    "family": "Inter",
+    "style": "Regular",
+  },
 }
 `;
 
@@ -163,6 +191,10 @@ Object {
       "type": "SOLID",
     },
   ],
+  "fontName": Object {
+    "family": "Inter",
+    "style": "Regular",
+  },
   "textAlignHorizontal": "CENTER",
 }
 `;
@@ -180,6 +212,10 @@ Object {
       "type": "SOLID",
     },
   ],
+  "fontName": Object {
+    "family": "Inter",
+    "style": "Regular",
+  },
   "textAlignHorizontal": "JUSTIFIED",
 }
 `;
@@ -197,6 +233,10 @@ Object {
       "type": "SOLID",
     },
   ],
+  "fontName": Object {
+    "family": "Inter",
+    "style": "Regular",
+  },
   "textDecorationLine": "STRIKETHROUGH",
 }
 `;

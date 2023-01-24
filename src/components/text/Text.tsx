@@ -1,12 +1,5 @@
 import * as React from 'react';
-import {
-    CornerProps,
-    DefaultShapeProps,
-    InstanceItemProps,
-    SelectionEventProps,
-    StyleOf,
-    TextNodeProps
-} from '../../types';
+import { DefaultShapeProps, InstanceItemProps, SelectionEventProps, StyleOf, TextNodeProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -26,7 +19,6 @@ import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAuto
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 import { useInheritStyle } from '../../hooks/useInheritStyle';
 import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
-import { DEFAULT_FONT } from '../../helpers/constants';
 
 export interface TextProps
     extends TextNodeProps,
@@ -78,7 +70,7 @@ const Text: React.FC<TextProps> = props => {
         children
     };
     const hasDefinedWidth = textProps.width || style.maxWidth;
-    const loadedFont = useFontName(textProps.fontName || DEFAULT_FONT);
+    const loadedFont = useFontName(textProps.fontName);
     const yogaProps = useYogaLayout({ nodeRef, ...textProps, loadedFont });
     useOnLayoutHandler(yogaProps, props);
 

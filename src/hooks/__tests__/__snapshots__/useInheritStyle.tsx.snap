@@ -104,6 +104,10 @@ ExportMixinStub {
                   "type": "SOLID",
                 },
               ],
+              "_fontName": Object {
+                "family": "Inter",
+                "style": "Regular",
+              },
               "_textAutoResize": "WIDTH_AND_HEIGHT",
               "autoRename": false,
               "blendMode": "NORMAL",

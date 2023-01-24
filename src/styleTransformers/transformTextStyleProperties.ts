@@ -3,6 +3,7 @@ import { colorToPaint } from './transformColors';
 import { convertFontStyle } from './converFontStyle';
 import { transformDimensionMapper } from './transformDimension';
 import { transformShadowToEffect } from './transformShadowToEffect';
+import { DEFAULT_FONT } from '../helpers/constants';
 
 export interface TextStyleProperties {
     color: string;
@@ -48,10 +49,12 @@ export const transformTextStyleProperties = (style?: Partial<TextStyleProperties
 
     return {
         ...((style && style.color && { fills: [colorToPaint(style.color)] }) || { fills: [colorToPaint('#000000')] }),
-        ...(style &&
-            style.fontFamily && {
-                fontName: { family: style.fontFamily, style: convertFontStyle(style.fontWeight, style.fontStyle) }
-            }),
+        ...(style && {
+            fontName: {
+                family: style.fontFamily || DEFAULT_FONT.family,
+                style: convertFontStyle(style.fontWeight, style.fontStyle)
+            }
+        }),
         ...(style && style.fontSize && { fontSize: style.fontSize }),
         ...(style &&
             style.textAlign &&

@@ -15,6 +15,12 @@ exports[`<Text /> Text got full width when display: block (wrapped to array) 1`]
       },
     ]
   }
+  fontName={
+    Object {
+      "family": "Inter",
+      "style": "Regular",
+    }
+  }
   innerRef={
     Object {
       "current": undefined,
@@ -44,6 +50,12 @@ exports[`<Text /> Text got full width when display: block 1`] = `
         "type": "SOLID",
       },
     ]
+  }
+  fontName={
+    Object {
+      "family": "Inter",
+      "style": "Regular",
+    }
   }
   innerRef={
     Object {
@@ -183,6 +195,12 @@ exports[`<Text /> Text with hyperlink 1`] = `
       },
     ]
   }
+  fontName={
+    Object {
+      "family": "Inter",
+      "style": "Regular",
+    }
+  }
   hyperlink={
     Object {
       "type": "URL",
@@ -220,6 +238,12 @@ exports[`<Text /> Text with maxWidth 1`] = `
       },
     ]
   }
+  fontName={
+    Object {
+      "family": "Inter",
+      "style": "Regular",
+    }
+  }
   hasDefinedWidth="100%"
   innerRef={
     Object {
@@ -249,6 +273,12 @@ exports[`<Text /> Text with width 1`] = `
         "type": "SOLID",
       },
     ]
+  }
+  fontName={
+    Object {
+      "family": "Inter",
+      "style": "Regular",
+    }
   }
   hasDefinedWidth={200}
   innerRef={
@@ -280,6 +310,12 @@ exports[`<Text /> Text without props 1`] = `
         "type": "SOLID",
       },
     ]
+  }
+  fontName={
+    Object {
+      "family": "Inter",
+      "style": "Regular",
+    }
   }
   innerRef={
     Object {
