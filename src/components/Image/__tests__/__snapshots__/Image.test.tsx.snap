@@ -1,5 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Image /> Image with local SVG 1`] = `
+<rectangle
+  height={100}
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  source="'./logo.svg'"
+  style={
+    Object {
+      "backgroundImage": "'./logo.svg'",
+      "backgroundSize": undefined,
+      "height": 100,
+      "width": 100,
+    }
+  }
+  width={100}
+/>
+`;
+
+exports[`<Image /> Image with remote SVG 1`] = `
+<rectangle
+  height={100}
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  source={
+    Object {
+      "uri": "https://raw.githubusercontent.com/react-figma/react-figma/dfa655881c7944a8ec76ef9758c92a480ae27959/logo.svg",
+    }
+  }
+  style={
+    Object {
+      "backgroundImage": Object {
+        "uri": "https://raw.githubusercontent.com/react-figma/react-figma/dfa655881c7944a8ec76ef9758c92a480ae27959/logo.svg",
+      },
+      "backgroundSize": undefined,
+      "height": 100,
+      "width": 100,
+    }
+  }
+  width={100}
+/>
+`;
+
 exports[`<Image /> Image with resizeMode prop 1`] = `
 <rectangle
   height={200}
