@@ -229,6 +229,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "carlostpg",
+      "name": "Carlos",
+      "avatar_url": "https://avatars.githubusercontent.com/u/124635572?v=4",
+      "profile": "https://github.com/carlostpg",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
