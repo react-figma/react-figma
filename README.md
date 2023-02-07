@@ -203,6 +203,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://jv-la.com"><img src="https://avatars.githubusercontent.com/u/1788455?v=4?s=100" width="100px;" alt="Jack Oliver"/><br /><sub><b>Jack Oliver</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=jackoliver" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://marc-abramowitz.com"><img src="https://avatars.githubusercontent.com/u/305268?v=4?s=100" width="100px;" alt="Marc Abramowitz"/><br /><sub><b>Marc Abramowitz</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=msabramo" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/fishtriangle"><img src="https://avatars.githubusercontent.com/u/66234622?v=4?s=100" width="100px;" alt="fishtriangle"/><br /><sub><b>fishtriangle</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=fishtriangle" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/carlostpg"><img src="https://avatars.githubusercontent.com/u/124635572?v=4?s=100" width="100px;" alt="Carlos"/><br /><sub><b>Carlos</b></sub></a><br /><a href="https://github.com/react-figma/react-figma/commits?author=carlostpg" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
