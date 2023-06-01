@@ -113,6 +113,7 @@ export const App = () => {
   + [Basic + HMR](examples/basic-hmr)
 * [Design system](examples/design-system)
 * [Interactive](examples/interactive)
+* [UI](examples/ui) - Interact with a Plugin UI
 * [Data fetching](examples/fetching)
 * [💅 styled-components](examples/styled-components)
 * [PrimerDemo](https://github.com/react-figma/PrimerDemo) - Example of multiplatform UI-kit
