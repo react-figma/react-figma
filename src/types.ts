@@ -41,7 +41,7 @@ export interface ChildrenProps {
 export interface GeometryProps {
     fills?: ReadonlyArray<Paint> | symbol;
     strokes?: ReadonlyArray<Paint>;
-    strokeWeight?: number;
+    strokeWeight?: number | PluginAPI['mixed'];
     strokeAlign?: 'CENTER' | 'INSIDE' | 'OUTSIDE';
     strokeCap?: StrokeCap | symbol;
     strokeJoin?: StrokeJoin | symbol;

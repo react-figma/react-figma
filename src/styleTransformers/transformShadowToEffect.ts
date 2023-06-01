@@ -1,7 +1,7 @@
 import { colorToRGBA } from './transformColors';
 import { ShadowProperties, BlendStyleProperties } from './transformBlendProperties';
 
-export const transformShadowToEffect = (styles: Partial<BlendStyleProperties>): ShadowEffect[] => {
+export const transformShadowToEffect = (styles: Partial<BlendStyleProperties>): Effect[] => {
     let shadows: Partial<ShadowProperties>[] = [styles];
     if ('shadows' in styles && Array.isArray(styles.shadows)) {
         shadows = styles.shadows;
