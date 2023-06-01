@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Page, View, Text } from 'react-figma';
-import {useSelector} from "react-redux";
+import { useSelector } from 'react-redux';
 
 export const App = () => {
-  const count = useSelector((state: any) => state.counter.value)
+    const count = useSelector((state: any) => state.counter.value);
 
     return (
         <Page name="New page" isCurrent>
