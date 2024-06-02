@@ -7,7 +7,7 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": ">=10.0.0 <17.0.0"
+    "node": "20.x"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.65",
