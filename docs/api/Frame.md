@@ -83,5 +83,5 @@ List of presets:
 ```jsx
 <Frame name="List">
   <Text>Hello world!</Text>
-</Component>
+</Frame>
 ```
