@@ -238,6 +238,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "mraghuram3",
+      "name": "Raghu Ram M",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19218859?v=4",
+      "profile": "https://mraghuram3.github.io/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -246,5 +255,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true,
-  "commitConvention": "angular"
+  "commitConvention": "angular",
+  "commitType": "docs"
 }
