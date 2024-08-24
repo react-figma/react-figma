@@ -24,5 +24,5 @@ Also, most of the [FrameNode](https://www.figma.com/plugin-docs/api/FrameNode/) 
 ```jsx
 <Group name="Comp">
   <Text>Hello world!</Text>
-</Component>
+</Group>
 ```
