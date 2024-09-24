@@ -12,6 +12,11 @@
     "baseUrl": "src",
     "skipLibCheck": true,
     "declaration": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "alwaysStrict": true,
     "typeRoots": [
       "./node_modules/@types",
       "./node_modules/@figma"
