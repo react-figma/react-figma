@@ -67,7 +67,13 @@ const Text: React.FC<TextProps> = props => {
         ...(style && style.textStyleId ? { textStyleId: style.textStyleId } : {}),
         ...(style && style.fillStyleId ? { fillStyleId: style.fillStyleId } : {}),
         style,
-        children
+        children:
+            style.writingDirections === 'rtl'
+                ? children
+                      .split('')
+                      .reverse()
+                      .join('')
+                : children
     };
     const hasDefinedWidth = textProps.width || style.maxWidth;
     const loadedFont = useFontName(textProps.fontName);
