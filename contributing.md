@@ -23,13 +23,24 @@ Feel free to discuss any problem at the [#development](https://spectrum.chat/rea
 
 ## Developing
 
-### Setup
+### Local Setup
 
 1. Install [Node.js](https://nodejs.org) >= 8 and [yarn](https://yarnpkg.com).
 2. Install webpack & dependencies: `yarn global add webpack webpack-cli webpack-dev-server`
 3. Clone repo: `git clone git@github.com:react-figma/react-figma.git`
 4. Go to directory: `cd react-figma`
 5. Install dependencies: `yarn`
+
+### Online one-click Setup
+
+You can use Gitpod(An online IDE which is free for Open Source) for the online one-click setup. With a single click it will launch a workspace and automatically: 
+
+- Clone the `react-figma` repo.
+- Install the dependencies in `/` and `/website` i.e `webpack webpack-cli webpack-dev-server`.
+- Run `npm run webpack:watch` in the `auto-layout` example directory.
+- Run `yarn start` in `/website` to start the `docusaurus` server.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
 ### Running examples
 
