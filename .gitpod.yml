@@ -1,0 +1,25 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - name: Install
+    init: >
+      yarn && gp sync-done install
+
+
+  - command: gp await-port 3000 && sleep 3 && gp preview $(gp url 3000)/
+  - name: Website
+    before: cd website
+    init: gp sync-await install && yarn install
+    command: yarn start
+
+  - name: Auto Layout
+    before: cd examples/auto-layout
+    init: gp sync-await install
+    command: npm run webpack:watch
+    openMode: split-right
+
+ports:
+  - port: 3000
+    onOpen: ignore
+
+  
