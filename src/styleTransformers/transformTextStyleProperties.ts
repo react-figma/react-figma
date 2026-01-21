@@ -20,6 +20,7 @@ export interface TextStyleProperties {
     textShadowOffset: { width: number; height: number };
     textShadowRadius: number;
     textStyleId: string;
+    writingDirections: 'auto' | 'ltr' | 'rtl';
 }
 
 interface TextProperties extends GeometryProps, TextNodeProps {}
