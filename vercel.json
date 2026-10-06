@@ -1,11 +1,11 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "name": "react-figma",
-  "public": true,
   "builds": [
     {
       "src": "website/package.json",
-      "use": "@now/static-build",
+      "use": "@vercel/static-build",
       "config": {"distDir": "build"}
     }
   ],
