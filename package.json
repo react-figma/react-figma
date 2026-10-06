@@ -34,7 +34,7 @@
     "figma-plugins"
   ],
   "engines": {
-    "node": ">=10.0.0 <25.0.0"
+    "node": "24.x"
   },
   "devDependencies": {
     "@figma/plugin-typings": "1.64.0",
