@@ -19,7 +19,7 @@ examples
 docs
 website
 _book
-.circleci
+.github
 .travis.yml
 .babelrc
 .gitignore

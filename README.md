@@ -4,7 +4,7 @@
      alt="React Figma logo by Lera Lesik" width="160" height="160">
 
 [![npm version](https://img.shields.io/npm/v/react-figma.svg)](https://www.npmjs.com/package/react-figma)
-[![CircleCI](https://circleci.com/gh/react-figma/react-figma.svg?style=shield)](https://circleci.com/gh/react-figma/react-figma)
+[![CI](https://github.com/react-figma/react-figma/actions/workflows/ci.yml/badge.svg)](https://github.com/react-figma/react-figma/actions/workflows/ci.yml)
 
 A React renderer for [Figma](https://www.figma.com). Use React components as a source for your designs.
 
