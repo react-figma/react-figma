@@ -12,6 +12,10 @@ const styles = StyleSheet.create({
     logo: {
         width: 66,
         height: 58
+    },
+    largeLogo: {
+        width: 90,
+        height: 90
     }
 });
 
@@ -27,6 +31,16 @@ export const App = () => {
                 style={styles.tinyLogo}
                 source={{
                     uri: 'https://avatars1.githubusercontent.com/u/54585419'
+                }}
+            />
+            <Text>Image component with a local SVG:</Text>
+            <Image style={styles.largeLogo} source={require('./logo.svg')} />
+            <Text>Image component with a remote SVG:</Text>
+            <Image
+                style={styles.largeLogo}
+                source={{
+                    uri:
+                        'https://raw.githubusercontent.com/react-figma/react-figma/dfa655881c7944a8ec76ef9758c92a480ae27959/logo.svg'
                 }}
             />
         </Page>

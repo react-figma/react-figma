@@ -41,4 +41,37 @@ describe('<Image />', () => {
             .toJSON();
         expect(tree).toMatchSnapshot();
     });
+
+    it('Image with local SVG', () => {
+        const tree = renderer
+            .create(
+                <Image
+                    source="'./logo.svg'"
+                    style={{
+                        width: 100,
+                        height: 100
+                    }}
+                />
+            )
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+
+    it('Image with remote SVG', () => {
+        const tree = renderer
+            .create(
+                <Image
+                    source={{
+                        uri:
+                            'https://raw.githubusercontent.com/react-figma/react-figma/dfa655881c7944a8ec76ef9758c92a480ae27959/logo.svg'
+                    }}
+                    style={{
+                        width: 100,
+                        height: 100
+                    }}
+                />
+            )
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });
